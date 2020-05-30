@@ -52,7 +52,7 @@ Timer dashboardUpdateTimer;  // times when the dashboard should update
  * the robot should start in
  */
 void setup() {
-  Serial.begin(115200);
+  // This will initialize the Serial as 115200 for prints and passwords
   webServer.initialize();
   setupButtons();
   buttonPage.finishPage();  // this adds the html to the page after the buttons
