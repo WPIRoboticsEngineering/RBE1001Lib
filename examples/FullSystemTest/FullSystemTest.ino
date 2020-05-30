@@ -5,12 +5,11 @@
 #include "WebPage.h"
 #include "Rangefinder.h"
 #include "LineTrackSensor.h"
-#include "wiring.h"
 #include "Timer.h"
 
-Rangefinder rangefinder(triggerPin, echoPin);
-LineTrackSensor lineTrackSensor(lineLeftPin, lineRightPin);
-DriveBase drive(leftMotor, rightMotor);
+Rangefinder rangefinder(FORWARD_ULTRASONIC_TRIG, FORWARD_ULTRASONIC_ECHO);
+LineTrackSensor lineTrackSensor(LEFT_LINE_SENSE, RIGHT_LINE_SENSE);
+DriveBase drive(MOTOR1_PWM, MOTOR2_PWM,MOTOR1_DIR,MOTOR2_DIR);
 SimpleWebServer webServer;
 WebPage buttonPage(webServer);
 
