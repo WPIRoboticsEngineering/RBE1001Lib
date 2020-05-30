@@ -3,9 +3,9 @@
 #define MAX_POSSIBLE_INTERRUPT_RANGEFINDER 4
 
 class Rangefinder {
-private:
+public:
 	static hw_timer_t *timer;
-	static Rangefinder * list;
+
 	static int numberOfFinders;
 	static int timerNumber;
 	static int pingIndex;
@@ -14,7 +14,7 @@ private:
 	int triggerPin;
 	volatile unsigned long startTime;
 	volatile unsigned long roundTripTime;
-public:
+	static Rangefinder * list[MAX_POSSIBLE_INTERRUPT_RANGEFINDER];
 	Rangefinder(int trigger, int echo);
 	float getDistanceCM();
 	static void allocateTimer(int timerNumber);

@@ -5,7 +5,7 @@ static portMUX_TYPE timerMux = portMUX_INITIALIZER_UNLOCKED;
 
 
 hw_timer_t *Rangefinder::timer = NULL;
-Rangefinder ** Rangefinder::list[MAX_POSSIBLE_INTERRUPT_RANGEFINDER] = { NULL,
+Rangefinder * Rangefinder::list[MAX_POSSIBLE_INTERRUPT_RANGEFINDER] = { NULL,
 NULL, NULL, NULL };
 int Rangefinder::numberOfFinders = 0;
 int Rangefinder::timerNumber = -1;
@@ -25,12 +25,12 @@ int Rangefinder::pingIndex = 0;
 void IRAM_ATTR onTimer() {
 	portENTER_CRITICAL_ISR(&timerMux);
 	if (Rangefinder::numberOfFinders > 0) {
-		digitalWrite(Rangefinder::list[Rangefinder::pingIndex].triggerPin, LOW); // be sure to start from low
+		digitalWrite(Rangefinder::list[Rangefinder::pingIndex]->triggerPin, LOW); // be sure to start from low
 		delayMicroseconds(2);
-		digitalWrite(Rangefinder::list[Rangefinder::pingIndex].triggerPin,
+		digitalWrite(Rangefinder::list[Rangefinder::pingIndex]->triggerPin,
 				HIGH); // 10us pulse to start the process
 		delayMicroseconds(10);
-		digitalWrite(Rangefinder::list[Rangefinder::pingIndex].triggerPin, LOW);
+		digitalWrite(Rangefinder::list[Rangefinder::pingIndex]->triggerPin, LOW);
 		// round robin the allocated sensors
 		Rangefinder::pingIndex++;
 		if (Rangefinder::pingIndex == Rangefinder::numberOfFinders)
@@ -49,16 +49,16 @@ void Rangefinder::allocateTimer(int timerNumber) {
 	}
 }
 void IRAM_ATTR sensorISR0() {
-	Rangefinder::list[0].sensorISR();
+	Rangefinder::list[0]->sensorISR();
 }
 void IRAM_ATTR sensorISR1() {
-	Rangefinder::list[1].sensorISR();
+	Rangefinder::list[1]->sensorISR();
 }
 void IRAM_ATTR sensorISR2() {
-	Rangefinder::list[2].sensorISR();
+	Rangefinder::list[2]->sensorISR();
 }
 void IRAM_ATTR sensorISR3() {
-	Rangefinder::list[3].sensorISR();
+	Rangefinder::list[3]->sensorISR();
 }
 void Rangefinder::sensorISR() {
 	portENTER_CRITICAL(&synch);

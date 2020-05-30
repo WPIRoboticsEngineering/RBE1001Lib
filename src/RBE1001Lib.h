@@ -1,4 +1,4 @@
-#pragma ONCE
+#pragma once
 
 #define FORWARD_ULTRASONIC_TRIG 13
 #define FORWARD_ULTRASONIC_ECHO 12
