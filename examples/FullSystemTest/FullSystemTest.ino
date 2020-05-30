@@ -1,5 +1,7 @@
 #include <ESP32AnalogRead.h>
 #include <Esp32WifiManager.h>
+#include <ESP32Servo.h>
+#include <RBE1001Lib.h>
 #include "DriveBase.h"
 #include "SimpleWebServer.h"
 #include "WebPage.h"

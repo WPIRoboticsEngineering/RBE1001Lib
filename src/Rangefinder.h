@@ -1,5 +1,22 @@
+#pragma once
+
+#define MAX_POSSIBLE_INTERRUPT_RANGEFINDER 4
+
 class Rangefinder {
-    public:
-        Rangefinder(int trigger, int echo);
-        float getDistanceCM();
+private:
+	static hw_timer_t *timer;
+	static Rangefinder * list;
+	static int numberOfFinders;
+	static int timerNumber;
+	static int pingIndex;
+	portMUX_TYPE synch = portMUX_INITIALIZER_UNLOCKED;
+	int echoPin;
+	int triggerPin;
+	volatile unsigned long startTime;
+	volatile unsigned long roundTripTime;
+public:
+	Rangefinder(int trigger, int echo);
+	float getDistanceCM();
+	static void allocateTimer(int timerNumber);
+	void sensorISR();
 };
