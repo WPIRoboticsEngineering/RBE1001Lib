@@ -3,7 +3,6 @@
 
 static portMUX_TYPE timerMux = portMUX_INITIALIZER_UNLOCKED;
 
-
 hw_timer_t *Rangefinder::timer = NULL;
 Rangefinder * Rangefinder::list[MAX_POSSIBLE_INTERRUPT_RANGEFINDER] = { NULL,
 NULL, NULL, NULL };
@@ -24,21 +23,13 @@ int Rangefinder::pingIndex = 0;
  */
 void IRAM_ATTR onTimer() {
 	portENTER_CRITICAL_ISR(&timerMux);
-	if (Rangefinder::numberOfFinders > 0) {
-		digitalWrite(Rangefinder::list[Rangefinder::pingIndex]->triggerPin, LOW); // be sure to start from low
-		delayMicroseconds(2);
-		digitalWrite(Rangefinder::list[Rangefinder::pingIndex]->triggerPin,
-				HIGH); // 10us pulse to start the process
-		delayMicroseconds(10);
-		digitalWrite(Rangefinder::list[Rangefinder::pingIndex]->triggerPin, LOW);
-		// round robin the allocated sensors
-		Rangefinder::pingIndex++;
-		if (Rangefinder::pingIndex == Rangefinder::numberOfFinders)
-			Rangefinder::pingIndex = 0;
-	}
+	Rangefinder::fire();
 	portEXIT_CRITICAL_ISR(&timerMux);
 }
-
+/**
+ * allocateTimer
+ * @param a timer number 0-3 indicating which timer to allocate in this library
+ */
 void Rangefinder::allocateTimer(int timerNumber) {
 	if (Rangefinder::timerNumber < 0) {
 		Rangefinder::timerNumber = timerNumber;
@@ -60,12 +51,28 @@ void IRAM_ATTR sensorISR2() {
 void IRAM_ATTR sensorISR3() {
 	Rangefinder::list[3]->sensorISR();
 }
+void Rangefinder::fire() {
+	if (Rangefinder::numberOfFinders > 0) {
+		// round robin all of the sensors to prevent cross talk
+		Rangefinder::pingIndex++;
+		if (Rangefinder::pingIndex == Rangefinder::numberOfFinders)
+			Rangefinder::pingIndex = 0;
+		digitalWrite(Rangefinder::list[Rangefinder::pingIndex]->triggerPin,
+		HIGH); // 10us pulse to start the process
+		delayMicroseconds(10);
+		digitalWrite(Rangefinder::list[Rangefinder::pingIndex]->triggerPin,
+				LOW);
+	}
+
+}
 void Rangefinder::sensorISR() {
 	portENTER_CRITICAL(&synch);
 	if (digitalRead(echoPin)) {
 		startTime = micros();
 	} else {
 		roundTripTime = micros() - startTime;
+		fire();
+		timerWrite(timer, 0); // clear the timeout timer since the ping came back
 	}
 	portEXIT_CRITICAL(&synch);
 }
@@ -82,6 +89,8 @@ Rangefinder::Rangefinder(int trigger, int echo) {
 
 	for (int i = 0; i < MAX_POSSIBLE_INTERRUPT_RANGEFINDER; i++) {
 		if (Rangefinder::list[i] == NULL) {
+			digitalWrite(triggerPin, LOW); // be sure to start from low
+			delayMicroseconds(2);
 			Rangefinder::list[i] = this;
 			Rangefinder::numberOfFinders++;
 			switch (i) {
@@ -102,7 +111,6 @@ Rangefinder::Rangefinder(int trigger, int echo) {
 				CHANGE);
 				break;
 			}
-
 			return;
 		}
 	}
