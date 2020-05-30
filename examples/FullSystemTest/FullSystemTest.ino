@@ -1,4 +1,5 @@
 #include <ESP32AnalogRead.h>
+#include <Esp32WifiManager.h>
 #include "DriveBase.h"
 #include "SimpleWebServer.h"
 #include "WebPage.h"
@@ -52,7 +53,7 @@ Timer dashboardUpdateTimer;  // times when the dashboard should update
  */
 void setup() {
   Serial.begin(115200);
-  webServer.initialize(SSID, password);
+  webServer.initialize();
   setupButtons();
   buttonPage.finishPage();  // this adds the html to the page after the buttons
   endTimer.reset();     // reset the end of state timer

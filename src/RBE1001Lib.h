@@ -9,6 +9,12 @@
 #define LEFT_LINE_SENSE 36
 #define RIGHT_LINE_SENSE 39
 
+#define SERVO_FEEDBACK_SENSOR		34
+/**
+ * Gripper pin for Servo
+ */
+#define SERVO_PIN 23
+
 /**
  * Drive motor 1 10Khz full duty PWM pin
  */
