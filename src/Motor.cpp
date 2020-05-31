@@ -15,13 +15,16 @@ static TaskHandle_t complexHandlerTask;
 
 void onMotorTimer(void *param) {
 	Serial.println("Starting the PID loop thread");
+	TickType_t xLastWakeTime;
+	const TickType_t xFrequency = 1;
+	xLastWakeTime = xTaskGetTickCount();
 	while (1) {
+		vTaskDelayUntil( &xLastWakeTime, xFrequency );
 		for (int i = 0; i < MAX_POSSIBLE_MOTORS; i++) {
 			if (Motor::list[i] != NULL) {
 				Motor::list[i]->loop();
 			}
 		}
-		vTaskDelay(1); // 1ms delay
 	}
 	Serial.println("ERROR Pid thread died!");
 
