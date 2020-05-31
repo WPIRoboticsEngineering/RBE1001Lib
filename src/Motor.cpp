@@ -7,7 +7,7 @@
 
 #include <Motor.h>
 
-Motor::Motor(int MotorPWMPin, int MotorDirectionPin,int EncoderA, int EncoderB) {
+Motor::Motor() {
 	// TODO Auto-generated constructor stub
 
 }

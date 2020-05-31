@@ -7,11 +7,25 @@
 
 #ifndef LIBRARIES_RBE1001LIB_SRC_MOTOR_H_
 #define LIBRARIES_RBE1001LIB_SRC_MOTOR_H_
+#include <ESP32Servo.h>
+#include <ESP32Encoder.h>
 
 class Motor {
+private:
+	ESP32PWM pwm;
+	ESP32Encoder encoder;
 public:
-	Motor(int MotorPWMPin, int MotorDirectionPin,int EncoderA, int EncoderB );
+	Motor();
 	virtual ~Motor();
+
+	/**
+	 * Attach the motors hardware
+	 * @param MotorPWMPin the pin that produce PWM at 20kHz (Max is 250khz per DRV8838 datasheet)
+	 * @param MotorDirectionPin motor direction setting pin
+	 * @param the A channel of the encoder
+	 * @param the B channel of the encoder
+	 */
+	void attach(int MotorPWMPin, int MotorDirectionPin,int EncoderA, int EncoderB );
 	/*
 	 * effort of the motor
 	 * @param a value from -1 to 1 representing effort
