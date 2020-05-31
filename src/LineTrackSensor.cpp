@@ -5,10 +5,6 @@ LineTrackSensor::LineTrackSensor(int leftPin, int rightPin) {
     lineRight.attach(rightPin);
 }
 
-float LineTrackSensor::getValue() {
-    return lineLeft.readVoltage();
-}
-
 float LineTrackSensor::getLeft() {
     return lineLeft.readVoltage();
 }

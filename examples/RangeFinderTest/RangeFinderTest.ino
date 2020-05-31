@@ -12,8 +12,8 @@ Rangefinder rangefinder2(SIDE_ULTRASONIC_TRIG, SIDE_ULTRASONIC_ECHO);
 void setup() {
   // This will initialize the Serial as 115200 for prints
   Serial.begin(115200);
-  // Allocate timer 0 for the rangefinder
-  Rangefinder::allocateTimer(0);
+  // Allocate timer 3 for the rangefinder
+  Rangefinder::allocateTimer(3);
 
 }
 

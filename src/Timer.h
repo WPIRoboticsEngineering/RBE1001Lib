@@ -1,3 +1,6 @@
+#pragma once
+#include <Arduino.h>
+
 class Timer {
     public:
         Timer();

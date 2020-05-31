@@ -4,7 +4,7 @@
 class LineTrackSensor {
     public:
         LineTrackSensor(int left, int right);
-        float getValue();
+
         float getLeft();
         float getRight();
     private:

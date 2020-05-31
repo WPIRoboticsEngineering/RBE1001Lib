@@ -7,6 +7,7 @@
 #include <WebServer.h>
 #include <ESPmDNS.h>
 #include <Esp32WifiManager.h>
+#include "wifi/WifiManager.h"
 
 #include "SimpleWebServer.h"
 WifiManager manager;
@@ -18,8 +19,9 @@ SimpleWebServer::SimpleWebServer() {
 void SimpleWebServer::initialize() {
 	manager.setup();
 	while (manager.getState() != Connected) {
-		delay(500);
-		Serial.print(".");
+		//delay(500);
+		//Serial.print(".");
+		manager.loop();
 	}
 	if (MDNS.begin("esp32")) {
 		Serial.println("MDNS responder started");
@@ -41,6 +43,7 @@ void SimpleWebServer::sendHTMLResponse(const String &response) {
 
 void SimpleWebServer::handleClient() {
 	server.handleClient();
+	manager.loop();
 }
 
 void SimpleWebServer::registerHandler(String url, void (*handler)()) {
