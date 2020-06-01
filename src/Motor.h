@@ -55,6 +55,14 @@ public:
 	 *        -1 is full speed counter clockwise
 	 */
 	void SetEffort(float effort);
+	/*
+	 * effort of the motor
+	 * @param a value from -1 to 1 representing effort
+	 *        0 is brake
+	 *        100 is full speed clockwise
+	 *        -100 is full speed counter clockwise
+	 */
+	void SetEffortPercent(float percent) {SetEffort(percent * 0.01);}
 
 	/**
 	 * getDegreesPerSecond
