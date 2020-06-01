@@ -115,9 +115,7 @@ void Motor::SetSetpointWithTime(float newTargetInDegrees, long msTimeDuration,
 void Motor::loop() {
 	portENTER_CRITICAL(&mmux);
 	nowEncoder = encoder->getCount();
-	portEXIT_CRITICAL(&mmux);
 	if(closedLoopControl){
-		portENTER_CRITICAL(&mmux);
 		unitDuration=getInterpolationUnitIncrement();
 		if (unitDuration<1) {
 			float setpointDiff = endSetpoint - startSetpoint;
@@ -135,8 +133,8 @@ void Motor::loop() {
 		runntingITerm+=controlErr;
 
 		currentEffort=controlErr*kP+((runntingITerm/I_TERM_SIZE)*kI);
-		portEXIT_CRITICAL(&mmux);
 	}
+	portEXIT_CRITICAL(&mmux);
 	interruptCountForVelocity++;
 	if (interruptCountForVelocity == 50) {
 		interruptCountForVelocity = 0;

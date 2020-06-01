@@ -90,7 +90,7 @@ public:
 	void SetEffort(float effort);
 	/*
 	 * effort of the motor
-	 * @param a value from -1 to 1 representing effort
+	 * @param a value from -100 to 100 representing effort
 	 *        0 is brake
 	 *        100 is full speed clockwise
 	 *        -100 is full speed counter clockwise
@@ -145,7 +145,7 @@ public:
 	 * @param miliseconds the number of miliseconds to get from current position to the new setpoint
 	 * use linear interoplation
 	 */
-	void SetSetpointWithTimeLinearInterpolation(float newTargetInDegrees,
+	void SetSetpointWithLinearInterpolation(float newTargetInDegrees,
 			long miliseconds){
 		SetSetpointWithTime( newTargetInDegrees, miliseconds,
 						LINEAR_INTERPOLATION);
@@ -157,7 +157,7 @@ public:
 	 * @param miliseconds the number of miliseconds to get from current position to the new setpoint
 	 * use sinusoidal interpolation
 	 */
-	void SetSetpointWithTimeSinusoidalInterpolation(float newTargetInDegrees,
+	void SetSetpointWithSinusoidalInterpolation(float newTargetInDegrees,
 			long miliseconds){
 		SetSetpointWithTime( newTargetInDegrees, miliseconds,
 						SINUSOIDAL_INTERPOLATION);
