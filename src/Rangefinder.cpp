@@ -4,8 +4,7 @@
 static portMUX_TYPE timerMux = portMUX_INITIALIZER_UNLOCKED;
 
 hw_timer_t *Rangefinder::timer = NULL;
-Rangefinder * Rangefinder::list[MAX_POSSIBLE_INTERRUPT_RANGEFINDER] = { NULL,
-NULL, NULL, NULL };
+Rangefinder * Rangefinder::list[MAX_POSSIBLE_INTERRUPT_RANGEFINDER] = { NULL, };
 int Rangefinder::numberOfFinders = 0;
 int Rangefinder::timerNumber = -1;
 int Rangefinder::pingIndex = 0;

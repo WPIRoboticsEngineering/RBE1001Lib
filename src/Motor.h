@@ -30,8 +30,7 @@ public:
 	static Motor * list[MAX_POSSIBLE_MOTORS];
 	static hw_timer_t *timer;
 	/**
-	 * @param PWMgenerationTimer the timer to be used to generate the 20khx PWM
-	 * @param controllerTimer a timer running at 1khz for PID, velocity measurment, and trajectory planning
+	 * @param PWMgenerationTimer the timer to be used to generate the 20khz PWM
 	 */
 	static void allocateTimer(int PWMgenerationTimer);
 	// Class methods

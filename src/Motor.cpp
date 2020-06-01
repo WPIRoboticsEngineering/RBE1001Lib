@@ -9,8 +9,7 @@
 hw_timer_t *Motor::timer = NULL;
 
 bool Motor::timersAllocated = false;
-Motor * Motor::list[MAX_POSSIBLE_MOTORS] = { NULL,
-NULL, NULL, NULL };
+Motor * Motor::list[MAX_POSSIBLE_MOTORS] = { NULL, };
 static TaskHandle_t complexHandlerTask;
 
 void onMotorTimer(void *param) {
