@@ -9,21 +9,53 @@
 #define LIBRARIES_RBE1001LIB_SRC_MOTOR_H_
 #include <ESP32Servo.h>
 #include <ESP32Encoder.h>
+#include <Arduino.h>
 #define MAX_POSSIBLE_MOTORS 4
+#define ENCODER_CPR 12.0f
+#define GEAR_BOX_RATIO 120.0f
+#define TICKS_TO_DEGREES (2.0/(ENCODER_CPR*GEAR_BOX_RATIO/360.0))
+#define I_TERM_SIZE 60.0f
+enum interpolateMode {
+	LINEAR_INTERPOLATION, SINUSOIDAL_INTERPOLATION, VELOCITY_MODE
+};
 class Motor {
 private:
 	ESP32PWM * pwm;
 	ESP32Encoder * encoder;
-	int MotorPWMPin=-1;
-	int directionFlag=-1;
+	int MotorPWMPin = -1;
+	int directionFlag = -1;
 	int interruptCountForVelocity = 0;
-	int prevousCount=0;
-	float cachedSpeed=0;
-	int nowEncoder=0;
-	int Setpoint=0;
-	float kP=0.01;
-	float kI=0;
-	float kD=0;
+	int prevousCount = 0;
+	float cachedSpeed = 0;
+	int nowEncoder = 0;
+	int Setpoint = 0;
+	float kP = 0.01;
+	float kI = 0;
+	float kD = 0;
+	float runntingITerm = 0;
+	/*
+	 * effort of the motor
+	 * @param a value from -1 to 1 representing effort
+	 *        0 is brake
+	 *        1 is full speed clockwise
+	 *        -1 is full speed counter clockwise
+	 */
+	void SetEffortLocal(float effort);
+	bool closedLoopControl = true;
+	float currentEffort = 0;
+	float duration = 0;
+	float startTime = 0;
+	float endSetpoint = 0;
+	float startSetpoint = 0;
+	/**
+	 * Duration of the interpolation mode, 1 equals done, 0 starting
+	 */
+	float unitDuration = 1;
+	float getInterpolationUnitIncrement();
+	/**
+	 * Current interpolation mode
+	 */
+	interpolateMode mode = LINEAR_INTERPOLATION;
 public:
 	//Static section
 	static bool timersAllocated;
@@ -46,7 +78,8 @@ public:
 	 * @note this must only be called after timers are allocated via Motor::allocateTimers
 	 *
 	 */
-	void attach(int MotorPWMPin, int MotorDirectionPin,int EncoderA, int EncoderB );
+	void attach(int MotorPWMPin, int MotorDirectionPin, int EncoderA,
+			int EncoderB);
 	/*
 	 * effort of the motor
 	 * @param a value from -1 to 1 representing effort
@@ -62,7 +95,9 @@ public:
 	 *        100 is full speed clockwise
 	 *        -100 is full speed counter clockwise
 	 */
-	void SetEffortPercent(float percent) {SetEffort(percent * 0.01);}
+	void SetEffortPercent(float percent) {
+		SetEffort(percent * 0.01);
+	}
 
 	/**
 	 * getDegreesPerSecond
@@ -78,13 +113,59 @@ public:
 	 * This function returns the current count of encoders
 	 * @return count
 	 */
-	int getCurrentTicks();
+	int getCurrentDegrees();
 	/**
 	 * Loop function
 	 * this method is called by the timer to run the PID control of the motors and ensure strict timing
 	 *
 	 */
 	void loop();
+	/**
+	 * SetSetpoint in degrees with time
+	 * Set the setpoint for the motor in degrees
+	 * @param newTargetInDegrees the new setpoint for the closed loop controller
+	 * @param miliseconds the number of miliseconds to get from current position to the new setpoint
+	 * param mode the interpolation mode
+	 */
+	void SetSetpointWithTime(float newTargetInDegrees, long miliseconds,
+			interpolateMode mode);
+	/**
+	 * SetSetpoint in degrees with time
+	 * Set the setpoint for the motor in degrees
+	 * @param newTargetInDegrees the new setpoint for the closed loop controller
+	 */
+	void SetSetpoint(float newTargetInDegrees){
+		SetSetpointWithTime( newTargetInDegrees, 0,
+				LINEAR_INTERPOLATION);
+	}
+	/**
+	 * SetSetpoint in degrees with time
+	 * Set the setpoint for the motor in degrees
+	 * @param newTargetInDegrees the new setpoint for the closed loop controller
+	 * @param miliseconds the number of miliseconds to get from current position to the new setpoint
+	 * use linear interoplation
+	 */
+	void SetSetpointWithTimeLinearInterpolation(float newTargetInDegrees,
+			long miliseconds){
+		SetSetpointWithTime( newTargetInDegrees, miliseconds,
+						LINEAR_INTERPOLATION);
+	}
+	/**
+	 * SetSetpoint in degrees with time
+	 * Set the setpoint for the motor in degrees
+	 * @param newTargetInDegrees the new setpoint for the closed loop controller
+	 * @param miliseconds the number of miliseconds to get from current position to the new setpoint
+	 * use sinusoidal interpolation
+	 */
+	void SetSetpointWithTimeSinusoidalInterpolation(float newTargetInDegrees,
+			long miliseconds){
+		SetSetpointWithTime( newTargetInDegrees, miliseconds,
+						SINUSOIDAL_INTERPOLATION);
+	}
+	/**
+	 * PID gains for the PID controller
+	 */
+	void setGains(float p, float i, float d);
 };
 
 #endif /* LIBRARIES_RBE1001LIB_SRC_MOTOR_H_ */
