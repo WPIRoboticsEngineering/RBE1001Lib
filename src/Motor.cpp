@@ -94,6 +94,7 @@ void Motor::SetSetpointWithTime(float newTargetInDegrees, long msTimeDuration,
 		interpolateMode mode){
 	float newSetpoint =newTargetInDegrees/TICKS_TO_DEGREES;
 	portENTER_CRITICAL(&mmux);
+	closedLoopControl=true;
 	if(newSetpoint==Setpoint &&msTimeDuration== duration&& this->mode==mode)
 		return;
 	startSetpoint = Setpoint;
