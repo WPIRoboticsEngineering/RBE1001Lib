@@ -1,6 +1,5 @@
 #include <Arduino.h>
 #include <RBE1001Lib.h>
-#include "Motor.h"
 
 Motor motor1;
 Motor motor2;

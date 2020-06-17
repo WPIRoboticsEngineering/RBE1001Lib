@@ -1,4 +1,6 @@
  #pragma once
+#include "Rangefinder.h"
+#include "Motor.h"
 
 // Pins used by a perpheral, may be re-used
 #define BOOT_FLAG_PIN 			0
@@ -12,15 +14,16 @@
 #define SPI_SCK  18
 #define SPI_SS   15
 
-#define SIDE_ULTRASONIC_TRIG 14
-#define SIDE_ULTRASONIC_ECHO 27
+#define SIDE_ULTRASONIC_TRIG 32
+
+#define SIDE_ULTRASONIC_ECHO 14
 
 //A4
 #define LEFT_LINE_SENSE 36
 //A3
 #define RIGHT_LINE_SENSE 39
 
-#define SERVO_FEEDBACK_SENSOR		32
+#define SERVO_FEEDBACK_SENSOR		34
 /**
  * Gripper pin for Servo
  */
@@ -47,10 +50,10 @@
 //A1
 #define MOTOR2_DIR 25
 //Encoder pins
+
+#define MOTOR1_ENCA 27
 //A0
-#define MOTOR1_ENCA 26
-//A2
-#define MOTOR1_ENCB 34
+#define MOTOR1_ENCB 26
 
 
 #define MOTOR2_ENCA 17

@@ -27,7 +27,7 @@ void onTimer(void *param) {
 	Serial.println("Starting the Ultrasonic loop thread");
 	threadTimeout=millis();
 	while (1) {
-		vTaskDelay(1);//sleep 1ms
+		vTaskDelay(10);//sleep 10ms
 		if(Rangefinder::forceFire)
 			Rangefinder::fire();
 		else
@@ -98,9 +98,9 @@ void Rangefinder::attach(int trigger, int echo) {
 	if (Rangefinder::timoutThreadStarted==false) {
 		Serial.println("Spawing rangefinder timeout thread");
 		Rangefinder::timoutThreadStarted=true;
-		xTaskCreate(onTimer, "PID loop Thread", 8192, NULL,
+		xTaskCreatePinnedToCore(onTimer, "PID loop Thread", 8192, NULL,
 				2,// low priority timout thread
-						&complexHandlerTaskUS);
+						&complexHandlerTaskUS,0);
 	}
 	for (int i = 0; i < MAX_POSSIBLE_INTERRUPT_RANGEFINDER; i++) {
 		if (Rangefinder::list[i] == NULL) {

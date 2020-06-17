@@ -11,7 +11,7 @@ hw_timer_t *Motor::timer = NULL;
 bool Motor::timersAllocated = false;
 Motor * Motor::list[MAX_POSSIBLE_MOTORS] = { NULL, };
 static TaskHandle_t complexHandlerTask;
-portMUX_TYPE mmux = portMUX_INITIALIZER_UNLOCKED;
+//portMUX_TYPE mmux = portMUX_INITIALIZER_UNLOCKED;
 
 float myFmapBounded(float x, float in_min, float in_max, float out_min,
 		float out_max) {
@@ -66,8 +66,8 @@ void onMotorTimer(void *param) {
 void Motor::allocateTimer(int PWMgenerationTimer) {
 	if (!Motor::timersAllocated) {
 		ESP32PWM::allocateTimer(PWMgenerationTimer);
-		xTaskCreate(onMotorTimer, "PID loop Thread", 8192, NULL, 1,
-				&complexHandlerTask);
+		xTaskCreatePinnedToCore(onMotorTimer, "PID loop Thread", 8192, NULL, 1,
+				&complexHandlerTask,0);
 	}
 	Motor::timersAllocated = true;
 }
@@ -93,7 +93,7 @@ Motor::~Motor() {
 void Motor::SetSetpointWithTime(float newTargetInDegrees, long msTimeDuration,
 		interpolateMode mode){
 	float newSetpoint =newTargetInDegrees/TICKS_TO_DEGREES;
-	portENTER_CRITICAL(&mmux);
+	//portENTER_CRITICAL(&mmux);
 	closedLoopControl=true;
 	if(newSetpoint==Setpoint &&msTimeDuration== duration&& this->mode==mode)
 		return;
@@ -105,7 +105,7 @@ void Motor::SetSetpointWithTime(float newTargetInDegrees, long msTimeDuration,
 	if(msTimeDuration<1){
 		Setpoint=newSetpoint;
 	}
-	portEXIT_CRITICAL(&mmux);
+	//portEXIT_CRITICAL(&mmux);
 }
 
 /**
@@ -114,9 +114,9 @@ void Motor::SetSetpointWithTime(float newTargetInDegrees, long msTimeDuration,
  *
  */
 void Motor::loop() {
-	portENTER_CRITICAL(&mmux);
 	nowEncoder = encoder->getCount();
 	if(closedLoopControl){
+		//portEXIT_CRITICAL(&mmux);
 		unitDuration=getInterpolationUnitIncrement();
 		if (unitDuration<1) {
 			float setpointDiff = endSetpoint - startSetpoint;
@@ -134,8 +134,9 @@ void Motor::loop() {
 		runntingITerm+=controlErr;
 
 		currentEffort=controlErr*kP+((runntingITerm/I_TERM_SIZE)*kI);
+		//portEXIT_CRITICAL(&mmux);
 	}
-	portEXIT_CRITICAL(&mmux);
+
 	interruptCountForVelocity++;
 	if (interruptCountForVelocity == 50) {
 		interruptCountForVelocity = 0;
@@ -150,12 +151,12 @@ void Motor::loop() {
  * PID gains for the PID controller
  */
 void Motor::setGains(float p,float i,float d){
-	portENTER_CRITICAL(&mmux);
+	//portENTER_CRITICAL(&mmux);
 	kP=p;
 	kI=i;
 	kD=d;
 	runntingITerm=0;
-	portEXIT_CRITICAL(&mmux);
+	//portEXIT_CRITICAL(&mmux);
 }
 
 /**
@@ -181,10 +182,11 @@ void Motor::attach(int MotorPWMPin, int MotorDirectionPin, int EncoderA,
 	// add the motor to the list of timer based controls
 	for (int i = 0; i < MAX_POSSIBLE_MOTORS; i++) {
 		if (Motor::list[i] == NULL) {
-			Motor::list[i] = this;
+
 			Serial.println(
 					"Allocating Motor " + String(i) + " on PWM "
 							+ String(MotorPWMPin));
+			Motor::list[i] = this;
 			return;
 		}
 
@@ -203,10 +205,10 @@ void Motor::SetEffort(float effort) {
 		effort=1;
 	if(effort<-1)
 		effort=-1;
-	portENTER_CRITICAL(&mmux);
+	//portENTER_CRITICAL(&mmux);
 	closedLoopControl=false;
 	currentEffort=effort;
-	portEXIT_CRITICAL(&mmux);
+	//portEXIT_CRITICAL(&mmux);
 }
 /*
  * effort of the motor
@@ -220,13 +222,11 @@ void Motor::SetEffortLocal(float effort) {
 		effort=1;
 	if(effort<-1)
 		effort=-1;
-	portENTER_CRITICAL(&mmux);
 	if(effort>0)
 		digitalWrite(directionFlag, HIGH);
 	else
 		digitalWrite(directionFlag, LOW);
 	pwm->writeScaled(abs(effort));
-	portEXIT_CRITICAL(&mmux);
 }
 /**
  * getDegreesPerSecond
@@ -237,9 +237,9 @@ void Motor::SetEffortLocal(float effort) {
  */
 float Motor::getDegreesPerSecond() {
 	float tmp;
-	portENTER_CRITICAL(&mmux);
+	//portENTER_CRITICAL(&mmux);
 	tmp = cachedSpeed;
-	portEXIT_CRITICAL(&mmux);
+	//portEXIT_CRITICAL(&mmux);
 	return tmp*TICKS_TO_DEGREES;
 }
 /**
@@ -250,9 +250,9 @@ float Motor::getDegreesPerSecond() {
  */
 int Motor::getCurrentDegrees() {
 	float tmp;
-	portENTER_CRITICAL(&mmux);
+	//portENTER_CRITICAL(&mmux);
 	tmp = nowEncoder;
-	portEXIT_CRITICAL(&mmux);
+	//portEXIT_CRITICAL(&mmux);
 	return tmp*TICKS_TO_DEGREES;
 }
 
