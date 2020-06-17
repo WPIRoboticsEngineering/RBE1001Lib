@@ -1,13 +1,14 @@
 #include "Arduino.h"
 #include "Rangefinder.h"
-
-static portMUX_TYPE timerMux = portMUX_INITIALIZER_UNLOCKED;
+#include "Timer.h"
+static TaskHandle_t complexHandlerTaskUS;
 
 hw_timer_t *Rangefinder::timer = NULL;
 Rangefinder * Rangefinder::list[MAX_POSSIBLE_INTERRUPT_RANGEFINDER] = { NULL, };
 int Rangefinder::numberOfFinders = 0;
-int Rangefinder::timerNumber = -1;
+bool Rangefinder::timoutThreadStarted = false;
 int Rangefinder::pingIndex = 0;
+static long threadTimeout;
 /*
  * The procedure is to send a 10us pulse on the trigger line to
  * cause the ultrasonic burst to be sent out the speaker. When
@@ -20,24 +21,33 @@ int Rangefinder::pingIndex = 0;
  * the sensor ISR will time from the rising edge to the falling edge.
  * This time is saved in "roundTripTime" and used to compute the distance.
  */
-void IRAM_ATTR onTimer() {
-	portENTER_CRITICAL_ISR(&timerMux);
-	Rangefinder::fire();
-	portEXIT_CRITICAL_ISR(&timerMux);
+void onTimer(void *param) {
+	Serial.println("Starting the Ultrasonic loop thread");
+	threadTimeout=millis();
+	while (1) {
+		vTaskDelay(1);//sleep 1ms
+
+		Rangefinder::checkTimeout();
+	}
+	Serial.println("ERROR Pid thread died!");
+
 }
-/**
- * allocateTimer
- * @param a timer number 0-3 indicating which timer to allocate in this library
- */
-void Rangefinder::allocateTimer(int timerNumber) {
-	if (Rangefinder::timerNumber < 0) {
-		Rangefinder::timerNumber = timerNumber;
-		timer = timerBegin(Rangefinder::timerNumber, 80, true);
-		timerAttachInterrupt(timer, &onTimer, true);
-		timerAlarmWrite(timer, 100000, true);
-		timerAlarmEnable(timer);
+
+int Rangefinder::getTimeoutState(){
+	return millis()-threadTimeout;
+}
+
+
+void Rangefinder::checkTimeout(){
+	// check to see if an ultrasonic timed out
+	bool run=false;
+	run = Rangefinder::getTimeoutState()>100;
+	if(run){
+		Serial.println("Ultrasonic thread timeout!");
+		fire();
 	}
 }
+
 void IRAM_ATTR sensorISR0() {
 	Rangefinder::list[0]->sensorISR();
 }
@@ -51,6 +61,7 @@ void IRAM_ATTR sensorISR3() {
 	Rangefinder::list[3]->sensorISR();
 }
 void Rangefinder::fire() {
+	threadTimeout=millis();
 	if (Rangefinder::numberOfFinders > 0) {
 		// round robin all of the sensors to prevent cross talk
 		Rangefinder::pingIndex++;
@@ -71,21 +82,21 @@ void Rangefinder::sensorISR() {
 	} else {
 		roundTripTime = micros() - startTime;
 		fire();
-		timerWrite(timer, 0); // clear the timeout timer since the ping came back
 	}
 	portEXIT_CRITICAL(&synch);
 }
-
-/*
- * Initialize the rangefinder with the trigger pin and echo pin
- * numbers.
- */
-Rangefinder::Rangefinder(int trigger, int echo) {
+void Rangefinder::attach(int trigger, int echo) {
 	triggerPin = trigger;
 	echoPin = echo;
 	pinMode(triggerPin, OUTPUT);
 	pinMode(echoPin, INPUT);
-
+	if (Rangefinder::timoutThreadStarted==false) {
+		Serial.println("Spawing rangefinder timeout thread");
+		Rangefinder::timoutThreadStarted=true;
+		xTaskCreate(onTimer, "PID loop Thread", 8192, NULL,
+				2,// low priority timout thread
+						&complexHandlerTaskUS);
+	}
 	for (int i = 0; i < MAX_POSSIBLE_INTERRUPT_RANGEFINDER; i++) {
 		if (Rangefinder::list[i] == NULL) {
 			digitalWrite(triggerPin, LOW); // be sure to start from low
@@ -113,9 +124,14 @@ Rangefinder::Rangefinder(int trigger, int echo) {
 			return;
 		}
 	}
-	Serial.println("FAULT too many range finders!");
-	while (1)
-		;
+
+}
+/*
+ * Initialize the rangefinder with the trigger pin and echo pin
+ * numbers.
+ */
+Rangefinder::Rangefinder(){
+
 }
 
 /*

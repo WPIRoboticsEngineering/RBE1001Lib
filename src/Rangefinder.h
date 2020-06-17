@@ -4,11 +4,12 @@
 
 class Rangefinder {
 public:
-	Rangefinder(int trigger, int echo);
+	Rangefinder();
+	void attach(int trigger, int echo);
 	static hw_timer_t *timer;
 
 	static int numberOfFinders;
-	static int timerNumber;
+	static bool timoutThreadStarted;
 	static int pingIndex;
 	portMUX_TYPE synch = portMUX_INITIALIZER_UNLOCKED;
 	int echoPin;
@@ -24,8 +25,10 @@ public:
 	 * allocateTimer
 	 * @param a timer number 0-3 indicating which timer to allocate in this library
 	 */
-	static void allocateTimer(int timerNumber);
+	static void checkTimeout();
 	static void fire();
 	void sensorISR();
+
+	static int getTimeoutState();
 
 };

@@ -1,7 +1,11 @@
  #pragma once
-//
-//#define FORWARD_ULTRASONIC_TRIG 13
-//#define FORWARD_ULTRASONIC_ECHO 12
+
+// Pins used by a perpheral, may be re-used
+#define BOOT_FLAG_PIN 			0
+#define I2C_SDA       			21
+#define I2C_SCL       			22
+#define SERIAL_PROGRAMMING_TX 	1
+#define SERIAL_PROGRAMMING_RX 	3
 
 #define SPI_MOSI 23
 #define SPI_MISO 19
@@ -52,9 +56,4 @@
 #define MOTOR2_ENCA 17
 #define MOTOR2_ENCB 16
 
-// Pins used by a perpheral, may be re-used
-#define BOOT_FLAG_PIN 			0
-#define I2C_SDA       			21
-#define I2C_SCL       			22
-#define SERIAL_PROGRAMMING_TX 	1
-#define SERIAL_PROGRAMMING_RX 	3
+
