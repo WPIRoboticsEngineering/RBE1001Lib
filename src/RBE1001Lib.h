@@ -11,14 +11,18 @@
 #define SIDE_ULTRASONIC_TRIG 14
 #define SIDE_ULTRASONIC_ECHO 27
 
+//A4
 #define LEFT_LINE_SENSE 36
+//A3
 #define RIGHT_LINE_SENSE 39
 
-#define SERVO_FEEDBACK_SENSOR		34
+#define SERVO_FEEDBACK_SENSOR		32
 /**
  * Gripper pin for Servo
  */
-#define SERVO_PIN 12
+#define SERVO_PIN 33
+
+#define MOTOR_DISABLE 5
 
 /**
  * Drive motor 1 10Khz full duty PWM pin
@@ -27,18 +31,23 @@
 /**
  * Pin for setting the direction of the H-Bridge
  */
+//A5
 #define MOTOR1_DIR 4
 /**
  * Drive motor 2 10Khz full duty PWM pin
  */
-#define MOTOR2_PWM 15
+#define MOTOR2_PWM 12
 /**
  * Pin for setting the direction of the H-Bridge
  */
+//A1
 #define MOTOR2_DIR 25
 //Encoder pins
+//A0
 #define MOTOR1_ENCA 26
-#define MOTOR1_ENCB 33
+//A2
+#define MOTOR1_ENCB 34
+
 
 #define MOTOR2_ENCA 17
 #define MOTOR2_ENCB 16
