@@ -11,6 +11,7 @@ public:
 	static int numberOfFinders;
 	static bool timoutThreadStarted;
 	static int pingIndex;
+	static bool forceFire;
 	portMUX_TYPE synch = portMUX_INITIALIZER_UNLOCKED;
 	int echoPin;
 	int triggerPin;

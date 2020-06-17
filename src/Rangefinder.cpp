@@ -7,7 +7,9 @@ hw_timer_t *Rangefinder::timer = NULL;
 Rangefinder * Rangefinder::list[MAX_POSSIBLE_INTERRUPT_RANGEFINDER] = { NULL, };
 int Rangefinder::numberOfFinders = 0;
 bool Rangefinder::timoutThreadStarted = false;
+bool Rangefinder::forceFire = false;
 int Rangefinder::pingIndex = 0;
+
 static long threadTimeout;
 /*
  * The procedure is to send a 10us pulse on the trigger line to
@@ -26,8 +28,10 @@ void onTimer(void *param) {
 	threadTimeout=millis();
 	while (1) {
 		vTaskDelay(1);//sleep 1ms
-
-		Rangefinder::checkTimeout();
+		if(Rangefinder::forceFire)
+			Rangefinder::fire();
+		else
+			Rangefinder::checkTimeout();
 	}
 	Serial.println("ERROR Pid thread died!");
 
@@ -62,6 +66,7 @@ void IRAM_ATTR sensorISR3() {
 }
 void Rangefinder::fire() {
 	threadTimeout=millis();
+	forceFire=false;
 	if (Rangefinder::numberOfFinders > 0) {
 		// round robin all of the sensors to prevent cross talk
 		Rangefinder::pingIndex++;
@@ -81,7 +86,7 @@ void Rangefinder::sensorISR() {
 		startTime = micros();
 	} else {
 		roundTripTime = micros() - startTime;
-		fire();
+		forceFire=true;
 	}
 	portEXIT_CRITICAL(&synch);
 }
