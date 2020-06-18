@@ -42,7 +42,7 @@ void loop() {
 	int loopTime = 4000;// 4 second loop
 	int servoRange =180;
 	motor2.SetSetpointWithSinusoidalInterpolation(upDown?360:0, loopTime);
-	motor1.SetSetpointWithSinusoidalInterpolation(upDown?360:0, loopTime);
+	motor1.SetSetpointWithLinearInterpolation(upDown?360:0, loopTime);
 
 	for(int i=0;i<servoRange;i++){
 		delay(loopTime/servoRange);

@@ -24,6 +24,7 @@ void setup() {
 void loop() {
 	upDown=!upDown;
 	motor1.SetSetpointWithSinusoidalInterpolation(upDown?360:0, 2000);
+	motor2.SetSetpointWithLinearInterpolation(upDown?360:0, 2000);
 	for(int i=0;i<100;i++){
 		delay(20);
 //		Serial.println("Speed 1 "+String(motor1.getDegreesPerSecond())+

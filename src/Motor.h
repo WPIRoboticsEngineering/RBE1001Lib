@@ -98,7 +98,24 @@ public:
 	void SetEffortPercent(float percent) {
 		SetEffort(percent * 0.01);
 	}
-
+	/*
+	 * effort of the motor
+	 * @param a value from -1 to 1 representing effort
+	 *        0 is brake
+	 *        1 is full speed clockwise
+	 *        -1 is full speed counter clockwise
+	 */
+	float GetEffort();
+	/*
+	 * effort of the motor
+	 * @param a value from -100 to 100 representing effort
+	 *        0 is brake
+	 *        100 is full speed clockwise
+	 *        -100 is full speed counter clockwise
+	 */
+	float GetEffortPercent() {
+		return GetEffort()*100;
+	}
 	/**
 	 * getDegreesPerSecond
 	 *
@@ -129,6 +146,19 @@ public:
 	 */
 	void SetSetpointWithTime(float newTargetInDegrees, long miliseconds,
 			interpolateMode mode);
+
+	/**
+	 * SetSetpoint in degrees with time
+	 * Set the setpoint for the motor in degrees
+	 * @param newTargetInDegrees the new speed in degrees per second
+	 * @param miliseconds the number of miliseconds to run for
+	 */
+	void SetSpeed(float newDegreesPerSecond, long miliseconds){
+		float currentPos = getCurrentDegrees();
+		float distance = currentPos+(newDegreesPerSecond*(((float)miliseconds)/1000.0));
+		SetSetpointWithTime( distance, miliseconds,
+						LINEAR_INTERPOLATION);
+	}
 	/**
 	 * SetSetpoint in degrees with time
 	 * Set the setpoint for the motor in degrees
@@ -150,6 +180,7 @@ public:
 		SetSetpointWithTime( newTargetInDegrees, miliseconds,
 						LINEAR_INTERPOLATION);
 	}
+
 	/**
 	 * SetSetpoint in degrees with time
 	 * Set the setpoint for the motor in degrees

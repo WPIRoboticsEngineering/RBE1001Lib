@@ -23,12 +23,13 @@ void setup() {
  */
 void loop() {
 	upDown=!upDown;
-	motor1.SetSetpointWithSinusoidalInterpolation(upDown?360:0, 2000);
-	motor2.SetSetpointWithLinearInterpolation(upDown?360:0, 2000);
+
+	motor2.SetSpeed(upDown?120:-120, 2000);
+	motor1.SetSpeed(upDown?120:-120, 2000);
 	for(int i=0;i<100;i++){
 		delay(20);
-//		Serial.println("Speed 1 "+String(motor1.getDegreesPerSecond())+
-//					" Speed 2 "+String(motor2.getDegreesPerSecond()));
+		Serial.println("Speed 1="+String(motor1.getDegreesPerSecond())+
+					"deg/sec, Effort= "+String(motor1.GetEffortPercent()));
 	}
 
 	Serial.println("Count 1 "+String(motor1.getCurrentDegrees())+
