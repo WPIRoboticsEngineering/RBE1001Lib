@@ -212,7 +212,7 @@ void Motor::SetEffort(float effort) {
 }
 /*
  * effort of the motor
- * @param a value from -1 to 1 representing effort
+ * @return a value from -1 to 1 representing effort
  *        0 is brake
  *        1 is full speed clockwise
  *        -1 is full speed counter clockwise

@@ -100,7 +100,7 @@ public:
 	}
 	/*
 	 * effort of the motor
-	 * @param a value from -1 to 1 representing effort
+	 * @return a value from -1 to 1 representing effort
 	 *        0 is brake
 	 *        1 is full speed clockwise
 	 *        -1 is full speed counter clockwise
@@ -108,7 +108,7 @@ public:
 	float GetEffort();
 	/*
 	 * effort of the motor
-	 * @param a value from -100 to 100 representing effort
+	 * @return a value from -100 to 100 representing effort
 	 *        0 is brake
 	 *        100 is full speed clockwise
 	 *        -100 is full speed counter clockwise
