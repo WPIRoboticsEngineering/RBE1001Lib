@@ -107,6 +107,30 @@ void Motor::SetSetpointWithTime(float newTargetInDegrees, long msTimeDuration,
 	}
 	//portEXIT_CRITICAL(&mmux);
 }
+/**
+ * SetSpeed in degrees with time
+ * Set the setpoint for the motor in degrees
+ * @param newDegreesPerSecond the new speed in degrees per second
+ */
+void Motor::SetSpeed(float newDegreesPerSecond){
+	milisecondPosIncrementForVelocity=(newDegreesPerSecond * (((float) -2.0) / 1000.0));
+	Setpoint=getCurrentDegrees();
+	mode=VELOCITY_MODE;
+	closedLoopControl=true;
+}
+
+/**
+ * SetSpeed in degrees with time
+ * Set the setpoint for the motor in degrees
+ * @param newDegreesPerSecond the new speed in degrees per second
+ * @param miliseconds the number of miliseconds to run for
+ */
+void Motor::SetSpeed(float newDegreesPerSecond, long miliseconds) {
+	float currentPos = getCurrentDegrees();
+	float distance = currentPos
+			+ (newDegreesPerSecond * (((float) miliseconds) / 1000.0));
+	SetSetpointWithTime(distance, miliseconds, LINEAR_INTERPOLATION);
+}
 
 /**
  * Loop function
@@ -117,16 +141,19 @@ void Motor::loop() {
 	nowEncoder = encoder->getCount();
 	if(closedLoopControl){
 		//portEXIT_CRITICAL(&mmux);
-		unitDuration=getInterpolationUnitIncrement();
-		if (unitDuration<1) {
-			float setpointDiff = endSetpoint - startSetpoint;
-			float newSetpoint = startSetpoint + (setpointDiff * unitDuration);
-			Setpoint = newSetpoint;
-		} else {
-			// If there is no interpoation to perform, set the setpoint to the end state
-			Setpoint = endSetpoint;
+		if(mode ==VELOCITY_MODE){
+			Setpoint+=milisecondPosIncrementForVelocity;
+		}else{
+			unitDuration=getInterpolationUnitIncrement();
+			if (unitDuration<1) {
+				float setpointDiff = endSetpoint - startSetpoint;
+				float newSetpoint = startSetpoint + (setpointDiff * unitDuration);
+				Setpoint = newSetpoint;
+			} else {
+				// If there is no interpoation to perform, set the setpoint to the end state
+				Setpoint = endSetpoint;
+			}
 		}
-
 		float controlErr = Setpoint-nowEncoder;
 		// shrink old values out of the sum
 		runntingITerm=runntingITerm*((I_TERM_SIZE-1.0)/I_TERM_SIZE);
@@ -134,6 +161,7 @@ void Motor::loop() {
 		runntingITerm+=controlErr;
 
 		currentEffort=controlErr*kP+((runntingITerm/I_TERM_SIZE)*kI);
+
 		//portEXIT_CRITICAL(&mmux);
 	}
 

@@ -14,6 +14,8 @@ void setup() {
   Motor::allocateTimer(0);
   motor1.attach(MOTOR1_PWM, MOTOR1_DIR, MOTOR1_ENCA, MOTOR1_ENCB);
   motor2.attach(MOTOR2_PWM, MOTOR2_DIR, MOTOR2_ENCA, MOTOR2_ENCB);
+
+  motor1.SetSpeed(120);
 }
 
 
@@ -23,7 +25,6 @@ void setup() {
  */
 void loop() {
 	upDown=!upDown;
-	motor1.SetSpeed(upDown?400:-120, 2000);
 	motor2.SetSpeed(upDown?400:-120, 2000);
 	for(int i=0;i<100;i++){
 		delay(20);

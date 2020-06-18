@@ -28,7 +28,7 @@ private:
 	int prevousCount = 0;
 	float cachedSpeed = 0;
 	int nowEncoder = 0;
-	int Setpoint = 0;
+	float Setpoint = 0;
 	float kP = 0.01;
 	float kI = 0;
 	float kD = 0;
@@ -56,6 +56,8 @@ private:
 	 * Current interpolation mode
 	 */
 	interpolateMode mode = LINEAR_INTERPOLATION;
+	float milisecondPosIncrementForVelocity;
+
 public:
 	//Static section
 	static bool timersAllocated;
@@ -114,7 +116,7 @@ public:
 	 *        -100 is full speed counter clockwise
 	 */
 	float GetEffortPercent() {
-		return GetEffort()*100;
+		return GetEffort() * 100;
 	}
 	/**
 	 * getDegreesPerSecond
@@ -146,27 +148,26 @@ public:
 	 */
 	void SetSetpointWithTime(float newTargetInDegrees, long miliseconds,
 			interpolateMode mode);
-
+	/**
+	 * SetSpeed in degrees with time
+	 * Set the setpoint for the motor in degrees
+	 * @param newDegreesPerSecond the new speed in degrees per second
+	 */
+	void SetSpeed(float newDegreesPerSecond);
 	/**
 	 * SetSpeed in degrees with time
 	 * Set the setpoint for the motor in degrees
 	 * @param newDegreesPerSecond the new speed in degrees per second
 	 * @param miliseconds the number of miliseconds to run for
 	 */
-	void SetSpeed(float newDegreesPerSecond, long miliseconds){
-		float currentPos = getCurrentDegrees();
-		float distance = currentPos+(newDegreesPerSecond*(((float)miliseconds)/1000.0));
-		SetSetpointWithTime( distance, miliseconds,
-						LINEAR_INTERPOLATION);
-	}
+	void SetSpeed(float newDegreesPerSecond, long miliseconds);
 	/**
 	 * SetSetpoint in degrees with time
 	 * Set the setpoint for the motor in degrees
 	 * @param newTargetInDegrees the new setpoint for the closed loop controller
 	 */
-	void SetSetpoint(float newTargetInDegrees){
-		SetSetpointWithTime( newTargetInDegrees, 0,
-				LINEAR_INTERPOLATION);
+	void SetSetpoint(float newTargetInDegrees) {
+		SetSetpointWithTime(newTargetInDegrees, 0, LINEAR_INTERPOLATION);
 	}
 	/**
 	 * SetSetpoint in degrees with time
@@ -176,9 +177,9 @@ public:
 	 * use linear interoplation
 	 */
 	void SetSetpointWithLinearInterpolation(float newTargetInDegrees,
-			long miliseconds){
-		SetSetpointWithTime( newTargetInDegrees, miliseconds,
-						LINEAR_INTERPOLATION);
+			long miliseconds) {
+		SetSetpointWithTime(newTargetInDegrees, miliseconds,
+				LINEAR_INTERPOLATION);
 	}
 
 	/**
@@ -189,9 +190,9 @@ public:
 	 * use sinusoidal interpolation
 	 */
 	void SetSetpointWithSinusoidalInterpolation(float newTargetInDegrees,
-			long miliseconds){
-		SetSetpointWithTime( newTargetInDegrees, miliseconds,
-						SINUSOIDAL_INTERPOLATION);
+			long miliseconds) {
+		SetSetpointWithTime(newTargetInDegrees, miliseconds,
+				SINUSOIDAL_INTERPOLATION);
 	}
 	/**
 	 * PID gains for the PID controller
