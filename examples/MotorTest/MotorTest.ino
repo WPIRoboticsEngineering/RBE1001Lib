@@ -30,7 +30,7 @@ void loop() {
 //		Serial.println("Speed 1 "+String(motor1.getDegreesPerSecond())+
 //					" Speed 2 "+String(motor2.getDegreesPerSecond()));
 	}
-
+	delay(50);
 	Serial.println("Count 1 "+String(motor1.getCurrentDegrees())+
 				" Count 2 "+String(motor2.getCurrentDegrees()));
 

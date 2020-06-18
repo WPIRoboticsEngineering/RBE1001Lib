@@ -148,9 +148,9 @@ public:
 			interpolateMode mode);
 
 	/**
-	 * SetSetpoint in degrees with time
+	 * SetSpeed in degrees with time
 	 * Set the setpoint for the motor in degrees
-	 * @param newTargetInDegrees the new speed in degrees per second
+	 * @param newDegreesPerSecond the new speed in degrees per second
 	 * @param miliseconds the number of miliseconds to run for
 	 */
 	void SetSpeed(float newDegreesPerSecond, long miliseconds){
