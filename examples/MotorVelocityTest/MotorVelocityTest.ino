@@ -25,6 +25,7 @@ void setup() {
  */
 void loop() {
 	upDown=!upDown;
+	// Set a speed for a specific amount of time, in this case 2 seconds
 	motor2.SetSpeed(upDown?400:-120, 2000);
 	for(int i=0;i<100;i++){
 		delay(20);
