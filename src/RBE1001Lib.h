@@ -12,7 +12,7 @@
 #define SPI_MOSI 23
 #define SPI_MISO 19
 #define SPI_SCK  18
-#define SPI_SS   15
+#define SPI_SS   5
 
 #define SIDE_ULTRASONIC_TRIG 32
 
@@ -29,7 +29,7 @@
  */
 #define SERVO_PIN 33
 
-#define MOTOR_DISABLE 5
+#define MOTOR_DISABLE 15
 
 /**
  * Drive motor 1 10Khz full duty PWM pin
