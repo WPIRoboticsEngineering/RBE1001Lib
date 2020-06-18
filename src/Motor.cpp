@@ -113,8 +113,18 @@ void Motor::SetSetpointWithTime(float newTargetInDegrees, long msTimeDuration,
  * @param newDegreesPerSecond the new speed in degrees per second
  */
 void Motor::SetSpeed(float newDegreesPerSecond){
-	milisecondPosIncrementForVelocity=(newDegreesPerSecond * (((float) -2.0) / 1000.0));
-	Setpoint=getCurrentDegrees();
+	if(abs(newDegreesPerSecond)<0.1){
+		SetSetpoint(getCurrentDegrees());
+//		Serial.println("Stopping");
+		return;
+	}
+	milisecondPosIncrementForVelocity=(newDegreesPerSecond * (((float) -1.0) / 1000.0))/TICKS_TO_DEGREES;
+//	Serial.println("Setting Speed "+String(newDegreesPerSecond)+
+//			" increment "+String(milisecondPosIncrementForVelocity)+
+//			" scale "+String(TICKS_TO_DEGREES)
+//			+" Setpoint "+String(Setpoint*TICKS_TO_DEGREES)
+//	);
+	Setpoint=getCurrentDegrees()/TICKS_TO_DEGREES;
 	mode=VELOCITY_MODE;
 	closedLoopControl=true;
 }
@@ -126,6 +136,8 @@ void Motor::SetSpeed(float newDegreesPerSecond){
  * @param miliseconds the number of miliseconds to run for
  */
 void Motor::SetSpeed(float newDegreesPerSecond, long miliseconds) {
+	if(miliseconds<1)
+		miliseconds=1;
 	float currentPos = getCurrentDegrees();
 	float distance = currentPos
 			+ (newDegreesPerSecond * (((float) miliseconds) / 1000.0));

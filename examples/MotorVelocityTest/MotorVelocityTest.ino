@@ -14,7 +14,7 @@ void setup() {
   Motor::allocateTimer(0);
   motor1.attach(MOTOR1_PWM, MOTOR1_DIR, MOTOR1_ENCA, MOTOR1_ENCB);
   motor2.attach(MOTOR2_PWM, MOTOR2_DIR, MOTOR2_ENCA, MOTOR2_ENCB);
-
+  // Use velocity control mode with open ended time
   motor1.SetSpeed(120);
 }
 
@@ -31,9 +31,14 @@ void loop() {
 		Serial.println("Speed 1="+String(motor1.getDegreesPerSecond())+
 					"deg/sec, Effort= "+String(motor1.GetEffortPercent()));
 	}
-
+	Serial.println("\n");
+	// stop the motor
+	motor1.SetSpeed(0);
 	Serial.println("Count 1 "+String(motor1.getCurrentDegrees())+
 				" Count 2 "+String(motor2.getCurrentDegrees()));
+	delay(2000);
+	// start the motor spinning again
+	motor1.SetSpeed(120);
 
  }
 
