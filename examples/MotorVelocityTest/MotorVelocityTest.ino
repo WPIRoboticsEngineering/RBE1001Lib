@@ -23,8 +23,6 @@ void setup() {
  */
 void loop() {
 	upDown=!upDown;
-
-	motor2.SetSpeed(upDown?120:-120, 2000);
 	motor1.SetSpeed(upDown?120:-120, 2000);
 	for(int i=0;i<100;i++){
 		delay(20);
