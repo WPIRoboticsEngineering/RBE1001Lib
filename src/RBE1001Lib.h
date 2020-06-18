@@ -14,8 +14,8 @@
 #define SPI_SCK  18
 #define SPI_SS   5
 
+// Ultrasonics
 #define SIDE_ULTRASONIC_TRIG 32
-
 #define SIDE_ULTRASONIC_ECHO 14
 
 //A4
