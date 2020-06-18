@@ -236,6 +236,7 @@ void Motor::SetEffortLocal(float effort) {
 		digitalWrite(directionFlag, HIGH);
 	else
 		digitalWrite(directionFlag, LOW);
+	currentEffort=effort;
 	pwm->writeScaled(abs(effort));
 }
 /**
