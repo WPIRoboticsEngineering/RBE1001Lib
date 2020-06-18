@@ -217,7 +217,7 @@ void Motor::attach(int MotorPWMPin, int MotorDirectionPin, int EncoderA,
 	pwm->attachPin(MotorPWMPin, 20000, 8);
 	directionFlag = MotorDirectionPin;
 	this->MotorPWMPin=MotorPWMPin;
-	encoder->attachHalfQuad(EncoderA, EncoderB);
+	encoder->attachFullQuad(EncoderA, EncoderB);
 	pinMode(directionFlag, OUTPUT);
 	// add the motor to the list of timer based controls
 	for (int i = 0; i < MAX_POSSIBLE_MOTORS; i++) {
