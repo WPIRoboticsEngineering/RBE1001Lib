@@ -110,6 +110,18 @@ void Motor::SetSetpointWithTime(float newTargetInDegrees, long msTimeDuration,
 /**
  * SetSpeed in degrees with time
  * Set the setpoint for the motor in degrees
+ * This implements "Red Queen" mode running interpolation in the PID controller.
+
+ "Now, here, you see, it takes all the running you can do, to keep in the same place.
+
+If you want to get somewhere else, you must run at least twice as fast as that!"
+
+— The Red Queen, Alice In Wonderland, Lewis Carroll
+
+ * The way this velocity mode works is that the position target is moved forward every iteration of the PID
+ * loop. The position runs away continuously, in order to keep the velocity stable.
+ * A position increment is calculated, and added to the Position every 1ms of the loop()
+ *
  * @param newDegreesPerSecond the new speed in degrees per second
  */
 void Motor::SetSpeed(float newDegreesPerSecond){
@@ -124,7 +136,7 @@ void Motor::SetSpeed(float newDegreesPerSecond){
 //			" scale "+String(TICKS_TO_DEGREES)
 //			+" Setpoint "+String(Setpoint*TICKS_TO_DEGREES)
 //	);
-	Setpoint=getCurrentDegrees()/TICKS_TO_DEGREES;
+	Setpoint=nowEncoder;
 	mode=VELOCITY_MODE;
 	closedLoopControl=true;
 }
@@ -134,10 +146,14 @@ void Motor::SetSpeed(float newDegreesPerSecond){
  * Set the setpoint for the motor in degrees
  * @param newDegreesPerSecond the new speed in degrees per second
  * @param miliseconds the number of miliseconds to run for
+ * @note a value of 0 miliseconds will set the motor into open-ended run mode
  */
 void Motor::SetSpeed(float newDegreesPerSecond, long miliseconds) {
-	if(miliseconds<1)
-		miliseconds=1;
+	if(miliseconds<1){
+		// 0 time will set up "Red Queen" (sic) interpolation
+		SetSpeed(newDegreesPerSecond);
+		return;
+	}
 	float currentPos = getCurrentDegrees();
 	float distance = currentPos
 			+ (newDegreesPerSecond * (((float) miliseconds) / 1000.0));
@@ -299,7 +315,7 @@ float Motor::getDegreesPerSecond() {
  * This function returns the current count of encoders
  * @return count
  */
-int Motor::getCurrentDegrees() {
+float Motor::getCurrentDegrees() {
 	float tmp;
 	//portENTER_CRITICAL(&mmux);
 	tmp = nowEncoder;

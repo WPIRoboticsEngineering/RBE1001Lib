@@ -28,7 +28,7 @@ private:
 	int interruptCountForVelocity = 0;
 	int prevousCount = 0;
 	float cachedSpeed = 0;
-	int nowEncoder = 0;
+
 	float Setpoint = 0;
 	float kP = 0.01;
 	float kI = 0;
@@ -60,6 +60,7 @@ private:
 	float milisecondPosIncrementForVelocity;
 
 public:
+	int64_t nowEncoder = 0;
 	//Static section
 	static bool timersAllocated;
 	static Motor * list[MAX_POSSIBLE_MOTORS];
@@ -133,7 +134,7 @@ public:
 	 * This function returns the current count of encoders
 	 * @return count
 	 */
-	int getCurrentDegrees();
+	float getCurrentDegrees();
 	/**
 	 * Loop function
 	 * this method is called by the timer to run the PID control of the motors and ensure strict timing
