@@ -115,9 +115,9 @@ void Motor::SetSetpointWithTime(float newTargetInDegrees, long msTimeDuration,
  * @param newTargetInDegrees the new setpoint for the closed loop controller
  * @param speedDegPerSec  is the speed in degrees per second
 */
-void Motor::SetSetpointWithSpeed(float newTargetInDegrees, float speedDegPerSec)
+void Motor::MoveTo(float newTargetInDegrees, float speedDegPerSec)
 {
-    SetSetpointWithTime(newTargetInDegrees, (newTargetInDegrees/speedDegPerSec) * 1000.0,LINEAR_INTERPOLATION);
+    SetSetpointWithTime(newTargetInDegrees, (newTargetInDegrees/speedDegPerSec) * 1000.0, LINEAR_INTERPOLATION);
 }
 
 /**

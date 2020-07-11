@@ -170,7 +170,7 @@ public:
 	 * @param newTargetInDegrees the new setpoint for the closed loop controller
 	 * @param speedDegPerSec  is the speed in degrees per second
 	*/
-	void SetSetpointWithSpeed(float newTargetInDegrees, float speedDegPerSec);
+	void MoveTo(float newTargetInDegrees, float speedDegPerSec);
 	/**
 	 * SetSetpoint in degrees with time
 	 * Set the setpoint for the motor in degrees
