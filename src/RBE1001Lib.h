@@ -15,14 +15,14 @@
 #define SPI_SS   5
 
 // Ultrasonics
-#define SIDE_ULTRASONIC_TRIG 32
-#define SIDE_ULTRASONIC_ECHO 14
+#define SIDE_ULTRASONIC_TRIG 17
+#define SIDE_ULTRASONIC_ECHO 16
 
 //A4
 #define LEFT_LINE_SENSE 36
 //A3
 #define RIGHT_LINE_SENSE 39
-
+//A2
 #define SERVO_FEEDBACK_SENSOR		34
 /**
  * Gripper pin for Servo
@@ -56,7 +56,7 @@
 #define MOTOR1_ENCB 26
 
 
-#define MOTOR2_ENCA 17
-#define MOTOR2_ENCB 16
+#define MOTOR2_ENCA 32
+#define MOTOR2_ENCB 14
 
 

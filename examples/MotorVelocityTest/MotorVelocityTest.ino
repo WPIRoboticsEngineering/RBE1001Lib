@@ -15,7 +15,7 @@ void setup() {
   motor1.attach(MOTOR1_PWM, MOTOR1_DIR, MOTOR1_ENCA, MOTOR1_ENCB);
   motor2.attach(MOTOR2_PWM, MOTOR2_DIR, MOTOR2_ENCA, MOTOR2_ENCB);
   // Use velocity control mode with open ended time
-  motor1.SetSpeed(-400);
+  motor1.SetSpeed(-800);
 }
 
 
@@ -36,7 +36,7 @@ void loop() {
 	// stop the motor
 	//motor1.SetSpeed(0);
 	delay(2000);
-	Serial.println("Degrees 1 "+String((int32_t)motor1.getCurrentDegrees())+
+	Serial.println("Degrees 1 "+String(motor1.getCurrentDegrees())+
 				" Degrees 2 "+String(motor2.getCurrentDegrees()));
 
 	// start the motor spinning again
