@@ -164,6 +164,14 @@ public:
 	 */
 	void SetSpeed(float newDegreesPerSecond, long miliseconds);
 	/**
+	 * MoveTo in degrees with speed
+	 * Set the setpoint for the motor in degrees and the speed you want to get there
+	 * Bascially, a wrapper function for SetSetpointWithTime that takes speed as an argument
+	 * @param newTargetInDegrees the new setpoint for the closed loop controller
+	 * @param speedDegPerSec  is the speed in degrees per second
+	*/
+	void SetSetpointWithSpeed(float newTargetInDegrees, float speedDegPerSec);
+	/**
 	 * SetSetpoint in degrees with time
 	 * Set the setpoint for the motor in degrees
 	 * @param newTargetInDegrees the new setpoint for the closed loop controller
