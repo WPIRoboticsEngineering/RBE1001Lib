@@ -88,7 +88,7 @@ Motor::~Motor() {
  * SetSetpoint in degrees with time
  * Set the setpoint for the motor in degrees
  * @param newTargetInDegrees the new setpoint for the closed loop controller
- * @param miliseconds the number of miliseconds to get from current position to the new setpoint
+ * @param msTimeDuration the number of miliseconds to get from current position to the new setpoint
  */
 void Motor::SetSetpointWithTime(float newTargetInDegrees, long msTimeDuration,
 		interpolateMode mode){
@@ -107,6 +107,19 @@ void Motor::SetSetpointWithTime(float newTargetInDegrees, long msTimeDuration,
 	}
 	//portEXIT_CRITICAL(&mmux);
 }
+
+/**
+ * MoveTo in degrees with speed
+ * Set the setpoint for the motor in degrees and the speed you want to get there
+ * Bascially, a wrapper function for SetSetpointWithTime that takes speed as an argument
+ * @param newTargetInDegrees the new setpoint for the closed loop controller
+ * @param speedDegPerSec  is the speed in degrees per second
+*/
+void Motor::SetSetpointWithTime(float newTargetInDegrees, float speedDegPerSec)
+{
+    SetSetpointWithTime(newTargetInDegrees, (newTargetInDegrees/speedDegPerSec) * 1000.);
+}
+
 /**
  * SetSpeed in degrees with time
  * Set the setpoint for the motor in degrees
