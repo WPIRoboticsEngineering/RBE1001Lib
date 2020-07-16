@@ -12,4 +12,4 @@ A library to support introduction to robotics engineering.
 * FS
 * Preferences
 * WebServer
-* WiF
+* WiFi
