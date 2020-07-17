@@ -1,0 +1,5 @@
+<map id="WebPage::dataUpdate" name="WebPage::dataUpdate">
+<area shape="rect" id="node2" href="$classWebPage.html#a4a166d1025f5bc1ca348accec8b98aca" title="WebPage::getHTML" alt="" coords="249,5,390,32"/>
+<area shape="rect" id="node3" href="$classSimpleWebServer.html#a408534450431426e848bdb6357add8ef" title="SimpleWebServer::sendResponse" alt="" coords="208,56,431,83"/>
+<area shape="rect" id="node4" href="$SimpleWebServer_8cpp.html#a62d2d61025124223ffdbddb8e63cc53b" title="server" alt="" coords="479,56,537,83"/>
+</map>

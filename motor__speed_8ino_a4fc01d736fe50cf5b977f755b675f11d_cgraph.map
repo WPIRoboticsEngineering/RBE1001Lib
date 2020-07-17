@@ -1,0 +1,12 @@
+<map id="setup" name="setup">
+<area shape="rect" id="node2" href="$classMotor.html#aa5dbe98f9cbaebd430bf1b7841d4bbc0" title="Motor::allocateTimer" alt="" coords="108,42,249,69"/>
+<area shape="rect" id="node7" href="$classMotor.html#aeb100c96e69d4acd5390c240890b8392" title="Motor::attach" alt="" coords="129,93,228,119"/>
+<area shape="rect" id="node8" href="$classMotor.html#a87fc81889162384469b1832a37d5b956" title="Motor::SetSpeed" alt="" coords="119,143,239,170"/>
+<area shape="rect" id="node3" href="$Motor_8cpp.html#adb66b9c7a2544338725556bce116d5df" title="onMotorTimer" alt="" coords="333,42,435,69"/>
+<area shape="rect" id="node4" href="$classMotor.html#a2db9c1833fe2b9e5b1b1e4b9e5d4c4ee" title="Motor::loop" alt="" coords="569,42,655,69"/>
+<area shape="rect" id="node5" href="$classMotor.html#aee3b24180cc7221ab63e1c2c32363693" title="Motor::getInterpolationUnit\lIncrement" alt="" coords="753,5,929,47"/>
+<area shape="rect" id="node6" href="$classMotor.html#aab0bd62a71bf95d2ccf80fd309bf5bb3" title="Motor::SetEffortLocal" alt="" coords="768,71,915,98"/>
+<area shape="rect" id="node9" href="$classMotor.html#afa9d4dec3ee9ea88f3319c6007bff0a5" title="Motor::SetSetpoint" alt="" coords="319,118,449,145"/>
+<area shape="rect" id="node11" href="$classMotor.html#a7a84e0d2676d7420219b6e7f67e69038" title="Motor::getCurrentDegrees" alt="" coords="297,169,471,195"/>
+<area shape="rect" id="node10" href="$classMotor.html#a8037ce5f12ee18be5600dc2ee08be578" title="Motor::SetSetpointWithTime" alt="" coords="519,118,705,145"/>
+</map>

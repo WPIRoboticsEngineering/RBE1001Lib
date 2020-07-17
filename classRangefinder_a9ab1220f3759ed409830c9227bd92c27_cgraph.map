@@ -1,0 +1,11 @@
+<map id="Rangefinder::attach" name="Rangefinder::attach">
+<area shape="rect" id="node2" href="$Rangefinder_8cpp.html#a0b6abaae8371bfcca2ab8557bebe9332" title="onTimer" alt="" coords="200,17,269,44"/>
+<area shape="rect" id="node6" href="$Rangefinder_8cpp.html#a696a4434840a83be9bfb1cf223107f90" title="sensorISR0" alt="" coords="189,68,280,95"/>
+<area shape="rect" id="node8" href="$Rangefinder_8cpp.html#a80b2204f2e3fd05a17e03a8559d6c506" title="sensorISR1" alt="" coords="189,119,280,145"/>
+<area shape="rect" id="node9" href="$Rangefinder_8cpp.html#a58396042a647a769cd365fb49f2c7d52" title="sensorISR2" alt="" coords="189,169,280,196"/>
+<area shape="rect" id="node10" href="$Rangefinder_8cpp.html#a9c06b563cce41963c23fe73645597c8d" title="sensorISR3" alt="" coords="189,220,280,247"/>
+<area shape="rect" id="node3" href="$classRangefinder.html#ad53fdab48917ac45680f52da63553930" title="Rangefinder::checkTimeout" alt="" coords="328,5,511,32"/>
+<area shape="rect" id="node5" href="$classRangefinder.html#a21c76549df3c0a06292fa31b23e80ee7" title="Rangefinder::fire" alt="" coords="597,56,716,83"/>
+<area shape="rect" id="node4" href="$classRangefinder.html#a6706efbe01d225a04771dee426da09f1" title="Rangefinder::getTimeoutState" alt="" coords="559,5,755,32"/>
+<area shape="rect" id="node7" href="$classRangefinder.html#a4f24792c5c8c6fc8544275d1e74e087c" title="Rangefinder::sensorISR" alt="" coords="338,132,501,159"/>
+</map>

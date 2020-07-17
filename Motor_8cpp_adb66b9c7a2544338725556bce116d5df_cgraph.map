@@ -1,0 +1,5 @@
+<map id="onMotorTimer" name="onMotorTimer">
+<area shape="rect" id="node2" href="$classMotor.html#a2db9c1833fe2b9e5b1b1e4b9e5d4c4ee" title="Motor::loop" alt="" coords="156,42,243,69"/>
+<area shape="rect" id="node3" href="$classMotor.html#aee3b24180cc7221ab63e1c2c32363693" title="Motor::getInterpolationUnit\lIncrement" alt="" coords="291,5,467,47"/>
+<area shape="rect" id="node4" href="$classMotor.html#aab0bd62a71bf95d2ccf80fd309bf5bb3" title="Motor::SetEffortLocal" alt="" coords="305,71,452,98"/>
+</map>

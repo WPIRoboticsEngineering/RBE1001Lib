@@ -1,0 +1,5 @@
+<map id="Motor::SetSpeed" name="Motor::SetSpeed">
+<area shape="rect" id="node2" href="$classMotor.html#a7a84e0d2676d7420219b6e7f67e69038" title="Motor::getCurrentDegrees" alt="" coords="173,5,347,32"/>
+<area shape="rect" id="node3" href="$classMotor.html#afa9d4dec3ee9ea88f3319c6007bff0a5" title="Motor::SetSetpoint" alt="" coords="195,56,325,83"/>
+<area shape="rect" id="node4" href="$classMotor.html#a8037ce5f12ee18be5600dc2ee08be578" title="Motor::SetSetpointWithTime" alt="" coords="395,56,581,83"/>
+</map>
