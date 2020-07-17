@@ -20,7 +20,6 @@ else
 fi
 cd ..
 
-exit 0
 
 doxygen doxy.doxyfile
 
