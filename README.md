@@ -1,7 +1,7 @@
 # RBE1001Lib
 A library to support introduction to robotics engineering. 
 
-# Documentation
+# Documentation by Doxygen
 
 [RBE1001Lib Doxygen](https://wpiroboticsengineering.github.io/RBE1001Lib/annotated.html)
 
