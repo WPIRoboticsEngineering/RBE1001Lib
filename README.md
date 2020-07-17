@@ -3,7 +3,7 @@ A library to support introduction to robotics engineering.
 
 # Documentation
 
-[RBE1001Lib Doxygen](https://wpiroboticsengineering.github.io/RBE1001Lib/)
+[RBE1001Lib Doxygen](https://wpiroboticsengineering.github.io/RBE1001Lib/annotated.html)
 
 # Depenancies
 
