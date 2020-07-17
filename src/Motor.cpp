@@ -121,6 +121,18 @@ void Motor::MoveTo(float newTargetInDegrees, float speedDegPerSec)
 }
 
 /**
+ * MoveTo in degrees with speed
+ * Set the setpoint for the motor in degrees and the speed you want to get there
+ * Bascially, a wrapper function for SetSetpointWithTime that takes speed as an argument
+ * @param deltaTargetInDegrees the new relative setpoint for the closed loop controller
+ * @param speedDegPerSec  is the speed in degrees per second
+*/
+void Motor::MoveFor(float deltaTargetInDegrees, float speedDegPerSec)
+{
+    SetSetpointWithTime(getCurrentDegrees() + deltaTargetInDegrees, (deltaTargetInDegrees/speedDegPerSec) * 1000.0, LINEAR_INTERPOLATION);
+}
+
+/**
  * SetSpeed in degrees with time
  * Set the setpoint for the motor in degrees
  * This implements "Red Queen" mode running interpolation in the PID controller.
