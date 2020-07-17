@@ -11,13 +11,16 @@ if ( git checkout origin/gh-pages -b gh-pages) then
 	echo "Checked out $GITURL gh-pages"
 else
 	echo "Creating out $GITURL gh-pages"
-	git checkout master -b gh-pages
+	git checkout origin/master -b gh-pages
 	rm -r *
 	echo "# A simple README file for the gh-pages branch" > README.md
 	git add README.md
 	git commit -m"Replaced gh-pages html with simple readme"
+	git push -u origin gh-pages
 fi
 cd ..
+
+exit 0
 
 doxygen doxy.doxyfile
 
