@@ -25,8 +25,6 @@ void setup()
   Motor::allocateTimer(0);
   motor1.attach(MOTOR1_PWM, MOTOR1_DIR, MOTOR1_ENCA, MOTOR1_ENCB);
   motor2.attach(MOTOR2_PWM, MOTOR2_DIR, MOTOR2_ENCA, MOTOR2_ENCB);
-  // Use velocity control mode with open ended time
-  motor1.SetSpeed(-400);
 
   //explicitly make the button pin an input and engage the internal pullup resistor
   pinMode(buttonPin, INPUT_PULLUP);
