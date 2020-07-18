@@ -1,0 +1,7 @@
+<map id="WifiManager::setupAP" name="WifiManager::setupAP">
+<area shape="rect" id="node2" href="$classWifiManager.html#ac1c00fd2d738b500e5cc77884c31256e" title="WifiManager::setup" alt="" coords="207,5,341,32"/>
+<area shape="rect" id="node3" href="$WifiManager_8cpp.html#a78d9184275d069bcc924ce89e8939f4a" title="WiFiEventWifiManager" alt="" coords="389,5,545,32"/>
+<area shape="rect" id="node4" href="$classWifiManager.html#a42a9633eaed14840cdd6653afd3086b3" title="WifiManager::WiFiEvent" alt="" coords="593,5,757,32"/>
+<area shape="rect" id="node5" href="$classWifiManager.html#a6ba59aca9a892953c20837da9479941a" title="WifiManager::printState" alt="" coords="1020,5,1179,32"/>
+<area shape="rect" id="node6" href="$classWifiManager.html#a2b0fc1360c90922972c2caee5531afbb" title="WifiManager::disconnect" alt="" coords="805,31,972,57"/>
+</map>

@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['i2c_5fscl',['I2C_SCL',['../RBE1001Lib_8h.html#a212ca328a6409c98f8c3dfbbe1ba561d',1,'RBE1001Lib.h']]],
-  ['i2c_5fsda',['I2C_SDA',['../RBE1001Lib_8h.html#a18aefd12ad84d4c33dc97923cb821e47',1,'RBE1001Lib.h']]],
-  ['i_5fterm_5fsize',['I_TERM_SIZE',['../Motor_8h.html#aa694617e85bf550d72d3e2cd295e69cd',1,'Motor.h']]]
+  ['max_5fesp32_5fencoders',['MAX_ESP32_ENCODERS',['../ESP32Encoder_8h.html#a4f3d525d4b255b147d5d38edd5d6bef9',1,'ESP32Encoder.h']]],
+  ['max_5fpulse_5fwidth',['MAX_PULSE_WIDTH',['../ESP32Servo_8h.html#a57a10261e6511f97317cee9076692315',1,'ESP32Servo.h']]],
+  ['max_5fservos',['MAX_SERVOS',['../ESP32Servo_8h.html#a4259c40a55e489ed25c9f3cbb3be05ab',1,'ESP32Servo.h']]],
+  ['min_5fpulse_5fwidth',['MIN_PULSE_WIDTH',['../ESP32Servo_8h.html#ad95c8286fc30ece77d632ad00a94d80e',1,'ESP32Servo.h']]]
 ];

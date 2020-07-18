@@ -1,15 +1,7 @@
 var searchData=
 [
-  ['getcurrentdegrees',['getCurrentDegrees',['../classMotor.html#a7a84e0d2676d7420219b6e7f67e69038',1,'Motor']]],
-  ['getdegreespersecond',['getDegreesPerSecond',['../classMotor.html#aeb102c0704799cf2e2f5523e8900fc08',1,'Motor']]],
-  ['getdistancecm',['getDistanceCM',['../classRangefinder.html#a531ed492da6a4c369a909e77b9c8780d',1,'Rangefinder']]],
-  ['geteffort',['GetEffort',['../classMotor.html#a3f71a959c4b010602abf1f9f7c05658f',1,'Motor']]],
-  ['geteffortpercent',['GetEffortPercent',['../classMotor.html#a8c797b112b2dcf07643ee6a21fab1cf7',1,'Motor']]],
-  ['gethtml',['getHTML',['../classWebPage.html#a4a166d1025f5bc1ca348accec8b98aca',1,'WebPage']]],
-  ['getinterpolationunitincrement',['getInterpolationUnitIncrement',['../classMotor.html#aee3b24180cc7221ab63e1c2c32363693',1,'Motor']]],
-  ['getleft',['getLeft',['../classLineTrackSensor.html#a3bb852995ab8b60c5500b3bb74902d2e',1,'LineTrackSensor']]],
-  ['getms',['getMS',['../classTimer.html#a36476da57402ed609f9503b4f1cdf491',1,'Timer']]],
-  ['getpage',['getPage',['../classWebPage.html#a1701fb71510b3e3e2e3b050cf3f83ba5',1,'WebPage']]],
-  ['getright',['getRight',['../classLineTrackSensor.html#a9bbe49258a6816668301098a50d0e0b2',1,'LineTrackSensor']]],
-  ['gettimeoutstate',['getTimeoutState',['../classRangefinder.html#a6706efbe01d225a04771dee426da09f1',1,'Rangefinder']]]
+  ['erase',['erase',['../classWifiManager.html#a6f2df7095f4e01872024ac914273722c',1,'WifiManager']]],
+  ['esp32analogread',['ESP32AnalogRead',['../classESP32AnalogRead.html#af954bc4b422748c3783c774eebb2994d',1,'ESP32AnalogRead']]],
+  ['esp32encoder',['ESP32Encoder',['../classESP32Encoder.html#a2d74a984c3e0723349b1dadbaf7c5ff7',1,'ESP32Encoder']]],
+  ['esp32pwm',['ESP32PWM',['../classESP32PWM.html#a002a992602731a52f5634859ffbed9a9',1,'ESP32PWM']]]
 ];

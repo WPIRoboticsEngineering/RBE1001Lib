@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['interruptcountforvelocity',['interruptCountForVelocity',['../classMotor.html#a40d821c50be1a978af0134232143ab31',1,'Motor']]]
+  ['highestpin',['highestPin',['../analogWriteExample_8ino.html#aed75235b3f79965abc9512345e8de41a',1,'analogWriteExample.ino']]]
 ];

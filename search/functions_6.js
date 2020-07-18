@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['initialize',['initialize',['../classSimpleWebServer.html#a28d5aa017e5f76d0a5830d574e3f6c67',1,'SimpleWebServer']]]
+  ['haspwm',['hasPwm',['../classESP32PWM.html#afdbce473c78465a637dcc592a07aa431',1,'ESP32PWM']]]
 ];

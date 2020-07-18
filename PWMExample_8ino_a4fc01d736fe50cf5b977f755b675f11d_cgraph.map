@@ -1,0 +1,7 @@
+<map id="setup" name="setup">
+<area shape="rect" id="node2" href="$classESP32PWM.html#ac223237cb836276a390cd7d92f3f8c18" title="ESP32PWM::allocateTimer" alt="" coords="108,5,291,32"/>
+<area shape="rect" id="node3" href="$classESP32PWM.html#aa520a386ced1991b7bec44160ce7ad0c" title="ESP32PWM::attachPin" alt="" coords="120,56,279,83"/>
+<area shape="rect" id="node4" href="$classESP32PWM.html#afdbce473c78465a637dcc592a07aa431" title="ESP32PWM::hasPwm" alt="" coords="347,5,501,32"/>
+<area shape="rect" id="node5" href="$classESP32PWM.html#a3ac6251947efb7ef0a2bc699ec0aaa4e" title="ESP32PWM::attach" alt="" coords="354,56,494,83"/>
+<area shape="rect" id="node6" href="$classESP32PWM.html#a39411917c82dd1567ccf4b6aece0d3d9" title="ESP32PWM::getChannel" alt="" coords="339,107,509,133"/>
+</map>

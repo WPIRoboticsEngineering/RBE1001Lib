@@ -1,0 +1,31 @@
+<map id="Servo::read" name="Servo::read">
+<area shape="rect" id="node2" href="$classServo.html#a43950424d146c1414460066483d9561b" title="Servo::readMicroseconds" alt="" coords="143,473,313,500"/>
+<area shape="rect" id="node3" href="$classServo.html#a48607d47aa5678780b1b927102bd3b1b" title="Servo::attached" alt="" coords="366,448,481,475"/>
+<area shape="rect" id="node30" href="$classServo.html#a4ef410c60e27d88d160a41ff074017bd" title="Servo::ticksToUs" alt="" coords="361,499,485,525"/>
+<area shape="rect" id="node4" href="$classESP32PWM.html#a0008609d2fdd5bb2f4423e385a6b8ee4" title="ESP32PWM::attached" alt="" coords="533,448,688,475"/>
+<area shape="rect" id="node5" href="$classESP32PWM.html#aab3c6376b3aa784e79847f358783ad7b" title="ESP32PWM::adjustFrequency" alt="" coords="967,245,1167,272"/>
+<area shape="rect" id="node10" href="$classESP32PWM.html#a0db5515c15b59be9f717f3098255e140" title="ESP32PWM::writeScaled" alt="" coords="1491,245,1663,272"/>
+<area shape="rect" id="node21" href="$classESP32PWM.html#a07842d4b42e4806aafd2b7fbdf6fc70d" title="ESP32PWM::timerAndIndexTo\lChannel" alt="" coords="2625,390,2828,431"/>
+<area shape="rect" id="node23" href="$classESP32PWM.html#ab507681ffeb13399b0bcf5bc1f437632" title="ESP32PWM::write" alt="" coords="1739,524,1871,551"/>
+<area shape="rect" id="node24" href="$classESP32PWM.html#a7bf28e3de2b8078f0d9444a61b45ff65" title="ESP32PWM::getDutyScaled" alt="" coords="1219,195,1410,221"/>
+<area shape="rect" id="node25" href="$classESP32PWM.html#ac223237cb836276a390cd7d92f3f8c18" title="ESP32PWM::allocateTimer" alt="" coords="736,397,919,424"/>
+<area shape="rect" id="node26" href="$classESP32PWM.html#ae6f0dd8edfc7bf16f4c480cdb682d554" title="ESP32PWM::read" alt="" coords="1002,701,1131,728"/>
+<area shape="rect" id="node27" href="$classESP32PWM.html#adf53d1c2756d03fdf388df7a6d7b7fd9" title="ESP32PWM::readFreq" alt="" coords="750,499,905,525"/>
+<area shape="rect" id="node28" href="$classESP32PWM.html#a6ffe6640eef540c55cc70ad50a56f233" title="ESP32PWM::writeNote" alt="" coords="747,448,907,475"/>
+<area shape="rect" id="node29" href="$classESP32PWM.html#ae2eecc9d656ebcd938057a6ceec352d4" title="ESP32PWM::writeTone" alt="" coords="986,448,1147,475"/>
+<area shape="rect" id="node6" href="$classESP32PWM.html#a306e803815b3dcc330d41ab62b429b17" title="ESP32PWM::adjustFrequency\lLocal" alt="" coords="1215,347,1415,389"/>
+<area shape="rect" id="node9" href="$classESP32PWM.html#ac756839276b3d623d20b10fba0247ff6" title="ESP32PWM::getTimer" alt="" coords="2413,280,2567,307"/>
+<area shape="rect" id="node7" href="$classESP32PWM.html#a88290f890f4b8ec93ba4e18cee1cae16" title="ESP32PWM::_ledcSetupTimerFreq" alt="" coords="1463,347,1691,373"/>
+<area shape="rect" id="node8" href="$classESP32PWM.html#a39411917c82dd1567ccf4b6aece0d3d9" title="ESP32PWM::getChannel" alt="" coords="2405,549,2575,576"/>
+<area shape="rect" id="node11" href="$classESP32PWM.html#ac1842122846948c7ca2e88e59dfb2fb6" title="ESP32PWM::mapf" alt="" coords="1739,220,1872,247"/>
+<area shape="rect" id="node12" href="$classESP32PWM.html#aa520a386ced1991b7bec44160ce7ad0c" title="ESP32PWM::attachPin" alt="" coords="2175,448,2334,475"/>
+<area shape="rect" id="node15" href="$classESP32PWM.html#a95986a33fe242cd58e874321bec4b4a1" title="ESP32PWM::deallocate" alt="" coords="2173,169,2336,196"/>
+<area shape="rect" id="node16" href="$classESP32PWM.html#acb41cd553c993b23f4ae3439857ae9af" title="ESP32PWM::detachPin" alt="" coords="1932,144,2095,171"/>
+<area shape="rect" id="node17" href="$classESP32PWM.html#a002a992602731a52f5634859ffbed9a9" title="ESP32PWM::ESP32PWM" alt="" coords="1924,245,2103,272"/>
+<area shape="rect" id="node18" href="$classESP32PWM.html#a2be6068904d3bec84211221148b21310" title="ESP32PWM::setup" alt="" coords="1945,448,2081,475"/>
+<area shape="rect" id="node22" href="$classESP32PWM.html#a97b957ff9e6caa61aba7a500289d5ba7" title="ESP32PWM::~ESP32PWM" alt="" coords="1920,93,2107,120"/>
+<area shape="rect" id="node13" href="$classESP32PWM.html#a3ac6251947efb7ef0a2bc699ec0aaa4e" title="ESP32PWM::attach" alt="" coords="2420,448,2560,475"/>
+<area shape="rect" id="node14" href="$classESP32PWM.html#afdbce473c78465a637dcc592a07aa431" title="ESP32PWM::hasPwm" alt="" coords="2413,499,2567,525"/>
+<area shape="rect" id="node19" href="$classESP32PWM.html#a71ef8b9ae15745d27c854f2b5c3295d0" title="ESP32PWM::checkFrequency\lForSideEffects" alt="" coords="2155,382,2355,423"/>
+<area shape="rect" id="node20" href="$classESP32PWM.html#a27df49d84e82e67f2a84776c2e0ec079" title="ESP32PWM::allocatenext" alt="" coords="2403,397,2577,424"/>
+</map>

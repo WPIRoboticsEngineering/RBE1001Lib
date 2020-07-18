@@ -1,10 +1,15 @@
 var searchData=
 [
-  ['dataupdate',['dataUpdate',['../classWebPage.html#ac4bfea845b682a652a2149f090ace93b',1,'WebPage']]],
-  ['datavalues',['DataValues',['../structDataValues.html',1,'DataValues'],['../WebPage_8h.html#a8abc93670bd0e6b0920d47d5119a6cf8',1,'DataValues():&#160;WebPage.h']]],
-  ['directionflag',['directionFlag',['../classMotor.html#a2fb7cd4e9b93a6114eaf85e5aa23c70d',1,'Motor']]],
-  ['drivebase',['DriveBase',['../classDriveBase.html',1,'DriveBase'],['../classDriveBase.html#a541916b46f96bf6df2f2141a62f9c0fa',1,'DriveBase::DriveBase()']]],
-  ['drivebase_2ecpp',['DriveBase.cpp',['../DriveBase_8cpp.html',1,'']]],
-  ['drivebase_2eh',['DriveBase.h',['../DriveBase_8h.html',1,'']]],
-  ['duration',['duration',['../classMotor.html#a08a0479708534c9c9207b242e9d09b88',1,'Motor']]]
+  ['channel',['channel',['../classESP32AnalogRead.html#aee4e594bcff4ccea058307f7b29bc297',1,'ESP32AnalogRead']]],
+  ['channelsremaining',['channelsRemaining',['../classESP32PWM.html#aca266aeccd1dd2c6e6b6cf8277bcb4d3',1,'ESP32PWM']]],
+  ['channelused',['ChannelUsed',['../classESP32PWM.html#ac909eea10ba05ac8c405efa05ccbfc1e',1,'ESP32PWM']]],
+  ['characteristics',['characteristics',['../classESP32AnalogRead.html#a3f2fabc1fb333be7d6aef72507c82347',1,'ESP32AnalogRead']]],
+  ['checkfrequencyforsideeffects',['checkFrequencyForSideEffects',['../classESP32PWM.html#a71ef8b9ae15745d27c854f2b5c3295d0',1,'ESP32PWM']]],
+  ['clearcount',['clearCount',['../classESP32Encoder.html#af8397b2a6a040b66e0fdfeed67f35272',1,'ESP32Encoder']]],
+  ['connected',['Connected',['../WifiManager_8h.html#a2cb8df04852a8d762834daac6c32965bad253364cc2926eb617b0833335fe4467',1,'WifiManager.h']]],
+  ['connectionattempts',['connectionAttempts',['../classWifiManager.html#afa2b5c148c2c74d243767a0bbd730ccc',1,'WifiManager']]],
+  ['connectionstate',['connectionState',['../WifiManager_8h.html#a2cb8df04852a8d762834daac6c32965b',1,'WifiManager.h']]],
+  ['connecttowifi',['connectToWiFi',['../classWifiManager.html#a946ac93e07eaf2e5da6a5e482bc054ee',1,'WifiManager']]],
+  ['count',['count',['../classESP32Encoder.html#ad804a6cd2cc23624c0d1f60f76b7e431',1,'ESP32Encoder']]],
+  ['countsmode',['countsMode',['../classESP32Encoder.html#a194a0f1395dfb7a1f5dd80049a653818',1,'ESP32Encoder']]]
 ];

@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['webpage',['WebPage',['../classWebPage.html',1,'WebPage'],['../classWebPage.html#a66c10e43bed6f73e58704e6ded8593e6',1,'WebPage::WebPage()']]],
-  ['webpage_2ecpp',['WebPage.cpp',['../WebPage_8cpp.html',1,'']]],
-  ['webpage_2eh',['WebPage.h',['../WebPage_8h.html',1,'']]],
-  ['ws',['ws',['../classWebPage.html#ab4e759b8e31825d624acaafc3e51ff55',1,'WebPage']]]
+  ['_7eesp32analogread',['~ESP32AnalogRead',['../classESP32AnalogRead.html#ae5754cac656445005c037d0481bc6a20',1,'ESP32AnalogRead']]],
+  ['_7eesp32encoder',['~ESP32Encoder',['../classESP32Encoder.html#a14c518e14bef5e425c51b4536f17edb2',1,'ESP32Encoder']]],
+  ['_7eesp32pwm',['~ESP32PWM',['../classESP32PWM.html#a97b957ff9e6caa61aba7a500289d5ba7',1,'ESP32PWM']]],
+  ['_7ewifimanager',['~WifiManager',['../classWifiManager.html#a3d7355942045cfd5d4a91c632bd6cc07',1,'WifiManager']]]
 ];

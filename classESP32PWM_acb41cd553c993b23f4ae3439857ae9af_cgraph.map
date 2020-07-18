@@ -1,0 +1,4 @@
+<map id="ESP32PWM::detachPin" name="ESP32PWM::detachPin">
+<area shape="rect" id="node2" href="$classESP32PWM.html#a95986a33fe242cd58e874321bec4b4a1" title="ESP32PWM::deallocate" alt="" coords="216,5,379,32"/>
+<area shape="rect" id="node3" href="$classESP32PWM.html#ac756839276b3d623d20b10fba0247ff6" title="ESP32PWM::getTimer" alt="" coords="427,5,581,32"/>
+</map>

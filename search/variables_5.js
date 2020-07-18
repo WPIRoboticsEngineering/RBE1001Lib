@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['head',['head',['../classWebPage.html#af7bb7fe5c9b428c1d785935da72486f9',1,'WebPage']]],
-  ['html',['html',['../classWebPage.html#ace16974378cfc9c72cb6c66d6892c439',1,'WebPage']]]
+  ['freq',['freq',['../PWMExample_8ino.html#ae0d22272b68e75d19ac0b80c01f806b6',1,'PWMExample.ino']]],
+  ['fullquad',['fullQuad',['../classESP32Encoder.html#a51a32ec267da8e6e7b5baa7b0f8bcb29',1,'ESP32Encoder']]]
 ];

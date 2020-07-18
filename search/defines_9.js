@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ticks_5fto_5fdegrees',['TICKS_TO_DEGREES',['../Motor_8h.html#ab103739432adc80a35dd7ad44c71e150',1,'Motor.h']]]
+  ['v_5fref',['V_REF',['../ESP32AnalogRead_8h.html#a78bd16b40e563713bb92b7a7d0f10b98',1,'ESP32AnalogRead.h']]]
 ];

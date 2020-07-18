@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['linetracksensor',['LineTrackSensor',['../classLineTrackSensor.html',1,'']]]
+  ['servo',['Servo',['../classServo.html',1,'']]]
 ];

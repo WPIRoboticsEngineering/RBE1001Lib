@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['motor',['Motor',['../classMotor.html',1,'']]]
+  ['wifimanager',['WifiManager',['../classWifiManager.html',1,'']]]
 ];

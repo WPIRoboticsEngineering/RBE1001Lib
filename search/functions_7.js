@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['linetracksensor',['LineTrackSensor',['../classLineTrackSensor.html#a66b57a0fe17363e0d65e549d4931429f',1,'LineTrackSensor']]],
-  ['loop',['loop',['../classMotor.html#a2db9c1833fe2b9e5b1b1e4b9e5d4c4ee',1,'Motor::loop()'],['../FullSystemTest_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;FullSystemTest.ino'],['../LineTrackerTest_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;LineTrackerTest.ino'],['../MotorTest_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;MotorTest.ino'],['../MotorVelocityTest_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;MotorVelocityTest.ino'],['../RangeFinderTest_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;RangeFinderTest.ino'],['../blink_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;blink.ino'],['../button_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;button.ino'],['../motor__position_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;motor_position.ino'],['../motor__speed_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;motor_speed.ino']]]
+  ['isapmode',['isApMode',['../classWifiManager.html#addc658c4c35042f12adcfee5579bdac8',1,'WifiManager']]],
+  ['isattached',['isAttached',['../classESP32Encoder.html#ad3c7e969eecb7f885604aa95928c3cba',1,'ESP32Encoder']]]
 ];

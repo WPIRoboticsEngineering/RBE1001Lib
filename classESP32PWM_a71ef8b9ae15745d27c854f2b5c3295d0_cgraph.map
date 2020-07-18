@@ -1,0 +1,5 @@
+<map id="ESP32PWM::checkFrequencyForSideEffects" name="ESP32PWM::checkFrequencyForSideEffects">
+<area shape="rect" id="node2" href="$classESP32PWM.html#a27df49d84e82e67f2a84776c2e0ec079" title="ESP32PWM::allocatenext" alt="" coords="253,5,428,32"/>
+<area shape="rect" id="node3" href="$classESP32PWM.html#a07842d4b42e4806aafd2b7fbdf6fc70d" title="ESP32PWM::timerAndIndexTo\lChannel" alt="" coords="476,23,679,65"/>
+<area shape="rect" id="node4" href="$classESP32PWM.html#ac756839276b3d623d20b10fba0247ff6" title="ESP32PWM::getTimer" alt="" coords="263,107,418,133"/>
+</map>
