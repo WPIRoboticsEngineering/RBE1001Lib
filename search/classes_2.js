@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['wifimanager',['WifiManager',['../classWifiManager.html',1,'']]]
+  ['linetracksensor',['LineTrackSensor',['../classLineTrackSensor.html',1,'']]]
 ];

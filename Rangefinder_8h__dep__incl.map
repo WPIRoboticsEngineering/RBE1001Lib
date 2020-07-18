@@ -1,11 +1,11 @@
 <map id="src/Rangefinder.h" name="src/Rangefinder.h">
-<area shape="rect" id="node2" href="$FullSystemTest_8ino.html" title="examples/FullSystemTest\l/FullSystemTest.ino" alt="" coords="5,155,180,196"/>
-<area shape="rect" id="node3" href="$LineTrackerTest_8ino.html" title="examples/LineTrackerTest\l/LineTrackerTest.ino" alt="" coords="205,155,381,196"/>
-<area shape="rect" id="node4" href="$RangeFinderTest_8ino.html" title="examples/RangeFinderTest\l/RangeFinderTest.ino" alt="" coords="405,155,588,196"/>
-<area shape="rect" id="node5" href="$Rangefinder_8cpp.html" title="src/Rangefinder.cpp" alt="" coords="635,80,774,107"/>
-<area shape="rect" id="node6" href="$RBE1001Lib_8h.html" title="src/RBE1001Lib.h" alt="" coords="483,80,611,107"/>
-<area shape="rect" id="node7" href="$MotorTest_8ino.html" title="examples/MotorTest\l/MotorTest.ino" alt="" coords="1222,155,1363,196"/>
-<area shape="rect" id="node8" href="$MotorVelocityTest_8ino.html" title="examples/MotorVelocityTest\l/MotorVelocityTest.ino" alt="" coords="612,155,800,196"/>
-<area shape="rect" id="node9" href="$motor__position_8ino.html" title="examples/week01/motor\l_position/motor_position.ino" alt="" coords="825,155,1009,196"/>
-<area shape="rect" id="node10" href="$motor__speed_8ino.html" title="examples/week01/motor\l_speed/motor_speed.ino" alt="" coords="1033,155,1197,196"/>
+<area shape="rect" id="node2" href="$Rangefinder_8cpp.html" title="src/Rangefinder.cpp" alt="" coords="171,80,310,107"/>
+<area shape="rect" id="node3" href="$RBE1001Lib_8h.html" title="src/RBE1001Lib.h" alt="" coords="541,80,669,107"/>
+<area shape="rect" id="node4" href="$FullSystemTest_8ino.html" title="examples/FullSystemTest\l/FullSystemTest.ino" alt="" coords="5,155,180,196"/>
+<area shape="rect" id="node5" href="$LineTrackerTest_8ino.html" title="examples/LineTrackerTest\l/LineTrackerTest.ino" alt="" coords="205,155,381,196"/>
+<area shape="rect" id="node8" href="$RangeFinderTest_8ino.html" title="examples/RangeFinderTest\l/RangeFinderTest.ino" alt="" coords="1181,155,1364,196"/>
+<area shape="rect" id="node6" href="$MotorTest_8ino.html" title="examples/MotorTest\l/MotorTest.ino" alt="" coords="1015,155,1157,196"/>
+<area shape="rect" id="node7" href="$MotorVelocityTest_8ino.html" title="examples/MotorVelocityTest\l/MotorVelocityTest.ino" alt="" coords="405,155,593,196"/>
+<area shape="rect" id="node9" href="$motor__position_8ino.html" title="examples/week01/motor\l_position/motor_position.ino" alt="" coords="618,155,802,196"/>
+<area shape="rect" id="node10" href="$motor__speed_8ino.html" title="examples/week01/motor\l_speed/motor_speed.ino" alt="" coords="827,155,991,196"/>
 </map>

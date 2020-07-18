@@ -1,2 +1,4 @@
 <map id="Motor" name="Motor">
+<area shape="rect" id="node2" href="$classESP32PWM.html" title="ESP32PWM" alt="" coords="5,5,101,32"/>
+<area shape="rect" id="node3" href="$classESP32Encoder.html" title="ESP32Encoder" alt="" coords="234,5,345,32"/>
 </map>

@@ -1,3 +1,12 @@
 <map id="SimpleWebServer::handleClient" name="SimpleWebServer::handleClient">
-<area shape="rect" id="node2" href="$SimpleWebServer_8cpp.html#a62d2d61025124223ffdbddb8e63cc53b" title="server" alt="" coords="260,5,319,32"/>
+<area shape="rect" id="node2" href="$classWifiManager.html#aaac549f9b270f56c57615cb04a85079e" title="WifiManager::loop" alt="" coords="260,157,387,184"/>
+<area shape="rect" id="node11" href="$SimpleWebServer_8cpp.html#a62d2d61025124223ffdbddb8e63cc53b" title="server" alt="" coords="294,208,353,235"/>
+<area shape="rect" id="node3" href="$classWifiManager.html#ab3fc171499ba03812dfb63ffeb9dd316" title="WifiManager::runSerialLoop" alt="" coords="439,5,621,32"/>
+<area shape="rect" id="node5" href="$classWifiManager.html#a2b0fc1360c90922972c2caee5531afbb" title="WifiManager::disconnect" alt="" coords="673,56,840,83"/>
+<area shape="rect" id="node6" href="$classWifiManager.html#a6ba59aca9a892953c20837da9479941a" title="WifiManager::printState" alt="" coords="888,81,1047,108"/>
+<area shape="rect" id="node7" href="$classWifiManager.html#af642437fb5940794f2eb9fe0c2311c18" title="WifiManager::updateApList" alt="" coords="441,157,619,184"/>
+<area shape="rect" id="node8" href="$classWifiManager.html#aa8427e775bcbd68b779afcb4a2018698" title="WifiManager::rescan" alt="" coords="459,208,601,235"/>
+<area shape="rect" id="node9" href="$classWifiManager.html#a946ac93e07eaf2e5da6a5e482bc054ee" title="WifiManager::connectToWiFi" alt="" coords="435,259,625,285"/>
+<area shape="rect" id="node10" href="$classWifiManager.html#a7cf530ef10fd1ffcac59fe5e4f58ad57" title="WifiManager::startAP" alt="" coords="457,309,603,336"/>
+<area shape="rect" id="node4" href="$classWifiManager.html#a6f2df7095f4e01872024ac914273722c" title="WifiManager::erase" alt="" coords="689,5,824,32"/>
 </map>

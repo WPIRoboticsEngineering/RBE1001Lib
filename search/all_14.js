@@ -1,16 +1,13 @@
 var searchData=
 [
-  ['whattodoafterscanning',['whatToDoAfterScanning',['../classWifiManager.html#ac83fe0d77a71d041c3e6839e783e4698',1,'WifiManager']]],
-  ['wifievent',['WiFiEvent',['../classWifiManager.html#a42a9633eaed14840cdd6653afd3086b3',1,'WifiManager']]],
-  ['wifieventwifimanager',['WiFiEventWifiManager',['../WifiManager_8cpp.html#a78d9184275d069bcc924ce89e8939f4a',1,'WifiManager.cpp']]],
-  ['wifimanager',['WifiManager',['../classWifiManager.html',1,'WifiManager'],['../classWifiManager.html#afb184895acf7061b8c4b00c25238ca45',1,'WifiManager::WifiManager()']]],
-  ['wifimanager_2ecpp',['WifiManager.cpp',['../WifiManager_8cpp.html',1,'']]],
-  ['wifimanager_2eh',['WifiManager.h',['../WifiManager_8h.html',1,'']]],
-  ['wifimanagerexample_2eino',['WifiManagerExample.ino',['../WifiManagerExample_8ino.html',1,'']]],
-  ['working',['working',['../classESP32Encoder.html#a4621194b1d533bbae874f0f1e39449cd',1,'ESP32Encoder']]],
-  ['write',['write',['../classESP32PWM.html#ab507681ffeb13399b0bcf5bc1f437632',1,'ESP32PWM::write()'],['../classServo.html#a72b4b546912eada96a6ef705168ceb8a',1,'Servo::write()']]],
-  ['writemicroseconds',['writeMicroseconds',['../classServo.html#ac7fe3d6d2ea285ead98814bcfc417029',1,'Servo']]],
-  ['writenote',['writeNote',['../classESP32PWM.html#a6ffe6640eef540c55cc70ad50a56f233',1,'ESP32PWM']]],
-  ['writescaled',['writeScaled',['../classESP32PWM.html#a0db5515c15b59be9f717f3098255e140',1,'ESP32PWM']]],
-  ['writetone',['writeTone',['../classESP32PWM.html#ae2eecc9d656ebcd938057a6ceec352d4',1,'ESP32PWM']]]
+  ['unit',['unit',['../classESP32Encoder.html#adb5f600bd31f630d29ed9768081f0c30',1,'ESP32Encoder']]],
+  ['unitduration',['unitDuration',['../classMotor.html#a9fa84829737b962fc95f0d42b01b77ed',1,'Motor']]],
+  ['up',['UP',['../ESP32Encoder_8h.html#adca399663765c125d26e6f2896b5b349aba595d8bca8bc5e67c37c0a9d89becfa',1,'ESP32Encoder.h']]],
+  ['update',['update',['../WebPage_8cpp.html#aa8637a1aae95dd486fb201d7ad124364',1,'WebPage.cpp']]],
+  ['updateaplist',['updateApList',['../classWifiManager.html#af642437fb5940794f2eb9fe0c2311c18',1,'WifiManager']]],
+  ['updown',['upDown',['../FullSystemTest_8ino.html#ac2ecd451e060790744d9a5a252855e82',1,'upDown():&#160;FullSystemTest.ino'],['../MotorTest_8ino.html#ac2ecd451e060790744d9a5a252855e82',1,'upDown():&#160;MotorTest.ino'],['../MotorVelocityTest_8ino.html#ac2ecd451e060790744d9a5a252855e82',1,'upDown():&#160;MotorVelocityTest.ino']]],
+  ['usable_5fesp32_5fpwm',['USABLE_ESP32_PWM',['../ESP32PWM_8h.html#abfb817e4209392435fecd08f5c0c1cc5',1,'ESP32PWM.h']]],
+  ['useinternalweakpullresistors',['useInternalWeakPullResistors',['../classESP32Encoder.html#a53dc40c9de240e90a55b427b32da451f',1,'ESP32Encoder']]],
+  ['user_5fisr_5fhandle',['user_isr_handle',['../classESP32Encoder.html#a000927dbb8afb15522fdb28c9e1acd79',1,'ESP32Encoder']]],
+  ['ustoticks',['usToTicks',['../classServo.html#ae4e54d3027d8574936b59301b290df25',1,'Servo']]]
 ];

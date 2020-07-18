@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['pwm_5fbase_5findex',['PWM_BASE_INDEX',['../ESP32PWM_8h.html#a5dd6108cc275a92e30ff3fb9b28bf9d3',1,'ESP32PWM.h']]],
-  ['pwmrange',['PWMRANGE',['../analogWrite_8h.html#a40a968c71b75c243398e1fa55577165d',1,'analogWrite.h']]]
+  ['i2c_5fscl',['I2C_SCL',['../RBE1001Lib_8h.html#a212ca328a6409c98f8c3dfbbe1ba561d',1,'RBE1001Lib.h']]],
+  ['i2c_5fsda',['I2C_SDA',['../RBE1001Lib_8h.html#a18aefd12ad84d4c33dc97923cb821e47',1,'RBE1001Lib.h']]],
+  ['i_5fterm_5fsize',['I_TERM_SIZE',['../Motor_8h.html#aa694617e85bf550d72d3e2cd295e69cd',1,'Motor.h']]]
 ];

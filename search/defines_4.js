@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['num_5fpwm',['NUM_PWM',['../ESP32PWM_8h.html#a6f04e4616ed807982151bfc71eacd600',1,'ESP32PWM.h']]]
+  ['gear_5fbox_5fratio',['GEAR_BOX_RATIO',['../Motor_8h.html#a9e12eb96540c1b7b2c597de485952f5a',1,'Motor.h']]]
 ];

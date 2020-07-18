@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['ws',['ws',['../classWebPage.html#ab4e759b8e31825d624acaafc3e51ff55',1,'WebPage']]]
+  ['val',['val',['../Knob_8ino.html#aa0ccb5ee6d882ee3605ff47745c6467b',1,'Knob.ino']]],
+  ['value',['value',['../structDataValues.html#aad94ededc97793fee2aeb415bc11ddbe',1,'DataValues']]]
 ];

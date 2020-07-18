@@ -1,0 +1,9 @@
+<map id="Motor::attach" name="Motor::attach">
+<area shape="rect" id="node2" href="$classESP32Encoder.html#a56b92fd3632482a70eeb659fe11e79b8" title="ESP32Encoder::attachFullQuad" alt="" coords="152,19,359,45"/>
+<area shape="rect" id="node5" href="$classESP32PWM.html#aa520a386ced1991b7bec44160ce7ad0c" title="ESP32PWM::attachPin" alt="" coords="176,81,335,108"/>
+<area shape="rect" id="node3" href="$classESP32Encoder.html#a02e94893cd5eb05a2b7217336d555c0f" title="ESP32Encoder::attach" alt="" coords="415,5,569,32"/>
+<area shape="rect" id="node4" href="$ESP32Encoder_8cpp.html#a50f68452625a60574fc06aa2128f0b94" title="pcnt_example_intr_handler" alt="" coords="625,5,803,32"/>
+<area shape="rect" id="node6" href="$classESP32PWM.html#a3ac6251947efb7ef0a2bc699ec0aaa4e" title="ESP32PWM::attach" alt="" coords="422,56,562,83"/>
+<area shape="rect" id="node7" href="$classESP32PWM.html#a39411917c82dd1567ccf4b6aece0d3d9" title="ESP32PWM::getChannel" alt="" coords="407,107,577,133"/>
+<area shape="rect" id="node8" href="$classESP32PWM.html#afdbce473c78465a637dcc592a07aa431" title="ESP32PWM::hasPwm" alt="" coords="415,157,569,184"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="Motor::~Motor" name="Motor::~Motor">
+<area shape="rect" id="node2" href="$classESP32PWM.html#acb41cd553c993b23f4ae3439857ae9af" title="ESP32PWM::detachPin" alt="" coords="171,5,333,32"/>
+<area shape="rect" id="node5" href="$classESP32Encoder.html#a0f61ada0e9bcc8c404643950f1062afb" title="ESP32Encoder::pauseCount" alt="" coords="157,56,347,83"/>
+<area shape="rect" id="node3" href="$classESP32PWM.html#a95986a33fe242cd58e874321bec4b4a1" title="ESP32PWM::deallocate" alt="" coords="395,5,557,32"/>
+<area shape="rect" id="node4" href="$classESP32PWM.html#ac756839276b3d623d20b10fba0247ff6" title="ESP32PWM::getTimer" alt="" coords="605,5,760,32"/>
+</map>

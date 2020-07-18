@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['_7eesp32analogread',['~ESP32AnalogRead',['../classESP32AnalogRead.html#ae5754cac656445005c037d0481bc6a20',1,'ESP32AnalogRead']]],
-  ['_7eesp32encoder',['~ESP32Encoder',['../classESP32Encoder.html#a14c518e14bef5e425c51b4536f17edb2',1,'ESP32Encoder']]],
-  ['_7eesp32pwm',['~ESP32PWM',['../classESP32PWM.html#a97b957ff9e6caa61aba7a500289d5ba7',1,'ESP32PWM']]],
-  ['_7ewifimanager',['~WifiManager',['../classWifiManager.html#a3d7355942045cfd5d4a91c632bd6cc07',1,'WifiManager']]]
+  ['v_5fref',['V_REF',['../ESP32AnalogRead_8h.html#a78bd16b40e563713bb92b7a7d0f10b98',1,'ESP32AnalogRead.h']]],
+  ['val',['val',['../Knob_8ino.html#aa0ccb5ee6d882ee3605ff47745c6467b',1,'Knob.ino']]],
+  ['value',['value',['../structDataValues.html#aad94ededc97793fee2aeb415bc11ddbe',1,'DataValues']]],
+  ['velocity_5fmode',['VELOCITY_MODE',['../Motor_8h.html#a5f2bed26bc3981591ee546627fdbbef4a53c6ff5c2a348365c6d73e987a375f4c',1,'Motor.h']]]
 ];

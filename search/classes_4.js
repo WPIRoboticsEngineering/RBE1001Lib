@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['simplewebserver',['SimpleWebServer',['../classSimpleWebServer.html',1,'']]]
+  ['rangefinder',['Rangefinder',['../classRangefinder.html',1,'']]]
 ];

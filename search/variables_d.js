@@ -1,13 +1,13 @@
 var searchData=
 [
-  ['ticks',['ticks',['../classServo.html#a63c3d219b32ae9910c41ad9346e9ae8e',1,'Servo']]],
-  ['timeoflastconnect',['timeOfLastConnect',['../classWifiManager.html#a5da30fe0eefad4cba2d39dd8a9852b5b',1,'WifiManager']]],
-  ['timeoflastdisconnect',['timeOfLastDisconnect',['../classWifiManager.html#af05d6040edefb31ffa957265613200e4',1,'WifiManager']]],
-  ['timer_5fwidth',['timer_width',['../classServo.html#a8901b6f01ee2f3b946a8730431198835',1,'Servo']]],
-  ['timer_5fwidth_5fticks',['timer_width_ticks',['../classServo.html#aa68ae7b20692b1d48ca30e5a86392751',1,'Servo']]],
-  ['timercount',['timerCount',['../classESP32PWM.html#a21b8a9c0ff46141f2960f916d32ff8d7',1,'ESP32PWM']]],
-  ['timerfreqset',['timerFreqSet',['../classESP32PWM.html#aa41405ec19fd5a956ed8b952b8c95c4f',1,'ESP32PWM']]],
-  ['timernum',['timerNum',['../classESP32PWM.html#aa0ce5a8afda5cb6e1575ddf9da522b59',1,'ESP32PWM']]],
-  ['timesinceapprint',['timeSinceAPPrint',['../classWifiManager.html#af80663a08bd6640cc0a78820a25310e7',1,'WifiManager']]],
-  ['timesinceapstart',['timeSinceAPStart',['../classWifiManager.html#af5d866645022c584285674c63eb63c23',1,'WifiManager']]]
+  ['pin',['pin',['../classESP32PWM.html#af87252d85a8b2257380f6587f4acd46e',1,'ESP32PWM::pin()'],['../ToneExample_8ino.html#aeabac9491522ec7f68102bfeab33d5c1',1,'pin():&#160;ToneExample.ino']]],
+  ['pingindex',['pingIndex',['../classRangefinder.html#a0aa0a904072e2429de65930d8b85c321',1,'Rangefinder']]],
+  ['pinnumber',['pinNumber',['../classServo.html#abdf85c5c5629f2f7ff5ea0486cf296e9',1,'Servo']]],
+  ['pos',['pos',['../Multiple-Servo-Example-Arduino_8ino.html#a1910d262855b71da353ed0d07a6c7823',1,'pos():&#160;Multiple-Servo-Example-Arduino.ino'],['../Sweep_8ino.html#a1910d262855b71da353ed0d07a6c7823',1,'pos():&#160;Sweep.ino']]],
+  ['potpin',['potPin',['../Knob_8ino.html#a03a5093d3b18a90d2e000cdd972f180d',1,'Knob.ino']]],
+  ['preferences',['preferences',['../classWifiManager.html#af5c742e58311c9c1e2a15255bfce1252',1,'WifiManager']]],
+  ['prevouscount',['prevousCount',['../classMotor.html#aae18a0691052647c16bb4266fa5ab9a1',1,'Motor']]],
+  ['pwm',['pwm',['../classMotor.html#a47375223649b0893c6120efb3d152855',1,'Motor::pwm()'],['../classServo.html#ab0cadb8894920833adcbc41e133769e5',1,'Servo::pwm()'],['../Multiple-Servo-Example-Arduino_8ino.html#a18212db6612256d3c8c9b9b1e548c065',1,'pwm():&#160;Multiple-Servo-Example-Arduino.ino'],['../PWMExample_8ino.html#a18212db6612256d3c8c9b9b1e548c065',1,'pwm():&#160;PWMExample.ino']]],
+  ['pwmchannel',['pwmChannel',['../classESP32PWM.html#ae67724be92fb446880d074553a75043b',1,'ESP32PWM']]],
+  ['pwmcount',['PWMCount',['../classESP32PWM.html#a1e98064d5eb3fd8e2885175702834bcb',1,'ESP32PWM']]]
 ];

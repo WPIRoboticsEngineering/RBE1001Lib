@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['loop',['loop',['../classWifiManager.html#aaac549f9b270f56c57615cb04a85079e',1,'WifiManager::loop()'],['../ESP32AnalogReadTest_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;ESP32AnalogReadTest.ino'],['../Encoder_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;Encoder.ino'],['../APModeExample_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;APModeExample.ino'],['../WifiManagerExample_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;WifiManagerExample.ino'],['../analogWriteExample_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;analogWriteExample.ino'],['../Knob_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;Knob.ino'],['../Multiple-Servo-Example-Arduino_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;Multiple-Servo-Example-Arduino.ino'],['../PWMExample_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;PWMExample.ino'],['../Sweep_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;Sweep.ino'],['../ToneExample_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;ToneExample.ino']]]
+  ['initialize',['initialize',['../classSimpleWebServer.html#a28d5aa017e5f76d0a5830d574e3f6c67',1,'SimpleWebServer']]],
+  ['isapmode',['isApMode',['../classWifiManager.html#addc658c4c35042f12adcfee5579bdac8',1,'WifiManager']]],
+  ['isattached',['isAttached',['../classESP32Encoder.html#ad3c7e969eecb7f885604aa95928c3cba',1,'ESP32Encoder']]]
 ];

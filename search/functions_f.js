@@ -1,5 +1,31 @@
 var searchData=
 [
-  ['updateaplist',['updateApList',['../classWifiManager.html#af642437fb5940794f2eb9fe0c2311c18',1,'WifiManager']]],
-  ['ustoticks',['usToTicks',['../classServo.html#ae4e54d3027d8574936b59301b290df25',1,'Servo']]]
+  ['sendhtml',['sendHTML',['../classWebPage.html#a40ceb3debbc2383645860943dfff9390',1,'WebPage']]],
+  ['sendhtmlresponse',['sendHTMLResponse',['../classSimpleWebServer.html#a32baf564be7764b2baca6e166184411c',1,'SimpleWebServer']]],
+  ['sendresponse',['sendResponse',['../classSimpleWebServer.html#a408534450431426e848bdb6357add8ef',1,'SimpleWebServer']]],
+  ['sensorisr',['sensorISR',['../classRangefinder.html#a4f24792c5c8c6fc8544275d1e74e087c',1,'Rangefinder']]],
+  ['sensorisr0',['sensorISR0',['../Rangefinder_8cpp.html#a696a4434840a83be9bfb1cf223107f90',1,'Rangefinder.cpp']]],
+  ['sensorisr1',['sensorISR1',['../Rangefinder_8cpp.html#a80b2204f2e3fd05a17e03a8559d6c506',1,'Rangefinder.cpp']]],
+  ['sensorisr2',['sensorISR2',['../Rangefinder_8cpp.html#a58396042a647a769cd365fb49f2c7d52',1,'Rangefinder.cpp']]],
+  ['sensorisr3',['sensorISR3',['../Rangefinder_8cpp.html#a9c06b563cce41963c23fe73645597c8d',1,'Rangefinder.cpp']]],
+  ['server',['server',['../SimpleWebServer_8cpp.html#a62d2d61025124223ffdbddb8e63cc53b',1,'SimpleWebServer.cpp']]],
+  ['servo',['Servo',['../classServo.html#a70b2b17657cf258cdcb57503bcf62cd2',1,'Servo']]],
+  ['setcount',['setCount',['../classESP32Encoder.html#ace023e5b010634512ffef0e8ec23ae3e',1,'ESP32Encoder']]],
+  ['seteffort',['SetEffort',['../classMotor.html#afb94caf1b7d006ed81738c4c1163f3be',1,'Motor']]],
+  ['seteffortlocal',['SetEffortLocal',['../classMotor.html#aab0bd62a71bf95d2ccf80fd309bf5bb3',1,'Motor']]],
+  ['seteffortpercent',['SetEffortPercent',['../classMotor.html#aeed18f99ed9cf7f45f139ef2e3aa92ef',1,'Motor']]],
+  ['setgains',['setGains',['../classMotor.html#a693fec0cfe3f2951157467464c1a97b6',1,'Motor']]],
+  ['setperiodhertz',['setPeriodHertz',['../classServo.html#aecebda2e2ee0e43824edec5e7708b566',1,'Servo']]],
+  ['setsetpoint',['SetSetpoint',['../classMotor.html#afa9d4dec3ee9ea88f3319c6007bff0a5',1,'Motor']]],
+  ['setsetpointwithlinearinterpolation',['SetSetpointWithLinearInterpolation',['../classMotor.html#abbc7730ee1a2313f2a30e01a6b98e493',1,'Motor']]],
+  ['setsetpointwithsinusoidalinterpolation',['SetSetpointWithSinusoidalInterpolation',['../classMotor.html#a527718d64d468b9a8d94d928a20c3c7b',1,'Motor']]],
+  ['setsetpointwithtime',['SetSetpointWithTime',['../classMotor.html#a8037ce5f12ee18be5600dc2ee08be578',1,'Motor']]],
+  ['setspeed',['SetSpeed',['../classMotor.html#a87fc81889162384469b1832a37d5b956',1,'Motor::SetSpeed(float newDegreesPerSecond)'],['../classMotor.html#ab7ea80265daf2785fe3a8b8f01d60096',1,'Motor::SetSpeed(float newDegreesPerSecond, long miliseconds)']]],
+  ['settimerwidth',['setTimerWidth',['../classServo.html#a05b6ee56e659eeb60dcfcc7d677d31db',1,'Servo']]],
+  ['setup',['setup',['../classWifiManager.html#ac1c00fd2d738b500e5cc77884c31256e',1,'WifiManager::setup()'],['../classESP32PWM.html#a2be6068904d3bec84211221148b21310',1,'ESP32PWM::setup()'],['../FullSystemTest_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;FullSystemTest.ino'],['../LineTrackerTest_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;LineTrackerTest.ino'],['../MotorTest_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;MotorTest.ino'],['../MotorVelocityTest_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;MotorVelocityTest.ino'],['../RangeFinderTest_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;RangeFinderTest.ino'],['../blink_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;blink.ino'],['../button_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;button.ino'],['../motor__position_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;motor_position.ino'],['../motor__speed_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;motor_speed.ino'],['../ESP32AnalogReadTest_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;ESP32AnalogReadTest.ino'],['../Encoder_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;Encoder.ino'],['../APModeExample_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;APModeExample.ino'],['../WifiManagerExample_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;WifiManagerExample.ino'],['../analogWriteExample_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;analogWriteExample.ino'],['../Knob_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;Knob.ino'],['../Multiple-Servo-Example-Arduino_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;Multiple-Servo-Example-Arduino.ino'],['../PWMExample_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;PWMExample.ino'],['../Sweep_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;Sweep.ino'],['../ToneExample_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;ToneExample.ino']]],
+  ['setupap',['setupAP',['../classWifiManager.html#a49500557085820f032112b25e2aaec83',1,'WifiManager']]],
+  ['setupscan',['setupScan',['../classWifiManager.html#a99804905edecaa634733fcd1b5098c92',1,'WifiManager']]],
+  ['setvalue',['setValue',['../classWebPage.html#ab9333723de02a0c31f3a8044a945aa8c',1,'WebPage']]],
+  ['simplewebserver',['SimpleWebServer',['../classSimpleWebServer.html#a418736f186a36fa671b8266a7737630e',1,'SimpleWebServer']]],
+  ['startap',['startAP',['../classWifiManager.html#a7cf530ef10fd1ffcac59fe5e4f58ad57',1,'WifiManager']]]
 ];

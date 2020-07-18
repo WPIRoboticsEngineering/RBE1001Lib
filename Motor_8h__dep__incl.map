@@ -1,7 +1,7 @@
 <map id="src/Motor.h" name="src/Motor.h">
-<area shape="rect" id="node2" href="$FullSystemTest_8ino.html" title="examples/FullSystemTest\l/FullSystemTest.ino" alt="" coords="5,155,180,196"/>
-<area shape="rect" id="node3" href="$Motor_8cpp.html" title="src/Motor.cpp" alt="" coords="340,80,443,107"/>
-<area shape="rect" id="node4" href="$RBE1001Lib_8h.html" title="src/RBE1001Lib.h" alt="" coords="506,80,634,107"/>
+<area shape="rect" id="node2" href="$Motor_8cpp.html" title="src/Motor.cpp" alt="" coords="92,80,195,107"/>
+<area shape="rect" id="node3" href="$RBE1001Lib_8h.html" title="src/RBE1001Lib.h" alt="" coords="506,80,634,107"/>
+<area shape="rect" id="node4" href="$FullSystemTest_8ino.html" title="examples/FullSystemTest\l/FullSystemTest.ino" alt="" coords="5,155,180,196"/>
 <area shape="rect" id="node5" href="$LineTrackerTest_8ino.html" title="examples/LineTrackerTest\l/LineTrackerTest.ino" alt="" coords="205,155,381,196"/>
 <area shape="rect" id="node6" href="$MotorTest_8ino.html" title="examples/MotorTest\l/MotorTest.ino" alt="" coords="405,155,546,196"/>
 <area shape="rect" id="node7" href="$MotorVelocityTest_8ino.html" title="examples/MotorVelocityTest\l/MotorVelocityTest.ino" alt="" coords="571,155,759,196"/>

@@ -1,14 +1,24 @@
 <map id="/home/hephaestus/git/ESP32Servo/src/ESP32PWM.h" name="/home/hephaestus/git/ESP32Servo/src/ESP32PWM.h">
-<area shape="rect" id="node2" href="$analogWrite_8cpp.html" title="/home/hephaestus/git\l/ESP32Servo/src/analogWrite.cpp" alt="" coords="223,95,444,136"/>
-<area shape="rect" id="node3" href="$ESP32PWM_8cpp.html" title="/home/hephaestus/git\l/ESP32Servo/src/ESP32PWM.cpp" alt="" coords="468,95,695,136"/>
-<area shape="rect" id="node4" href="$ESP32Servo_8h.html" title="/home/hephaestus/git\l/ESP32Servo/src/ESP32Servo.h" alt="" coords="625,184,839,225"/>
-<area shape="rect" id="node12" href="$ESP32Tone_8h.html" title="/home/hephaestus/git\l/ESP32Servo/src/ESP32Tone.h" alt="" coords="769,95,977,136"/>
-<area shape="rect" id="node5" href="$analogWriteExample_8ino.html" title="/home/hephaestus/git\l/ESP32Servo/examples\l/analogWriteExample/analogWrite\lExample.ino" alt="" coords="5,281,224,351"/>
-<area shape="rect" id="node6" href="$Knob_8ino.html" title="/home/hephaestus/git\l/ESP32Servo/examples\l/Knob/Knob.ino" alt="" coords="249,288,410,344"/>
-<area shape="rect" id="node7" href="$Multiple-Servo-Example-Arduino_8ino.html" title="/home/hephaestus/git\l/ESP32Servo/examples\l/Multiple&#45;Servo&#45;Example\l&#45;Arduino/Multiple&#45;Servo\l&#45;Example&#45;Arduino.ino" alt="" coords="434,273,598,359"/>
-<area shape="rect" id="node8" href="$PWMExample_8ino.html" title="/home/hephaestus/git\l/ESP32Servo/examples\l/PWMExample/PWMExample.ino" alt="" coords="623,288,841,344"/>
-<area shape="rect" id="node9" href="$Sweep_8ino.html" title="/home/hephaestus/git\l/ESP32Servo/examples\l/Sweep/Sweep.ino" alt="" coords="866,288,1027,344"/>
-<area shape="rect" id="node10" href="$ToneExample_8ino.html" title="/home/hephaestus/git\l/ESP32Servo/examples\l/ToneExample/ToneExample.ino" alt="" coords="1052,288,1263,344"/>
-<area shape="rect" id="node11" href="$ESP32Servo_8cpp.html" title="/home/hephaestus/git\l/ESP32Servo/src/ESP32Servo.cpp" alt="" coords="1287,295,1513,337"/>
-<area shape="rect" id="node13" href="$ESP32Tone_8cpp.html" title="/home/hephaestus/git\l/ESP32Servo/src/ESP32Tone.cpp" alt="" coords="863,184,1086,225"/>
+<area shape="rect" id="node2" href="$analogWrite_8cpp.html" title="/home/hephaestus/git\l/ESP32Servo/src/analogWrite.cpp" alt="" coords="295,95,517,136"/>
+<area shape="rect" id="node3" href="$ESP32PWM_8cpp.html" title="/home/hephaestus/git\l/ESP32Servo/src/ESP32PWM.cpp" alt="" coords="541,95,767,136"/>
+<area shape="rect" id="node4" href="$ESP32Servo_8h.html" title="/home/hephaestus/git\l/ESP32Servo/src/ESP32Servo.h" alt="" coords="698,184,911,225"/>
+<area shape="rect" id="node22" href="$ESP32Tone_8h.html" title="/home/hephaestus/git\l/ESP32Servo/src/ESP32Tone.h" alt="" coords="842,95,1050,136"/>
+<area shape="rect" id="node5" href="$Motor_8h.html" title="src/Motor.h" alt="" coords="182,303,270,329"/>
+<area shape="rect" id="node8" href="$FullSystemTest_8ino.html" title="examples/FullSystemTest\l/FullSystemTest.ino" alt="" coords="5,481,180,523"/>
+<area shape="rect" id="node15" href="$analogWriteExample_8ino.html" title="/home/hephaestus/git\l/ESP32Servo/examples\l/analogWriteExample/analogWrite\lExample.ino" alt="" coords="294,281,513,351"/>
+<area shape="rect" id="node16" href="$Knob_8ino.html" title="/home/hephaestus/git\l/ESP32Servo/examples\l/Knob/Knob.ino" alt="" coords="537,288,699,344"/>
+<area shape="rect" id="node17" href="$Multiple-Servo-Example-Arduino_8ino.html" title="/home/hephaestus/git\l/ESP32Servo/examples\l/Multiple&#45;Servo&#45;Example\l&#45;Arduino/Multiple&#45;Servo\l&#45;Example&#45;Arduino.ino" alt="" coords="723,273,887,359"/>
+<area shape="rect" id="node18" href="$PWMExample_8ino.html" title="/home/hephaestus/git\l/ESP32Servo/examples\l/PWMExample/PWMExample.ino" alt="" coords="911,288,1130,344"/>
+<area shape="rect" id="node19" href="$Sweep_8ino.html" title="/home/hephaestus/git\l/ESP32Servo/examples\l/Sweep/Sweep.ino" alt="" coords="1155,288,1316,344"/>
+<area shape="rect" id="node20" href="$ToneExample_8ino.html" title="/home/hephaestus/git\l/ESP32Servo/examples\l/ToneExample/ToneExample.ino" alt="" coords="1341,288,1551,344"/>
+<area shape="rect" id="node21" href="$ESP32Servo_8cpp.html" title="/home/hephaestus/git\l/ESP32Servo/src/ESP32Servo.cpp" alt="" coords="1575,295,1802,337"/>
+<area shape="rect" id="node6" href="$Motor_8cpp.html" title="src/Motor.cpp" alt="" coords="131,407,233,433"/>
+<area shape="rect" id="node7" href="$RBE1001Lib_8h.html" title="src/RBE1001Lib.h" alt="" coords="506,407,634,433"/>
+<area shape="rect" id="node9" href="$LineTrackerTest_8ino.html" title="examples/LineTrackerTest\l/LineTrackerTest.ino" alt="" coords="205,481,381,523"/>
+<area shape="rect" id="node10" href="$MotorTest_8ino.html" title="examples/MotorTest\l/MotorTest.ino" alt="" coords="405,481,546,523"/>
+<area shape="rect" id="node11" href="$MotorVelocityTest_8ino.html" title="examples/MotorVelocityTest\l/MotorVelocityTest.ino" alt="" coords="571,481,759,523"/>
+<area shape="rect" id="node12" href="$RangeFinderTest_8ino.html" title="examples/RangeFinderTest\l/RangeFinderTest.ino" alt="" coords="783,481,965,523"/>
+<area shape="rect" id="node13" href="$motor__position_8ino.html" title="examples/week01/motor\l_position/motor_position.ino" alt="" coords="990,481,1174,523"/>
+<area shape="rect" id="node14" href="$motor__speed_8ino.html" title="examples/week01/motor\l_speed/motor_speed.ino" alt="" coords="1199,481,1363,523"/>
+<area shape="rect" id="node23" href="$ESP32Tone_8cpp.html" title="/home/hephaestus/git\l/ESP32Servo/src/ESP32Tone.cpp" alt="" coords="936,184,1159,225"/>
 </map>

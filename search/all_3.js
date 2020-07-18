@@ -1,15 +1,22 @@
 var searchData=
 [
+  ['cachedspeed',['cachedSpeed',['../classMotor.html#adf42fb535d9fdf0a03217af703ac5958',1,'Motor']]],
   ['channel',['channel',['../classESP32AnalogRead.html#aee4e594bcff4ccea058307f7b29bc297',1,'ESP32AnalogRead']]],
   ['channelsremaining',['channelsRemaining',['../classESP32PWM.html#aca266aeccd1dd2c6e6b6cf8277bcb4d3',1,'ESP32PWM']]],
   ['channelused',['ChannelUsed',['../classESP32PWM.html#ac909eea10ba05ac8c405efa05ccbfc1e',1,'ESP32PWM']]],
   ['characteristics',['characteristics',['../classESP32AnalogRead.html#a3f2fabc1fb333be7d6aef72507c82347',1,'ESP32AnalogRead']]],
   ['checkfrequencyforsideeffects',['checkFrequencyForSideEffects',['../classESP32PWM.html#a71ef8b9ae15745d27c854f2b5c3295d0',1,'ESP32PWM']]],
+  ['checktimeout',['checkTimeout',['../classRangefinder.html#ad53fdab48917ac45680f52da63553930',1,'Rangefinder']]],
   ['clearcount',['clearCount',['../classESP32Encoder.html#af8397b2a6a040b66e0fdfeed67f35272',1,'ESP32Encoder']]],
+  ['closedloopcontrol',['closedLoopControl',['../classMotor.html#a59bdae3c603878762f5cb27f84339211',1,'Motor']]],
+  ['complexhandlertask',['complexHandlerTask',['../Motor_8cpp.html#a2174ea6bb7aac3311e086b0af3d73e14',1,'Motor.cpp']]],
+  ['complexhandlertaskus',['complexHandlerTaskUS',['../Rangefinder_8cpp.html#a6a1136c2701d060866d56f90db0450c1',1,'Rangefinder.cpp']]],
   ['connected',['Connected',['../WifiManager_8h.html#a2cb8df04852a8d762834daac6c32965bad253364cc2926eb617b0833335fe4467',1,'WifiManager.h']]],
   ['connectionattempts',['connectionAttempts',['../classWifiManager.html#afa2b5c148c2c74d243767a0bbd730ccc',1,'WifiManager']]],
   ['connectionstate',['connectionState',['../WifiManager_8h.html#a2cb8df04852a8d762834daac6c32965b',1,'WifiManager.h']]],
   ['connecttowifi',['connectToWiFi',['../classWifiManager.html#a946ac93e07eaf2e5da6a5e482bc054ee',1,'WifiManager']]],
+  ['contents',['contents',['../classWebPage.html#acd79be50e83f58cd77857cb54026702b',1,'WebPage']]],
   ['count',['count',['../classESP32Encoder.html#ad804a6cd2cc23624c0d1f60f76b7e431',1,'ESP32Encoder']]],
-  ['countsmode',['countsMode',['../classESP32Encoder.html#a194a0f1395dfb7a1f5dd80049a653818',1,'ESP32Encoder']]]
+  ['countsmode',['countsMode',['../classESP32Encoder.html#a194a0f1395dfb7a1f5dd80049a653818',1,'ESP32Encoder']]],
+  ['currenteffort',['currentEffort',['../classMotor.html#ac3399700c0f85a10e66f17c35e1a8aa4',1,'Motor']]]
 ];
