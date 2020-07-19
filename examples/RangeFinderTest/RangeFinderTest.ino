@@ -13,6 +13,7 @@ void setup() {
   Serial.println("Allocating Rangefinder resources");
   // Allocate timer 3 for the rangefinder
   Serial.println("Starting...");
+  // pin definitions https://wpiroboticsengineering.github.io/RBE1001Lib/RBE1001Lib_8h.html#define-members
   rangefinder1.attach(SIDE_ULTRASONIC_TRIG, SIDE_ULTRASONIC_ECHO);
 }
 

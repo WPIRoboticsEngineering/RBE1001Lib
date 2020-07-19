@@ -1,4 +1,5 @@
-const int buttonPin = 0;     // the number of the pushbutton pin
+  // pin definitions https://wpiroboticsengineering.github.io/RBE1001Lib/RBE1001Lib_8h.html#define-members
+const int buttonPin = BOOT_FLAG_PIN;     // the number of the pushbutton pin
 const int ledPin =  13;      // the number of the LED pin
 
 void setup() 
