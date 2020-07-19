@@ -12,6 +12,7 @@ void setup() {
   // This will initialize the Serial as 115200 for prints
   Serial.begin(115200);
   Motor::allocateTimer(0);
+  // pin definitions https://wpiroboticsengineering.github.io/RBE1001Lib/RBE1001Lib_8h.html#define-members
   motor1.attach(MOTOR1_PWM, MOTOR1_DIR, MOTOR1_ENCA, MOTOR1_ENCB);
   motor2.attach(MOTOR2_PWM, MOTOR2_DIR, MOTOR2_ENCA, MOTOR2_ENCB);
 }
