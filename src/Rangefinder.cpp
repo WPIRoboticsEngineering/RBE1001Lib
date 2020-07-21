@@ -1,6 +1,7 @@
-#include "Arduino.h"
+
 #include "Rangefinder.h"
 #include "Timer.h"
+
 static TaskHandle_t complexHandlerTaskUS;
 
 hw_timer_t *Rangefinder::timer = NULL;
@@ -98,7 +99,7 @@ void Rangefinder::attach(int trigger, int echo) {
 	if (Rangefinder::timoutThreadStarted==false) {
 		Serial.println("Spawing rangefinder timeout thread");
 		Rangefinder::timoutThreadStarted=true;
-		xTaskCreatePinnedToCore(onTimer, "PID loop Thread", 8192, NULL,
+		xTaskCreatePinnedToCore(onTimer, "Rangefinder Thread", 8192, NULL,
 				2,// low priority timout thread
 						&complexHandlerTaskUS,0);
 	}

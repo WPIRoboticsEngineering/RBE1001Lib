@@ -1,5 +1,8 @@
 #pragma once
-
+#include "Arduino.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "freertos/semphr.h"
 #define MAX_POSSIBLE_INTERRUPT_RANGEFINDER 4
 
 class Rangefinder {
