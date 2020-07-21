@@ -78,7 +78,9 @@ public:
 	 * @return the distance in centimeters
 	 */
 	float getDistanceCM();
-
+	/**
+	 * \brief check the current state of timeout ang fire if its time to do so
+	 */
 	static void checkTimeout();
 	/**
 	 * \brief fire a strobe of the trig pin
