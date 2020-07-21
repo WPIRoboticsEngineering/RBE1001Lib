@@ -4,11 +4,14 @@
 #include "Rangefinder.h"
 #include <ESP32Servo.h>
 #include <ESP32AnalogRead.h>
-
+// https://wpiroboticsengineering.github.io/RBE1001Lib/classMotor.html
 Motor motor1;
 Motor motor2;
+// https://wpiroboticsengineering.github.io/RBE1001Lib/classRangefinder.html
 Rangefinder rangefinder1;
+// https://wpiroboticsengineering.github.io/RBE1001Lib/classServo.html
 Servo lifter;
+// https://wpiroboticsengineering.github.io/RBE1001Lib/classESP32AnalogRead.html
 ESP32AnalogRead leftLineSensor;
 ESP32AnalogRead rightLineSensor;
 ESP32AnalogRead servoPositionFeedback;
@@ -42,24 +45,24 @@ void loop() {
 	upDown=!upDown;
 	int loopTime = 4000;// 4 second loop
 	int servoRange =180;
+
 	motor2.SetSetpointWithSinusoidalInterpolation(upDown?360:0, loopTime);
 	motor1.SetSetpointWithLinearInterpolation(upDown?360:0, loopTime);
 
 	for(int i=0;i<servoRange;i++){
 		delay(loopTime/servoRange);
 		Serial.println("\n");
-		delay(1);
-		Serial.println("Range 1 "+String(rangefinder1.getDistanceCM())+" T-O: "+String(Rangefinder::getTimeoutState()));delay(1);
-		Serial.println("Speed 1 "+String(motor1.getDegreesPerSecond())+
-					" Speed 2 "+String(motor2.getDegreesPerSecond()));delay(1);
-		Serial.println("Count 1 "+String(motor1.getCurrentDegrees())+
-						" Count 2 "+String(motor2.getCurrentDegrees()));delay(1);
-		Serial.println("Line Sense left "+String(leftLineSensor.readVoltage()));delay(1);
+		Serial.print("Range 1 "+String(rangefinder1.getDistanceCM()));
+//		Serial.print("Speed 1 "+String(motor1.getDegreesPerSecond())+
+//					" Speed 2 "+String(motor2.getDegreesPerSecond()));
+		Serial.print("\tCount 1 "+String(motor1.getCurrentDegrees())+
+						"\t Count 2 "+String(motor2.getCurrentDegrees()));
+		Serial.print("\t Line left "+String(leftLineSensor.readVoltage()));
 
-		Serial.println(	"Line Sense right "+String(rightLineSensor.readVoltage()));delay(1);
-		Serial.println("Servo Read Position "+String(servoPositionFeedback.readVoltage()));delay(1);
-		Serial.println("Servo write Position "+String(i));delay(1);
-		lifter.write(i);delay(1);
+		Serial.print(	"\t Line right "+String(rightLineSensor.readVoltage()));
+		Serial.print("\t Servo Read "+String(servoPositionFeedback.readVoltage()));
+		Serial.print("\t Servo write "+String(i));
+		lifter.write(i);
 	}
 
 
