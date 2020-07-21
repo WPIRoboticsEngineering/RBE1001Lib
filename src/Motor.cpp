@@ -283,7 +283,8 @@ void Motor::attach(int MotorPWMPin, int MotorDirectionPin, int EncoderA,
 }
 
 /*
- * effort of the motor
+ *  \brief effort of the motor, proportional to PWM
+ *
  * @param a value from -1 to 1 representing effort
  *        0 is brake
  *        1 is full speed clockwise
