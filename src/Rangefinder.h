@@ -19,6 +19,13 @@
 class Rangefinder {
 public:
 	Rangefinder();
+	/**
+	 *  \brief Attach 2 pins to be used as triger and echo
+	 *
+	 *  The trigger pin needs to be an output, and the echo pin needs to have CHANGE interrupts.
+	 *
+	 *  Interrupts are managed through Arduio attachInterrupt()
+	 */
 	void attach(int trigger, int echo);
 	static hw_timer_t *timer;
 
@@ -42,7 +49,9 @@ public:
 	static void checkTimeout();
 	static void fire();
 	void sensorISR();
-
+	/**
+	 * \brief Function used by the timeout check thread to determine if this object has timed out
+	 */
 	static int getTimeoutState();
 
 };
