@@ -253,6 +253,18 @@ public:
 	/**
 	 * SetSpeed in degrees with time
 	 * Set the setpoint for the motor in degrees
+	 * This implements "Red Queen" mode running interpolation in the PID controller.
+
+	 "Now, here, you see, it takes all the running you can do, to keep in the same place.
+
+	 If you want to get somewhere else, you must run at least twice as fast as that!"
+
+	 — The Red Queen, Alice In Wonderland, Lewis Carroll
+
+	 * The way this velocity mode works is that the position target is moved forward every iteration of the PID
+	 * loop. The position runs away continuously, in order to keep the velocity stable.
+	 * A position increment is calculated, and added to the Position every 1ms of the loop()
+	 *
 	 * @param newDegreesPerSecond the new speed in degrees per second
 	 */
 	void SetSpeed(float newDegreesPerSecond);
