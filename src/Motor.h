@@ -174,12 +174,13 @@ public:
 	virtual ~Motor();
 
 	/**
-	 * Attach the motors hardware
+	 * \breif Attach the motors hardware
+	 *
 	 * @param MotorPWMPin the pin that produce PWM at 20kHz (Max is 250khz per DRV8838 datasheet)
 	 * @param MotorDirectionPin motor direction setting pin
 	 * @param the A channel of the encoder
 	 * @param the B channel of the encoder
-	 * @note this must only be called after timers are allocated via Motor::allocateTimers()
+	 * @note this must only be called after timers are allocated via Motor::allocateTimers(int PWMgenerationTimer)
 	 *
 	 */
 	void attach(int MotorPWMPin, int MotorDirectionPin, int EncoderA,
