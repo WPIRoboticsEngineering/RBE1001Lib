@@ -145,7 +145,7 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="FullSystemTest_8ino_afe461d27b9c48d5921c00d521181f12f_cgraph.png" border="0" usemap="#FullSystemTest_8ino_afe461d27b9c48d5921c00d521181f12f_cgraph" alt=""/></div>
 <map name="FullSystemTest_8ino_afe461d27b9c48d5921c00d521181f12f_cgraph" id="FullSystemTest_8ino_afe461d27b9c48d5921c00d521181f12f_cgraph">
 <area shape="rect" id="node2" href="classMotor.html#a7a84e0d2676d7420219b6e7f67e69038" title="Motor::getCurrentDegrees" alt="" coords="123,5,296,32"/>
-<area shape="rect" id="node3" href="classRangefinder.html#a531ed492da6a4c369a909e77b9c8780d" title="Rangefinder::getDistanceCM" alt="" coords="114,56,305,83"/>
+<area shape="rect" id="node3" href="classRangefinder.html#a531ed492da6a4c369a909e77b9c8780d" title="get the distance of an object from the sensor in centimeters " alt="" coords="114,56,305,83"/>
 <area shape="rect" id="node4" href="classESP32AnalogRead.html#a7e1eeb11bbe426f91769375c58619b46" title="ESP32AnalogRead::readVoltage" alt="" coords="104,107,315,133"/>
 <area shape="rect" id="node6" href="classMotor.html#abbc7730ee1a2313f2a30e01a6b98e493" title="Motor::SetSetpointWithLinear\lInterpolation" alt="" coords="113,158,306,199"/>
 <area shape="rect" id="node8" href="classMotor.html#a527718d64d468b9a8d94d928a20c3c7b" title="Motor::SetSetpointWithSinusoidal\lInterpolation" alt="" coords="100,223,319,265"/>
@@ -204,25 +204,25 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="FullSystemTest_8ino_source.html#l00023">23</a> of file <a class="el" href="FullSystemTest_8ino_source.html">FullSystemTest.ino</a>.</p>
 
-<p class="reference">References <a class="el" href="ESP32PWM_8cpp_source.html#l00025">ESP32PWM::allocateTimer()</a>, <a class="el" href="Motor_8cpp_source.html#l00065">Motor::allocateTimer()</a>, <a class="el" href="Rangefinder_8cpp_source.html#l00094">Rangefinder::attach()</a>, <a class="el" href="ESP32AnalogRead_8cpp_source.html#l00016">ESP32AnalogRead::attach()</a>, <a class="el" href="ESP32Servo_8cpp_source.html#l00073">Servo::attach()</a>, <a class="el" href="Motor_8cpp_source.html#l00260">Motor::attach()</a>, <a class="el" href="RBE1001Lib_8h_source.html#l00022">LEFT_LINE_SENSE</a>, <a class="el" href="RBE1001Lib_8h_source.html#l00042">MOTOR1_DIR</a>, <a class="el" href="RBE1001Lib_8h_source.html#l00054">MOTOR1_ENCA</a>, <a class="el" href="RBE1001Lib_8h_source.html#l00056">MOTOR1_ENCB</a>, <a class="el" href="RBE1001Lib_8h_source.html#l00037">MOTOR1_PWM</a>, <a class="el" href="RBE1001Lib_8h_source.html#l00051">MOTOR2_DIR</a>, <a class="el" href="RBE1001Lib_8h_source.html#l00059">MOTOR2_ENCA</a>, <a class="el" href="RBE1001Lib_8h_source.html#l00060">MOTOR2_ENCB</a>, <a class="el" href="RBE1001Lib_8h_source.html#l00046">MOTOR2_PWM</a>, <a class="el" href="RBE1001Lib_8h_source.html#l00024">RIGHT_LINE_SENSE</a>, <a class="el" href="RBE1001Lib_8h_source.html#l00026">SERVO_FEEDBACK_SENSOR</a>, <a class="el" href="RBE1001Lib_8h_source.html#l00030">SERVO_PIN</a>, <a class="el" href="RBE1001Lib_8h_source.html#l00019">SIDE_ULTRASONIC_ECHO</a>, and <a class="el" href="RBE1001Lib_8h_source.html#l00018">SIDE_ULTRASONIC_TRIG</a>.</p>
+<p class="reference">References <a class="el" href="ESP32PWM_8cpp_source.html#l00025">ESP32PWM::allocateTimer()</a>, <a class="el" href="Motor_8cpp_source.html#l00065">Motor::allocateTimer()</a>, <a class="el" href="ESP32AnalogRead_8cpp_source.html#l00016">ESP32AnalogRead::attach()</a>, <a class="el" href="Rangefinder_8cpp_source.html#l00094">Rangefinder::attach()</a>, <a class="el" href="ESP32Servo_8cpp_source.html#l00073">Servo::attach()</a>, <a class="el" href="Motor_8cpp_source.html#l00260">Motor::attach()</a>, <a class="el" href="RBE1001Lib_8h_source.html#l00022">LEFT_LINE_SENSE</a>, <a class="el" href="RBE1001Lib_8h_source.html#l00042">MOTOR1_DIR</a>, <a class="el" href="RBE1001Lib_8h_source.html#l00054">MOTOR1_ENCA</a>, <a class="el" href="RBE1001Lib_8h_source.html#l00056">MOTOR1_ENCB</a>, <a class="el" href="RBE1001Lib_8h_source.html#l00037">MOTOR1_PWM</a>, <a class="el" href="RBE1001Lib_8h_source.html#l00051">MOTOR2_DIR</a>, <a class="el" href="RBE1001Lib_8h_source.html#l00059">MOTOR2_ENCA</a>, <a class="el" href="RBE1001Lib_8h_source.html#l00060">MOTOR2_ENCB</a>, <a class="el" href="RBE1001Lib_8h_source.html#l00046">MOTOR2_PWM</a>, <a class="el" href="RBE1001Lib_8h_source.html#l00024">RIGHT_LINE_SENSE</a>, <a class="el" href="RBE1001Lib_8h_source.html#l00026">SERVO_FEEDBACK_SENSOR</a>, <a class="el" href="RBE1001Lib_8h_source.html#l00030">SERVO_PIN</a>, <a class="el" href="RBE1001Lib_8h_source.html#l00019">SIDE_ULTRASONIC_ECHO</a>, and <a class="el" href="RBE1001Lib_8h_source.html#l00018">SIDE_ULTRASONIC_TRIG</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="FullSystemTest_8ino_a4fc01d736fe50cf5b977f755b675f11d_cgraph.png" border="0" usemap="#FullSystemTest_8ino_a4fc01d736fe50cf5b977f755b675f11d_cgraph" alt=""/></div>
 <map name="FullSystemTest_8ino_a4fc01d736fe50cf5b977f755b675f11d_cgraph" id="FullSystemTest_8ino_a4fc01d736fe50cf5b977f755b675f11d_cgraph">
 <area shape="rect" id="node2" href="classESP32PWM.html#ac223237cb836276a390cd7d92f3f8c18" title="ESP32PWM::allocateTimer" alt="" coords="1946,5,2129,32"/>
-<area shape="rect" id="node3" href="classMotor.html#aa5dbe98f9cbaebd430bf1b7841d4bbc0" title="Motor::allocateTimer" alt="" coords="127,343,268,369"/>
-<area shape="rect" id="node35" href="classRangefinder.html#a9ab1220f3759ed409830c9227bd92c27" title="Rangefinder::attach" alt="" coords="129,503,265,529"/>
-<area shape="rect" id="node45" href="classESP32AnalogRead.html#a98cbb01c69b2273c61cf9fc876367309" title="ESP32AnalogRead::attach" alt="" coords="108,553,287,580"/>
-<area shape="rect" id="node46" href="classServo.html#a4952910f0cc7d4ac952148229d4ae9d3" title="Servo::attach" alt="" coords="147,604,247,631"/>
+<area shape="rect" id="node3" href="classMotor.html#aa5dbe98f9cbaebd430bf1b7841d4bbc0" title="Motor::allocateTimer" alt="" coords="127,404,268,431"/>
+<area shape="rect" id="node35" href="classESP32AnalogRead.html#a98cbb01c69b2273c61cf9fc876367309" title="ESP32AnalogRead::attach" alt="" coords="108,513,287,540"/>
+<area shape="rect" id="node36" href="classRangefinder.html#a9ab1220f3759ed409830c9227bd92c27" title="Rangefinder::attach" alt="" coords="129,564,265,591"/>
+<area shape="rect" id="node46" href="classServo.html#a4952910f0cc7d4ac952148229d4ae9d3" title="Servo::attach" alt="" coords="147,615,247,641"/>
 <area shape="rect" id="node47" href="classMotor.html#aeb100c96e69d4acd5390c240890b8392" title="Attach the motors hardware. " alt="" coords="148,900,247,927"/>
-<area shape="rect" id="node4" href="Motor_8cpp.html#adb66b9c7a2544338725556bce116d5df" title="onMotorTimer" alt="" coords="387,343,489,369"/>
-<area shape="rect" id="node5" href="classMotor.html#a2db9c1833fe2b9e5b1b1e4b9e5d4c4ee" title="Motor::loop" alt="" coords="637,343,724,369"/>
-<area shape="rect" id="node6" href="classESP32Encoder.html#ab555afb955fbfb2446b525a64c1efbb1" title="ESP32Encoder::getCount" alt="" coords="832,284,1004,311"/>
-<area shape="rect" id="node8" href="classMotor.html#aee3b24180cc7221ab63e1c2c32363693" title="Motor::getInterpolationUnit\lIncrement" alt="" coords="830,335,1006,377"/>
-<area shape="rect" id="node9" href="classMotor.html#aab0bd62a71bf95d2ccf80fd309bf5bb3" title="Motor::SetEffortLocal" alt="" coords="845,401,991,428"/>
-<area shape="rect" id="node7" href="classESP32Encoder.html#aa408a8969aa799cf2e96413ee0a65080" title="ESP32Encoder::getCountRaw" alt="" coords="1064,284,1263,311"/>
-<area shape="rect" id="node10" href="classESP32PWM.html#a0db5515c15b59be9f717f3098255e140" title="ESP32PWM::writeScaled" alt="" coords="1077,545,1249,572"/>
+<area shape="rect" id="node4" href="Motor_8cpp.html#adb66b9c7a2544338725556bce116d5df" title="onMotorTimer" alt="" coords="387,404,489,431"/>
+<area shape="rect" id="node5" href="classMotor.html#a2db9c1833fe2b9e5b1b1e4b9e5d4c4ee" title="Motor::loop" alt="" coords="637,404,724,431"/>
+<area shape="rect" id="node6" href="classESP32Encoder.html#ab555afb955fbfb2446b525a64c1efbb1" title="ESP32Encoder::getCount" alt="" coords="832,345,1004,372"/>
+<area shape="rect" id="node8" href="classMotor.html#aee3b24180cc7221ab63e1c2c32363693" title="Motor::getInterpolationUnit\lIncrement" alt="" coords="830,397,1006,438"/>
+<area shape="rect" id="node9" href="classMotor.html#aab0bd62a71bf95d2ccf80fd309bf5bb3" title="Motor::SetEffortLocal" alt="" coords="845,463,991,489"/>
+<area shape="rect" id="node7" href="classESP32Encoder.html#aa408a8969aa799cf2e96413ee0a65080" title="ESP32Encoder::getCountRaw" alt="" coords="1064,345,1263,372"/>
+<area shape="rect" id="node10" href="classESP32PWM.html#a0db5515c15b59be9f717f3098255e140" title="ESP32PWM::writeScaled" alt="" coords="1077,529,1249,556"/>
 <area shape="rect" id="node11" href="classESP32PWM.html#ab507681ffeb13399b0bcf5bc1f437632" title="ESP32PWM::write" alt="" coords="2469,697,2601,724"/>
 <area shape="rect" id="node13" href="classESP32PWM.html#ac1842122846948c7ca2e88e59dfb2fb6" title="ESP32PWM::mapf" alt="" coords="1311,469,1444,496"/>
 <area shape="rect" id="node12" href="classESP32PWM.html#a39411917c82dd1567ccf4b6aece0d3d9" title="ESP32PWM::getChannel" alt="" coords="2713,748,2883,775"/>
@@ -238,24 +238,24 @@ Here is the call graph for this function:</div>
 <area shape="rect" id="node17" href="classESP32PWM.html#a07842d4b42e4806aafd2b7fbdf6fc70d" title="ESP32PWM::timerAndIndexTo\lChannel" alt="" coords="2433,230,2636,271"/>
 <area shape="rect" id="node18" href="classESP32PWM.html#ac756839276b3d623d20b10fba0247ff6" title="ESP32PWM::getTimer" alt="" coords="2721,296,2875,323"/>
 <area shape="rect" id="node20" href="classESP32PWM.html#ae2eecc9d656ebcd938057a6ceec352d4" title="ESP32PWM::writeTone" alt="" coords="2205,495,2366,521"/>
-<area shape="rect" id="node23" href="classESP32PWM.html#a7bf28e3de2b8078f0d9444a61b45ff65" title="ESP32PWM::getDutyScaled" alt="" coords="2439,371,2630,397"/>
+<area shape="rect" id="node23" href="classESP32PWM.html#a7bf28e3de2b8078f0d9444a61b45ff65" title="ESP32PWM::getDutyScaled" alt="" coords="2439,364,2630,391"/>
 <area shape="rect" id="node24" href="classESP32PWM.html#a6ffe6640eef540c55cc70ad50a56f233" title="ESP32PWM::writeNote" alt="" coords="1957,495,2117,521"/>
 <area shape="rect" id="node25" href="classESP32PWM.html#aab3c6376b3aa784e79847f358783ad7b" title="ESP32PWM::adjustFrequency" alt="" coords="2185,292,2385,319"/>
 <area shape="rect" id="node26" href="classESP32PWM.html#ae6f0dd8edfc7bf16f4c480cdb682d554" title="ESP32PWM::read" alt="" coords="2221,748,2350,775"/>
 <area shape="rect" id="node27" href="classESP32PWM.html#adf53d1c2756d03fdf388df7a6d7b7fd9" title="ESP32PWM::readFreq" alt="" coords="1960,444,2115,471"/>
-<area shape="rect" id="node21" href="classESP32PWM.html#a306e803815b3dcc330d41ab62b429b17" title="ESP32PWM::adjustFrequency\lLocal" alt="" coords="2435,555,2635,597"/>
-<area shape="rect" id="node22" href="classESP32PWM.html#a88290f890f4b8ec93ba4e18cee1cae16" title="ESP32PWM::_ledcSetupTimerFreq" alt="" coords="2684,563,2912,589"/>
+<area shape="rect" id="node21" href="classESP32PWM.html#a306e803815b3dcc330d41ab62b429b17" title="ESP32PWM::adjustFrequency\lLocal" alt="" coords="2435,538,2635,579"/>
+<area shape="rect" id="node22" href="classESP32PWM.html#a88290f890f4b8ec93ba4e18cee1cae16" title="ESP32PWM::_ledcSetupTimerFreq" alt="" coords="2684,545,2912,572"/>
 <area shape="rect" id="node29" href="classESP32PWM.html#afdbce473c78465a637dcc592a07aa431" title="ESP32PWM::hasPwm" alt="" coords="1960,951,2115,977"/>
 <area shape="rect" id="node30" href="classESP32PWM.html#a3ac6251947efb7ef0a2bc699ec0aaa4e" title="ESP32PWM::attach" alt="" coords="1967,900,2107,927"/>
-<area shape="rect" id="node36" href="Rangefinder_8cpp.html#a0b6abaae8371bfcca2ab8557bebe9332" title="onTimer" alt="" coords="403,427,473,453"/>
-<area shape="rect" id="node40" href="Rangefinder_8cpp.html#a696a4434840a83be9bfb1cf223107f90" title="sensorISR0" alt="" coords="393,579,483,605"/>
-<area shape="rect" id="node42" href="Rangefinder_8cpp.html#a80b2204f2e3fd05a17e03a8559d6c506" title="sensorISR1" alt="" coords="393,629,483,656"/>
-<area shape="rect" id="node43" href="Rangefinder_8cpp.html#a58396042a647a769cd365fb49f2c7d52" title="sensorISR2" alt="" coords="393,477,483,504"/>
-<area shape="rect" id="node44" href="Rangefinder_8cpp.html#a9c06b563cce41963c23fe73645597c8d" title="sensorISR3" alt="" coords="393,528,483,555"/>
-<area shape="rect" id="node37" href="classRangefinder.html#a21c76549df3c0a06292fa31b23e80ee7" title="Rangefinder::fire" alt="" coords="859,452,977,479"/>
-<area shape="rect" id="node38" href="classRangefinder.html#ad53fdab48917ac45680f52da63553930" title="Rangefinder::checkTimeout" alt="" coords="589,477,772,504"/>
-<area shape="rect" id="node39" href="classRangefinder.html#a6706efbe01d225a04771dee426da09f1" title="Rangefinder::getTimeoutState" alt="" coords="820,503,1016,529"/>
-<area shape="rect" id="node41" href="classRangefinder.html#a4f24792c5c8c6fc8544275d1e74e087c" title="Rangefinder::sensorISR" alt="" coords="599,553,762,580"/>
+<area shape="rect" id="node37" href="Rangefinder_8cpp.html#a0b6abaae8371bfcca2ab8557bebe9332" title="onTimer" alt="" coords="403,488,473,515"/>
+<area shape="rect" id="node41" href="Rangefinder_8cpp.html#a696a4434840a83be9bfb1cf223107f90" title="sensorISR0" alt="" coords="393,640,483,667"/>
+<area shape="rect" id="node43" href="Rangefinder_8cpp.html#a80b2204f2e3fd05a17e03a8559d6c506" title="sensorISR1" alt="" coords="393,691,483,717"/>
+<area shape="rect" id="node44" href="Rangefinder_8cpp.html#a58396042a647a769cd365fb49f2c7d52" title="sensorISR2" alt="" coords="393,539,483,565"/>
+<area shape="rect" id="node45" href="Rangefinder_8cpp.html#a9c06b563cce41963c23fe73645597c8d" title="sensorISR3" alt="" coords="393,589,483,616"/>
+<area shape="rect" id="node38" href="classRangefinder.html#a21c76549df3c0a06292fa31b23e80ee7" title="Rangefinder::fire" alt="" coords="859,513,977,540"/>
+<area shape="rect" id="node39" href="classRangefinder.html#ad53fdab48917ac45680f52da63553930" title="Rangefinder::checkTimeout" alt="" coords="589,539,772,565"/>
+<area shape="rect" id="node40" href="classRangefinder.html#a6706efbe01d225a04771dee426da09f1" title="Rangefinder::getTimeoutState" alt="" coords="820,564,1016,591"/>
+<area shape="rect" id="node42" href="classRangefinder.html#a4f24792c5c8c6fc8544275d1e74e087c" title="Rangefinder::sensorISR" alt="" coords="599,615,762,641"/>
 <area shape="rect" id="node48" href="classESP32Encoder.html#a56b92fd3632482a70eeb659fe11e79b8" title="ESP32Encoder::attachFullQuad" alt="" coords="335,951,541,977"/>
 <area shape="rect" id="node49" href="classESP32Encoder.html#a02e94893cd5eb05a2b7217336d555c0f" title="ESP32Encoder::attach" alt="" coords="603,951,758,977"/>
 <area shape="rect" id="node50" href="ESP32Encoder_8cpp.html#a50f68452625a60574fc06aa2128f0b94" title="pcnt_example_intr_handler" alt="" coords="829,951,1007,977"/>
