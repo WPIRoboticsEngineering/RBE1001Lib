@@ -8,7 +8,7 @@ var searchData=
   ['timeoflastconnect',['timeOfLastConnect',['../classWifiManager.html#a5da30fe0eefad4cba2d39dd8a9852b5b',1,'WifiManager']]],
   ['timeoflastdisconnect',['timeOfLastDisconnect',['../classWifiManager.html#af05d6040edefb31ffa957265613200e4',1,'WifiManager']]],
   ['timeouttime',['timeoutTime',['../WifiManager_8h.html#a3d9c74205f3867ea13e2d5a6e0610169',1,'WifiManager.h']]],
-  ['timer',['Timer',['../classTimer.html',1,'Timer'],['../classMotor.html#ad6797d3ceb18ceefb481d595766837fa',1,'Motor::timer()'],['../classRangefinder.html#a13b45c596fc0a29e2c87b075f5f11432',1,'Rangefinder::timer()'],['../classTimer.html#a5f16e8da27d2a5a5242dead46de05d97',1,'Timer::Timer()']]],
+  ['timer',['Timer',['../classTimer.html',1,'Timer'],['../classRangefinder.html#a13b45c596fc0a29e2c87b075f5f11432',1,'Rangefinder::timer()'],['../classTimer.html#a5f16e8da27d2a5a5242dead46de05d97',1,'Timer::Timer()']]],
   ['timer_2ecpp',['Timer.cpp',['../Timer_8cpp.html',1,'']]],
   ['timer_2eh',['Timer.h',['../Timer_8h.html',1,'']]],
   ['timer_5fwidth',['timer_width',['../classServo.html#a8901b6f01ee2f3b946a8730431198835',1,'Servo']]],
