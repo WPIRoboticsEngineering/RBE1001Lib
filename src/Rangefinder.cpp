@@ -4,7 +4,6 @@
 
 static TaskHandle_t complexHandlerTaskUS;
 
-hw_timer_t *Rangefinder::timer = NULL;
 Rangefinder * Rangefinder::list[MAX_POSSIBLE_INTERRUPT_RANGEFINDER] = { NULL, };
 int Rangefinder::numberOfFinders = 0;
 bool Rangefinder::timoutThreadStarted = false;

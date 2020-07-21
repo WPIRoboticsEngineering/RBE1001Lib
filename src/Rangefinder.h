@@ -15,6 +15,8 @@
  *  Many objects can be declared, and they are pinged one at a time in a round-robbin configuration to prevent echo and cross-talk.
  *
  *  When pins are attached, the thread is started. The thread checks for timeouts and re sets the round-robbin.
+ *
+ *  This library supports up to 4 range finders
  */
 class Rangefinder {
 public:
@@ -27,17 +29,48 @@ public:
 	 *  Interrupts are managed through Arduio attachInterrupt()
 	 */
 	void attach(int trigger, int echo);
-	static hw_timer_t *timer;
-
+	/**
+	 * running count of attached range finders
+	 */
 	static int numberOfFinders;
+	/**
+	 * flag to keep track of the state of the thread, started or not
+	 */
 	static bool timoutThreadStarted;
+	/**
+	 * which index in the round robbin to ping
+	 */
 	static int pingIndex;
+	/**
+	 * flag to force a fire from the timeout thread
+	 */
 	static bool forceFire;
+	/**
+	 * synchronization object to lock out access to volitile memory
+	 */
 	portMUX_TYPE synch = portMUX_INITIALIZER_UNLOCKED;
+	/**
+	 * GPIO pin number for the echo
+	 */
 	int echoPin;
+	/**
+	 * GPIO pin for the trigger
+	 */
 	int triggerPin;
+	/**
+	 * Time the pulse started
+	 */
 	volatile unsigned long startTime;
+	/**
+	 * the cached time of the latest sensor read.
+	 */
 	volatile unsigned long roundTripTime;
+	/**
+	 * \brief list of attached rangefinders
+	 *
+	 * when attach completes, a pointer to the object being attahced ia added to this list.
+	 * THis list is read from the timeout thread and Fire in order to run the round-robbin of all sensors.
+	 */
 	static Rangefinder * list[MAX_POSSIBLE_INTERRUPT_RANGEFINDER];
 	/**
 	 * \brief get the distance of an object from the sensor in centimeters
@@ -47,7 +80,17 @@ public:
 	float getDistanceCM();
 
 	static void checkTimeout();
+	/**
+	 * \brief fire a strobe of the trig pin
+	 *
+	 * this will initiate a chirp and wait for the echo to come back
+	 */
 	static void fire();
+	/**
+	 *  \brief The method called from the ISR indicating the echo pin changed state
+	 *
+	 *  This method is called by the static method for the associated interrupt.
+	 */
 	void sensorISR();
 	/**
 	 * \brief Function used by the timeout check thread to determine if this object has timed out
