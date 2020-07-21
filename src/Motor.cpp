@@ -25,9 +25,9 @@ float myFmapBounded(float x, float in_min, float in_max, float out_min,
  * getInterpolationUnitIncrement A unit vector from
  * 0 to 1 representing the state of the interpolation.
  */
-float Motor::getInterpolationUnitIncrement(){
+float Motor::getInterpolationUnitIncrement() {
 	float interpElapsed = (float) (millis() - startTime);
-	if(interpElapsed < duration && duration > 0){
+	if (interpElapsed < duration && duration > 0) {
 		// linear elapsed duration
 		unitDuration = interpElapsed / duration;
 		if (mode == SINUSOIDAL_INTERPOLATION) {
@@ -45,7 +45,7 @@ void onMotorTimer(void *param) {
 	const TickType_t xFrequency = 1;
 	xLastWakeTime = xTaskGetTickCount();
 	while (1) {
-		vTaskDelayUntil( &xLastWakeTime, xFrequency );
+		vTaskDelayUntil(&xLastWakeTime, xFrequency);
 		//
 		for (int i = 0; i < MAX_POSSIBLE_MOTORS; i++) {
 			if (Motor::list[i] != NULL) {
@@ -67,7 +67,7 @@ void Motor::allocateTimer(int PWMgenerationTimer) {
 	if (!Motor::timersAllocated) {
 		ESP32PWM::allocateTimer(PWMgenerationTimer);
 		xTaskCreatePinnedToCore(onMotorTimer, "PID loop Thread", 8192, NULL, 1,
-				&complexHandlerTask,0);
+				&complexHandlerTask, 0);
 	}
 	Motor::timersAllocated = true;
 }
@@ -91,19 +91,20 @@ Motor::~Motor() {
  * @param msTimeDuration the number of miliseconds to get from current position to the new setpoint
  */
 void Motor::SetSetpointWithTime(float newTargetInDegrees, long msTimeDuration,
-		interpolateMode mode){
-	float newSetpoint =newTargetInDegrees/TICKS_TO_DEGREES;
+		interpolateMode mode) {
+	float newSetpoint = newTargetInDegrees / TICKS_TO_DEGREES;
 	//portENTER_CRITICAL(&mmux);
-	closedLoopControl=true;
-	if(newSetpoint==Setpoint &&msTimeDuration== duration&& this->mode==mode)
+	closedLoopControl = true;
+	if (newSetpoint == Setpoint && msTimeDuration == duration
+			&& this->mode == mode)
 		return;
 	startSetpoint = Setpoint;
 	endSetpoint = newSetpoint;
 	startTime = millis();
 	duration = msTimeDuration;
 	this->mode = mode;
-	if(msTimeDuration<1){
-		Setpoint=newSetpoint;
+	if (msTimeDuration < 1) {
+		Setpoint = newSetpoint;
 	}
 	//portEXIT_CRITICAL(&mmux);
 }
@@ -114,10 +115,11 @@ void Motor::SetSetpointWithTime(float newTargetInDegrees, long msTimeDuration,
  * Bascially, a wrapper function for SetSetpointWithTime that takes speed as an argument
  * @param newTargetInDegrees the new setpoint for the closed loop controller
  * @param speedDegPerSec  is the speed in degrees per second
-*/
-void Motor::MoveTo(float newTargetInDegrees, float speedDegPerSec)
-{
-    SetSetpointWithTime(newTargetInDegrees, (newTargetInDegrees/speedDegPerSec) * 1000.0, LINEAR_INTERPOLATION);
+ */
+void Motor::MoveTo(float newTargetInDegrees, float speedDegPerSec) {
+	SetSetpointWithTime(newTargetInDegrees,
+			(newTargetInDegrees / speedDegPerSec) * 1000.0,
+			LINEAR_INTERPOLATION);
 }
 
 /**
@@ -126,10 +128,11 @@ void Motor::MoveTo(float newTargetInDegrees, float speedDegPerSec)
  * Bascially, a wrapper function for SetSetpointWithTime that takes speed as an argument
  * @param deltaTargetInDegrees the new relative setpoint for the closed loop controller
  * @param speedDegPerSec  is the speed in degrees per second
-*/
-void Motor::StartMoveFor(float deltaTargetInDegrees, float speedDegPerSec)
-{
-    SetSetpointWithTime(getCurrentDegrees() + deltaTargetInDegrees, (deltaTargetInDegrees/speedDegPerSec) * 1000.0, SINUSOIDAL_INTERPOLATION);
+ */
+void Motor::StartMoveFor(float deltaTargetInDegrees, float speedDegPerSec) {
+	SetSetpointWithTime(getCurrentDegrees() + deltaTargetInDegrees,
+			(deltaTargetInDegrees / speedDegPerSec) * 1000.0,
+			SINUSOIDAL_INTERPOLATION);
 }
 
 /**
@@ -138,12 +141,14 @@ void Motor::StartMoveFor(float deltaTargetInDegrees, float speedDegPerSec)
  * Bascially, a wrapper function for SetSetpointWithTime that takes speed as an argument
  * @param deltaTargetInDegrees the new relative setpoint for the closed loop controller
  * @param speedDegPerSec  is the speed in degrees per second
-*/
-void Motor::MoveFor(float deltaTargetInDegrees, float speedDegPerSec)
-{
-    StartMoveFor(deltaTargetInDegrees, speedDegPerSec);
-    delay(100);
-    while(fabs(getDegreesPerSecond()) > 0) {/*Serial.println(getDegreesPerSecond());*/ delay(50);}
+ */
+void Motor::MoveFor(float deltaTargetInDegrees, float speedDegPerSec) {
+	StartMoveFor(deltaTargetInDegrees, speedDegPerSec);
+	delay(100);
+	while (fabs(getDegreesPerSecond()) > 0) {
+		/*Serial.println(getDegreesPerSecond());*/
+		delay(50);
+	}
 }
 
 /**
@@ -153,9 +158,9 @@ void Motor::MoveFor(float deltaTargetInDegrees, float speedDegPerSec)
 
  "Now, here, you see, it takes all the running you can do, to keep in the same place.
 
-If you want to get somewhere else, you must run at least twice as fast as that!"
+ If you want to get somewhere else, you must run at least twice as fast as that!"
 
-— The Red Queen, Alice In Wonderland, Lewis Carroll
+ — The Red Queen, Alice In Wonderland, Lewis Carroll
 
  * The way this velocity mode works is that the position target is moved forward every iteration of the PID
  * loop. The position runs away continuously, in order to keep the velocity stable.
@@ -163,21 +168,22 @@ If you want to get somewhere else, you must run at least twice as fast as that!"
  *
  * @param newDegreesPerSecond the new speed in degrees per second
  */
-void Motor::SetSpeed(float newDegreesPerSecond){
-	if(abs(newDegreesPerSecond)<0.1){
+void Motor::SetSpeed(float newDegreesPerSecond) {
+	if (abs(newDegreesPerSecond) < 0.1) {
 		SetSetpoint(getCurrentDegrees());
 //		Serial.println("Stopping");
 		return;
 	}
-	milisecondPosIncrementForVelocity=(newDegreesPerSecond * (((float) -1.0) / 1000.0))/TICKS_TO_DEGREES;
+	milisecondPosIncrementForVelocity = (newDegreesPerSecond
+			* (((float) -1.0) / 1000.0)) / TICKS_TO_DEGREES;
 //	Serial.println("Setting Speed "+String(newDegreesPerSecond)+
 //			" increment "+String(milisecondPosIncrementForVelocity)+
 //			" scale "+String(TICKS_TO_DEGREES)
 //			+" Setpoint "+String(Setpoint*TICKS_TO_DEGREES)
 //	);
-	Setpoint=nowEncoder;
-	mode=VELOCITY_MODE;
-	closedLoopControl=true;
+	Setpoint = nowEncoder;
+	mode = VELOCITY_MODE;
+	closedLoopControl = true;
 }
 
 /**
@@ -188,7 +194,7 @@ void Motor::SetSpeed(float newDegreesPerSecond){
  * @note a value of 0 miliseconds will set the motor into open-ended run mode
  */
 void Motor::SetSpeed(float newDegreesPerSecond, long miliseconds) {
-	if(miliseconds<1){
+	if (miliseconds < 1) {
 		// 0 time will set up "Red Queen" (sic) interpolation
 		SetSpeed(newDegreesPerSecond);
 		return;
@@ -206,28 +212,29 @@ void Motor::SetSpeed(float newDegreesPerSecond, long miliseconds) {
  */
 void Motor::loop() {
 	nowEncoder = encoder->getCount();
-	if(closedLoopControl){
+	if (closedLoopControl) {
 		//portEXIT_CRITICAL(&mmux);
-		if(mode ==VELOCITY_MODE){
-			Setpoint+=milisecondPosIncrementForVelocity;
-		}else{
-			unitDuration=getInterpolationUnitIncrement();
-			if (unitDuration<1) {
+		if (mode == VELOCITY_MODE) {
+			Setpoint += milisecondPosIncrementForVelocity;
+		} else {
+			unitDuration = getInterpolationUnitIncrement();
+			if (unitDuration < 1) {
 				float setpointDiff = endSetpoint - startSetpoint;
-				float newSetpoint = startSetpoint + (setpointDiff * unitDuration);
+				float newSetpoint = startSetpoint
+						+ (setpointDiff * unitDuration);
 				Setpoint = newSetpoint;
 			} else {
 				// If there is no interpoation to perform, set the setpoint to the end state
 				Setpoint = endSetpoint;
 			}
 		}
-		float controlErr = Setpoint-nowEncoder;
+		float controlErr = Setpoint - nowEncoder;
 		// shrink old values out of the sum
-		runntingITerm=runntingITerm*((I_TERM_SIZE-1.0)/I_TERM_SIZE);
+		runntingITerm = runntingITerm * ((I_TERM_SIZE - 1.0) / I_TERM_SIZE);
 		// running sum of error
-		runntingITerm+=controlErr;
+		runntingITerm += controlErr;
 
-		currentEffort=controlErr*kP+((runntingITerm/I_TERM_SIZE)*kI);
+		currentEffort = controlErr * kP + ((runntingITerm / I_TERM_SIZE) * kI);
 
 		//portEXIT_CRITICAL(&mmux);
 	}
@@ -245,12 +252,12 @@ void Motor::loop() {
 /**
  * PID gains for the PID controller
  */
-void Motor::setGains(float p,float i,float d){
+void Motor::setGains(float p, float i, float d) {
 	//portENTER_CRITICAL(&mmux);
-	kP=p;
-	kI=i;
-	kD=d;
-	runntingITerm=0;
+	kP = p;
+	kI = i;
+	kD = d;
+	runntingITerm = 0;
 	//portEXIT_CRITICAL(&mmux);
 }
 
@@ -271,7 +278,7 @@ void Motor::attach(int MotorPWMPin, int MotorDirectionPin, int EncoderA,
 
 	pwm->attachPin(MotorPWMPin, 20000, 8);
 	directionFlag = MotorDirectionPin;
-	this->MotorPWMPin=MotorPWMPin;
+	this->MotorPWMPin = MotorPWMPin;
 	encoder->attachFullQuad(EncoderA, EncoderB);
 	pinMode(directionFlag, OUTPUT);
 	// add the motor to the list of timer based controls
@@ -296,13 +303,13 @@ void Motor::attach(int MotorPWMPin, int MotorDirectionPin, int EncoderA,
  *        -1 is full speed counter clockwise
  */
 void Motor::SetEffort(float effort) {
-	if (effort>1)
-		effort=1;
-	if(effort<-1)
-		effort=-1;
+	if (effort > 1)
+		effort = 1;
+	if (effort < -1)
+		effort = -1;
 	//portENTER_CRITICAL(&mmux);
-	closedLoopControl=false;
-	currentEffort=effort;
+	closedLoopControl = false;
+	currentEffort = effort;
 	//portEXIT_CRITICAL(&mmux);
 }
 /*
@@ -312,7 +319,7 @@ void Motor::SetEffort(float effort) {
  *        1 is full speed clockwise
  *        -1 is full speed counter clockwise
  */
-float  Motor::GetEffort(){
+float Motor::GetEffort() {
 	return currentEffort;
 }
 /*
@@ -323,15 +330,15 @@ float  Motor::GetEffort(){
  *        -1 is full speed counter clockwise
  */
 void Motor::SetEffortLocal(float effort) {
-	if (effort>1)
-		effort=1;
-	if(effort<-1)
-		effort=-1;
-	if(effort>0)
+	if (effort > 1)
+		effort = 1;
+	if (effort < -1)
+		effort = -1;
+	if (effort > 0)
 		digitalWrite(directionFlag, HIGH);
 	else
 		digitalWrite(directionFlag, LOW);
-	currentEffort=effort;
+	currentEffort = effort;
 	pwm->writeScaled(abs(effort));
 }
 /**
@@ -346,7 +353,7 @@ float Motor::getDegreesPerSecond() {
 	//portENTER_CRITICAL(&mmux);
 	tmp = cachedSpeed;
 	//portEXIT_CRITICAL(&mmux);
-	return tmp*TICKS_TO_DEGREES;
+	return tmp * TICKS_TO_DEGREES;
 }
 /**
  * getTicks
@@ -359,6 +366,6 @@ float Motor::getCurrentDegrees() {
 	//portENTER_CRITICAL(&mmux);
 	tmp = nowEncoder;
 	//portEXIT_CRITICAL(&mmux);
-	return tmp*TICKS_TO_DEGREES;
+	return tmp * TICKS_TO_DEGREES;
 }
 

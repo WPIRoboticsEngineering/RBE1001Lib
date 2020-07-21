@@ -19,6 +19,11 @@
 enum interpolateMode {
 	LINEAR_INTERPOLATION, SINUSOIDAL_INTERPOLATION, VELOCITY_MODE
 };
+/** \brief A PID Motor class using threads, ESP32Encoder and ESP32PWM
+ *
+ * This Motor class is intended to be used by RBE 1001 in the WPI Robotics Department.
+ *
+ */
 class Motor {
 private:
 	ESP32PWM * pwm;
