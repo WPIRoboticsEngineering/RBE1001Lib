@@ -174,7 +174,7 @@ public:
 	virtual ~Motor();
 
 	/**
-	 * \breif Attach the motors hardware
+	 * \brief Attach the motors hardware
 	 *
 	 * @param MotorPWMPin the pin that produce PWM at 20kHz (Max is 250khz per DRV8838 datasheet)
 	 * @param MotorDirectionPin motor direction setting pin
