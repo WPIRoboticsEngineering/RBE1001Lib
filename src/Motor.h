@@ -19,20 +19,69 @@
 enum interpolateMode {
 	LINEAR_INTERPOLATION, SINUSOIDAL_INTERPOLATION, VELOCITY_MODE
 };
+/** \brief A PID Motor class using FreeRTOS threads, ESP32Encoder and ESP32PWM
+ *
+ * This Motor class is intended to be used by RBE 1001 in the WPI Robotics Department.
+ *
+ * Motor objects can be instantiated statically. The attach method must be called before using the motor.
+ *
+ * The motor uses one timer for the ESP32PWM objects. That means the static method
+ *
+ * Motor::allocateTimer (int PWMgenerationTimer)
+ *
+ * must be called before any motor objects can be attached. This method will also start the PID thread.
+ *
+ */
 class Motor {
 private:
+	/**
+	 * the object that produces PWM for motor speed
+	 */
 	ESP32PWM * pwm;
+	/**
+	 * the object that keeps track of the motors position
+	 */
 	ESP32Encoder * encoder;
+	/**
+	 * GPIO pin number of the motor PWM pin
+	 */
 	int MotorPWMPin = -1;
+	/**
+	 * GPIO pin number of the motor direction output flag
+	 */
 	int directionFlag = -1;
+	/**
+	 * an internal counter that counts iterations of the PID loop
+	 * this is used to calculate 50ms timing for calculation of the velocity
+	 */
 	int interruptCountForVelocity = 0;
+	/*
+	 * this stores the previous count of the encoder last time the velocity was calculated
+	 */
 	int prevousCount = 0;
+	/**
+	 * this variable is the most recently calculated speed
+	 */
 	float cachedSpeed = 0;
-
+	/**
+	 * PID controller setpoint in encoder ticks
+	 */
 	float Setpoint = 0;
+	/**
+	 * PID controller proportional constant
+	 */
 	float kP = 0.01;
+	/**
+	 * PID controller integral constant
+	 */
 	float kI = 0;
+	/**
+	 * PID controller derivitive constant
+	 */
 	float kD = 0;
+	/**
+	 * a variable to store the running avarage for the integral term
+	 */
 	float runntingITerm = 0;
 	/*
 	 * effort of the motor
@@ -40,36 +89,87 @@ private:
 	 *        0 is brake
 	 *        1 is full speed clockwise
 	 *        -1 is full speed counter clockwise
+	 * @note this should only be called from the PID thread
 	 */
 	void SetEffortLocal(float effort);
+	/**
+	 * this is a flag to switch between using the PID controller, or allowing the user to set effort 'directly'
+	 *
+	 */
 	bool closedLoopControl = true;
+	/**
+	 * variable for caching the current effort being sent to the PWM/direction pins
+	 */
 	float currentEffort = 0;
+	/**
+	 * PID controller Interpolation duration in miliseconds
+	 */
 	float duration = 0;
+	/**
+	 * PID controller Interpolation time in miliseconds that the interplation began
+	 */
 	float startTime = 0;
+	/**
+	 * PID controller Interpolation setpoint for the interpolation to arrive at
+	 */
 	float endSetpoint = 0;
+	/**
+	 * PID controller Interpolation setpoint at the start of interpolation
+	 */
 	float startSetpoint = 0;
 	/**
 	 * Duration of the interpolation mode, 1 equals done, 0 starting
 	 */
 	float unitDuration = 1;
-	float getInterpolationUnitIncrement();
 	/**
-	 * Current interpolation mode
+	 * Current interpolation mode, linear, sinusoidal or velocity
 	 */
 	interpolateMode mode = LINEAR_INTERPOLATION;
+	/**
+	 * use the internal state and current time to comput where along the path from start to finish the interpolation is
+	 */
+	float getInterpolationUnitIncrement();
+	/**
+	 * when using Red Queen mode for velocity interpolation, this is the amount of setpoint to add to the current  setpoint
+	 * every milisecond to maintain a smooth velocity trajectory.
+	 */
 	float milisecondPosIncrementForVelocity;
 
 public:
+	/**
+	 * Variable to store the latest encoder read from the encoder hardware as read by the PID thread.
+	 * This variable is set inside the PID thread, and read outside.
+	 */
 	int64_t nowEncoder = 0;
-	//Static section
+	/**
+	 * the is a flag to check if the timer has been allocated and the thread started.
+	 */
 	static bool timersAllocated;
+	/**
+	 * This is a list of all of the Motor objects that have been attached. As a motor is attahed,
+	 *  it adds itself to this list of Motor pointers. This list is read by the PID thread and each
+	 *  object in the list has loop() called. once every milisecond.
+	 */
 	static Motor * list[MAX_POSSIBLE_MOTORS];
-	static hw_timer_t *timer;
+
 	/**
 	 * @param PWMgenerationTimer the timer to be used to generate the 20khz PWM
 	 */
 	static void allocateTimer(int PWMgenerationTimer);
-	// Class methods
+
+	/** \brief A PID Motor class using FreeRTOS threads, ESP32Encoder and ESP32PWM
+	 *
+	 * This Motor class is intended to be used by RBE 1001 in the WPI Robotics Department.
+	 *
+	 * Motor objects can be instantiated statically. The attach method must be called before using the motor.
+	 *
+	 * The motor uses one timer for the ESP32PWM objects. That means the static method
+	 *
+	 * Motor::allocateTimer (int PWMgenerationTimer)
+	 *
+	 * must be called before any motor objects can be attached. This method will also start the PID thread.
+	 *
+	 */
 	Motor();
 	virtual ~Motor();
 
@@ -169,26 +269,26 @@ public:
 	 * Bascially, a wrapper function for SetSetpointWithTime that takes speed as an argument
 	 * @param newTargetInDegrees the new setpoint for the closed loop controller
 	 * @param speedDegPerSec  is the speed in degrees per second
-	*/
+	 */
 	void MoveTo(float newTargetInDegrees, float speedDegPerSec);
-    /**
-     * MoveFor a relative amount in degrees with speed
-     * Set the setpoint for the motor in degrees and the speed you want to get there
-     * Bascially, a wrapper function for SetSetpointWithTime that takes speed as an argument
-     * @param deltaTargetInDegrees the new relative setpoint for the closed loop controller
-     * @param speedDegPerSec  is the speed in degrees per second
-    */
-    void MoveFor(float deltaTargetInDegrees, float speedDegPerSec);
-    
-    /**
-     * StartMoveFor a relative amount in degrees with speed
-     * Set the setpoint for the motor in degrees and the speed you want to get there
-     * Bascially, a wrapper function for SetSetpointWithTime that takes speed as an argument
-     * @param deltaTargetInDegrees the new relative setpoint for the closed loop controller
-     * @param speedDegPerSec  is the speed in degrees per second
-    */
-    void StartMoveFor(float deltaTargetInDegrees, float speedDegPerSec);
-    
+	/**
+	 * MoveFor a relative amount in degrees with speed
+	 * Set the setpoint for the motor in degrees and the speed you want to get there
+	 * Bascially, a wrapper function for SetSetpointWithTime that takes speed as an argument
+	 * @param deltaTargetInDegrees the new relative setpoint for the closed loop controller
+	 * @param speedDegPerSec  is the speed in degrees per second
+	 */
+	void MoveFor(float deltaTargetInDegrees, float speedDegPerSec);
+
+	/**
+	 * StartMoveFor a relative amount in degrees with speed
+	 * Set the setpoint for the motor in degrees and the speed you want to get there
+	 * Bascially, a wrapper function for SetSetpointWithTime that takes speed as an argument
+	 * @param deltaTargetInDegrees the new relative setpoint for the closed loop controller
+	 * @param speedDegPerSec  is the speed in degrees per second
+	 */
+	void StartMoveFor(float deltaTargetInDegrees, float speedDegPerSec);
+
 	/**
 	 * SetSetpoint in degrees with time
 	 * Set the setpoint for the motor in degrees
@@ -197,7 +297,7 @@ public:
 	void SetSetpoint(float newTargetInDegrees) {
 		SetSetpointWithTime(newTargetInDegrees, 0, LINEAR_INTERPOLATION);
 	}
-	
+
 	/**
 	 * SetSetpoint in degrees with time
 	 * Set the setpoint for the motor in degrees
