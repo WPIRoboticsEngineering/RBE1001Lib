@@ -1,5 +1,5 @@
 <map id="onTimer" name="onTimer">
 <area shape="rect" id="node2" href="$classRangefinder.html#ad53fdab48917ac45680f52da63553930" title="Rangefinder::checkTimeout" alt="" coords="123,5,305,32"/>
-<area shape="rect" id="node4" href="$classRangefinder.html#a21c76549df3c0a06292fa31b23e80ee7" title="Rangefinder::fire" alt="" coords="392,56,511,83"/>
+<area shape="rect" id="node4" href="$classRangefinder.html#a21c76549df3c0a06292fa31b23e80ee7" title="fire a strobe of the trig pin " alt="" coords="392,56,511,83"/>
 <area shape="rect" id="node3" href="$classRangefinder.html#a6706efbe01d225a04771dee426da09f1" title="Function used by the timeout check thread to determine if this object has timed out. " alt="" coords="353,5,549,32"/>
 </map>
