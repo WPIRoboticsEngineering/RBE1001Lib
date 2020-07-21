@@ -117,11 +117,11 @@ void Motor::SetSetpointWithTime(float newTargetInDegrees, long msTimeDuration,
 */
 void Motor::MoveTo(float newTargetInDegrees, float speedDegPerSec)
 {
-    SetSetpointWithTime(newTargetInDegrees, (newTargetInDegrees/speedDegPerSec) * 1000.0, LINEAR_INTERPOLATION);
+    SetSetpointWithTime(newTargetInDegrees, fabs(newTargetInDegrees/speedDegPerSec) * 1000.0, SINUSOIDAL_INTERPOLATION);
 }
 
 /**
- * MoveTo in degrees with speed
+ * StartMoveFor in degrees with speed
  * Set the setpoint for the motor in degrees and the speed you want to get there
  * Bascially, a wrapper function for SetSetpointWithTime that takes speed as an argument
  * @param deltaTargetInDegrees the new relative setpoint for the closed loop controller
@@ -129,7 +129,7 @@ void Motor::MoveTo(float newTargetInDegrees, float speedDegPerSec)
 */
 void Motor::StartMoveFor(float deltaTargetInDegrees, float speedDegPerSec)
 {
-    SetSetpointWithTime(getCurrentDegrees() + deltaTargetInDegrees, (deltaTargetInDegrees/speedDegPerSec) * 1000.0, SINUSOIDAL_INTERPOLATION);
+    SetSetpointWithTime(getCurrentDegrees() + deltaTargetInDegrees, fabs(deltaTargetInDegrees/speedDegPerSec) * 1000.0, SINUSOIDAL_INTERPOLATION);
 }
 
 /**
@@ -142,8 +142,8 @@ void Motor::StartMoveFor(float deltaTargetInDegrees, float speedDegPerSec)
 void Motor::MoveFor(float deltaTargetInDegrees, float speedDegPerSec)
 {
     StartMoveFor(deltaTargetInDegrees, speedDegPerSec);
-    delay(100);
-    while(fabs(getDegreesPerSecond()) > 0) {/*Serial.println(getDegreesPerSecond());*/ delay(50);}
+    delay(250);
+    while(fabs(getDegreesPerSecond()) > 0) { delay(50);}
 }
 
 /**
