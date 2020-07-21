@@ -34,18 +34,54 @@ enum interpolateMode {
  */
 class Motor {
 private:
+	/**
+	 * the object that produces PWM for motor speed
+	 */
 	ESP32PWM * pwm;
+	/**
+	 * the object that keeps track of the motors position
+	 */
 	ESP32Encoder * encoder;
+	/**
+	 * GPIO pin number of the motor PWM pin
+	 */
 	int MotorPWMPin = -1;
+	/**
+	 * GPIO pin number of the motor direction output flag
+	 */
 	int directionFlag = -1;
+	/**
+	 * an internal counter that counts iterations of the PID loop
+	 * this is used to calculate 50ms timing for calculation of the velocity
+	 */
 	int interruptCountForVelocity = 0;
+	/*
+	 * this stores the previous count of the encoder last time the velocity was calculated
+	 */
 	int prevousCount = 0;
+	/**
+	 * this variable is the most recently calculated speed
+	 */
 	float cachedSpeed = 0;
-
+	/**
+	 * PID controller setpoint in encoder ticks
+	 */
 	float Setpoint = 0;
+	/**
+	 * PID controller proportional constant
+	 */
 	float kP = 0.01;
+	/**
+	 * PID controller integral constant
+	 */
 	float kI = 0;
+	/**
+	 * PID controller derivitive constant
+	 */
 	float kD = 0;
+	/**
+	 * a variable to store the running avarage for the integral term
+	 */
 	float runntingITerm = 0;
 	/*
 	 * effort of the motor
@@ -53,8 +89,10 @@ private:
 	 *        0 is brake
 	 *        1 is full speed clockwise
 	 *        -1 is full speed counter clockwise
+	 * @note this should only be called from the PID thread
 	 */
 	void SetEffortLocal(float effort);
+
 	bool closedLoopControl = true;
 	float currentEffort = 0;
 	float duration = 0;
@@ -182,26 +220,26 @@ public:
 	 * Bascially, a wrapper function for SetSetpointWithTime that takes speed as an argument
 	 * @param newTargetInDegrees the new setpoint for the closed loop controller
 	 * @param speedDegPerSec  is the speed in degrees per second
-	*/
+	 */
 	void MoveTo(float newTargetInDegrees, float speedDegPerSec);
-    /**
-     * MoveFor a relative amount in degrees with speed
-     * Set the setpoint for the motor in degrees and the speed you want to get there
-     * Bascially, a wrapper function for SetSetpointWithTime that takes speed as an argument
-     * @param deltaTargetInDegrees the new relative setpoint for the closed loop controller
-     * @param speedDegPerSec  is the speed in degrees per second
-    */
-    void MoveFor(float deltaTargetInDegrees, float speedDegPerSec);
-    
-    /**
-     * StartMoveFor a relative amount in degrees with speed
-     * Set the setpoint for the motor in degrees and the speed you want to get there
-     * Bascially, a wrapper function for SetSetpointWithTime that takes speed as an argument
-     * @param deltaTargetInDegrees the new relative setpoint for the closed loop controller
-     * @param speedDegPerSec  is the speed in degrees per second
-    */
-    void StartMoveFor(float deltaTargetInDegrees, float speedDegPerSec);
-    
+	/**
+	 * MoveFor a relative amount in degrees with speed
+	 * Set the setpoint for the motor in degrees and the speed you want to get there
+	 * Bascially, a wrapper function for SetSetpointWithTime that takes speed as an argument
+	 * @param deltaTargetInDegrees the new relative setpoint for the closed loop controller
+	 * @param speedDegPerSec  is the speed in degrees per second
+	 */
+	void MoveFor(float deltaTargetInDegrees, float speedDegPerSec);
+
+	/**
+	 * StartMoveFor a relative amount in degrees with speed
+	 * Set the setpoint for the motor in degrees and the speed you want to get there
+	 * Bascially, a wrapper function for SetSetpointWithTime that takes speed as an argument
+	 * @param deltaTargetInDegrees the new relative setpoint for the closed loop controller
+	 * @param speedDegPerSec  is the speed in degrees per second
+	 */
+	void StartMoveFor(float deltaTargetInDegrees, float speedDegPerSec);
+
 	/**
 	 * SetSetpoint in degrees with time
 	 * Set the setpoint for the motor in degrees
@@ -210,7 +248,7 @@ public:
 	void SetSetpoint(float newTargetInDegrees) {
 		SetSetpointWithTime(newTargetInDegrees, 0, LINEAR_INTERPOLATION);
 	}
-	
+
 	/**
 	 * SetSetpoint in degrees with time
 	 * Set the setpoint for the motor in degrees

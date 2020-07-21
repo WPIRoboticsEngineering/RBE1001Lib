@@ -5,8 +5,8 @@ GITURL=$(git config --get remote.origin.url)
 echo $GITURL
 
 rm -rf html
-git commit -a -m"Store changes to master"
-
+git commit -a -m"Store Doxygen to master"
+git push
 git clone $GITURL html
 cd html
 if ( git checkout origin/gh-pages -b gh-pages) then
