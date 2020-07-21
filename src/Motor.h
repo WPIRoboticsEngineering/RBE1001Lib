@@ -92,30 +92,66 @@ private:
 	 * @note this should only be called from the PID thread
 	 */
 	void SetEffortLocal(float effort);
-
+	/**
+	 * this is a flag to switch between using the PID controller, or allowing the user to set effort 'directly'
+	 *
+	 */
 	bool closedLoopControl = true;
+	/**
+	 * variable for caching the current effort being sent to the PWM/direction pins
+	 */
 	float currentEffort = 0;
+	/**
+	 * PID controller Interpolation duration in miliseconds
+	 */
 	float duration = 0;
+	/**
+	 * PID controller Interpolation time in miliseconds that the interplation began
+	 */
 	float startTime = 0;
+	/**
+	 * PID controller Interpolation setpoint for the interpolation to arrive at
+	 */
 	float endSetpoint = 0;
+	/**
+	 * PID controller Interpolation setpoint at the start of interpolation
+	 */
 	float startSetpoint = 0;
 	/**
 	 * Duration of the interpolation mode, 1 equals done, 0 starting
 	 */
 	float unitDuration = 1;
-	float getInterpolationUnitIncrement();
 	/**
-	 * Current interpolation mode
+	 * Current interpolation mode, linear, sinusoidal or velocity
 	 */
 	interpolateMode mode = LINEAR_INTERPOLATION;
+	/**
+	 * use the internal state and current time to comput where along the path from start to finish the interpolation is
+	 */
+	float getInterpolationUnitIncrement();
+	/**
+	 * when using Red Queen mode for velocity interpolation, this is the amount of setpoint to add to the current  setpoint
+	 * every milisecond to maintain a smooth velocity trajectory.
+	 */
 	float milisecondPosIncrementForVelocity;
 
 public:
+	/**
+	 * Variable to store the latest encoder read from the encoder hardware as read by the PID thread.
+	 * This variable is set inside the PID thread, and read outside.
+	 */
 	int64_t nowEncoder = 0;
-	//Static section
+	/**
+	 * the is a flag to check if the timer has been allocated and the thread started.
+	 */
 	static bool timersAllocated;
+	/**
+	 * This is a list of all of the Motor objects that have been attached. As a motor is attahed,
+	 *  it adds itself to this list of Motor pointers. This list is read by the PID thread and each
+	 *  object in the list has loop() called. once every milisecond.
+	 */
 	static Motor * list[MAX_POSSIBLE_MOTORS];
-	static hw_timer_t *timer;
+
 	/**
 	 * @param PWMgenerationTimer the timer to be used to generate the 20khz PWM
 	 */
