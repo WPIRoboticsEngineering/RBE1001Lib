@@ -1,6 +1,6 @@
 <map id="setup" name="setup">
 <area shape="rect" id="node2" href="$classMotor.html#aa5dbe98f9cbaebd430bf1b7841d4bbc0" title="Motor::allocateTimer" alt="" coords="108,197,249,224"/>
-<area shape="rect" id="node35" href="$classMotor.html#aeb100c96e69d4acd5390c240890b8392" title="Motor::attach" alt="" coords="129,332,228,359"/>
+<area shape="rect" id="node35" href="$classMotor.html#aeb100c96e69d4acd5390c240890b8392" title="Attach the motors hardware. " alt="" coords="129,332,228,359"/>
 <area shape="rect" id="node39" href="$classMotor.html#a87fc81889162384469b1832a37d5b956" title="Motor::SetSpeed" alt="" coords="119,408,239,435"/>
 <area shape="rect" id="node3" href="$classESP32PWM.html#ac223237cb836276a390cd7d92f3f8c18" title="ESP32PWM::allocateTimer" alt="" coords="1894,189,2077,216"/>
 <area shape="rect" id="node4" href="$Motor_8cpp.html#adb66b9c7a2544338725556bce116d5df" title="onMotorTimer" alt="" coords="349,197,452,224"/>
