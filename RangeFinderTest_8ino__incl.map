@@ -1,10 +1,10 @@
 <map id="examples/RangeFinderTest/RangeFinderTest.ino" name="examples/RangeFinderTest/RangeFinderTest.ino">
-<area shape="rect" id="node3" href="$RBE1001Lib_8h.html" title="RBE1001Lib.h" alt="" coords="137,95,244,121"/>
-<area shape="rect" id="node4" href="$Rangefinder_8h.html" title="Rangefinder.h" alt="" coords="94,169,197,196"/>
-<area shape="rect" id="node5" href="$Motor_8h.html" title="Motor.h" alt="" coords="267,169,333,196"/>
-<area shape="rect" id="node6" href="$ESP32Servo_8h.html" title="ESP32Servo.h" alt="" coords="425,244,533,271"/>
-<area shape="rect" id="node12" href="$ESP32Encoder_8h.html" title="ESP32Encoder.h" alt="" coords="165,244,288,271"/>
-<area shape="rect" id="node7" href="$analogWrite_8h.html" title="analogWrite.h" alt="" coords="382,393,485,420"/>
-<area shape="rect" id="node10" href="$ESP32PWM_8h.html" title="ESP32PWM.h" alt="" coords="509,393,616,420"/>
-<area shape="rect" id="node11" href="$ESP32Tone_8h.html" title="ESP32Tone.h" alt="" coords="453,319,555,345"/>
+<area shape="rect" id="node3" href="$RBE1001Lib_8h.html" title="RBE1001Lib.h" alt="" coords="232,95,339,121"/>
+<area shape="rect" id="node4" href="$Rangefinder_8h.html" title="Rangefinder.h" alt="" coords="189,169,291,196"/>
+<area shape="rect" id="node8" href="$Motor_8h.html" title="Motor.h" alt="" coords="580,169,647,196"/>
+<area shape="rect" id="node9" href="$ESP32Servo_8h.html" title="ESP32Servo.h" alt="" coords="855,244,963,271"/>
+<area shape="rect" id="node15" href="$ESP32Encoder_8h.html" title="ESP32Encoder.h" alt="" coords="611,244,733,271"/>
+<area shape="rect" id="node10" href="$analogWrite_8h.html" title="analogWrite.h" alt="" coords="754,393,857,420"/>
+<area shape="rect" id="node13" href="$ESP32PWM_8h.html" title="ESP32PWM.h" alt="" coords="881,393,988,420"/>
+<area shape="rect" id="node14" href="$ESP32Tone_8h.html" title="ESP32Tone.h" alt="" coords="973,319,1075,345"/>
 </map>

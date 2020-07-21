@@ -1,5 +1,5 @@
 <map id="loop" name="loop">
-<area shape="rect" id="node2" href="$classMotor.html#aef28a77cedc059ffae2fd2b932b494cf" title="Motor::MoveFor" alt="" coords="100,81,215,108"/>
+<area shape="rect" id="node2" href="$classMotor.html#aef28a77cedc059ffae2fd2b932b494cf" title="Motor::MoveFor" alt="" coords="100,56,215,83"/>
 <area shape="rect" id="node3" href="$classMotor.html#ac7b64e1de468c71a52bcd22515316a53" title="Motor::StartMoveFor" alt="" coords="289,31,431,57"/>
 <area shape="rect" id="node6" href="$classMotor.html#aeb102c0704799cf2e2f5523e8900fc08" title="Motor::getDegreesPerSecond" alt="" coords="263,81,457,108"/>
 <area shape="rect" id="node4" href="$classMotor.html#a8037ce5f12ee18be5600dc2ee08be578" title="Motor::SetSetpointWithTime" alt="" coords="505,5,692,32"/>
