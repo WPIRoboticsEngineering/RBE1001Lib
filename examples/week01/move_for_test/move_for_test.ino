@@ -41,6 +41,6 @@ void loop()
   while(digitalRead(buttonPin)) {} 
 
   motor1.StartMoveFor(360, 60); 
-  motor2.MoveFor(-360, -60); 
+  motor2.MoveFor(360, 60); 
 
  }
