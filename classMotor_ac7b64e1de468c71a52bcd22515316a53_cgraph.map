@@ -1,0 +1,4 @@
+<map id="Motor::StartMoveFor" name="Motor::StartMoveFor">
+<area shape="rect" id="node2" href="$classMotor.html#a7a84e0d2676d7420219b6e7f67e69038" title="Motor::getCurrentDegrees" alt="" coords="203,5,376,32"/>
+<area shape="rect" id="node3" href="$classMotor.html#a8037ce5f12ee18be5600dc2ee08be578" title="Motor::SetSetpointWithTime" alt="" coords="196,56,383,83"/>
+</map>

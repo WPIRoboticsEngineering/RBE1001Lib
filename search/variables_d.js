@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['photoresistorpin',['photoresistorPin',['../photoresistor_8ino.html#af6d42483b8d07956e4795e0ca779a441',1,'photoresistor.ino']]],
   ['pin',['pin',['../classESP32PWM.html#af87252d85a8b2257380f6587f4acd46e',1,'ESP32PWM::pin()'],['../ToneExample_8ino.html#aeabac9491522ec7f68102bfeab33d5c1',1,'pin():&#160;ToneExample.ino']]],
   ['pingindex',['pingIndex',['../classRangefinder.html#a0aa0a904072e2429de65930d8b85c321',1,'Rangefinder']]],
   ['pinnumber',['pinNumber',['../classServo.html#abdf85c5c5629f2f7ff5ea0486cf296e9',1,'Servo']]],

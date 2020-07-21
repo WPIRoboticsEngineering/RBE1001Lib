@@ -2,6 +2,8 @@ var searchData=
 [
   ['pausecount',['pauseCount',['../classESP32Encoder.html#a0f61ada0e9bcc8c404643950f1062afb',1,'ESP32Encoder']]],
   ['pcnt_5fexample_5fintr_5fhandler',['pcnt_example_intr_handler',['../ESP32Encoder_8cpp.html#a50f68452625a60574fc06aa2128f0b94',1,'ESP32Encoder.cpp']]],
+  ['photoresistor_2eino',['photoresistor.ino',['../photoresistor_8ino.html',1,'']]],
+  ['photoresistorpin',['photoresistorPin',['../photoresistor_8ino.html#af6d42483b8d07956e4795e0ca779a441',1,'photoresistor.ino']]],
   ['pin',['pin',['../classESP32PWM.html#af87252d85a8b2257380f6587f4acd46e',1,'ESP32PWM::pin()'],['../ToneExample_8ino.html#aeabac9491522ec7f68102bfeab33d5c1',1,'pin():&#160;ToneExample.ino']]],
   ['pingindex',['pingIndex',['../classRangefinder.html#a0aa0a904072e2429de65930d8b85c321',1,'Rangefinder']]],
   ['pinnumber',['pinNumber',['../classServo.html#abdf85c5c5629f2f7ff5ea0486cf296e9',1,'Servo']]],
