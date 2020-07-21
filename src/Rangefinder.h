@@ -5,6 +5,17 @@
 #include "freertos/semphr.h"
 #define MAX_POSSIBLE_INTERRUPT_RANGEFINDER 4
 
+/**
+ *  \brief Rangefinder objects wrap a FreeRTOS thread with pin change interrupts to read trigger/echo style ultrasonic sensors
+ *
+ *  Rangefinder objects can be declared statically
+ *
+ *  Range is calculated continuously and the current measurement is retrieved with getDistanceCM()
+ *
+ *  Many objects can be declared, and they are pinged one at a time in a round-robbin configuration to prevent echo and cross-talk.
+ *
+ *  When pins are attached, the thread is started. The thread checks for timeouts and re sets the round-robbin.
+ */
 class Rangefinder {
 public:
 	Rangefinder();
@@ -22,13 +33,12 @@ public:
 	volatile unsigned long roundTripTime;
 	static Rangefinder * list[MAX_POSSIBLE_INTERRUPT_RANGEFINDER];
 	/**
-	 * Returns the dinstance in centimeters
+	 * \brief get the distance of an object from the sensor in centimeters
+	 *
+	 * @return the distance in centimeters
 	 */
 	float getDistanceCM();
-	/**
-	 * allocateTimer
-	 * @param a timer number 0-3 indicating which timer to allocate in this library
-	 */
+
 	static void checkTimeout();
 	static void fire();
 	void sensorISR();
