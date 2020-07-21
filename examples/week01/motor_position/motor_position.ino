@@ -41,9 +41,9 @@ void loop()
   //The following line will cause the program to wait indefinitely until the button is pressed
   while(digitalRead(buttonPin)) {} 
 
-  motor1.MoveTo(360, 60); //spin once at 60 degrees per second
+  motor1.MoveTo(360, 180); //spin once at 60 degrees per second
 
-  while(motor1.getCurrentDegrees() < 360) //print out data while the motor is moving
+  while(fabs(motor1.getDegreesPerSecond()) > 0) //print out data while the motor is moving
   {
     Serial.print(motor1.getCurrentDegrees()); //motor1 position
     Serial.print('\t'); //TAB character
