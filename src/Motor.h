@@ -120,7 +120,20 @@ public:
 	 * @param PWMgenerationTimer the timer to be used to generate the 20khz PWM
 	 */
 	static void allocateTimer(int PWMgenerationTimer);
-	// Class methods
+
+	/** \brief A PID Motor class using FreeRTOS threads, ESP32Encoder and ESP32PWM
+	 *
+	 * This Motor class is intended to be used by RBE 1001 in the WPI Robotics Department.
+	 *
+	 * Motor objects can be instantiated statically. The attach method must be called before using the motor.
+	 *
+	 * The motor uses one timer for the ESP32PWM objects. That means the static method
+	 *
+	 * Motor::allocateTimer (int PWMgenerationTimer)
+	 *
+	 * must be called before any motor objects can be attached. This method will also start the PID thread.
+	 *
+	 */
 	Motor();
 	virtual ~Motor();
 
