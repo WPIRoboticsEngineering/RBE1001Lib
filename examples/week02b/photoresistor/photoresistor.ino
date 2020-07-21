@@ -5,8 +5,10 @@
 
 #include <Arduino.h>
 #include <RBE1001Lib.h>
+#include <ESP32AnalogRead.h>
 
 const int photoresistorPin = A3;
+ESP32AnalogRead photoresistor;
 
 /*
  * This is the standard setup function that is called when the ESP32 is rebooted
@@ -16,6 +18,9 @@ void setup()
 {
   // This will initialize the Serial as 115200 for prints
   Serial.begin(115200);
+  // Attach the pin
+  photoresistor.attach(A3);
+
 }
 
 
@@ -27,6 +32,6 @@ void loop()
 {
   delay(100);
 
-  int adcPhotoresistor = analogRead(photoresistorPin); 
+  int adcPhotoresistor = photoresistor.readMiliVolts();
   Serial.println(adcPhotoresistor);
 }
