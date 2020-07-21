@@ -401,6 +401,16 @@ Here is the call graph for this function:</div>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>this must only be called after timers are allocated via Motor::allocateTimers()</dd></dl>
+<p>Attach the motors hardware </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">MotorPWMPin</td><td>the pin that produce PWM at 20kHz (Max is 250khz per DRV8838 datasheet) </td></tr>
+    <tr><td class="paramname">MotorDirectionPin</td><td>motor direction setting pin </td></tr>
+    <tr><td class="paramname">the</td><td>A channel of the encoder </td></tr>
+    <tr><td class="paramname">the</td><td>B channel of the encoder </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section note"><dt>Note</dt><dd>this must only be called after timers are allocated via Motor::allocateTimers </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="Motor_8cpp_source.html#l00268">268</a> of file <a class="el" href="Motor_8cpp_source.html">Motor.cpp</a>.</p>
