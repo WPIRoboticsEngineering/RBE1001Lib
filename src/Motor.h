@@ -179,7 +179,7 @@ public:
 	 * @param MotorDirectionPin motor direction setting pin
 	 * @param the A channel of the encoder
 	 * @param the B channel of the encoder
-	 * @note this must only be called after timers are allocated via Motor::allocateTimers
+	 * @note this must only be called after timers are allocated via Motor::allocateTimers()
 	 *
 	 */
 	void attach(int MotorPWMPin, int MotorDirectionPin, int EncoderA,
