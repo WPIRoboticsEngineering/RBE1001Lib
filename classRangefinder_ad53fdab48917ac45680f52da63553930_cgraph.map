@@ -1,4 +1,4 @@
 <map id="Rangefinder::checkTimeout" name="Rangefinder::checkTimeout">
 <area shape="rect" id="node2" href="$classRangefinder.html#a21c76549df3c0a06292fa31b23e80ee7" title="Rangefinder::fire" alt="" coords="275,5,393,32"/>
-<area shape="rect" id="node3" href="$classRangefinder.html#a6706efbe01d225a04771dee426da09f1" title="Rangefinder::getTimeoutState" alt="" coords="236,56,432,83"/>
+<area shape="rect" id="node3" href="$classRangefinder.html#a6706efbe01d225a04771dee426da09f1" title="Function used by the timeout check thread to determine if this object has timed out. " alt="" coords="236,56,432,83"/>
 </map>

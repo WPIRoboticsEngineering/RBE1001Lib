@@ -1,4 +1,4 @@
 <map id="loop" name="loop">
 <area shape="rect" id="node2" href="$classRangefinder.html#a531ed492da6a4c369a909e77b9c8780d" title="get the distance of an object from the sensor in centimeters " alt="" coords="103,5,293,32"/>
-<area shape="rect" id="node3" href="$classRangefinder.html#a6706efbe01d225a04771dee426da09f1" title="Rangefinder::getTimeoutState" alt="" coords="100,56,296,83"/>
+<area shape="rect" id="node3" href="$classRangefinder.html#a6706efbe01d225a04771dee426da09f1" title="Function used by the timeout check thread to determine if this object has timed out. " alt="" coords="100,56,296,83"/>
 </map>
