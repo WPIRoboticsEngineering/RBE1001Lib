@@ -129,7 +129,7 @@ void Motor::MoveTo(float newTargetInDegrees, float speedDegPerSec)
 */
 void Motor::StartMoveFor(float deltaTargetInDegrees, float speedDegPerSec)
 {
-    SetSetpointWithTime(getCurrentDegrees() + deltaTargetInDegrees, (deltaTargetInDegrees/speedDegPerSec) * 1000.0, LINEAR_INTERPOLATION);
+    SetSetpointWithTime(getCurrentDegrees() + deltaTargetInDegrees, (deltaTargetInDegrees/speedDegPerSec) * 1000.0, SINUSOIDAL_INTERPOLATION);
 }
 
 /**
@@ -143,7 +143,7 @@ void Motor::MoveFor(float deltaTargetInDegrees, float speedDegPerSec)
 {
     StartMoveFor(deltaTargetInDegrees, speedDegPerSec);
     delay(100);
-    while(fabs(getDegreesPerSecond()) > 0) {delay(5);}
+    while(fabs(getDegreesPerSecond()) > 0) {/*Serial.println(getDegreesPerSecond());*/ delay(50);}
 }
 
 /**
