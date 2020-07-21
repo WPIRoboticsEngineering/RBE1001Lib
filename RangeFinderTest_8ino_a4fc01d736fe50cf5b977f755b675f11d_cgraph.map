@@ -6,7 +6,7 @@
 <area shape="rect" id="node10" href="$Rangefinder_8cpp.html#a58396042a647a769cd365fb49f2c7d52" title="sensorISR2" alt="" coords="292,169,383,196"/>
 <area shape="rect" id="node11" href="$Rangefinder_8cpp.html#a9c06b563cce41963c23fe73645597c8d" title="sensorISR3" alt="" coords="292,220,383,247"/>
 <area shape="rect" id="node4" href="$classRangefinder.html#a21c76549df3c0a06292fa31b23e80ee7" title="fire a strobe of the trig pin " alt="" coords="700,5,819,32"/>
-<area shape="rect" id="node5" href="$classRangefinder.html#ad53fdab48917ac45680f52da63553930" title="Rangefinder::checkTimeout" alt="" coords="431,56,613,83"/>
+<area shape="rect" id="node5" href="$classRangefinder.html#ad53fdab48917ac45680f52da63553930" title="check the current state of timeout ang fire if its time to do so " alt="" coords="431,56,613,83"/>
 <area shape="rect" id="node6" href="$classRangefinder.html#a6706efbe01d225a04771dee426da09f1" title="Function used by the timeout check thread to determine if this object has timed out. " alt="" coords="661,56,857,83"/>
 <area shape="rect" id="node8" href="$classRangefinder.html#a4f24792c5c8c6fc8544275d1e74e087c" title="The method called from the ISR indicating the echo pin changed state. " alt="" coords="441,132,603,159"/>
 </map>
