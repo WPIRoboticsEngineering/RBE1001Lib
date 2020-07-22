@@ -147,12 +147,12 @@ void Motor::blockUntilMoveIsDone(){
 	{
 		delay(10);
 		distanceToGo=fabs((Setpoint*TICKS_TO_DEGREES) - getCurrentDegrees());
-		//Serial.println("Remaining: "+String(distanceToGo));
-	}while (distanceToGo>2.0 );// get within 2 degrees
+		Serial.println("Remaining: "+String(distanceToGo));
+	}while (distanceToGo>4.0 );// get within 4 degrees
 	// wait for the velocity to be below 10deg/sec
 	// 5deg/sec is lower bound of detection
 	while (fabs(getDegreesPerSecond()) > 10) {
-		//Serial.println("Speed: "+String(getDegreesPerSecond()));
+		Serial.println("Speed: "+String(getDegreesPerSecond()));
 		delay(10);
 	}
 }
