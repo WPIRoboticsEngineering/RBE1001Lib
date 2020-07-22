@@ -144,7 +144,7 @@ void Motor::blockUntilMoveIsDone(){
 		delay(10);
 		distanceToGo=fabs(newSetPoint - getCurrentDegrees());
 
-	}while (distanceToGo>2.0);// get within 2 degrees
+	}while (distanceToGo>2.0 || getInterpolationUnitIncrement()<1);// get within 2 degrees
 	// wait for the velocity to be below 10deg/sec
 	// 5deg/sec is lower bound of detection
 	while (fabs(getDegreesPerSecond()) > 10) {
