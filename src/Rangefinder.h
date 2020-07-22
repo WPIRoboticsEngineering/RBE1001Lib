@@ -68,7 +68,7 @@ public:
 	/**
 	 * \brief list of attached rangefinders
 	 *
-	 * when attach completes, a pointer to the object being attahced ia added to this list.
+	 * when attach completes, a pointer to the object being attahced is added to this list.
 	 * THis list is read from the timeout thread and Fire in order to run the round-robbin of all sensors.
 	 */
 	static Rangefinder * list[MAX_POSSIBLE_INTERRUPT_RANGEFINDER];
@@ -79,7 +79,7 @@ public:
 	 */
 	float getDistanceCM();
 	/**
-	 * \brief check the current state of timeout ang fire if its time to do so
+	 * \brief check the current state of timeout and fire if its time to do so
 	 */
 	static void checkTimeout();
 	/**
