@@ -127,11 +127,13 @@ void Motor::MoveTo(float newTargetInDegrees, float speedDegPerSec)
  * @param deltaTargetInDegrees the new relative setpoint for the closed loop controller
  * @param speedDegPerSec  is the speed in degrees per second
 */
-void Motor::StartMoveFor(float deltaTargetInDegrees, float speedDegPerSec)
+float Motor::StartMoveFor(float deltaTargetInDegrees, float speedDegPerSec)
 {
-	SetSetpointWithTime(getCurrentDegrees() + deltaTargetInDegrees,
+	float newSetPoint = getCurrentDegrees() + deltaTargetInDegrees;
+	SetSetpointWithTime(newSetPoint,
 			fabs(deltaTargetInDegrees / speedDegPerSec) * 1000.0,
 			SINUSOIDAL_INTERPOLATION);
+	return newSetPoint;
 }
 
 /**
@@ -143,12 +145,16 @@ void Motor::StartMoveFor(float deltaTargetInDegrees, float speedDegPerSec)
 */
 void Motor::MoveFor(float deltaTargetInDegrees, float speedDegPerSec)
 {
-	int64_t startPos = getCurrentDegrees();
-	StartMoveFor(deltaTargetInDegrees, speedDegPerSec);
-	while (fabs(startPos - getCurrentDegrees())
-			< fabs(0.9 * deltaTargetInDegrees)) {
+	float startPos = getCurrentDegrees();
+	float newSetPoint = StartMoveFor(deltaTargetInDegrees, speedDegPerSec);
+	float distanceToGo;
+	do
+	{
 		delay(10);
-	}
+		distanceToGo=fabs(newSetPoint - getCurrentDegrees());
+
+	}while (distanceToGo>2.0);// get within 2 degrees
+	// wait for the velocity to
 	while (fabs(getDegreesPerSecond()) > 10) {
 		delay(10);
 	}

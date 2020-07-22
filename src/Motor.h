@@ -301,7 +301,7 @@ public:
 	 * @param deltaTargetInDegrees the new relative setpoint for the closed loop controller
 	 * @param speedDegPerSec  is the speed in degrees per second
 	 */
-	void StartMoveFor(float deltaTargetInDegrees, float speedDegPerSec);
+	float StartMoveFor(float deltaTargetInDegrees, float speedDegPerSec);
 
 	/**
 	 * SetSetpoint in degrees with time
