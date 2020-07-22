@@ -120,13 +120,7 @@ void Motor::MoveTo(float newTargetInDegrees, float speedDegPerSec)
     SetSetpointWithTime(newTargetInDegrees, fabs(newTargetInDegrees/speedDegPerSec) * 1000.0, SINUSOIDAL_INTERPOLATION);
 }
 
-/**
- * StartMoveFor in degrees with speed
- * Set the setpoint for the motor in degrees and the speed you want to get there
- * Bascially, a wrapper function for SetSetpointWithTime that takes speed as an argument
- * @param deltaTargetInDegrees the new relative setpoint for the closed loop controller
- * @param speedDegPerSec  is the speed in degrees per second
-*/
+
 float Motor::StartMoveFor(float deltaTargetInDegrees, float speedDegPerSec)
 {
 	float newSetPoint = getCurrentDegrees() + deltaTargetInDegrees;
@@ -137,17 +131,14 @@ float Motor::StartMoveFor(float deltaTargetInDegrees, float speedDegPerSec)
 }
 
 /**
- * MoveTo in degrees with speed
- * Set the setpoint for the motor in degrees and the speed you want to get there
- * Bascially, a wrapper function for SetSetpointWithTime that takes speed as an argument
- * @param deltaTargetInDegrees the new relative setpoint for the closed loop controller
- * @param speedDegPerSec  is the speed in degrees per second
-*/
-void Motor::MoveFor(float deltaTargetInDegrees, float speedDegPerSec)
-{
-	float startPos = getCurrentDegrees();
-	float newSetPoint = StartMoveFor(deltaTargetInDegrees, speedDegPerSec);
+ * \brief  wait for the motor to arrive at a setpoint
+ *
+ * @note this is a blocking function, it will block code for multiple seconds until the motor arrives
+ * at its given setpoint
+ */
+void Motor::blockUntilMoveIsDone(){
 	float distanceToGo;
+	float newSetPoint = Setpoint*TICKS_TO_DEGREES;
 	do
 	{
 		delay(10);
@@ -158,7 +149,20 @@ void Motor::MoveFor(float deltaTargetInDegrees, float speedDegPerSec)
 	while (fabs(getDegreesPerSecond()) > 10) {
 		delay(10);
 	}
-
+}
+/**
+ * MoveFor a relative amount in degrees with speed
+ * Set the setpoint for the motor in degrees and the speed you want to get there
+ * Bascially, a wrapper function for SetSetpointWithTime that takes speed as an argument
+ * @param deltaTargetInDegrees the new relative setpoint for the closed loop controller
+ * @param speedDegPerSec  is the speed in degrees per second
+ * 	 * @note this is a blocking function, it will block code for multiple seconds until the motor arrives
+ * at its given setpoint
+ */
+void Motor::MoveFor(float deltaTargetInDegrees, float speedDegPerSec)
+{
+	StartMoveFor(deltaTargetInDegrees, speedDegPerSec);
+	blockUntilMoveIsDone();
 }
 
 /**

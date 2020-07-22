@@ -291,9 +291,18 @@ public:
 	 * Bascially, a wrapper function for SetSetpointWithTime that takes speed as an argument
 	 * @param deltaTargetInDegrees the new relative setpoint for the closed loop controller
 	 * @param speedDegPerSec  is the speed in degrees per second
+	 * 	 * @note this is a blocking function, it will block code for multiple seconds until the motor arrives
+	 * at its given setpoint
 	 */
 	void MoveFor(float deltaTargetInDegrees, float speedDegPerSec);
 
+	/**
+	 * \brief  wait for the motor to arrive at a setpoint
+	 *
+	 * @note this is a blocking function, it will block code for multiple seconds until the motor arrives
+	 * at its given setpoint
+	 */
+	void blockUntilMoveIsDone();
 	/**
 	 * StartMoveFor a relative amount in degrees with speed
 	 * Set the setpoint for the motor in degrees and the speed you want to get there
