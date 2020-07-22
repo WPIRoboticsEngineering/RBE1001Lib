@@ -143,7 +143,7 @@ void Motor::MoveFor(float deltaTargetInDegrees, float speedDegPerSec)
 {
 	int64_t startPos = getCurrentDegrees();
     StartMoveFor(deltaTargetInDegrees, speedDegPerSec);
-    while(fabs(startPos - getCurrentDegrees()) < 0.9 * deltaTargetInDegrees) {delay(10);}
+    while(fabs(startPos - getCurrentDegrees()) < fabs(0.9 * deltaTargetInDegrees)) {delay(10);}
     while(fabs(getDegreesPerSecond()) > 0) { delay(10);}
 }
 
