@@ -58,7 +58,7 @@ var searchData=
   ['spi_5fsck',['SPI_SCK',['../RBE1001Lib_8h.html#a750ca7c9b92cfc9e57272ff3a49db48b',1,'RBE1001Lib.h']]],
   ['spi_5fss',['SPI_SS',['../RBE1001Lib_8h.html#a81f0aae3c3a2adba06ac3b802b38915a',1,'RBE1001Lib.h']]],
   ['startap',['startAP',['../classWifiManager.html#a7cf530ef10fd1ffcac59fe5e4f58ad57',1,'WifiManager']]],
-  ['startmovefor',['StartMoveFor',['../classMotor.html#ac7b64e1de468c71a52bcd22515316a53',1,'Motor']]],
+  ['startmovefor',['StartMoveFor',['../classMotor.html#a60d6bb1ba61b837adadd03dedd5c19d8',1,'Motor']]],
   ['startsetpoint',['startSetpoint',['../classMotor.html#a7c484ee056e56c05e28d010b08fb0e08',1,'Motor']]],
   ['starttime',['startTime',['../classMotor.html#a38b8fbc85b9462f26079267b2815fc28',1,'Motor::startTime()'],['../classRangefinder.html#a928215b562fca560902831794a90b637',1,'Rangefinder::startTime()']]],
   ['state',['state',['../classWifiManager.html#ad0c73dbad8a0329fb8f8cbc6229b4c8d',1,'WifiManager']]],

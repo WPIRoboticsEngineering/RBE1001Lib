@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['initialize',['initialize',['../classSimpleWebServer.html#a28d5aa017e5f76d0a5830d574e3f6c67',1,'SimpleWebServer']]],
-  ['isapmode',['isApMode',['../classWifiManager.html#addc658c4c35042f12adcfee5579bdac8',1,'WifiManager']]],
-  ['isattached',['isAttached',['../classESP32Encoder.html#ad3c7e969eecb7f885604aa95928c3cba',1,'ESP32Encoder']]]
+  ['handleclient',['handleClient',['../classSimpleWebServer.html#a202189842f5a8020a7afa81029e3589c',1,'SimpleWebServer']]],
+  ['haspwm',['hasPwm',['../classESP32PWM.html#afdbce473c78465a637dcc592a07aa431',1,'ESP32PWM']]]
 ];

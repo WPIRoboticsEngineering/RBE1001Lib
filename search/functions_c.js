@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['onmotortimer',['onMotorTimer',['../Motor_8cpp.html#adb66b9c7a2544338725556bce116d5df',1,'Motor.cpp']]],
-  ['ontimer',['onTimer',['../Rangefinder_8cpp.html#a0b6abaae8371bfcca2ab8557bebe9332',1,'Rangefinder.cpp']]]
+  ['newbutton',['newButton',['../classWebPage.html#a19aa8540c4a4ac9bb0c9ca371ca65593',1,'WebPage']]],
+  ['notone',['noTone',['../ESP32Tone_8cpp.html#a554bd99888444e0026d7846a471a8913',1,'noTone(int pin):&#160;ESP32Tone.cpp'],['../ESP32Tone_8h.html#a554bd99888444e0026d7846a471a8913',1,'noTone(int pin):&#160;ESP32Tone.cpp']]]
 ];

@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['erase',['erase',['../classWifiManager.html#a6f2df7095f4e01872024ac914273722c',1,'WifiManager']]],
-  ['esp32analogread',['ESP32AnalogRead',['../classESP32AnalogRead.html#af954bc4b422748c3783c774eebb2994d',1,'ESP32AnalogRead']]],
-  ['esp32encoder',['ESP32Encoder',['../classESP32Encoder.html#a2d74a984c3e0723349b1dadbaf7c5ff7',1,'ESP32Encoder']]],
-  ['esp32pwm',['ESP32PWM',['../classESP32PWM.html#a002a992602731a52f5634859ffbed9a9',1,'ESP32PWM']]]
+  ['dataupdate',['dataUpdate',['../classWebPage.html#ac4bfea845b682a652a2149f090ace93b',1,'WebPage']]],
+  ['deallocate',['deallocate',['../classESP32PWM.html#a95986a33fe242cd58e874321bec4b4a1',1,'ESP32PWM']]],
+  ['detach',['detach',['../classServo.html#a0b69ccc5c8b348ebaa84be91d973a362',1,'Servo']]],
+  ['detachpin',['detachPin',['../classESP32PWM.html#acb41cd553c993b23f4ae3439857ae9af',1,'ESP32PWM']]],
+  ['disconnect',['disconnect',['../classWifiManager.html#a2b0fc1360c90922972c2caee5531afbb',1,'WifiManager']]],
+  ['drivebase',['DriveBase',['../classDriveBase.html#a541916b46f96bf6df2f2141a62f9c0fa',1,'DriveBase']]]
 ];

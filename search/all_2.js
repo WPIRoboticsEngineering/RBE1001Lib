@@ -1,6 +1,7 @@
 var searchData=
 [
   ['blink_2eino',['blink.ino',['../blink_8ino.html',1,'']]],
+  ['blockuntilmoveisdone',['blockUntilMoveIsDone',['../classMotor.html#afac09d2e3dc911e03ebf189acaa09015',1,'Motor']]],
   ['boot_5fflag_5fpin',['BOOT_FLAG_PIN',['../RBE1001Lib_8h.html#a88ae201421ebdf8709ec200d184e1392',1,'RBE1001Lib.h']]],
   ['bpinnumber',['bPinNumber',['../classESP32Encoder.html#a6adc1620b6d2ebf05846ef73a9524915',1,'ESP32Encoder']]],
   ['button_2eino',['button.ino',['../button_8ino.html',1,'']]],
