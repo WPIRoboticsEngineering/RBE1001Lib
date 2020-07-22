@@ -70,7 +70,7 @@ private:
 	/**
 	 * PID controller proportional constant
 	 */
-	float kP = 0.01;
+	float kP = 0.03;
 	/**
 	 * PID controller integral constant
 	 */
