@@ -28,6 +28,7 @@ void setup()
   motor2.attach(MOTOR2_PWM, MOTOR2_DIR, MOTOR2_ENCA, MOTOR2_ENCB);
   //explicitly make the button pin an input and engage the internal pullup resistor
   pinMode(buttonPin, INPUT_PULLUP);
+
 }
 
 

@@ -138,16 +138,21 @@ float Motor::StartMoveFor(float deltaTargetInDegrees, float speedDegPerSec)
  */
 void Motor::blockUntilMoveIsDone(){
 	float distanceToGo;
-	float newSetPoint = Setpoint*TICKS_TO_DEGREES;
+	// First wait for the interpolation to finish
+	while(getInterpolationUnitIncrement()<1){
+		delay(10);
+		//Serial.println(" Interpolation "+String (getInterpolationUnitIncrement()));
+	}
 	do
 	{
 		delay(10);
-		distanceToGo=fabs(newSetPoint - getCurrentDegrees());
-
-	}while (distanceToGo>2.0 || getInterpolationUnitIncrement()<1);// get within 2 degrees
+		distanceToGo=fabs((Setpoint*TICKS_TO_DEGREES) - getCurrentDegrees());
+		//Serial.println("Remaining: "+String(distanceToGo));
+	}while (distanceToGo>2.0 );// get within 2 degrees
 	// wait for the velocity to be below 10deg/sec
 	// 5deg/sec is lower bound of detection
 	while (fabs(getDegreesPerSecond()) > 10) {
+		//Serial.println("Speed: "+String(getDegreesPerSecond()));
 		delay(10);
 	}
 }
