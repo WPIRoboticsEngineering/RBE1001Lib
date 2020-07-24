@@ -39,7 +39,7 @@ void setup()
 void loop() 
 {
   //The following line will cause the program to wait indefinitely until the button is pressed
-  while(digitalRead(buttonPin)) {} 
+  //while(digitalRead(buttonPin)) {}
 
   motor1.MoveFor(360, 60); 
   motor2.MoveFor(360, 60); 
