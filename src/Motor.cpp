@@ -162,7 +162,7 @@ void Motor::blockUntilMoveIsDone(){
  * Bascially, a wrapper function for SetSetpointWithTime that takes speed as an argument
  * @param deltaTargetInDegrees the new relative setpoint for the closed loop controller
  * @param speedDegPerSec  is the speed in degrees per second
- * 	 * @note this is a blocking function, it will block code for multiple seconds until the motor arrives
+ * @note this is a blocking function, it will block code for multiple seconds until the motor arrives
  * at its given setpoint
  */
 void Motor::MoveFor(float deltaTargetInDegrees, float speedDegPerSec)
