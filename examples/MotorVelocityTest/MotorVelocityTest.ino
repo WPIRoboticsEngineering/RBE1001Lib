@@ -16,7 +16,7 @@ void setup() {
   motor1.attach(MOTOR1_PWM, MOTOR1_DIR, MOTOR1_ENCA, MOTOR1_ENCB);
   motor2.attach(MOTOR2_PWM, MOTOR2_DIR, MOTOR2_ENCA, MOTOR2_ENCB);
   // Use velocity control mode with open ended time
-  motor1.SetSpeed(-800);
+  motor1.SetSpeed(-360);
 }
 
 
@@ -28,18 +28,27 @@ void loop() {
 	upDown=!upDown;
 	// Set a speed for a specific amount of time, in this case 2 seconds
 	motor2.SetSpeed(upDown?180:-90, upDown?2000:4000);
+	float start = motor1.getCurrentDegrees();
+	long startTime= millis();
 	for(int i=0;i<100;i++){
 		delay(upDown?20:40);
-//		Serial.println("Speed 1="+String(motor1.getDegreesPerSecond())+
-//					"deg/sec, Effort= "+String(motor1.GetEffortPercent()));
+		Serial.println("Speed 1="+String(motor1.getDegreesPerSecond())+
+					"deg/sec, Effort= "+String(motor1.GetEffortPercent()));
 	}
 	Serial.println("\n");
 	// stop the motor
 	//motor1.SetSpeed(0);
-	delay(2000);
-	Serial.println("Degrees 1 "+String(motor1.getCurrentDegrees())+
-				" Degrees 2 "+String(motor2.getCurrentDegrees()));
 
+	float elapsed =((float) (millis()-startTime))/1000.0;
+	float distanceElapsed = motor1.getCurrentDegrees()-		start;
+	float durationSpeed= distanceElapsed/(elapsed);
+	Serial.println("Computed speed "+String(durationSpeed)+
+					" measured speed "+String(motor1.getDegreesPerSecond()));
+	Serial.println("Time elapsed "+String(elapsed)+
+				" Distance Elapsed  "+String(distanceElapsed)+
+				" Started at  "+String(start)+" arrived at "+String( motor1.getCurrentDegrees()));
+
+	delay(5000);
 	// start the motor spinning again
 	//motor1.SetSpeed(90);
 

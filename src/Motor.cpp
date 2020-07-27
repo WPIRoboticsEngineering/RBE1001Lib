@@ -194,7 +194,7 @@ void Motor::SetSpeed(float newDegreesPerSecond) {
 //		Serial.println("Stopping");
 		return;
 	}
-	milisecondPosIncrementForVelocity = (newDegreesPerSecond
+	milisecondPosIncrementForVelocity = (-newDegreesPerSecond
 			* (((float) -1.0) / 1000.0)) / TICKS_TO_DEGREES;
 //	Serial.println("Setting Speed "+String(newDegreesPerSecond)+
 //			" increment "+String(milisecondPosIncrementForVelocity)+
@@ -221,7 +221,7 @@ void Motor::SetSpeed(float newDegreesPerSecond, long miliseconds) {
 	}
 	float currentPos = getCurrentDegrees();
 	float distance = currentPos
-			+ (newDegreesPerSecond * (((float) miliseconds) / 1000.0));
+			+ (-newDegreesPerSecond * (((float) miliseconds) / 1000.0));
 	SetSetpointWithTime(distance, miliseconds, LINEAR_INTERPOLATION);
 }
 
@@ -267,7 +267,7 @@ void Motor::loop() {
 		prevousCount = nowEncoder;
 	}
 	// invert the effort so that the set speed and set effort match
-	SetEffortLocal(-currentEffort);
+	SetEffortLocal(currentEffort);
 
 }
 /**
@@ -349,9 +349,9 @@ void Motor::SetEffortLocal(float effort) {
 	if (effort < -1)
 		effort = -1;
 	if (effort > 0)
-		digitalWrite(directionFlag, LOW);
-	else
 		digitalWrite(directionFlag, HIGH);
+	else
+		digitalWrite(directionFlag, LOW);
 	currentEffort = effort;
 	pwm->writeScaled(abs(effort));
 }
@@ -367,7 +367,7 @@ float Motor::getDegreesPerSecond() {
 	//portENTER_CRITICAL(&mmux);
 	tmp = cachedSpeed;
 	//portEXIT_CRITICAL(&mmux);
-	return tmp * TICKS_TO_DEGREES;
+	return -tmp * TICKS_TO_DEGREES;
 }
 /**
  * getTicks
