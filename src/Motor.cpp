@@ -266,7 +266,8 @@ void Motor::loop() {
 		cachedSpeed = err / (0.05); // ticks per second
 		prevousCount = nowEncoder;
 	}
-	SetEffortLocal(currentEffort);
+	// invert the effort so that the set speed and set effort match
+	SetEffortLocal(-currentEffort);
 
 }
 /**
@@ -348,9 +349,9 @@ void Motor::SetEffortLocal(float effort) {
 	if (effort < -1)
 		effort = -1;
 	if (effort > 0)
-		digitalWrite(directionFlag, HIGH);
-	else
 		digitalWrite(directionFlag, LOW);
+	else
+		digitalWrite(directionFlag, HIGH);
 	currentEffort = effort;
 	pwm->writeScaled(abs(effort));
 }
