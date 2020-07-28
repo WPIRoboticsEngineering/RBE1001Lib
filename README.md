@@ -18,6 +18,6 @@ A library to support introduction to robotics engineering.
 * WebServer
 * WiFi
 
-# WiFI RC control
+# WiFi RC control
 
 The RC controller is hosted by the ESP32 as a website. 
