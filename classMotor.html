@@ -174,9 +174,9 @@ Private Attributes</h2></td></tr>
 <tr class="separator:adf42fb535d9fdf0a03217af703ac5958"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a075b1c6115b83e4506fb4399b632599c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMotor.html#a075b1c6115b83e4506fb4399b632599c">Setpoint</a> = 0</td></tr>
 <tr class="separator:a075b1c6115b83e4506fb4399b632599c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a406e6c0a887f50c7afa11c2c94009b92"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMotor.html#a406e6c0a887f50c7afa11c2c94009b92">kP</a> = 0.03</td></tr>
+<tr class="memitem:a406e6c0a887f50c7afa11c2c94009b92"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMotor.html#a406e6c0a887f50c7afa11c2c94009b92">kP</a> = 0.1</td></tr>
 <tr class="separator:a406e6c0a887f50c7afa11c2c94009b92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2da39282d67077fe9c2382b580d0d945"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMotor.html#a2da39282d67077fe9c2382b580d0d945">kI</a> = 0</td></tr>
+<tr class="memitem:a2da39282d67077fe9c2382b580d0d945"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMotor.html#a2da39282d67077fe9c2382b580d0d945">kI</a> = 0.04</td></tr>
 <tr class="separator:a2da39282d67077fe9c2382b580d0d945"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b16850941ea0b3021979160fe3fbc94"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMotor.html#a0b16850941ea0b3021979160fe3fbc94">kD</a> = 0</td></tr>
 <tr class="separator:a0b16850941ea0b3021979160fe3fbc94"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -409,7 +409,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>this must only be called after timers are allocated via Motor::allocateTimers(int PWMgenerationTimer) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Motor_8cpp_source.html#l00285">285</a> of file <a class="el" href="Motor_8cpp_source.html">Motor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Motor_8cpp_source.html#l00286">286</a> of file <a class="el" href="Motor_8cpp_source.html">Motor.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="ESP32Encoder_8cpp_source.html#l00187">ESP32Encoder::attachFullQuad()</a>, <a class="el" href="ESP32PWM_8cpp_source.html#l00231">ESP32PWM::attachPin()</a>, <a class="el" href="Motor_8h_source.html#l00052">directionFlag</a>, <a class="el" href="Motor_8h_source.html#l00044">encoder</a>, <a class="el" href="ESP32Encoder_8cpp_source.html#l00013">ESP32Encoder</a>, <a class="el" href="Motor_8h_source.html#l00013">MAX_POSSIBLE_MOTORS</a>, <a class="el" href="Motor_8h_source.html#l00048">MotorPWMPin</a>, <a class="el" href="Motor_8h_source.html#l00040">pwm</a>, <a class="el" href="ESP32Encoder_8h_source.html#l00015">UP</a>, and <a class="el" href="ESP32Encoder_8h_source.html#l00052">ESP32Encoder::useInternalWeakPullResistors</a>.</p>
 
@@ -451,7 +451,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Motor_8cpp_source.html#l00139">139</a> of file <a class="el" href="Motor_8cpp_source.html">Motor.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="Motor_8cpp_source.html#l00377">getCurrentDegrees()</a>, <a class="el" href="Motor_8cpp_source.html#l00364">getDegreesPerSecond()</a>, <a class="el" href="Motor_8cpp_source.html#l00027">getInterpolationUnitIncrement()</a>, <a class="el" href="Motor_8h_source.html#l00069">Setpoint</a>, and <a class="el" href="Motor_8h_source.html#l00017">TICKS_TO_DEGREES</a>.</p>
+<p class="reference">References <a class="el" href="Motor_8cpp_source.html#l00378">getCurrentDegrees()</a>, <a class="el" href="Motor_8cpp_source.html#l00365">getDegreesPerSecond()</a>, <a class="el" href="Motor_8cpp_source.html#l00027">getInterpolationUnitIncrement()</a>, <a class="el" href="Motor_8h_source.html#l00069">Setpoint</a>, and <a class="el" href="Motor_8h_source.html#l00017">TICKS_TO_DEGREES</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Motor_8h_source.html#l00222">GetEffortPercent()</a>, and <a class="el" href="Motor_8cpp_source.html#l00168">MoveFor()</a>.</p>
 <div class="dynheader">
@@ -484,7 +484,7 @@ Here is the call graph for this function:</div>
 <p>getTicks</p>
 <p>This function returns the current count of encoders </p><dl class="section return"><dt>Returns</dt><dd>count </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Motor_8cpp_source.html#l00377">377</a> of file <a class="el" href="Motor_8cpp_source.html">Motor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Motor_8cpp_source.html#l00378">378</a> of file <a class="el" href="Motor_8cpp_source.html">Motor.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="Motor_8h_source.html#l00143">nowEncoder</a>, and <a class="el" href="Motor_8h_source.html#l00017">TICKS_TO_DEGREES</a>.</p>
 
@@ -510,11 +510,11 @@ Here is the call graph for this function:</div>
 <p>This function returns the current speed of the motor</p>
 <dl class="section return"><dt>Returns</dt><dd>the speed of the motor in degrees per second </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Motor_8cpp_source.html#l00364">364</a> of file <a class="el" href="Motor_8cpp_source.html">Motor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Motor_8cpp_source.html#l00365">365</a> of file <a class="el" href="Motor_8cpp_source.html">Motor.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="Motor_8h_source.html#l00065">cachedSpeed</a>, and <a class="el" href="Motor_8h_source.html#l00017">TICKS_TO_DEGREES</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Motor_8cpp_source.html#l00139">blockUntilMoveIsDone()</a>, <a class="el" href="Motor_8h_source.html#l00222">GetEffortPercent()</a>, and <a class="el" href="motor__position_8ino_source.html#l00039">loop()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Motor_8cpp_source.html#l00139">blockUntilMoveIsDone()</a>, <a class="el" href="Motor_8h_source.html#l00222">GetEffortPercent()</a>, and <a class="el" href="MotorVelocityTest_8ino_source.html#l00027">loop()</a>.</p>
 
 </div>
 </div>
@@ -533,7 +533,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Motor_8cpp_source.html#l00335">335</a> of file <a class="el" href="Motor_8cpp_source.html">Motor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Motor_8cpp_source.html#l00336">336</a> of file <a class="el" href="Motor_8cpp_source.html">Motor.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="Motor_8h_source.html#l00103">currentEffort</a>.</p>
 
@@ -566,7 +566,9 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Motor_8h_source.html#l00222">222</a> of file <a class="el" href="Motor_8h_source.html">Motor.h</a>.</p>
 
-<p class="reference">References <a class="el" href="Motor_8cpp_source.html#l00139">blockUntilMoveIsDone()</a>, <a class="el" href="Motor_8cpp_source.html#l00377">getCurrentDegrees()</a>, <a class="el" href="Motor_8cpp_source.html#l00364">getDegreesPerSecond()</a>, <a class="el" href="Motor_8cpp_source.html#l00335">GetEffort()</a>, <a class="el" href="Motor_8cpp_source.html#l00233">loop()</a>, <a class="el" href="Motor_8cpp_source.html#l00168">MoveFor()</a>, <a class="el" href="Motor_8cpp_source.html#l00118">MoveTo()</a>, <a class="el" href="Motor_8cpp_source.html#l00092">SetSetpointWithTime()</a>, <a class="el" href="Motor_8cpp_source.html#l00191">SetSpeed()</a>, and <a class="el" href="Motor_8cpp_source.html#l00124">StartMoveFor()</a>.</p>
+<p class="reference">References <a class="el" href="Motor_8cpp_source.html#l00139">blockUntilMoveIsDone()</a>, <a class="el" href="Motor_8cpp_source.html#l00378">getCurrentDegrees()</a>, <a class="el" href="Motor_8cpp_source.html#l00365">getDegreesPerSecond()</a>, <a class="el" href="Motor_8cpp_source.html#l00336">GetEffort()</a>, <a class="el" href="Motor_8cpp_source.html#l00233">loop()</a>, <a class="el" href="Motor_8cpp_source.html#l00168">MoveFor()</a>, <a class="el" href="Motor_8cpp_source.html#l00118">MoveTo()</a>, <a class="el" href="Motor_8cpp_source.html#l00092">SetSetpointWithTime()</a>, <a class="el" href="Motor_8cpp_source.html#l00191">SetSpeed()</a>, and <a class="el" href="Motor_8cpp_source.html#l00124">StartMoveFor()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="MotorVelocityTest_8ino_source.html#l00027">loop()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -669,7 +671,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Motor_8cpp_source.html#l00233">233</a> of file <a class="el" href="Motor_8cpp_source.html">Motor.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="Motor_8h_source.html#l00065">cachedSpeed</a>, <a class="el" href="Motor_8h_source.html#l00099">closedLoopControl</a>, <a class="el" href="Motor_8h_source.html#l00103">currentEffort</a>, <a class="el" href="Motor_8h_source.html#l00044">encoder</a>, <a class="el" href="Motor_8h_source.html#l00115">endSetpoint</a>, <a class="el" href="ESP32Encoder_8cpp_source.html#l00199">ESP32Encoder::getCount()</a>, <a class="el" href="Motor_8cpp_source.html#l00027">getInterpolationUnitIncrement()</a>, <a class="el" href="Motor_8h_source.html#l00018">I_TERM_SIZE</a>, <a class="el" href="Motor_8h_source.html#l00057">interruptCountForVelocity</a>, <a class="el" href="Motor_8h_source.html#l00077">kI</a>, <a class="el" href="Motor_8h_source.html#l00073">kP</a>, <a class="el" href="Motor_8h_source.html#l00136">milisecondPosIncrementForVelocity</a>, <a class="el" href="Motor_8h_source.html#l00127">mode</a>, <a class="el" href="Motor_8h_source.html#l00143">nowEncoder</a>, <a class="el" href="Motor_8h_source.html#l00061">prevousCount</a>, <a class="el" href="Motor_8h_source.html#l00085">runntingITerm</a>, <a class="el" href="Motor_8cpp_source.html#l00345">SetEffortLocal()</a>, <a class="el" href="Motor_8h_source.html#l00069">Setpoint</a>, <a class="el" href="Motor_8h_source.html#l00119">startSetpoint</a>, <a class="el" href="Motor_8h_source.html#l00123">unitDuration</a>, and <a class="el" href="Motor_8h_source.html#l00020">VELOCITY_MODE</a>.</p>
+<p class="reference">References <a class="el" href="Motor_8h_source.html#l00065">cachedSpeed</a>, <a class="el" href="Motor_8h_source.html#l00099">closedLoopControl</a>, <a class="el" href="Motor_8h_source.html#l00103">currentEffort</a>, <a class="el" href="Motor_8h_source.html#l00044">encoder</a>, <a class="el" href="Motor_8h_source.html#l00115">endSetpoint</a>, <a class="el" href="ESP32Encoder_8cpp_source.html#l00199">ESP32Encoder::getCount()</a>, <a class="el" href="Motor_8cpp_source.html#l00027">getInterpolationUnitIncrement()</a>, <a class="el" href="Motor_8h_source.html#l00018">I_TERM_SIZE</a>, <a class="el" href="Motor_8h_source.html#l00057">interruptCountForVelocity</a>, <a class="el" href="Motor_8h_source.html#l00077">kI</a>, <a class="el" href="Motor_8h_source.html#l00073">kP</a>, <a class="el" href="Motor_8h_source.html#l00136">milisecondPosIncrementForVelocity</a>, <a class="el" href="Motor_8h_source.html#l00127">mode</a>, <a class="el" href="Motor_8h_source.html#l00143">nowEncoder</a>, <a class="el" href="Motor_8h_source.html#l00061">prevousCount</a>, <a class="el" href="Motor_8h_source.html#l00085">runntingITerm</a>, <a class="el" href="Motor_8cpp_source.html#l00346">SetEffortLocal()</a>, <a class="el" href="Motor_8h_source.html#l00069">Setpoint</a>, <a class="el" href="Motor_8h_source.html#l00119">startSetpoint</a>, <a class="el" href="Motor_8h_source.html#l00123">unitDuration</a>, and <a class="el" href="Motor_8h_source.html#l00020">VELOCITY_MODE</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Motor_8h_source.html#l00222">GetEffortPercent()</a>, and <a class="el" href="Motor_8cpp_source.html#l00041">onMotorTimer()</a>.</p>
 <div class="dynheader">
@@ -843,7 +845,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Motor_8cpp_source.html#l00318">318</a> of file <a class="el" href="Motor_8cpp_source.html">Motor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Motor_8cpp_source.html#l00319">319</a> of file <a class="el" href="Motor_8cpp_source.html">Motor.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="Motor_8h_source.html#l00099">closedLoopControl</a>, and <a class="el" href="Motor_8h_source.html#l00103">currentEffort</a>.</p>
 
@@ -875,7 +877,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Motor_8cpp_source.html#l00345">345</a> of file <a class="el" href="Motor_8cpp_source.html">Motor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Motor_8cpp_source.html#l00346">346</a> of file <a class="el" href="Motor_8cpp_source.html">Motor.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="Motor_8h_source.html#l00103">currentEffort</a>, <a class="el" href="Motor_8h_source.html#l00052">directionFlag</a>, <a class="el" href="Motor_8h_source.html#l00040">pwm</a>, and <a class="el" href="ESP32PWM_8cpp_source.html#l00159">ESP32PWM::writeScaled()</a>.</p>
 
@@ -942,7 +944,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Motor_8h_source.html#l00204">204</a> of file <a class="el" href="Motor_8h_source.html">Motor.h</a>.</p>
 
-<p class="reference">References <a class="el" href="Motor_8cpp_source.html#l00335">GetEffort()</a>, and <a class="el" href="Motor_8cpp_source.html#l00318">SetEffort()</a>.</p>
+<p class="reference">References <a class="el" href="Motor_8cpp_source.html#l00336">GetEffort()</a>, and <a class="el" href="Motor_8cpp_source.html#l00319">SetEffort()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -988,7 +990,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p>PID gains for the PID controller </p>
 
-<p class="definition">Definition at line <a class="el" href="Motor_8cpp_source.html#l00275">275</a> of file <a class="el" href="Motor_8cpp_source.html">Motor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Motor_8cpp_source.html#l00276">276</a> of file <a class="el" href="Motor_8cpp_source.html">Motor.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="Motor_8h_source.html#l00081">kD</a>, <a class="el" href="Motor_8h_source.html#l00077">kI</a>, <a class="el" href="Motor_8h_source.html#l00073">kP</a>, and <a class="el" href="Motor_8h_source.html#l00085">runntingITerm</a>.</p>
 
@@ -1142,7 +1144,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Motor_8h_source.html#l00344">344</a> of file <a class="el" href="Motor_8h_source.html">Motor.h</a>.</p>
 
-<p class="reference">References <a class="el" href="Motor_8cpp_source.html#l00275">setGains()</a>, <a class="el" href="Motor_8cpp_source.html#l00092">SetSetpointWithTime()</a>, and <a class="el" href="Motor_8h_source.html#l00020">SINUSOIDAL_INTERPOLATION</a>.</p>
+<p class="reference">References <a class="el" href="Motor_8cpp_source.html#l00276">setGains()</a>, <a class="el" href="Motor_8cpp_source.html#l00092">SetSetpointWithTime()</a>, and <a class="el" href="Motor_8h_source.html#l00020">SINUSOIDAL_INTERPOLATION</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="FullSystemTest_8ino_source.html#l00044">loop()</a>.</p>
 <div class="dynheader">
@@ -1240,7 +1242,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Motor_8cpp_source.html#l00191">191</a> of file <a class="el" href="Motor_8cpp_source.html">Motor.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="Motor_8h_source.html#l00099">closedLoopControl</a>, <a class="el" href="Motor_8cpp_source.html#l00377">getCurrentDegrees()</a>, <a class="el" href="Motor_8h_source.html#l00136">milisecondPosIncrementForVelocity</a>, <a class="el" href="Motor_8h_source.html#l00127">mode</a>, <a class="el" href="Motor_8h_source.html#l00143">nowEncoder</a>, <a class="el" href="Motor_8h_source.html#l00069">Setpoint</a>, <a class="el" href="Motor_8h_source.html#l00320">SetSetpoint()</a>, <a class="el" href="Motor_8h_source.html#l00017">TICKS_TO_DEGREES</a>, and <a class="el" href="Motor_8h_source.html#l00020">VELOCITY_MODE</a>.</p>
+<p class="reference">References <a class="el" href="Motor_8h_source.html#l00099">closedLoopControl</a>, <a class="el" href="Motor_8cpp_source.html#l00378">getCurrentDegrees()</a>, <a class="el" href="Motor_8h_source.html#l00136">milisecondPosIncrementForVelocity</a>, <a class="el" href="Motor_8h_source.html#l00127">mode</a>, <a class="el" href="Motor_8h_source.html#l00143">nowEncoder</a>, <a class="el" href="Motor_8h_source.html#l00069">Setpoint</a>, <a class="el" href="Motor_8h_source.html#l00320">SetSetpoint()</a>, <a class="el" href="Motor_8h_source.html#l00017">TICKS_TO_DEGREES</a>, and <a class="el" href="Motor_8h_source.html#l00020">VELOCITY_MODE</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Motor_8h_source.html#l00222">GetEffortPercent()</a>, <a class="el" href="MotorVelocityTest_8ino_source.html#l00027">loop()</a>, <a class="el" href="Motor_8cpp_source.html#l00216">SetSpeed()</a>, and <a class="el" href="MotorVelocityTest_8ino_source.html#l00011">setup()</a>.</p>
 <div class="dynheader">
@@ -1299,7 +1301,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Motor_8cpp_source.html#l00216">216</a> of file <a class="el" href="Motor_8cpp_source.html">Motor.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="Motor_8cpp_source.html#l00377">getCurrentDegrees()</a>, <a class="el" href="Motor_8h_source.html#l00020">LINEAR_INTERPOLATION</a>, <a class="el" href="Motor_8cpp_source.html#l00092">SetSetpointWithTime()</a>, and <a class="el" href="Motor_8cpp_source.html#l00191">SetSpeed()</a>.</p>
+<p class="reference">References <a class="el" href="Motor_8cpp_source.html#l00378">getCurrentDegrees()</a>, <a class="el" href="Motor_8h_source.html#l00020">LINEAR_INTERPOLATION</a>, <a class="el" href="Motor_8cpp_source.html#l00092">SetSetpointWithTime()</a>, and <a class="el" href="Motor_8cpp_source.html#l00191">SetSpeed()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1349,7 +1351,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Motor_8cpp_source.html#l00124">124</a> of file <a class="el" href="Motor_8cpp_source.html">Motor.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="Motor_8cpp_source.html#l00377">getCurrentDegrees()</a>, <a class="el" href="Motor_8cpp_source.html#l00092">SetSetpointWithTime()</a>, and <a class="el" href="Motor_8h_source.html#l00020">SINUSOIDAL_INTERPOLATION</a>.</p>
+<p class="reference">References <a class="el" href="Motor_8cpp_source.html#l00378">getCurrentDegrees()</a>, <a class="el" href="Motor_8cpp_source.html#l00092">SetSetpointWithTime()</a>, and <a class="el" href="Motor_8h_source.html#l00020">SINUSOIDAL_INTERPOLATION</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Motor_8h_source.html#l00222">GetEffortPercent()</a>, and <a class="el" href="Motor_8cpp_source.html#l00168">MoveFor()</a>.</p>
 <div class="dynheader">
@@ -1388,7 +1390,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Motor_8h_source.html#l00065">65</a> of file <a class="el" href="Motor_8h_source.html">Motor.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Motor_8cpp_source.html#l00364">getDegreesPerSecond()</a>, and <a class="el" href="Motor_8cpp_source.html#l00233">loop()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Motor_8cpp_source.html#l00365">getDegreesPerSecond()</a>, and <a class="el" href="Motor_8cpp_source.html#l00233">loop()</a>.</p>
 
 </div>
 </div>
@@ -1415,7 +1417,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Motor_8h_source.html#l00099">99</a> of file <a class="el" href="Motor_8h_source.html">Motor.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Motor_8cpp_source.html#l00233">loop()</a>, <a class="el" href="Motor_8cpp_source.html#l00318">SetEffort()</a>, <a class="el" href="Motor_8cpp_source.html#l00092">SetSetpointWithTime()</a>, and <a class="el" href="Motor_8cpp_source.html#l00191">SetSpeed()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Motor_8cpp_source.html#l00233">loop()</a>, <a class="el" href="Motor_8cpp_source.html#l00319">SetEffort()</a>, <a class="el" href="Motor_8cpp_source.html#l00092">SetSetpointWithTime()</a>, and <a class="el" href="Motor_8cpp_source.html#l00191">SetSpeed()</a>.</p>
 
 </div>
 </div>
@@ -1442,7 +1444,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Motor_8h_source.html#l00103">103</a> of file <a class="el" href="Motor_8h_source.html">Motor.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Motor_8cpp_source.html#l00335">GetEffort()</a>, <a class="el" href="Motor_8cpp_source.html#l00233">loop()</a>, <a class="el" href="Motor_8cpp_source.html#l00318">SetEffort()</a>, and <a class="el" href="Motor_8cpp_source.html#l00345">SetEffortLocal()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Motor_8cpp_source.html#l00336">GetEffort()</a>, <a class="el" href="Motor_8cpp_source.html#l00233">loop()</a>, <a class="el" href="Motor_8cpp_source.html#l00319">SetEffort()</a>, and <a class="el" href="Motor_8cpp_source.html#l00346">SetEffortLocal()</a>.</p>
 
 </div>
 </div>
@@ -1469,7 +1471,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Motor_8h_source.html#l00052">52</a> of file <a class="el" href="Motor_8h_source.html">Motor.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Motor_8cpp_source.html#l00285">attach()</a>, and <a class="el" href="Motor_8cpp_source.html#l00345">SetEffortLocal()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Motor_8cpp_source.html#l00286">attach()</a>, and <a class="el" href="Motor_8cpp_source.html#l00346">SetEffortLocal()</a>.</p>
 
 </div>
 </div>
@@ -1523,7 +1525,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Motor_8h_source.html#l00044">44</a> of file <a class="el" href="Motor_8h_source.html">Motor.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Motor_8cpp_source.html#l00285">attach()</a>, <a class="el" href="Motor_8cpp_source.html#l00233">loop()</a>, <a class="el" href="Motor_8cpp_source.html#l00074">Motor()</a>, and <a class="el" href="Motor_8cpp_source.html#l00079">~Motor()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Motor_8cpp_source.html#l00286">attach()</a>, <a class="el" href="Motor_8cpp_source.html#l00233">loop()</a>, <a class="el" href="Motor_8cpp_source.html#l00074">Motor()</a>, and <a class="el" href="Motor_8cpp_source.html#l00079">~Motor()</a>.</p>
 
 </div>
 </div>
@@ -1604,7 +1606,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Motor_8h_source.html#l00081">81</a> of file <a class="el" href="Motor_8h_source.html">Motor.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Motor_8cpp_source.html#l00275">setGains()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Motor_8cpp_source.html#l00276">setGains()</a>.</p>
 
 </div>
 </div>
@@ -1618,7 +1620,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float Motor::kI = 0</td>
+          <td class="memname">float Motor::kI = 0.04</td>
         </tr>
       </table>
   </td>
@@ -1631,7 +1633,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Motor_8h_source.html#l00077">77</a> of file <a class="el" href="Motor_8h_source.html">Motor.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Motor_8cpp_source.html#l00233">loop()</a>, and <a class="el" href="Motor_8cpp_source.html#l00275">setGains()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Motor_8cpp_source.html#l00233">loop()</a>, and <a class="el" href="Motor_8cpp_source.html#l00276">setGains()</a>.</p>
 
 </div>
 </div>
@@ -1645,7 +1647,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float Motor::kP = 0.03</td>
+          <td class="memname">float Motor::kP = 0.1</td>
         </tr>
       </table>
   </td>
@@ -1658,7 +1660,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Motor_8h_source.html#l00073">73</a> of file <a class="el" href="Motor_8h_source.html">Motor.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Motor_8cpp_source.html#l00233">loop()</a>, and <a class="el" href="Motor_8cpp_source.html#l00275">setGains()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Motor_8cpp_source.html#l00233">loop()</a>, and <a class="el" href="Motor_8cpp_source.html#l00276">setGains()</a>.</p>
 
 </div>
 </div>
@@ -1764,7 +1766,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Motor_8h_source.html#l00048">48</a> of file <a class="el" href="Motor_8h_source.html">Motor.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Motor_8cpp_source.html#l00285">attach()</a>, and <a class="el" href="Motor_8cpp_source.html#l00079">~Motor()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Motor_8cpp_source.html#l00286">attach()</a>, and <a class="el" href="Motor_8cpp_source.html#l00079">~Motor()</a>.</p>
 
 </div>
 </div>
@@ -1783,7 +1785,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Motor_8h_source.html#l00143">143</a> of file <a class="el" href="Motor_8h_source.html">Motor.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Motor_8cpp_source.html#l00377">getCurrentDegrees()</a>, <a class="el" href="Motor_8cpp_source.html#l00233">loop()</a>, and <a class="el" href="Motor_8cpp_source.html#l00191">SetSpeed()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Motor_8cpp_source.html#l00378">getCurrentDegrees()</a>, <a class="el" href="Motor_8cpp_source.html#l00233">loop()</a>, and <a class="el" href="Motor_8cpp_source.html#l00191">SetSpeed()</a>.</p>
 
 </div>
 </div>
@@ -1836,7 +1838,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Motor_8h_source.html#l00040">40</a> of file <a class="el" href="Motor_8h_source.html">Motor.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Motor_8cpp_source.html#l00285">attach()</a>, <a class="el" href="Motor_8cpp_source.html#l00074">Motor()</a>, <a class="el" href="Motor_8cpp_source.html#l00345">SetEffortLocal()</a>, and <a class="el" href="Motor_8cpp_source.html#l00079">~Motor()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Motor_8cpp_source.html#l00286">attach()</a>, <a class="el" href="Motor_8cpp_source.html#l00074">Motor()</a>, <a class="el" href="Motor_8cpp_source.html#l00346">SetEffortLocal()</a>, and <a class="el" href="Motor_8cpp_source.html#l00079">~Motor()</a>.</p>
 
 </div>
 </div>
@@ -1863,7 +1865,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Motor_8h_source.html#l00085">85</a> of file <a class="el" href="Motor_8h_source.html">Motor.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Motor_8cpp_source.html#l00233">loop()</a>, and <a class="el" href="Motor_8cpp_source.html#l00275">setGains()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Motor_8cpp_source.html#l00233">loop()</a>, and <a class="el" href="Motor_8cpp_source.html#l00276">setGains()</a>.</p>
 
 </div>
 </div>
