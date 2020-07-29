@@ -3,6 +3,7 @@
 #include <HTTP_Method.h>
 #include "WebPage.h"
 #include "staticFiles.h"
+#include <ESPAsyncWebServer.h>
 
 
 String staticHTML = R"=====(
@@ -95,6 +96,7 @@ function getData(){
 )=====";
 
 static WebServer server(80);
+//AsyncWebServer server(80);
 
 static WebPage *thisPage;
 static char stringBuffer[100];
