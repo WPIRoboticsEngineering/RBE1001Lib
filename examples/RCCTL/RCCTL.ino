@@ -43,6 +43,7 @@ void startMotor(String value) {
  */
 void setupButtons() {
   buttonPage.newButton("on", startMotor, "Motors On", "Turn On the motors");
+  buttonPage.newButton("off", startMotor, "Motors Off", "Turn Off the motors");
 }
 
 Timer endTimer;   // end of a timed state timer

@@ -4,6 +4,62 @@
 #include "WebPage.h"
 #include "staticFiles.h"
 
+
+String staticHTML = R"=====(
+
+
+<!DOCTYPE html>
+<style>html { font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: left;}
+.button { background-color: #4CAF50; border: none; color: white; padding: 16px 40px;
+text-decoration: none; font-size: 30px; margin: 2px; cursor: pointer;}
+</style>
+<html>
+<body><h1>ESP32 Web Server</h1>
+<script>
+//setInterval(function() {
+  // Call a function repetatively with 1 Second interval
+//  getButtons();
+//  }, 1000); //2000mSeconds update rate
+  getButtons();
+
+function clickButton(url){
+var xhttp = new XMLHttpRequest();
+xhttp.open("GET", url, true);
+xhttp.send();
+}
+
+function getButtons() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+		var container = document.getElementById("Buttons");
+		container.innerHTML ="";
+	
+      var buttons = JSON.parse(this.responseText);
+	  buttons.forEach(function (item,index){
+	  var url = item['url'];
+	  var label = item['label'];
+	  var desc = item['desc'];
+		container.innerHTML =container.innerHTML+"<p><button class=\"button\" onclick=\"clickButton('"+url+"');\">" + name + "</button>"+desc+"</p>";
+	  });
+	  
+	  container.innerHTML =container.innerHTML+"</p>";
+	  //
+    }
+  };
+  xhttp.open("GET", "http://192.168.86.250/readButtons", true);
+  xhttp.send();
+}
+
+</script>
+<div id="Buttons"></div>
+
+</body>
+</html>
+
+
+)=====";
+
 static WebServer server(80);
 
 static WebPage *thisPage;
@@ -117,23 +173,23 @@ void WebPage::setValue(String name, float value) {
 void WebPage::sendStatic() {
   String page = getStatic();
   ESP_LOGI("WebPage::sendStatic","Sending Static asset '/'");
-  server.send(200, "text/plain", page);
+  server.send(200, "text/html", page);
 }
 
 void WebPage::sendValues() {
-	  ESP_LOGI("WebPage::sendData","Sending Values Update");
+	  ESP_LOGI("WebPage::sendValues","Sending Values Update");
   String page = getValues();
-  server.send(200, "text/plain", page);
+  server.send(200, "application/json", page);
 }
 
 void WebPage::sendButtons() {
-  ESP_LOGI("WebPage::sendData","Sending Buttons Update");
+  ESP_LOGI("WebPage::sendButtons","Sending Buttons Update");
   String page = getButtons();
-  server.send(200, "text/plain", page);
+  server.send(200, "application/json", page);
 }
 
 String WebPage::getStatic(){
-	return String("<html><body><h1>Static!</h1></body></html>");
+	return staticHTML;
 }
 
 String WebPage::getButtons(){
@@ -145,7 +201,7 @@ String WebPage::getButtons(){
 		jsonReply += dv->name;
 		jsonReply += "\",";
 
-		jsonReply += "\"URL\":\"";
+		jsonReply += "\"url\":\"";
 		jsonReply += dv->URL;
 		jsonReply += "\",";
 
