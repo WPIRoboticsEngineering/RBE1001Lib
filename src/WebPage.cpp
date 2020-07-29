@@ -2,101 +2,99 @@
 #include "WebPage.h"
 #include "SimpleWebServer.h"
 
-String buttonStyle = R"=====(
-<!DOCTYPE html>
-<style>html { font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: left;}
-.button { background-color: #4CAF50; border: none; color: white; padding: 16px 40px;
-text-decoration: none; font-size: 30px; margin: 2px; cursor: pointer;}
-</style>
 
-<html>
-<body><h1>ESP32 Web Server</h1>
-
-<script>
-setInterval(function() {
-  // Call a function repetatively with 1 Second interval
-  getData();
-  }, 1000); //2000mSeconds update rate
-
-function getData() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("DataValue").innerHTML = this.responseText;
-    }
-  };
-  xhttp.open("GET", "readData", true);
-  xhttp.send();
-}
-</script>
-)=====";
-
-/*
- * this stuff is a kludge, but seemed worth it for now to remove complexity
- * from the part of the program developed by students. I'll fix it more
- * generally later.
- */
 static WebPage *thisPage;
+static char stringBuffer[100];
 
-static void update() {
-  thisPage->dataUpdate();
+char* String2Chars(String str){
+	str.toCharArray(stringBuffer, 100, 0);
+	return stringBuffer;
 }
 
-void WebPage::dataUpdate() {
-  ws.sendResponse(getHTML()); //Send Data value only to client ajax request
+static void staticCallback() {
+  thisPage->sendStatic();
+}
+
+static void dataCallback() {
+  thisPage->sendData();
 }
 
 WebPage::WebPage(SimpleWebServer& sws): ws(sws) {
-  contents = buttonStyle;
-  head = NULL;
+
+  contents = " ";
+  datahead = NULL;
+  buttonhead = NULL;
   thisPage = this;
-  ws.registerHandler("/readData", update);
 }
 
-void WebPage::add(String s) {
-  contents += s + "\n";
+
+void WebPage::initalize(){
+	ESP_LOGD("WebPage::WebPage","WebPage Init..");
+	ws.initialize();
+
+	ws.registerHandler("/readData", dataCallback);
+	ws.registerHandler("/", staticCallback);
 }
 
-void WebPage::finishPage() {
-  add("<span id=\"DataValue\"> </span><br>");
-  add("</body></html>");
-  add("");
+void WebPage::handle(){
+	ws.handleClient();  // handle web page requests
 }
 
-String WebPage::getPage() {
-  return contents;
-}
 
 void WebPage::newButton(String url, void (*handler)(), String label, String description) {
-  ws.registerHandler("/" + url, handler);
-  add("<p><a href=\"/" + url + "\"><button class=\"button\">" + label + "</button></a>");
-  add(description + "</p>");
+	int count=0;
+    for (ButtonMap *bv = buttonhead; bv; bv = bv->next) {
+    	count++;
+        if (bv->name == label) {
+        	ESP_LOGD("WebPage::newButton","Updating Button '%s', Index: %d",String2Chars(label),count-1);
+            bv->desc = description;
+            bv->handler=handler;
+            return;
+        }
+    }
+    ESP_LOGD("WebPage::newButton","New Button '%s', Count: %d",String2Chars(label),count);
+    ButtonMap *bv = new ButtonMap;
+    bv->name = String(label);
+    bv->desc = String(description);
+    bv->next = buttonhead;
+    bv->handler = handler;
+    buttonhead = bv;
 }
 
 void WebPage::setValue(String name, float value) {
-    for (DataValues *dv = head; dv; dv = dv->next) {
+	int count=0;
+    for (DataValues *dv = datahead; dv; dv = dv->next) {
+    	count++;
         if (dv->name == name) {
+        	ESP_LOGD("WebPage::setValue","Updating Value '%s', Index: %d\tValue: %f",String2Chars(name),count-1,value);
             dv->value = value;
             return;
         }
     }
+    ESP_LOGD("WebPage::setValue","New Value '%s', Count: %d",String2Chars(name),count);
     DataValues *dv = new DataValues;
     dv->name = String(name);
     dv->value = value;
-    dv->next = head;
-    head = dv;
+    dv->next = datahead;
+    datahead = dv;
 }
 
-String WebPage::getHTML() {
-  String table = "<table>\n";
-    for (DataValues *dv = head; dv; dv = dv->next) {
-        table += "<tr><td>" + dv->name + "</td><td>" + String(dv->value) + "</td></tr>\n";
-    }
-    table += "</table>\n";
-    return table;
-}
-
-void WebPage::sendHTML() {
-  String page = getPage();
+void WebPage::sendStatic() {
+  String page = getStatic();
+  ESP_LOGD("WebPage::sendStatic","Sending Static asset '/'");
   ws.sendHTMLResponse(page);
+}
+
+void WebPage::sendData() {
+	  ESP_LOGD("WebPage::sendData","Sending Data Update");
+  String page = getData();
+  ws.sendHTMLResponse(page);
+}
+
+String WebPage::getStatic(){
+	return String("<html><body><h1>Static!</h1></body></html>");
+}
+
+String WebPage::getData(){
+	return String("{data:'placeholder'}");
 }

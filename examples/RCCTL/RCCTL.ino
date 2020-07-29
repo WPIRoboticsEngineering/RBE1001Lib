@@ -26,7 +26,6 @@ enum State {stopped, go} state;
  */
 void startMotor() {
   state = go;
-  buttonPage.sendHTML();
 }
 
 /*
@@ -53,9 +52,8 @@ Timer dashboardUpdateTimer;  // times when the dashboard should update
  */
 void setup() {
   // This will initialize the Serial as 115200 for prints and passwords
-  webServer.initialize();
+  buttonPage.initalize();
   setupButtons();
-  buttonPage.finishPage();  // this adds the html to the page after the buttons
   endTimer.reset();     // reset the end of state timer
   dashboardUpdateTimer.reset(); // reset the dashbaord refresh timer
   state = stopped;   // initially, the robot is in the stopped state
@@ -104,5 +102,5 @@ void updateDashboard() {
 void loop() {
     runStateMachine();  // do a pass through the state machine
     updateDashboard();  // update the dashboard values
-    webServer.handleClient();  // handle web page requests
+    buttonPage.handle();
  }

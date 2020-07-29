@@ -2,28 +2,36 @@
 #include <Arduino.h>
 #include "SimpleWebServer.h"
 
+typedef struct ButtonMap {
+    String name;
+    String desc;
+    struct ButtonMap *next;
+    void (*handler)();
+} ButtonMap;
+
 typedef struct DataValues {
     String name;
     float value;
     struct DataValues *next;
 } DataValues;
 
+
+
 class WebPage {
   public:
     WebPage(SimpleWebServer& sws);
     void newButton(String url, void (*handler)(), String label, String description);
-    String getPage();
-    void finishPage();
     void setValue(String name, float value);
-    String getHTML();
-    void sendHTML();
-    void dataUpdate();
+    void sendStatic();
+    void sendData();
+    void handle();
+    void initalize();
   private:
-    void add(String s);
-    void add(float f);
-    void postResponse();
+    String getStatic();
+    String getData();
     String contents;
     SimpleWebServer ws;
     String html;
-    DataValues *head;
+    DataValues *datahead;
+    ButtonMap *buttonhead;
 };
