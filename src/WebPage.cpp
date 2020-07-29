@@ -16,16 +16,24 @@ text-decoration: none; font-size: 30px; margin: 2px; cursor: pointer;}
 <html>
 <body><h1>ESP32 Web Server</h1>
 <script>
-//setInterval(function() {
+getButtons();
+
+setInterval(function() {
   // Call a function repetatively with 1 Second interval
-//  getButtons();
-//  }, 1000); //2000mSeconds update rate
   getButtons();
+  }, 9500); //9000mSeconds update rate
+  
+  setInterval(function() {
+  // Call a function repetatively with 1 Second interval
+  getData();
+  }, 1000); //1000mSeconds update rate
+
+  
 
 function clickButton(url){
-var xhttp = new XMLHttpRequest();
-xhttp.open("GET", url, true);
-xhttp.send();
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("GET", url, true);
+	xhttp.send();
 }
 
 function getButtons() {
@@ -33,17 +41,19 @@ function getButtons() {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
 		var container = document.getElementById("Buttons");
-		container.innerHTML ="";
 	
       var buttons = JSON.parse(this.responseText);
-	  buttons.forEach(function (item,index){
-	  var url = item['url'];
-	  var label = item['label'];
-	  var desc = item['desc'];
-		container.innerHTML =container.innerHTML+"<p><button class=\"button\" onclick=\"clickButton('"+url+"');\">" + name + "</button>"+desc+"</p>";
-	  });
+	  var bhtml = "";
 	  
-	  container.innerHTML =container.innerHTML+"</p>";
+	  for(var i=0; i<buttons.length; i++){
+		var item = buttons[i];
+		var url = item['url'];
+		var label = item['label'];
+		var desc = item['desc'];
+		bhtml+= "<p><button class=\"button\" onclick=\"clickButton('"+url+"');\">" + name + "</button>"+desc+"</p>";
+	  }
+	  bhtml+= "</p>";
+	  container.innerHTML=bhtml;;
 	  //
     }
   };
@@ -51,12 +61,36 @@ function getButtons() {
   xhttp.send();
 }
 
+function getData(){
+  var xhttpd = new XMLHttpRequest();
+  xhttpd.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+		var table = document.getElementById("Data");
+      var data = JSON.parse(this.responseText);
+	  var vhtml = "<table>";
+	  vhtml += "<tr><th>Sensor</th><th>Value</th></tr>";
+	  for(var i=0; i<data.length; i++){
+		var item = data[i];
+		var name = item['name'];
+		var value = item['value'];
+		  vhtml += "<tr><td>"+name+"</td><td>"+value+"</td></tr>";
+	  }
+	  
+	  vhtml += "</table>";
+	  table.innerHTML = vhtml;
+	  //
+    }
+  };
+  xhttpd.open("GET", "http://192.168.86.250/readValues", true);
+  xhttpd.send();
+};
+
 </script>
 <div id="Buttons"></div>
+<div id="Data"></div>
 
 </body>
 </html>
-
 
 )=====";
 
