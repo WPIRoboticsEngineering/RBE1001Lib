@@ -2,7 +2,6 @@ var searchData=
 [
   ['adc',['adc',['../ESP32AnalogReadTest_8ino.html#a50355c8e58a465c9cf8a0a8e763c4b78',1,'ESP32AnalogReadTest.ino']]],
   ['adc_5fmax',['ADC_Max',['../Knob_8ino.html#aae80133a8f9b9cf9436ecb6d3b173174',1,'Knob.ino']]],
-  ['add',['add',['../classWebPage.html#ac512a802fa4bbb53df81a1c1832c31e2',1,'WebPage::add(String s)'],['../classWebPage.html#af36dca006786df8fdccab1f7f82d60fe',1,'WebPage::add(float f)']]],
   ['adjustfrequency',['adjustFrequency',['../classESP32PWM.html#aab3c6376b3aa784e79847f358783ad7b',1,'ESP32PWM']]],
   ['adjustfrequencylocal',['adjustFrequencyLocal',['../classESP32PWM.html#a306e803815b3dcc330d41ab62b429b17',1,'ESP32PWM']]],
   ['allocatenext',['allocatenext',['../classESP32PWM.html#a27df49d84e82e67f2a84776c2e0ec079',1,'ESP32PWM']]],

@@ -1,4 +1,5 @@
 <map id="WebPage" name="WebPage">
 <area shape="rect" id="node2" href="$classSimpleWebServer.html" title="SimpleWebServer" alt="" coords="5,5,132,32"/>
-<area shape="rect" id="node3" href="$structDataValues.html" title="DataValues" alt="" coords="157,5,247,32"/>
+<area shape="rect" id="node3" href="$structButtonMap.html" title="ButtonMap" alt="" coords="157,5,242,32"/>
+<area shape="rect" id="node4" href="$structDataValues.html" title="DataValues" alt="" coords="319,5,410,32"/>
 </map>

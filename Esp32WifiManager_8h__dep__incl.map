@@ -1,5 +1,6 @@
 <map id="/home/hephaestus/git/Esp32WifiManager/src/Esp32WifiManager.h" name="/home/hephaestus/git/Esp32WifiManager/src/Esp32WifiManager.h">
 <area shape="rect" id="node2" href="$SimpleWebServer_8cpp.html" title="src/SimpleWebServer.cpp" alt="" coords="5,124,180,151"/>
-<area shape="rect" id="node3" href="$APModeExample_8ino.html" title="/home/hephaestus/git\l/Esp32WifiManager/examples\l/APModeExample/APModeExample.ino" alt="" coords="205,109,458,165"/>
-<area shape="rect" id="node4" href="$WifiManagerExample_8ino.html" title="/home/hephaestus/git\l/Esp32WifiManager/examples\l/WifiManagerExample/WifiManagerExample.ino" alt="" coords="482,109,781,165"/>
+<area shape="rect" id="node3" href="$RCCTL_8ino.html" title="examples/RCCTL/RCCTL.ino" alt="" coords="205,124,402,151"/>
+<area shape="rect" id="node4" href="$APModeExample_8ino.html" title="/home/hephaestus/git\l/Esp32WifiManager/examples\l/APModeExample/APModeExample.ino" alt="" coords="426,109,679,165"/>
+<area shape="rect" id="node5" href="$WifiManagerExample_8ino.html" title="/home/hephaestus/git\l/Esp32WifiManager/examples\l/WifiManagerExample/WifiManagerExample.ino" alt="" coords="703,109,1002,165"/>
 </map>

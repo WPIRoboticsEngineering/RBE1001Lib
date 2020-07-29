@@ -1,6 +1,7 @@
 var searchData=
 [
   ['r_5fenc_5fconfig',['r_enc_config',['../classESP32Encoder.html#afa5b2c49ecf4d7b434ed7ef6e0e11bc9',1,'ESP32Encoder']]],
+  ['rangefinder',['rangeFinder',['../UltrasonicProject_8ino.html#aa029cf5accf32717a5cf6fe8067e5da0',1,'UltrasonicProject.ino']]],
   ['rangefinder1',['rangefinder1',['../FullSystemTest_8ino.html#a607ccff33b947a0eb27ccb1205b616c0',1,'rangefinder1():&#160;FullSystemTest.ino'],['../RangeFinderTest_8ino.html#a607ccff33b947a0eb27ccb1205b616c0',1,'rangefinder1():&#160;RangeFinderTest.ino']]],
   ['refresh_5fcps',['REFRESH_CPS',['../classServo.html#a9e7f5471e7c3fdc389b1aa5443fad151',1,'Servo']]],
   ['resolutionbits',['resolutionBits',['../classESP32PWM.html#a7f964ab78ebcc8d2ec7d9fb9eb964be4',1,'ESP32PWM']]],

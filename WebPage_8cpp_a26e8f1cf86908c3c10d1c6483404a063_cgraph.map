@@ -1,0 +1,6 @@
+<map id="staticCallback" name="staticCallback">
+<area shape="rect" id="node2" href="$classWebPage.html#ab3d062bbf455a9224b1e599fc4864184" title="WebPage::sendStatic" alt="" coords="159,31,308,57"/>
+<area shape="rect" id="node3" href="$classWebPage.html#a8d5599f754b9f6d50523ee34c3817404" title="WebPage::getStatic" alt="" coords="416,5,555,32"/>
+<area shape="rect" id="node4" href="$classSimpleWebServer.html#a32baf564be7764b2baca6e166184411c" title="SimpleWebServer::sendHTMLResponse" alt="" coords="356,56,615,83"/>
+<area shape="rect" id="node5" href="$SimpleWebServer_8cpp.html#a62d2d61025124223ffdbddb8e63cc53b" title="server" alt="" coords="663,56,721,83"/>
+</map>

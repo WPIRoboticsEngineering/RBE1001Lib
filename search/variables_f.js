@@ -16,7 +16,8 @@ var searchData=
   ['setupdone',['setupDone',['../classWifiManager.html#a95da7d3c9b78909e7ef1834b0e228068',1,'WifiManager']]],
   ['startsetpoint',['startSetpoint',['../classMotor.html#a7c484ee056e56c05e28d010b08fb0e08',1,'Motor']]],
   ['starttime',['startTime',['../classMotor.html#a38b8fbc85b9462f26079267b2815fc28',1,'Motor::startTime()'],['../classRangefinder.html#a928215b562fca560902831794a90b637',1,'Rangefinder::startTime()']]],
-  ['state',['state',['../classWifiManager.html#ad0c73dbad8a0329fb8f8cbc6229b4c8d',1,'WifiManager']]],
+  ['state',['state',['../classWifiManager.html#ad0c73dbad8a0329fb8f8cbc6229b4c8d',1,'WifiManager::state()'],['../RCCTL_8ino.html#a09932703f194a60c1ae1f7047023e8e7',1,'state():&#160;RCCTL.ino']]],
   ['staticref',['staticRef',['../classWifiManager.html#a31c4053ef541961cfbf7ab22b0a24c72',1,'WifiManager']]],
+  ['stringbuffer',['stringBuffer',['../WebPage_8cpp.html#a0680d91509afcdd2cf19440b484bd56c',1,'WebPage.cpp']]],
   ['synch',['synch',['../classRangefinder.html#acd3a05fbeb1e9270633d947197201e5e',1,'Rangefinder']]]
 ];

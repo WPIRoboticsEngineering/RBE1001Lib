@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['datavalues',['DataValues',['../structDataValues.html',1,'']]],
-  ['drivebase',['DriveBase',['../classDriveBase.html',1,'']]]
+  ['buttonmap',['ButtonMap',['../structButtonMap.html',1,'']]]
 ];

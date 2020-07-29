@@ -1,0 +1,6 @@
+<map id="dataCallback" name="dataCallback">
+<area shape="rect" id="node2" href="$classWebPage.html#af08623e10831eb505239dc5afa790718" title="WebPage::sendData" alt="" coords="152,31,295,57"/>
+<area shape="rect" id="node3" href="$classWebPage.html#a65c66393e13cfbb4b403d04fd841e13a" title="WebPage::getData" alt="" coords="405,5,539,32"/>
+<area shape="rect" id="node4" href="$classSimpleWebServer.html#a32baf564be7764b2baca6e166184411c" title="SimpleWebServer::sendHTMLResponse" alt="" coords="343,56,601,83"/>
+<area shape="rect" id="node5" href="$SimpleWebServer_8cpp.html#a62d2d61025124223ffdbddb8e63cc53b" title="server" alt="" coords="649,56,708,83"/>
+</map>

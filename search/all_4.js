@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['dataupdate',['dataUpdate',['../classWebPage.html#ac4bfea845b682a652a2149f090ace93b',1,'WebPage']]],
+  ['dashboardupdatetimer',['dashboardUpdateTimer',['../RCCTL_8ino.html#ace2e0d944a5f795a697be2a25f5b296a',1,'RCCTL.ino']]],
+  ['datacallback',['dataCallback',['../WebPage_8cpp.html#aba7144bbc3064bc4c764980f665d5b06',1,'WebPage.cpp']]],
+  ['datahead',['datahead',['../classWebPage.html#a24827dfaa58fe6c2ec6fe08fc69e7202',1,'WebPage']]],
   ['datavalues',['DataValues',['../structDataValues.html',1,'DataValues'],['../WebPage_8h.html#a8abc93670bd0e6b0920d47d5119a6cf8',1,'DataValues():&#160;WebPage.h']]],
   ['deallocate',['deallocate',['../classESP32PWM.html#a95986a33fe242cd58e874321bec4b4a1',1,'ESP32PWM']]],
   ['default_5fpulse_5fwidth',['DEFAULT_PULSE_WIDTH',['../ESP32Servo_8h.html#a7eada57cb49e7b1766a813e4635d79bd',1,'ESP32Servo.h']]],
@@ -9,6 +11,7 @@ var searchData=
   ['default_5ftimer_5fwidth_5fticks',['DEFAULT_TIMER_WIDTH_TICKS',['../ESP32Servo_8h.html#a3542a805efa2c9d06aa37e8b30829889',1,'ESP32Servo.h']]],
   ['default_5fus_5fhigh',['DEFAULT_uS_HIGH',['../ESP32Servo_8h.html#a12e0b64b830ce153c3624bf7a8bdd311',1,'ESP32Servo.h']]],
   ['default_5fus_5flow',['DEFAULT_uS_LOW',['../ESP32Servo_8h.html#ae5c73e62b0f79ae4f83bb715f5fa89de',1,'ESP32Servo.h']]],
+  ['desc',['desc',['../structButtonMap.html#a8414973038d46054efe5c060c1e86e1f',1,'ButtonMap']]],
   ['detach',['detach',['../classServo.html#a0b69ccc5c8b348ebaa84be91d973a362',1,'Servo']]],
   ['detachpin',['detachPin',['../classESP32PWM.html#acb41cd553c993b23f4ae3439857ae9af',1,'ESP32PWM']]],
   ['direction',['direction',['../classESP32Encoder.html#a08484f95b20bdd1b5d2032585dfafeba',1,'ESP32Encoder']]],
@@ -16,6 +19,7 @@ var searchData=
   ['disconnect',['disconnect',['../classWifiManager.html#a2b0fc1360c90922972c2caee5531afbb',1,'WifiManager']]],
   ['disconnected',['Disconnected',['../WifiManager_8h.html#a2cb8df04852a8d762834daac6c32965ba84ab0fbbb76a8c897feb1cd806d56443',1,'WifiManager.h']]],
   ['down',['DOWN',['../ESP32Encoder_8h.html#adca399663765c125d26e6f2896b5b349a9b0b4a95b99523966e0e34ffdadac9da',1,'ESP32Encoder.h']]],
+  ['drive',['drive',['../RCCTL_8ino.html#a8d5e9bf0071bc493a40dd7c063d10aed',1,'RCCTL.ino']]],
   ['drivebase',['DriveBase',['../classDriveBase.html',1,'DriveBase'],['../classDriveBase.html#a541916b46f96bf6df2f2141a62f9c0fa',1,'DriveBase::DriveBase()']]],
   ['drivebase_2ecpp',['DriveBase.cpp',['../DriveBase_8cpp.html',1,'']]],
   ['drivebase_2eh',['DriveBase.h',['../DriveBase_8h.html',1,'']]],

@@ -7,6 +7,7 @@ var searchData=
   ['encoder2paused',['encoder2Paused',['../Encoder_8ino.html#a6e1e9a8cc7d7637f552ea08f480097b0',1,'Encoder.ino']]],
   ['encoders',['encoders',['../classESP32Encoder.html#a7e686a55f97c29add9488ed9245b4f50',1,'ESP32Encoder']]],
   ['endsetpoint',['endSetpoint',['../classMotor.html#a478fbdffa96f3bfa2633d551aeb30a29',1,'Motor']]],
+  ['endtimer',['endTimer',['../RCCTL_8ino.html#a5ad3ad198612798c76c5cbe93e2633c4',1,'RCCTL.ino']]],
   ['esp32encoder',['ESP32Encoder',['../ESP32Encoder_8cpp.html#a06267953b58d1fcc155dd842950bc450',1,'ESP32Encoder.cpp']]],
   ['explicateallocationmode',['explicateAllocationMode',['../classESP32PWM.html#ace4cae37c1bcb61ec627584e4c4965fd',1,'ESP32PWM']]]
 ];

@@ -3,6 +3,7 @@ var searchData=
   ['webpage',['WebPage',['../classWebPage.html',1,'WebPage'],['../classWebPage.html#a66c10e43bed6f73e58704e6ded8593e6',1,'WebPage::WebPage()']]],
   ['webpage_2ecpp',['WebPage.cpp',['../WebPage_8cpp.html',1,'']]],
   ['webpage_2eh',['WebPage.h',['../WebPage_8h.html',1,'']]],
+  ['webserver',['webServer',['../RCCTL_8ino.html#a4305dc9da703afcbff913db18b351d21',1,'RCCTL.ino']]],
   ['whattodoafterscanning',['whatToDoAfterScanning',['../classWifiManager.html#ac83fe0d77a71d041c3e6839e783e4698',1,'WifiManager']]],
   ['wifievent',['WiFiEvent',['../classWifiManager.html#a42a9633eaed14840cdd6653afd3086b3',1,'WifiManager']]],
   ['wifieventwifimanager',['WiFiEventWifiManager',['../WifiManager_8cpp.html#a78d9184275d069bcc924ce89e8939f4a',1,'WifiManager.cpp']]],
