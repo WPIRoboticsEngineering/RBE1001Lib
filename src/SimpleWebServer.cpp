@@ -23,9 +23,10 @@ void SimpleWebServer::initialize() {
 		//Serial.print(".");
 		manager.loop();
 	}
-	if (MDNS.begin("esp32")) {
-		Serial.println("MDNS responder started");
-	}
+
+	//if (MDNS.begin("esp32")) {
+	//	Serial.println("MDNS responder started");
+	//}
 	Serial.print("WiFi IP: ");
 	Serial.println(WiFi.localIP());
 
