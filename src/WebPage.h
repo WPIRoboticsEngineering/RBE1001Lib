@@ -1,12 +1,13 @@
 #pragma once
 #include <Arduino.h>
-#include "SimpleWebServer.h"
+#include <WebServer.h>
 
 typedef struct ButtonMap {
     String name;
     String desc;
+    String URL;
     struct ButtonMap *next;
-    void (*handler)();
+    void (*handler)(String);
 } ButtonMap;
 
 typedef struct DataValues {
@@ -19,19 +20,22 @@ typedef struct DataValues {
 
 class WebPage {
   public:
-    WebPage(SimpleWebServer& sws);
-    void newButton(String url, void (*handler)(), String label, String description);
+    WebPage();
+    void newButton(String url, void (*handler)(String), String label, String description);
     void setValue(String name, float value);
     void sendStatic();
-    void sendData();
+    void sendValues();
+    void sendButtons();
     void handle();
+    bool handleButton(String uri,String value);
     void initalize();
   private:
     String getStatic();
-    String getData();
+    String getValues();
+    String getButtons();
     String contents;
-    SimpleWebServer ws;
     String html;
     DataValues *datahead;
     ButtonMap *buttonhead;
+
 };

@@ -1,19 +1,22 @@
 #include <ESP32AnalogRead.h>
 #include <Esp32WifiManager.h>
 #include "DriveBase.h"
-#include "SimpleWebServer.h"
-#include "WebPage.h"
+
 #include "Rangefinder.h"
 #include "LineTrackSensor.h"
 #include "Timer.h"
 #include "RBE1001Lib.h"
-
+#include <Esp32WifiManager.h>
+#include "wifi/WifiManager.h"
+#include "WebPage.h"
 
 //Rangefinder rangefinder(FORWARD_ULTRASONIC_TRIG, FORWARD_ULTRASONIC_ECHO);
 LineTrackSensor lineTrackSensor(LEFT_LINE_SENSE, RIGHT_LINE_SENSE);
 DriveBase drive(MOTOR1_PWM, MOTOR2_PWM,MOTOR1_DIR,MOTOR2_DIR);
-SimpleWebServer webServer;
-WebPage buttonPage(webServer);
+
+WebPage buttonPage;
+
+WifiManager manager;
 
 enum State {stopped, go} state;
 
@@ -24,7 +27,9 @@ enum State {stopped, go} state;
  * state machine in the loop() function starts doing whatever task you
  * selected
  */
-void startMotor() {
+void startMotor(String value) {
+	Serial.println("GO!");
+	Serial.println("Got from Server: "+value);
   state = go;
 }
 
@@ -51,7 +56,15 @@ Timer dashboardUpdateTimer;  // times when the dashboard should update
  * the robot should start in
  */
 void setup() {
-  // This will initialize the Serial as 115200 for prints and passwords
+  Serial.begin(115200);
+  manager.setup();
+	while (manager.getState() != Connected) {
+		manager.loop();
+	}
+  Serial.print("WiFi IP: ");
+  Serial.println(WiFi.localIP());
+
+
   buttonPage.initalize();
   setupButtons();
   endTimer.reset();     // reset the end of state timer
@@ -100,6 +113,7 @@ void updateDashboard() {
  * dashboard data, and handle any web server requests.
  */
 void loop() {
+	manager.loop();
     runStateMachine();  // do a pass through the state machine
     updateDashboard();  // update the dashboard values
     buttonPage.handle();
