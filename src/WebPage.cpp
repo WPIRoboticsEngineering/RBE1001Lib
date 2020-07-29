@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include "WebPage.h"
 #include "SimpleWebServer.h"
+#include "staticFiles.h"
 
 
 static WebPage *thisPage;
@@ -96,5 +97,38 @@ String WebPage::getStatic(){
 }
 
 String WebPage::getData(){
-	return String("{data:'placeholder'}");
+	String jsonReply = "{ \"data\": [";
+	for (DataValues *dv = datahead; dv; dv = dv->next) {
+		jsonReply += "{";
+
+		jsonReply += "\"name\":\"";
+		jsonReply += dv->name;
+		jsonReply += "\",";
+
+		jsonReply += "\"value\":\"";
+		jsonReply += String(dv->value);
+		jsonReply += "\"";
+
+		jsonReply +="}";
+		if (dv->next) jsonReply += ",";
+	}
+	jsonReply += "],\"buttons\":[";
+
+	for (ButtonMap *dv = buttonhead; dv; dv = dv->next) {
+		jsonReply += "{";
+
+		jsonReply += "\"name\":\"";
+		jsonReply += dv->name;
+		jsonReply += "\",";
+
+		jsonReply += "\"desc\":\"";
+		jsonReply += dv->desc;
+		jsonReply += "\"";
+
+		jsonReply +="}";
+		if (dv->next) jsonReply += ",";
+	}
+
+	jsonReply += "] }";
+	return jsonReply;
 }
