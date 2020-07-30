@@ -17,7 +17,7 @@
 #define TICKS_TO_DEGREES (QUADRATUE_MULTIPLYER/(ENCODER_CPR*GEAR_BOX_RATIO/360.0))
 #define I_TERM_SIZE 60.0f
 enum interpolateMode {
-	LINEAR_INTERPOLATION, SINUSOIDAL_INTERPOLATION, VELOCITY_MODE
+	LINEAR_INTERPOLATION, SINUSOIDAL_INTERPOLATION, VELOCITY_MODE, BEZIER
 };
 /** \brief A PID Motor class using FreeRTOS threads, ESP32Encoder and ESP32PWM
  *
@@ -70,11 +70,11 @@ private:
 	/**
 	 * PID controller proportional constant
 	 */
-	float kP = 0.1;
+	float kP = 0.05;
 	/**
 	 * PID controller integral constant
 	 */
-	float kI = 0.04;
+	float kI = 0.02;
 	/**
 	 * PID controller derivitive constant
 	 */
@@ -125,17 +125,30 @@ private:
 	 * Current interpolation mode, linear, sinusoidal or velocity
 	 */
 	interpolateMode mode = LINEAR_INTERPOLATION;
-	/**
-	 * use the internal state and current time to comput where along the path from start to finish the interpolation is
-	 */
-	float getInterpolationUnitIncrement();
+
 	/**
 	 * when using Red Queen mode for velocity interpolation, this is the amount of setpoint to add to the current  setpoint
 	 * every milisecond to maintain a smooth velocity trajectory.
 	 */
 	float milisecondPosIncrementForVelocity;
+	/**
+	 * \brief BEZIER Control Point 0
+	 *
+	 * https://stackoverflow.com/a/43071667
+	 */
+	float BEZIER_P0=0.25;
+	/**
+	 * \brief  BEZIER Control Point 1
+	 *
+	 * https://stackoverflow.com/a/43071667
+	 */
+	float BEZIER_P1=0.75;
 
 public:
+	/**
+	 * use the internal state and current time to comput where along the path from start to finish the interpolation is
+	 */
+	float getInterpolationUnitIncrement();
 	/**
 	 * Variable to store the latest encoder read from the encoder hardware as read by the PID thread.
 	 * This variable is set inside the PID thread, and read outside.
@@ -346,6 +359,23 @@ public:
 		SetSetpointWithTime(newTargetInDegrees, miliseconds,
 				SINUSOIDAL_INTERPOLATION);
 	}
+	/**
+	 * SetSetpoint in degrees with time
+	 * Set the setpoint for the motor in degrees
+	 * @param newTargetInDegrees the new setpoint for the closed loop controller
+	 * @param miliseconds the number of miliseconds to get from current position to the new setpoint
+	 * @param Control_0 On a scale of 0 to 1, where should the first control  point in the equation go
+	 * @param Control_1 On a scale of 0 to 1, where should the second control point in the equation go
+	 * use sinusoidal interpolation
+	 */
+	void SetSetpointWithBezierInterpolation(float newTargetInDegrees,
+			long miliseconds, float Control_0=0.15, float Control_1=1.0) {
+		BEZIER_P0=Control_0;
+		BEZIER_P1=Control_1;
+		SetSetpointWithTime(newTargetInDegrees, miliseconds,
+				BEZIER);
+	}
+
 	/**
 	 * PID gains for the PID controller
 	 */

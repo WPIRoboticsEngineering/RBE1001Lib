@@ -34,6 +34,19 @@ float Motor::getInterpolationUnitIncrement() {
 			float sinPortion = (cos(-PI * unitDuration) / 2) + 0.5;
 			unitDuration = 1 - sinPortion;
 		}
+		if(mode==BEZIER){
+			if(unitDuration>0 &&unitDuration<1){
+				float t=unitDuration;
+				float P0=0;
+				float P1=BEZIER_P0;
+				float P2=BEZIER_P1;
+				float P3=1;
+				unitDuration= 	pow((1-t),3) *P0 +
+								3*t*pow((1-t),2)*P1 +
+								3*pow(t,2)*(1-t)*P2 +
+								pow(t,3)*P3;
+			}
+		}
 		return unitDuration;
 	}
 	return 1;
