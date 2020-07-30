@@ -1,4 +1,3 @@
-
 #include "Rangefinder.h"
 #include "Timer.h"
 
@@ -25,10 +24,10 @@ static long threadTimeout;
  */
 void onTimer(void *param) {
 	Serial.println("Starting the Ultrasonic loop thread");
-	threadTimeout=millis();
+	threadTimeout = millis();
 	while (1) {
-		vTaskDelay(10);//sleep 10ms
-		if(Rangefinder::forceFire)
+		vTaskDelay(10); //sleep 10ms
+		if (Rangefinder::forceFire)
 			Rangefinder::fire();
 		else
 			Rangefinder::checkTimeout();
@@ -37,16 +36,15 @@ void onTimer(void *param) {
 
 }
 
-int Rangefinder::getTimeoutState(){
-	return millis()-threadTimeout;
+int Rangefinder::getTimeoutState() {
+	return millis() - threadTimeout;
 }
 
-
-void Rangefinder::checkTimeout(){
+void Rangefinder::checkTimeout() {
 	// check to see if an ultrasonic timed out
-	bool run=false;
-	run = Rangefinder::getTimeoutState()>100;
-	if(run){
+	bool run = false;
+	run = Rangefinder::getTimeoutState() > 100;
+	if (run) {
 		Serial.println("Ultrasonic thread timeout!");
 		fire();
 	}
@@ -65,8 +63,8 @@ void IRAM_ATTR sensorISR3() {
 	Rangefinder::list[3]->sensorISR();
 }
 void Rangefinder::fire() {
-	threadTimeout=millis();
-	forceFire=false;
+	threadTimeout = millis();
+	forceFire = false;
 	if (Rangefinder::numberOfFinders > 0) {
 		// round robin all of the sensors to prevent cross talk
 		Rangefinder::pingIndex++;
@@ -76,7 +74,7 @@ void Rangefinder::fire() {
 		HIGH); // 10us pulse to start the process
 		delayMicroseconds(10);
 		digitalWrite(Rangefinder::list[Rangefinder::pingIndex]->triggerPin,
-				LOW);
+		LOW);
 	}
 
 }
@@ -86,7 +84,7 @@ void Rangefinder::sensorISR() {
 		startTime = micros();
 	} else {
 		roundTripTime = micros() - startTime;
-		forceFire=true;
+		forceFire = true;
 	}
 	portEXIT_CRITICAL(&synch);
 }
@@ -95,12 +93,11 @@ void Rangefinder::attach(int trigger, int echo) {
 	echoPin = echo;
 	pinMode(triggerPin, OUTPUT);
 	pinMode(echoPin, INPUT);
-	if (Rangefinder::timoutThreadStarted==false) {
+	if (Rangefinder::timoutThreadStarted == false) {
 		Serial.println("Spawing rangefinder timeout thread");
-		Rangefinder::timoutThreadStarted=true;
-		xTaskCreatePinnedToCore(onTimer, "Rangefinder Thread", 8192, NULL,
-				2,// low priority timout thread
-						&complexHandlerTaskUS,0);
+		Rangefinder::timoutThreadStarted = true;
+		xTaskCreatePinnedToCore(onTimer, "Rangefinder Thread", 8192, NULL, 2, // low priority timout thread
+				&complexHandlerTaskUS, 0);
 	}
 	for (int i = 0; i < MAX_POSSIBLE_INTERRUPT_RANGEFINDER; i++) {
 		if (Rangefinder::list[i] == NULL) {
@@ -135,17 +132,26 @@ void Rangefinder::attach(int trigger, int echo) {
  * Initialize the rangefinder with the trigger pin and echo pin
  * numbers.
  */
-Rangefinder::Rangefinder(){
+Rangefinder::Rangefinder() {
 
 }
-
+/**
+ * \brief get the time of latest round trip in microseconds
+ *
+ * @return the time in microseconds
+ */
+long Rangefinder::getRoundTripTimeMicroSeconds() {
+	long time;
+	portENTER_CRITICAL(&synch);
+	time=roundTripTime
+	portEXIT_CRITICAL(&synch);
+	return time;
+}
 /*
  * Get the distance from the rangefinder
  */
 float Rangefinder::getDistanceCM() {
 	float distance;
-	portENTER_CRITICAL(&synch);
-	distance = (roundTripTime * 0.0343) / 2.0;
-	portEXIT_CRITICAL(&synch);
+	distance = (getRoundTripTimeMicroSeconds() * 0.0343) / 2.0;
 	return distance;
 }

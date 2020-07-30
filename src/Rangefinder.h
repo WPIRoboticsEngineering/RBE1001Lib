@@ -66,6 +66,12 @@ public:
 	 */
 	volatile unsigned long roundTripTime;
 	/**
+	 * \brief get the time of latest round trip in microseconds
+	 *
+	 * @return the time in microseconds
+	 */
+	long getRoundTripTimeMicroSeconds();
+	/**
 	 * \brief list of attached rangefinders
 	 *
 	 * when attach completes, a pointer to the object being attahced is added to this list.
