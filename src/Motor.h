@@ -74,7 +74,7 @@ private:
 	/**
 	 * PID controller integral constant
 	 */
-	float kI = 0.02;
+	float kI = 0.01;
 	/**
 	 * PID controller derivitive constant
 	 */
@@ -369,7 +369,7 @@ public:
 	 * use sinusoidal interpolation
 	 */
 	void SetSetpointWithBezierInterpolation(float newTargetInDegrees,
-			long miliseconds, float Control_0=0.15, float Control_1=1.0) {
+			long miliseconds, float Control_0=0.5, float Control_1=1.0) {
 		BEZIER_P0=Control_0;
 		BEZIER_P1=Control_1;
 		SetSetpointWithTime(newTargetInDegrees, miliseconds,

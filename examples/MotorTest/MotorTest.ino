@@ -24,16 +24,28 @@ void setup() {
  */
 void loop() {
 	upDown=!upDown;
-	motor1.SetSetpointWithSinusoidalInterpolation(upDown?3600:0, 8000);
+	motor1.SetSetpointWithLinearInterpolation(upDown?3600:0, 8000);
 	//motor2.SetSetpointWithLinearInterpolation(upDown?360:0, 2000);
-	motor2.SetSetpointWithBezierInterpolation(upDown?3600:0, 8000,0.15,1.0);
+	motor2.SetSetpointWithBezierInterpolation(upDown?3600:0, 8000,0.45,1);
+	double peak1 = 0;
+	double peak2 =0;
+
 	for(int i=0;i<400;i++){
+		if(abs(motor1.getDegreesPerSecond())>peak1){
+			peak1=abs(motor1.getDegreesPerSecond());
+		}
+		if(abs(motor2.getDegreesPerSecond())>peak2){
+			peak2=abs(motor2.getDegreesPerSecond());
+		}
 		delay(20);
-		Serial.println("motor interpolation  "+String(motor2.getInterpolationUnitIncrement()));
+		Serial.println("motor interpolation  "+String(motor2.getInterpolationUnitIncrement()-motor1.getInterpolationUnitIncrement())+
+				+" Peak 1 "+String(peak1)+" peak 2 "+String(peak2));
 	}
-	delay(1000);
+	delay(100);
 	Serial.println("Count 1 "+String(motor1.getCurrentDegrees())+
-				" Count 2 "+String(motor2.getCurrentDegrees()));
+					" Count 2 "+String(motor2.getCurrentDegrees()));
+	delay(5000);
+
 
  }
 
