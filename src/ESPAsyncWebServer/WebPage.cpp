@@ -22,12 +22,12 @@ getButtons();
 setInterval(function() {
   // Call a function repetatively with 1 Second interval
   getButtons();
-  }, 9500); //9000mSeconds update rate
+  }, 950); //9000mSeconds update rate
   
   setInterval(function() {
   // Call a function repetatively with 1 Second interval
   getData();
-  }, 1000); //1000mSeconds update rate
+  }, 100); //1000mSeconds update rate
 
   
 
@@ -95,8 +95,8 @@ function getData(){
 
 )=====";
 
-static WebServer server(80);
-//AsyncWebServer server(80);
+
+AsyncWebServer server(80);
 
 static WebPage *thisPage;
 static char stringBuffer[100];
@@ -106,30 +106,8 @@ char* String2Chars(String str){
 	return stringBuffer;
 }
 
-static void staticCallback() {
-  thisPage->sendStatic();
-}
-
-static void valueCallback() {
-  thisPage->sendValues();
-}
-
-static void buttonCallback() {
-  thisPage->sendButtons();
-}
-
-static void buttonHandlerCallback(){
-	if ( thisPage->handleButton(server.uri(),server.arg("value")) ){
-		server.send(200, "text/plain", "ok");
-	} else {
-		server.send(404, "text/plain", "Not Found.");
-	}
-}
-
 
 WebPage::WebPage() {
-
-  contents = " ";
   datahead = NULL;
   buttonhead = NULL;
   thisPage = this;
@@ -142,10 +120,29 @@ void WebPage::initalize(){
 	Serial.println("HTTP server started");
 
 
-	server.on("/readValues", valueCallback);
-	server.on("/readButtons", buttonCallback);
-	server.onNotFound(buttonHandlerCallback);
-	server.on("/", staticCallback);
+//	server.on("/readValues", valueCallback);
+//	server.on("/readButtons", buttonCallback);
+    server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
+        request->send(200, "text/html", staticHTML);
+    });
+    server.on("/readValues", HTTP_GET, [](AsyncWebServerRequest *request){
+        request->send(200, "application/json", thisPage->getValues());
+    });
+    server.on("/readButtons", HTTP_GET, [](AsyncWebServerRequest *request){
+        request->send(200, "application/json", thisPage->getButtons());
+    });
+    server.on("/button/*", HTTP_GET, [](AsyncWebServerRequest *request){
+    	for (ButtonMap *bv = thisPage->buttonhead; bv; bv = bv->next) {
+    		if (bv->URL == request->url()){
+    			Serial.println("Calling '"+bv->name+"'");
+    			bv->handler("");
+    	        request->send(200, "application/json", "{\"status\";\"ok\"}");
+    	        return;
+    		}
+    	}
+    	request->send(404, "application/json", "{\"status\";\"missing\"}");
+
+    });
 }
 
 bool WebPage::handleButton(String uri,String value){
@@ -161,11 +158,6 @@ bool WebPage::handleButton(String uri,String value){
 
 
 
-void WebPage::handle(){
-	server.handleClient();
-}
-
-
 void WebPage::newButton(String url, void (*handler)(String), String label, String description) {
 	int count=0;
     for (ButtonMap *bv = buttonhead; bv; bv = bv->next) {
@@ -173,7 +165,7 @@ void WebPage::newButton(String url, void (*handler)(String), String label, Strin
         if (bv->name == label) {
         	ESP_LOGI("WebPage::newButton","Updating Button '%s', Index: %d",String2Chars(label),count-1);
             bv->desc = description;
-            bv->URL = String(url);
+            bv->URL = String("/button/"+url);
             bv->handler=handler;
             return;
         }
@@ -182,7 +174,7 @@ void WebPage::newButton(String url, void (*handler)(String), String label, Strin
     ButtonMap *bv = new ButtonMap;
     bv->name = String(label);
     bv->desc = String(description);
-    bv->URL = String(url);
+    bv->URL = String("/button/"+url);
     bv->next = buttonhead;
     bv->handler = handler;
     buttonhead = bv;
@@ -206,27 +198,6 @@ void WebPage::setValue(String name, float value) {
     datahead = dv;
 }
 
-void WebPage::sendStatic() {
-  String page = getStatic();
-  ESP_LOGI("WebPage::sendStatic","Sending Static asset '/'");
-  server.send(200, "text/html", page);
-}
-
-void WebPage::sendValues() {
-	  ESP_LOGI("WebPage::sendValues","Sending Values Update");
-  String page = getValues();
-  server.send(200, "application/json", page);
-}
-
-void WebPage::sendButtons() {
-  ESP_LOGI("WebPage::sendButtons","Sending Buttons Update");
-  String page = getButtons();
-  server.send(200, "application/json", page);
-}
-
-String WebPage::getStatic(){
-	return staticHTML;
-}
 
 String WebPage::getButtons(){
 	String jsonReply = "[";
@@ -238,7 +209,7 @@ String WebPage::getButtons(){
 		jsonReply += "\",";
 
 		jsonReply += "\"url\":\"";
-		jsonReply += dv->URL;
+		jsonReply +=  dv->URL;
 		jsonReply += "\",";
 
 		jsonReply += "\"desc\":\"";
