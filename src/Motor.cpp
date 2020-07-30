@@ -54,8 +54,11 @@ float Motor::getInterpolationUnitIncrement() {
 			float unitStartRampDown = unitLienear+unitRamp;
 			if(unitDuration<unitRamp){
 				// ramp up
-				float sinPortion = ((cos(-PI * (unitDuration)/(unitRamp*2)) / 2) + 0.5);
-				unitDuration = ((1 - sinPortion)*unitRamp)*2;
+				// range from 1 to 0.5
+				float increment =1- (unitDuration)/(unitRamp*2);
+				// range 0 to 1
+				float sinPortion = 1+cos(-PI *increment);
+				unitDuration=sinPortion*unitRamp;
 			}
 			else if(unitDuration>unitRamp&&unitDuration<unitStartRampDown){
 				// constant speed
