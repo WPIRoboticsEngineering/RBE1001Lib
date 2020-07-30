@@ -119,9 +119,6 @@ void WebPage::initalize(){
 	server.begin();
 	Serial.println("HTTP server started");
 
-
-//	server.on("/readValues", valueCallback);
-//	server.on("/readButtons", buttonCallback);
     server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
         request->send(200, "text/html", staticHTML);
     });

@@ -114,5 +114,4 @@ void loop() {
 	manager.loop();
     runStateMachine();  // do a pass through the state machine
     updateDashboard();  // update the dashboard values
-    buttonPage.handle();
  }
