@@ -72,14 +72,13 @@ $(function() {
 <div class="textblock"><code>#include &lt;Arduino.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="WebPage_8h_source.html">WebPage.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="SimpleWebServer_8h_source.html">SimpleWebServer.h</a>&quot;</code><br />
-<code>#include &quot;staticFiles.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for WebPage.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="WebPage_8cpp__incl.png" border="0" usemap="#src_2WebPage_8cpp" alt=""/></div>
 <map name="src_2WebPage_8cpp" id="src_2WebPage_8cpp">
-<area shape="rect" id="node3" href="WebPage_8h.html" title="WebPage.h" alt="" coords="29,80,119,107"/>
-<area shape="rect" id="node4" href="SimpleWebServer_8h.html" title="SimpleWebServer.h" alt="" coords="83,155,222,181"/>
+<area shape="rect" id="node3" href="WebPage_8h.html" title="WebPage.h" alt="" coords="27,80,117,107"/>
+<area shape="rect" id="node4" href="SimpleWebServer_8h.html" title="SimpleWebServer.h" alt="" coords="81,155,220,181"/>
 </map>
 </div>
 </div>
@@ -87,23 +86,19 @@ Include dependency graph for WebPage.cpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a1b35778401b8b4975de9a910bb0aed80"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WebPage_8cpp.html#a1b35778401b8b4975de9a910bb0aed80">String2Chars</a> (String str)</td></tr>
-<tr class="separator:a1b35778401b8b4975de9a910bb0aed80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26e8f1cf86908c3c10d1c6483404a063"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WebPage_8cpp.html#a26e8f1cf86908c3c10d1c6483404a063">staticCallback</a> ()</td></tr>
-<tr class="separator:a26e8f1cf86908c3c10d1c6483404a063"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba7144bbc3064bc4c764980f665d5b06"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WebPage_8cpp.html#aba7144bbc3064bc4c764980f665d5b06">dataCallback</a> ()</td></tr>
-<tr class="separator:aba7144bbc3064bc4c764980f665d5b06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8637a1aae95dd486fb201d7ad124364"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WebPage_8cpp.html#aa8637a1aae95dd486fb201d7ad124364">update</a> ()</td></tr>
+<tr class="separator:aa8637a1aae95dd486fb201d7ad124364"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:a906f46705a9dd30708fb47e21dd10aa2"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WebPage_8cpp.html#a906f46705a9dd30708fb47e21dd10aa2">buttonStyle</a></td></tr>
+<tr class="separator:a906f46705a9dd30708fb47e21dd10aa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a559ab4ce595102d363c6b5246ed0073e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classWebPage.html">WebPage</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WebPage_8cpp.html#a559ab4ce595102d363c6b5246ed0073e">thisPage</a></td></tr>
 <tr class="separator:a559ab4ce595102d363c6b5246ed0073e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0680d91509afcdd2cf19440b484bd56c"><td class="memItemLeft" align="right" valign="top">static char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WebPage_8cpp.html#a0680d91509afcdd2cf19440b484bd56c">stringBuffer</a> [100]</td></tr>
-<tr class="separator:a0680d91509afcdd2cf19440b484bd56c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="aba7144bbc3064bc4c764980f665d5b06"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba7144bbc3064bc4c764980f665d5b06">&#9670;&nbsp;</a></span>dataCallback()</h2>
+<a id="aa8637a1aae95dd486fb201d7ad124364"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8637a1aae95dd486fb201d7ad124364">&#9670;&nbsp;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -112,7 +107,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void dataCallback </td>
+          <td class="memname">static void update </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -125,115 +120,41 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00019">19</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00041">41</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="WebPage_8cpp_source.html#l00089">WebPage::sendData()</a>.</p>
+<p class="reference">References <a class="el" href="WebPage_8cpp_source.html#l00045">WebPage::dataUpdate()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00032">WebPage::initalize()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00049">WebPage::WebPage()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="WebPage_8cpp_aba7144bbc3064bc4c764980f665d5b06_cgraph.png" border="0" usemap="#WebPage_8cpp_aba7144bbc3064bc4c764980f665d5b06_cgraph" alt=""/></div>
-<map name="WebPage_8cpp_aba7144bbc3064bc4c764980f665d5b06_cgraph" id="WebPage_8cpp_aba7144bbc3064bc4c764980f665d5b06_cgraph">
-<area shape="rect" id="node2" href="classWebPage.html#af08623e10831eb505239dc5afa790718" title="WebPage::sendData" alt="" coords="152,31,295,57"/>
-<area shape="rect" id="node3" href="classWebPage.html#a65c66393e13cfbb4b403d04fd841e13a" title="WebPage::getData" alt="" coords="405,5,539,32"/>
-<area shape="rect" id="node4" href="classSimpleWebServer.html#a32baf564be7764b2baca6e166184411c" title="SimpleWebServer::sendHTMLResponse" alt="" coords="343,56,601,83"/>
-<area shape="rect" id="node5" href="SimpleWebServer_8cpp.html#a62d2d61025124223ffdbddb8e63cc53b" title="server" alt="" coords="649,56,708,83"/>
+<div class="center"><img src="WebPage_8cpp_aa8637a1aae95dd486fb201d7ad124364_cgraph.png" border="0" usemap="#WebPage_8cpp_aa8637a1aae95dd486fb201d7ad124364_cgraph" alt=""/></div>
+<map name="WebPage_8cpp_aa8637a1aae95dd486fb201d7ad124364_cgraph" id="WebPage_8cpp_aa8637a1aae95dd486fb201d7ad124364_cgraph">
+<area shape="rect" id="node2" href="classWebPage.html#ac4bfea845b682a652a2149f090ace93b" title="WebPage::dataUpdate" alt="" coords="115,31,269,57"/>
+<area shape="rect" id="node3" href="classSimpleWebServer.html#a408534450431426e848bdb6357add8ef" title="SimpleWebServer::sendResponse" alt="" coords="317,5,540,32"/>
+<area shape="rect" id="node5" href="classWebPage.html#a4a166d1025f5bc1ca348accec8b98aca" title="WebPage::getHTML" alt="" coords="358,56,499,83"/>
+<area shape="rect" id="node4" href="SimpleWebServer_8cpp.html#a62d2d61025124223ffdbddb8e63cc53b" title="server" alt="" coords="588,5,647,32"/>
 </map>
 </div>
-
-</div>
-</div>
-<a id="a26e8f1cf86908c3c10d1c6483404a063"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a26e8f1cf86908c3c10d1c6483404a063">&#9670;&nbsp;</a></span>staticCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void staticCallback </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00015">15</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
-
-<p class="reference">References <a class="el" href="WebPage_8cpp_source.html#l00083">WebPage::sendStatic()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00032">WebPage::initalize()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="WebPage_8cpp_a26e8f1cf86908c3c10d1c6483404a063_cgraph.png" border="0" usemap="#WebPage_8cpp_a26e8f1cf86908c3c10d1c6483404a063_cgraph" alt=""/></div>
-<map name="WebPage_8cpp_a26e8f1cf86908c3c10d1c6483404a063_cgraph" id="WebPage_8cpp_a26e8f1cf86908c3c10d1c6483404a063_cgraph">
-<area shape="rect" id="node2" href="classWebPage.html#ab3d062bbf455a9224b1e599fc4864184" title="WebPage::sendStatic" alt="" coords="159,31,308,57"/>
-<area shape="rect" id="node3" href="classWebPage.html#a8d5599f754b9f6d50523ee34c3817404" title="WebPage::getStatic" alt="" coords="416,5,555,32"/>
-<area shape="rect" id="node4" href="classSimpleWebServer.html#a32baf564be7764b2baca6e166184411c" title="SimpleWebServer::sendHTMLResponse" alt="" coords="356,56,615,83"/>
-<area shape="rect" id="node5" href="SimpleWebServer_8cpp.html#a62d2d61025124223ffdbddb8e63cc53b" title="server" alt="" coords="663,56,721,83"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a1b35778401b8b4975de9a910bb0aed80"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b35778401b8b4975de9a910bb0aed80">&#9670;&nbsp;</a></span>String2Chars()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">char* String2Chars </td>
-          <td>(</td>
-          <td class="paramtype">String&#160;</td>
-          <td class="paramname"><em>str</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00010">10</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
-
-<p class="reference">References <a class="el" href="WebPage_8cpp_source.html#l00008">stringBuffer</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00045">WebPage::newButton()</a>, and <a class="el" href="WebPage_8cpp_source.html#l00065">WebPage::setValue()</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="a0680d91509afcdd2cf19440b484bd56c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0680d91509afcdd2cf19440b484bd56c">&#9670;&nbsp;</a></span>stringBuffer</h2>
+<a id="a906f46705a9dd30708fb47e21dd10aa2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a906f46705a9dd30708fb47e21dd10aa2">&#9670;&nbsp;</a></span>buttonStyle</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">char stringBuffer[100]</td>
+          <td class="memname">String buttonStyle</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= R<span class="stringliteral">&quot;=====(</span></div><div class="line"><span class="stringliteral">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="stringliteral">&lt;style&gt;html { font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: left;}</span></div><div class="line"><span class="stringliteral">.button { background-color: #4CAF50; border: none; color: white; padding: 16px 40px;</span></div><div class="line"><span class="stringliteral">text-decoration: none; font-size: 30px; margin: 2px; cursor: pointer;}</span></div><div class="line"><span class="stringliteral">&lt;/style&gt;</span></div><div class="line"><span class="stringliteral"></span></div><div class="line"><span class="stringliteral">&lt;html&gt;</span></div><div class="line"><span class="stringliteral">&lt;body&gt;&lt;h1&gt;ESP32 Web Server&lt;/h1&gt;</span></div><div class="line"><span class="stringliteral"></span></div><div class="line"><span class="stringliteral">&lt;script&gt;</span></div><div class="line"><span class="stringliteral">setInterval(function() {</span></div><div class="line"><span class="stringliteral">  // Call a function repetatively with 1 Second interval</span></div><div class="line"><span class="stringliteral">  getData();</span></div><div class="line"><span class="stringliteral">  }, 1000); //2000mSeconds update rate</span></div><div class="line"><span class="stringliteral"></span></div><div class="line"><span class="stringliteral">function getData() {</span></div><div class="line"><span class="stringliteral">  var xhttp = new XMLHttpRequest();</span></div><div class="line"><span class="stringliteral">  xhttp.onreadystatechange = function() {</span></div><div class="line"><span class="stringliteral">    if (this.readyState == 4 &amp;&amp; this.status == 200) {</span></div><div class="line"><span class="stringliteral">      document.getElementById(&quot;DataValue&quot;).innerHTML = this.responseText;</span></div><div class="line"><span class="stringliteral">    }</span></div><div class="line"><span class="stringliteral">  };</span></div><div class="line"><span class="stringliteral">  xhttp.open(&quot;GET&quot;, &quot;readData&quot;, true);</span></div><div class="line"><span class="stringliteral">  xhttp.send();</span></div><div class="line"><span class="stringliteral">}</span></div><div class="line"><span class="stringliteral">&lt;/script&gt;</span></div><div class="line"><span class="stringliteral">)=====&quot;</span></div></div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00005">5</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00008">8</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00010">String2Chars()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00049">WebPage::WebPage()</a>.</p>
 
 </div>
 </div>
@@ -257,7 +178,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00007">7</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00039">39</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
 
 </div>
 </div>

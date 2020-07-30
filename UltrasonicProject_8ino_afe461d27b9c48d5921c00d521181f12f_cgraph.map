@@ -1,5 +1,6 @@
 <map id="loop" name="loop">
-<area shape="rect" id="node2" href="$classRangefinder.html#a531ed492da6a4c369a909e77b9c8780d" title="get the distance of an object from the sensor in centimeters " alt="" coords="100,5,291,32"/>
-<area shape="rect" id="node3" href="$UltrasonicProject_8ino.html#a3d05e666b6ecfa0a95eb13844f3a8e5b" title="setEfforts" alt="" coords="156,56,235,83"/>
-<area shape="rect" id="node4" href="$classMotor.html#afb94caf1b7d006ed81738c4c1163f3be" title="Motor::SetEffort" alt="" coords="339,56,453,83"/>
+<area shape="rect" id="node2" href="$classRangefinder.html#a531ed492da6a4c369a909e77b9c8780d" title="get the distance of an object from the sensor in centimeters " alt="" coords="100,15,291,42"/>
+<area shape="rect" id="node4" href="$UltrasonicProject_8ino.html#a3d05e666b6ecfa0a95eb13844f3a8e5b" title="setEfforts" alt="" coords="156,67,235,94"/>
+<area shape="rect" id="node3" href="$classRangefinder.html#acd75ded5add63f5c2fac15a5418870e9" title="get the time of latest round trip in microseconds " alt="" coords="339,5,517,47"/>
+<area shape="rect" id="node5" href="$classMotor.html#afb94caf1b7d006ed81738c4c1163f3be" title="Motor::SetEffort" alt="" coords="371,71,485,98"/>
 </map>

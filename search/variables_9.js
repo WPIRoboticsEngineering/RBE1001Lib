@@ -7,7 +7,6 @@ var searchData=
   ['lifter',['lifter',['../FullSystemTest_8ino.html#a614f5767598c4dd319be72bbdc2a657a',1,'FullSystemTest.ino']]],
   ['lineleft',['lineLeft',['../classLineTrackSensor.html#a0df304335ff6aacc16801791d7e7754e',1,'LineTrackSensor']]],
   ['lineright',['lineRight',['../classLineTrackSensor.html#a17e329dbe7487d2804168701447b6e0b',1,'LineTrackSensor']]],
-  ['linetracksensor',['lineTrackSensor',['../RCCTL_8ino.html#a5ffd271e9aa1da6b55e45c3420a0902a',1,'RCCTL.ino']]],
   ['list',['list',['../classMotor.html#acede92ac31fdf4022f849f6288bb4c1c',1,'Motor::list()'],['../classRangefinder.html#aba727a94ee86b722060afe76fcc2be76',1,'Rangefinder::list()']]],
   ['lowestpin',['lowestPin',['../analogWriteExample_8ino.html#a05b6fd4aff1dc8134904dffdd596d685',1,'analogWriteExample.ino']]]
 ];

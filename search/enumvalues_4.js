@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['go',['go',['../RCCTL_8ino.html#a5d74787dedbc4e11c1ab15bf487e61f8a32bc4fb395cca45055bc7f89e5be6843',1,'RCCTL.ino']]]
+  ['half',['half',['../ESP32Encoder_8h.html#a94b99e462b91a04d4400c30ce0764d60a5824f466440ce04284756f157be56543',1,'ESP32Encoder.h']]],
+  ['havessidserial',['HaveSSIDSerial',['../WifiManager_8h.html#a2cb8df04852a8d762834daac6c32965baf9e87d2f1caa1586ce03f2c89c65a509',1,'WifiManager.h']]]
 ];

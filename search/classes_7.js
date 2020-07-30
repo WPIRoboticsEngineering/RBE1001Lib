@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['timer',['Timer',['../classTimer.html',1,'']]]
+  ['webpage',['WebPage',['../classWebPage.html',1,'']]],
+  ['wifimanager',['WifiManager',['../classWifiManager.html',1,'']]]
 ];

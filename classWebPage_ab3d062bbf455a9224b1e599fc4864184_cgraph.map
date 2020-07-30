@@ -1,5 +1,0 @@
-<map id="WebPage::sendStatic" name="WebPage::sendStatic">
-<area shape="rect" id="node2" href="$classWebPage.html#a8d5599f754b9f6d50523ee34c3817404" title="WebPage::getStatic" alt="" coords="263,5,401,32"/>
-<area shape="rect" id="node3" href="$classSimpleWebServer.html#a32baf564be7764b2baca6e166184411c" title="SimpleWebServer::sendHTMLResponse" alt="" coords="203,56,461,83"/>
-<area shape="rect" id="node4" href="$SimpleWebServer_8cpp.html#a62d2d61025124223ffdbddb8e63cc53b" title="server" alt="" coords="509,56,568,83"/>
-</map>

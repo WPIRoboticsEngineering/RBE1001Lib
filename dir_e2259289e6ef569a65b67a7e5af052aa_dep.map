@@ -1,9 +1,9 @@
 <map id="examples/week02b" name="examples/week02b">
 <area shape="rect" id="node2" href="dir_5d32506900278279fe676d70aaadbe48.html" title="photoresistor" alt="" coords="141,63,238,111"/>
 <area shape="rect" id="node4" href="dir_2f9af927383f3fd565c336b83710f7c4.html" title="src" alt="" coords="97,159,169,207"/>
-<area shape="rect" id="edge1-headlabel" href="dir_000037_000039.html" title="1" alt="" coords="160,139,168,154"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000036_000038.html" title="1" alt="" coords="160,139,168,154"/>
 <area shape="rect" id="node3" href="dir_e5ec444bc84c3d0f11ff733154817973.html" title="ultrasonic" alt="" coords="38,63,117,111"/>
-<area shape="rect" id="edge2-headlabel" href="dir_000038_000039.html" title="1" alt="" coords="113,131,121,146"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000037_000038.html" title="1" alt="" coords="113,131,121,146"/>
 <area shape="rect" id="clust2" href="dir_e2259289e6ef569a65b67a7e5af052aa.html" alt="" coords="27,52,348,121"/>
 <area shape="rect" id="clust1" href="dir_ffa0b32d0b4e99736c34fc871e0c4d85.html" title="examples" alt="" coords="16,16,359,132"/>
 </map>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['linear_5finterpolation',['LINEAR_INTERPOLATION',['../Motor_8h.html#a5f2bed26bc3981591ee546627fdbbef4a26479c922d72fce9a328124b48f1b425',1,'Motor.h']]]
+  ['none',['NONE',['../ESP32Encoder_8h.html#adca399663765c125d26e6f2896b5b349ac157bdf0b85a40d2619cbc8bc1ae5fe2',1,'ESP32Encoder.h']]]
 ];

@@ -7,7 +7,6 @@ var searchData=
   ['rangefinder1',['rangefinder1',['../FullSystemTest_8ino.html#a607ccff33b947a0eb27ccb1205b616c0',1,'rangefinder1():&#160;FullSystemTest.ino'],['../RangeFinderTest_8ino.html#a607ccff33b947a0eb27ccb1205b616c0',1,'rangefinder1():&#160;RangeFinderTest.ino']]],
   ['rangefindertest_2eino',['RangeFinderTest.ino',['../RangeFinderTest_8ino.html',1,'']]],
   ['rbe1001lib_2eh',['RBE1001Lib.h',['../RBE1001Lib_8h.html',1,'']]],
-  ['rcctl_2eino',['RCCTL.ino',['../RCCTL_8ino.html',1,'']]],
   ['read',['read',['../classESP32PWM.html#ae6f0dd8edfc7bf16f4c480cdb682d554',1,'ESP32PWM::read()'],['../classServo.html#aaca0af33ba7d7c87c8a785b8eabf95a7',1,'Servo::read()']]],
   ['readfreq',['readFreq',['../classESP32PWM.html#adf53d1c2756d03fdf388df7a6d7b7fd9',1,'ESP32PWM']]],
   ['readmicroseconds',['readMicroseconds',['../classServo.html#a43950424d146c1414460066483d9561b',1,'Servo']]],
@@ -29,6 +28,5 @@ var searchData=
   ['rightpinpwm',['rightPinPWM',['../classDriveBase.html#a8c53a01d09a4f2bd4724dc4049d15c35',1,'DriveBase']]],
   ['roundtriptime',['roundTripTime',['../classRangefinder.html#a2bf7917bcefac11957c3d33b9905a048',1,'Rangefinder']]],
   ['runntingiterm',['runntingITerm',['../classMotor.html#adfc82a32345a86811bcbd739aa3ada05',1,'Motor']]],
-  ['runserialloop',['runSerialLoop',['../classWifiManager.html#ab3fc171499ba03812dfb63ffeb9dd316',1,'WifiManager']]],
-  ['runstatemachine',['runStateMachine',['../RCCTL_8ino.html#ad85662a00ab58b372e49a715c6b30433',1,'RCCTL.ino']]]
+  ['runserialloop',['runSerialLoop',['../classWifiManager.html#ab3fc171499ba03812dfb63ffeb9dd316',1,'WifiManager']]]
 ];

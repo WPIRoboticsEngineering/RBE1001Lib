@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['motor',['Motor',['../classMotor.html',1,'']]]
+  ['rangefinder',['Rangefinder',['../classRangefinder.html',1,'']]]
 ];

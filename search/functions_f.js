@@ -11,6 +11,5 @@ var searchData=
   ['rescan',['rescan',['../classWifiManager.html#aa8427e775bcbd68b779afcb4a2018698',1,'WifiManager']]],
   ['reset',['reset',['../classTimer.html#a9020542d73357a4eef512eefaf57524b',1,'Timer']]],
   ['resumecount',['resumeCount',['../classESP32Encoder.html#a6db0fb11290d36f129716d019c8626d4',1,'ESP32Encoder']]],
-  ['runserialloop',['runSerialLoop',['../classWifiManager.html#ab3fc171499ba03812dfb63ffeb9dd316',1,'WifiManager']]],
-  ['runstatemachine',['runStateMachine',['../RCCTL_8ino.html#ad85662a00ab58b372e49a715c6b30433',1,'RCCTL.ino']]]
+  ['runserialloop',['runSerialLoop',['../classWifiManager.html#ab3fc171499ba03812dfb63ffeb9dd316',1,'WifiManager']]]
 ];
