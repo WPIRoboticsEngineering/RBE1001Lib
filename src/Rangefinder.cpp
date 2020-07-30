@@ -143,7 +143,7 @@ Rangefinder::Rangefinder() {
 long Rangefinder::getRoundTripTimeMicroSeconds() {
 	long time;
 	portENTER_CRITICAL(&synch);
-	time=roundTripTime
+	time=roundTripTime;
 	portEXIT_CRITICAL(&synch);
 	return time;
 }
