@@ -74,7 +74,7 @@ private:
 	/**
 	 * PID controller integral constant
 	 */
-	float kI = 0.01;
+	float kI = 0.02;
 	/**
 	 * PID controller derivitive constant
 	 */

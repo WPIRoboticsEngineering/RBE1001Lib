@@ -286,6 +286,10 @@ void Motor::loop() {
 		runntingITerm = runntingITerm * ((I_TERM_SIZE - 1.0) / I_TERM_SIZE);
 		// running sum of error
 		runntingITerm += controlErr;
+		if(getInterpolationUnitIncrement()<1){
+			// no i term during interpolation
+			runntingITerm=0;
+		}
 
 		currentEffort = controlErr * kP + ((runntingITerm / I_TERM_SIZE) * kI);
 
