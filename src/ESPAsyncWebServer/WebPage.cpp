@@ -58,7 +58,7 @@ function getButtons() {
 	  //
     }
   };
-  xhttp.open("GET", "http://192.168.86.250/readButtons", true);
+  xhttp.open("GET", "/readButtons", true);
   xhttp.send();
 }
 
@@ -82,7 +82,7 @@ function getData(){
 	  //
     }
   };
-  xhttpd.open("GET", "http://192.168.86.250/readValues", true);
+  xhttpd.open("GET", "readValues", true);
   xhttpd.send();
 };
 
