@@ -47,6 +47,22 @@ float Motor::getInterpolationUnitIncrement() {
 								pow(t,3)*P3;
 			}
 		}
+		if(mode == TRAPEZOIDAL){
+			float lengthOfLinearMode = duration-(TRAPEZOIDAL_time*2);
+			float unitLienear = lengthOfLinearMode/duration;
+			float unitRamp = ((float)TRAPEZOIDAL_time)/duration;
+			float unitStartRampDown = lengthOfLinearMode+unitRamp;
+			if(unitDuration<unitRamp){
+				// ramp up
+			}
+			if(unitDuration>unitRamp&&unitDuration<unitStartRampDown){
+				// constant speed
+			}
+			if(unitDuration>unitStartRampDown){
+				// start slowing
+
+			}
+		}
 		return unitDuration;
 	}
 	return 1;

@@ -17,7 +17,7 @@
 #define TICKS_TO_DEGREES (QUADRATUE_MULTIPLYER/(ENCODER_CPR*GEAR_BOX_RATIO/360.0))
 #define I_TERM_SIZE 60.0f
 enum interpolateMode {
-	LINEAR_INTERPOLATION, SINUSOIDAL_INTERPOLATION, VELOCITY_MODE, BEZIER
+	LINEAR_INTERPOLATION, SINUSOIDAL_INTERPOLATION, VELOCITY_MODE, BEZIER, TRAPEZOIDAL
 };
 /** \brief A PID Motor class using FreeRTOS threads, ESP32Encoder and ESP32PWM
  *
@@ -143,6 +143,11 @@ private:
 	 * https://stackoverflow.com/a/43071667
 	 */
 	float BEZIER_P1=0.75;
+
+	/**
+	 * \brief the amount of time to ramp up and ramp down the speed
+	 */
+	float TRAPEZOIDAL_time=0;
 
 public:
 	/**
@@ -366,7 +371,7 @@ public:
 	 * @param miliseconds the number of miliseconds to get from current position to the new setpoint
 	 * @param Control_0 On a scale of 0 to 1, where should the first control  point in the equation go
 	 * @param Control_1 On a scale of 0 to 1, where should the second control point in the equation go
-	 * use sinusoidal interpolation
+	 * use Bezier interpolation
 	 */
 	void SetSetpointWithBezierInterpolation(float newTargetInDegrees,
 			long miliseconds, float Control_0=0.5, float Control_1=1.0) {
@@ -375,7 +380,26 @@ public:
 		SetSetpointWithTime(newTargetInDegrees, miliseconds,
 				BEZIER);
 	}
-
+	/**
+		 * SetSetpoint in degrees with time
+		 * Set the setpoint for the motor in degrees
+		 * @param newTargetInDegrees the new setpoint for the closed loop controller
+		 * @param miliseconds the number of miliseconds to get from current position to the new setpoint
+		 * @param trapazoidalTime miliseconds for the ramping to take at the beginning and end.
+		 *
+		 *
+		 * use sinusoidal interpolation
+		 */
+		void SetSetpointWithTrapezoidalInterpolation(float newTargetInDegrees,
+				long miliseconds, float trapazoidalTime) {
+			if(trapazoidalTime*2>miliseconds){
+				SetSetpointWithSinusoidalInterpolation(newTargetInDegrees,miliseconds);
+				return;
+			}
+			TRAPEZOIDAL_time=trapazoidalTime;
+			SetSetpointWithTime(newTargetInDegrees, miliseconds,
+					TRAPEZOIDAL);
+		}
 	/**
 	 * PID gains for the PID controller
 	 */
