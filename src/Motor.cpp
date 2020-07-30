@@ -51,16 +51,20 @@ float Motor::getInterpolationUnitIncrement() {
 			float lengthOfLinearMode = duration-(TRAPEZOIDAL_time*2);
 			float unitLienear = lengthOfLinearMode/duration;
 			float unitRamp = ((float)TRAPEZOIDAL_time)/duration;
-			float unitStartRampDown = lengthOfLinearMode+unitRamp;
+			float unitStartRampDown = unitLienear+unitRamp;
 			if(unitDuration<unitRamp){
 				// ramp up
+				float sinPortion = ((cos(-PI * (unitDuration)/(unitRamp*2)) / 2) + 0.5);
+				unitDuration = ((1 - sinPortion)*unitRamp)*2;
 			}
-			if(unitDuration>unitRamp&&unitDuration<unitStartRampDown){
+			else if(unitDuration>unitRamp&&unitDuration<unitStartRampDown){
 				// constant speed
-			}
-			if(unitDuration>unitStartRampDown){
-				// start slowing
 
+			}
+			else if(unitDuration>unitStartRampDown){
+				float increment=(unitDuration-unitStartRampDown)/(unitRamp*2)+0.5;
+				float sinPortion = 0.5-((cos(-PI *increment) / 2) + 0.5);
+				unitDuration = (sinPortion*2)*unitRamp+unitStartRampDown;
 			}
 		}
 		return unitDuration;

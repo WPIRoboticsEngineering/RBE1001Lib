@@ -26,7 +26,8 @@ void loop() {
 	upDown=!upDown;
 	motor1.SetSetpointWithLinearInterpolation(upDown?3600:0, 8000);
 	//motor2.SetSetpointWithLinearInterpolation(upDown?360:0, 2000);
-	motor2.SetSetpointWithBezierInterpolation(upDown?3600:0, 8000,0.45,1);
+	//motor2.SetSetpointWithBezierInterpolation(upDown?3600:0, 8000,0.45,1);
+	motor2.SetSetpointWithTrapezoidalInterpolation(upDown?3600:0, 8000, 1000);
 	double peak1 = 0;
 	double peak2 =0;
 
@@ -38,7 +39,8 @@ void loop() {
 			peak2=abs(motor2.getDegreesPerSecond());
 		}
 		delay(20);
-		Serial.println("motor interpolation  "+String(motor2.getInterpolationUnitIncrement()-motor1.getInterpolationUnitIncrement())+
+		Serial.println("motor compared  "+String(motor2.getInterpolationUnitIncrement()-motor1.getInterpolationUnitIncrement())+
+				+" Interp "+String(motor2.getInterpolationUnitIncrement())+
 				+" Peak 1 "+String(peak1)+" peak 2 "+String(peak2));
 	}
 	delay(100);
