@@ -62,9 +62,6 @@ void setup() {
 	while (manager.getState() != Connected) {
 		manager.loop();
 	}
-  Serial.print("WiFi IP: ");
-  Serial.println(WiFi.localIP());
-
 
   buttonPage.initalize();
   setupButtons();
