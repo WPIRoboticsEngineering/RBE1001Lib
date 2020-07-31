@@ -15,7 +15,7 @@
 #define GEAR_BOX_RATIO 120.0f
 #define QUADRATUE_MULTIPLYER 1.0f
 #define TICKS_TO_DEGREES (QUADRATUE_MULTIPLYER/(ENCODER_CPR*GEAR_BOX_RATIO/360.0))
-#define I_TERM_SIZE 60.0f
+#define I_TERM_SIZE 120.0f
 enum interpolateMode {
 	LINEAR_INTERPOLATION, SINUSOIDAL_INTERPOLATION, VELOCITY_MODE, BEZIER, TRAPEZOIDAL
 };
@@ -74,7 +74,7 @@ private:
 	/**
 	 * PID controller integral constant
 	 */
-	float kI = 0.02;
+	float kI = 0.06;
 	/**
 	 * PID controller derivitive constant
 	 */
