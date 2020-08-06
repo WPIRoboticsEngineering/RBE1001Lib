@@ -64,9 +64,9 @@ void stopMotor(String value) {
  * button is pressed.
  */
 void setupButtons() {
-	buttonPage.newButton("on", startMotor, "Motors On", "Turn On the motors");
+	buttonPage.newButton("on", startMotor, "Motors On", "Run motors");
 	buttonPage.newButton("off", stopMotor, "Motors Off",
-			"Turn Off the motors");
+			"Stop the motors");
 }
 
 /*
