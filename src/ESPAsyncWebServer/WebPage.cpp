@@ -110,7 +110,7 @@ void WebPage::initalize(){
 }
 
 float WebPage::getSliderValue(uint32_t number){
-	Serial.println("Index:\t"+String(number));
+	//Serial.println("Index:\t"+String(number));
 	if (number>3) return 0.0;
 	return sliders[number];
 }
