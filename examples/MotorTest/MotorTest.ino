@@ -24,16 +24,30 @@ void setup() {
  */
 void loop() {
 	upDown=!upDown;
-	motor1.SetSetpointWithSinusoidalInterpolation(upDown?360:0, 2000);
-	motor2.SetSetpointWithLinearInterpolation(upDown?360:0, 2000);
-	for(int i=0;i<100;i++){
+	motor1.SetSetpointWithLinearInterpolation(upDown?3600:0, 8000);
+	//motor2.SetSetpointWithLinearInterpolation(upDown?360:0, 2000);
+	//motor2.SetSetpointWithBezierInterpolation(upDown?3600:0, 8000,0.45,1);
+	motor2.SetSetpointWithTrapezoidalInterpolation(upDown?3600:0, 8000, 500);
+	double peak1 = 0;
+	double peak2 =0;
+
+	for(int i=0;i<400;i++){
+		if(abs(motor1.getDegreesPerSecond())>peak1){
+			peak1=abs(motor1.getDegreesPerSecond());
+		}
+		if(abs(motor2.getDegreesPerSecond())>peak2){
+			peak2=abs(motor2.getDegreesPerSecond());
+		}
 		delay(20);
-//		Serial.println("Speed 1 "+String(motor1.getDegreesPerSecond())+
-//					" Speed 2 "+String(motor2.getDegreesPerSecond()));
+		Serial.println("motor compared  "+String(motor2.getInterpolationUnitIncrement()-motor1.getInterpolationUnitIncrement())+
+				+" Interp "+String(motor2.getInterpolationUnitIncrement())+
+				+" Vel 1 "+String(motor1.getDegreesPerSecond())+" Vel 2 "+String(motor2.getDegreesPerSecond()));
 	}
-	delay(50);
+	delay(100);
 	Serial.println("Count 1 "+String(motor1.getCurrentDegrees())+
-				" Count 2 "+String(motor2.getCurrentDegrees()));
+					" Count 2 "+String(motor2.getCurrentDegrees()));
+	delay(5000);
+
 
  }
 

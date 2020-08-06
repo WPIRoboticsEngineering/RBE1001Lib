@@ -7,8 +7,6 @@
 #include <ESPAsyncWebServer/ESPAsyncWebServer.h>
 
 
-
-
 uint32_t packetCount = 0;
 AsyncWebServer server(80);
 AsyncWebSocket ws("/test");
@@ -45,7 +43,7 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
     //			4B: Button Number
     //			4B: Button State (0.0 or 1.0)
 
-    Serial.println("Command is: "+String(command)+"\t["+String(packetCount++)+"]");
+    //Serial.println("Command is: "+String(command)+"\t["+String(packetCount++)+"]");
     switch(command){
     	case 0x20:
     		//Serial.println("Joystick Update");
@@ -63,7 +61,7 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
     	}
     		break;
     	case 0x40:
-    		Serial.println("Button Update");
+    		//Serial.println("Button Update");
     		break;
 
     }
@@ -71,6 +69,7 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
 
   }
 }
+
 
 
 char* String2Chars(String str){
@@ -126,4 +125,8 @@ void WebPage::setJoystickValue(float xpos, float ypos, float angle, float mag){
 	thisPage->joystick.ypos  = ypos;
 	thisPage->joystick.angle = angle;
 	thisPage->joystick.mag   = mag;
+}
+
+void WebPage::setValue(String value, float data){
+
 }

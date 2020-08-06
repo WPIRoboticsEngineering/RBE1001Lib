@@ -1,24 +1,35 @@
-#include <ESP32AnalogRead.h>
-#include <Esp32WifiManager.h>
-#include "DriveBase.h"
-
+#include <Arduino.h>
+#include <RBE1001Lib.h>
+#include "Motor.h"
 #include "Rangefinder.h"
-#include "LineTrackSensor.h"
-#include "Timer.h"
-#include "RBE1001Lib.h"
+#include <ESP32Servo.h>
+#include <ESP32AnalogRead.h>
 #include <Esp32WifiManager.h>
 #include "wifi/WifiManager.h"
 #include "WebPage.h"
-
-//Rangefinder rangefinder(FORWARD_ULTRASONIC_TRIG, FORWARD_ULTRASONIC_ECHO);
-LineTrackSensor lineTrackSensor(LEFT_LINE_SENSE, RIGHT_LINE_SENSE);
-DriveBase drive(MOTOR1_PWM, MOTOR2_PWM,MOTOR1_DIR,MOTOR2_DIR);
+#include <Timer.h>
+// https://wpiroboticsengineering.github.io/RBE1001Lib/classMotor.html
+Motor motor1;
+Motor motor2;
+// https://wpiroboticsengineering.github.io/RBE1001Lib/classRangefinder.html
+Rangefinder rangefinder1;
+// https://wpiroboticsengineering.github.io/RBE1001Lib/classServo.html
+Servo lifter;
+// https://wpiroboticsengineering.github.io/RBE1001Lib/classESP32AnalogRead.html
+ESP32AnalogRead leftLineSensor;
+ESP32AnalogRead rightLineSensor;
+ESP32AnalogRead servoPositionFeedback;
 
 WebPage buttonPage;
 
 WifiManager manager;
 
-enum State {stopped, go} state;
+enum State {
+	stopped, go
+} state;
+
+Timer endTimer;   // end of a timed state timer
+Timer dashboardUpdateTimer;  // times when the dashboard should update
 
 /*
  * Each of these functions corresponds to a button on the web page. When the
@@ -29,10 +40,21 @@ enum State {stopped, go} state;
  */
 void startMotor(String value) {
 	Serial.println("GO!");
-	Serial.println("Got from Server: "+value);
-  state = go;
+	Serial.println("Got from Server: " + value);
+	state = go;
 }
-
+/*
+ * Each of these functions corresponds to a button on the web page. When the
+ * associated button is pressed, the function is called. The functions can
+ * contain any robot code, but in this case, I just set a new state and the
+ * state machine in the loop() function starts doing whatever task you
+ * selected
+ */
+void stopMotor(String value) {
+	Serial.println("STOP!");
+	Serial.println("Got from Server: " + value);
+	state = stopped;
+}
 /*
  * Set up all the buttons that you will use for your final project
  * Each "newButton" call adds a button and connects the button to a function
@@ -42,9 +64,6 @@ void startMotor(String value) {
  * button is pressed.
  */
 
-Timer endTimer;   // end of a timed state timer
-Timer dashboardUpdateTimer;  // times when the dashboard should update
-
 /*
  * This is the standard setup function that is called when the ESP32 is rebooted
  * It is used to initialize anything that needs to be done once.
@@ -53,16 +72,29 @@ Timer dashboardUpdateTimer;  // times when the dashboard should update
  * the robot should start in
  */
 void setup() {
-  Serial.begin(115200);
-  manager.setup();
+	manager.setup();
+	Motor::allocateTimer(0); // used by the DC Motors
+	ESP32PWM::allocateTimer(1); // Used by servos
+	// pin definitions https://wpiroboticsengineering.github.io/RBE1001Lib/RBE1001Lib_8h.html#define-members
+	motor2.attach(MOTOR2_PWM, MOTOR2_DIR, MOTOR2_ENCA, MOTOR2_ENCB);
+	motor1.attach(MOTOR1_PWM, MOTOR1_DIR, MOTOR1_ENCA, MOTOR1_ENCB);
+	rangefinder1.attach(SIDE_ULTRASONIC_TRIG, SIDE_ULTRASONIC_ECHO);
+	lifter.attach(SERVO_PIN);
+	leftLineSensor.attach(LEFT_LINE_SENSE);
+	rightLineSensor.attach(RIGHT_LINE_SENSE);
+	servoPositionFeedback.attach(SERVO_FEEDBACK_SENSOR);
+	lifter.write(0);
+
 	while (manager.getState() != Connected) {
 		manager.loop();
+		delay(1);
 	}
 
-  buttonPage.initalize();
-  endTimer.reset();     // reset the end of state timer
-  dashboardUpdateTimer.reset(); // reset the dashbaord refresh timer
-  state = stopped;   // initially, the robot is in the stopped state
+	buttonPage.initalize();
+	endTimer.reset();     // reset the end of state timer
+	dashboardUpdateTimer.reset(); // reset the dashbaord refresh timer
+	state = stopped;   // initially, the robot is in the stopped state
+
 }
 
 /*
@@ -74,14 +106,18 @@ void setup() {
  * milliseconds the robot should reamain in that state.
  */
 void runStateMachine() {
-  switch(state) {
-    case stopped:
-      drive.motors(0, 0);
-      break;
-    case go:
-      drive.motors(70, 70);
-      break;
-    }
+	switch (state) {
+	case stopped:
+		motor1.SetSpeed(0);
+		motor2.SetSpeed(0);
+		//lifter.write(0);
+		break;
+	case go:
+		motor1.SetSpeed(360);
+		motor2.SetSpeed(360);
+		//lifter.write(180);
+		break;
+	}
 }
 
 /*
@@ -91,12 +127,21 @@ void runStateMachine() {
  * "setValue" function with a name and a value.
  */
 void updateDashboard() {
-    // This writes values to the dashboard area at the bottom of the web page
-    if (dashboardUpdateTimer.getMS() > 50) {
-
-      //buttonPage.setValue("Rangefinder", rangefinder.getDistanceCM());
-      dashboardUpdateTimer.reset();
-    }
+	// This writes values to the dashboard area at the bottom of the web page
+	if (dashboardUpdateTimer.getMS() > 100) {
+		//buttonPage.setValue("Rangefinder", rangefinder.getDistanceCM());
+		buttonPage.setValue("Left linetracker", leftLineSensor.readMiliVolts());
+		buttonPage.setValue("Right linetracker",
+				rightLineSensor.readMiliVolts());
+		buttonPage.setValue("Ultrasonic",
+				rangefinder1.getDistanceCM());
+		buttonPage.setValue("Left Motor degrees",
+						motor1.getCurrentDegrees());
+		buttonPage.setValue("Right Motor degrees",
+								motor2.getCurrentDegrees());
+		lifter.write(buttonPage.getSliderValue(0)*255);
+		dashboardUpdateTimer.reset();
+	}
 }
 
 /*
@@ -106,6 +151,7 @@ void updateDashboard() {
  */
 void loop() {
 	manager.loop();
-    runStateMachine();  // do a pass through the state machine
-    updateDashboard();  // update the dashboard values
- }
+	runStateMachine();  // do a pass through the state machine
+	if(manager.getState() == Connected)// only update if WiFi is up
+		updateDashboard();  // update the dashboard values
+}

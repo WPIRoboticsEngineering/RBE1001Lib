@@ -34,6 +34,42 @@ float Motor::getInterpolationUnitIncrement() {
 			float sinPortion = (cos(-PI * unitDuration) / 2) + 0.5;
 			unitDuration = 1 - sinPortion;
 		}
+		if(mode==BEZIER){
+			if(unitDuration>0 &&unitDuration<1){
+				float t=unitDuration;
+				float P0=0;
+				float P1=BEZIER_P0;
+				float P2=BEZIER_P1;
+				float P3=1;
+				unitDuration= 	pow((1-t),3) *P0 +
+								3*t*pow((1-t),2)*P1 +
+								3*pow(t,2)*(1-t)*P2 +
+								pow(t,3)*P3;
+			}
+		}
+		if(mode == TRAPEZOIDAL){
+			float lengthOfLinearMode = duration-(TRAPEZOIDAL_time*2);
+			float unitLienear = lengthOfLinearMode/duration;
+			float unitRamp = ((float)TRAPEZOIDAL_time)/duration;
+			float unitStartRampDown = unitLienear+unitRamp;
+			if(unitDuration<unitRamp){
+				// ramp up
+				// range from 1 to 0.5
+				float increment =1- (unitDuration)/(unitRamp*2);
+				// range 0 to 1
+				float sinPortion = 1+cos(-PI *increment);
+				unitDuration=sinPortion*unitRamp;
+			}
+			else if(unitDuration>unitRamp&&unitDuration<unitStartRampDown){
+				// constant speed
+
+			}
+			else if(unitDuration>unitStartRampDown){
+				float increment=(unitDuration-unitStartRampDown)/(unitRamp*2)+0.5;
+				float sinPortion = 0.5-((cos(-PI *increment) / 2) + 0.5);
+				unitDuration = (sinPortion*2)*unitRamp+unitStartRampDown;
+			}
+		}
 		return unitDuration;
 	}
 	return 1;
@@ -253,6 +289,10 @@ void Motor::loop() {
 		runntingITerm = runntingITerm * ((I_TERM_SIZE - 1.0) / I_TERM_SIZE);
 		// running sum of error
 		runntingITerm += controlErr;
+		if(getInterpolationUnitIncrement()<1){
+			// no i term during interpolation
+			runntingITerm=0;
+		}
 
 		currentEffort = controlErr * kP + ((runntingITerm / I_TERM_SIZE) * kI);
 
@@ -285,6 +325,10 @@ void Motor::setGains(float p, float i, float d) {
 
 void Motor::attach(int MotorPWMPin, int MotorDirectionPin, int EncoderA,
 		int EncoderB) {
+	// Motor timer must be allocated and the thread must be started before starting
+	if (!Motor::timersAllocated){
+		Motor::allocateTimer(0); // used by the DC Motors
+	}
 	pwm = new ESP32PWM();
 	encoder = new ESP32Encoder();
 	ESP32Encoder::useInternalWeakPullResistors = UP;
