@@ -135,7 +135,7 @@ void runStateMachine() {
  */
 void updateDashboard() {
 	// This writes values to the dashboard area at the bottom of the web page
-	if (dashboardUpdateTimer.getMS() > 10) {
+	if (dashboardUpdateTimer.getMS() > 30) {
 		//buttonPage.setValue("Rangefinder", rangefinder.getDistanceCM());
 		buttonPage.setValue("Left linetracker", leftLineSensor.readMiliVolts());
 		buttonPage.setValue("Right linetracker",
@@ -147,7 +147,7 @@ void updateDashboard() {
 		buttonPage.setValue("Right Motor degrees",
 								motor2.getCurrentDegrees());
 
-		Serial.print("Packets:\t"+String(buttonPage.packetCount));
+		Serial.println("Packets:\t"+String(buttonPage.packetCount));
 
 		dashboardUpdateTimer.reset();
 	}
