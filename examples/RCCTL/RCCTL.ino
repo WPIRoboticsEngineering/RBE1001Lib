@@ -41,10 +41,6 @@ void startMotor(String value) {
  * call "buttonPage.sendHTML()" to force the web page to redisplay after the
  * button is pressed.
  */
-void setupButtons() {
-  buttonPage.newButton("on", startMotor, "Motors On", "Turn On the motors");
-  buttonPage.newButton("off", startMotor, "Motors Off", "Turn Off the motors");
-}
 
 Timer endTimer;   // end of a timed state timer
 Timer dashboardUpdateTimer;  // times when the dashboard should update
@@ -64,7 +60,6 @@ void setup() {
 	}
 
   buttonPage.initalize();
-  setupButtons();
   endTimer.reset();     // reset the end of state timer
   dashboardUpdateTimer.reset(); // reset the dashbaord refresh timer
   state = stopped;   // initially, the robot is in the stopped state
@@ -97,10 +92,9 @@ void runStateMachine() {
  */
 void updateDashboard() {
     // This writes values to the dashboard area at the bottom of the web page
-    if (dashboardUpdateTimer.getMS() > 500) {
+    if (dashboardUpdateTimer.getMS() > 50) {
+
       //buttonPage.setValue("Rangefinder", rangefinder.getDistanceCM());
-      buttonPage.setValue("Left linetracker", lineTrackSensor.getLeft());
-      buttonPage.setValue("Right linetracker", lineTrackSensor.getRight());
       dashboardUpdateTimer.reset();
     }
 }

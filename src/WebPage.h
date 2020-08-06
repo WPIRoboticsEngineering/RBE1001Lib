@@ -2,35 +2,22 @@
 #include <Arduino.h>
 #include <WebServer.h>
 
-typedef struct ButtonMap {
-    String name;
-    String desc;
-    String URL;
-    struct ButtonMap *next;
-    void (*handler)(String);
-} ButtonMap;
-
-typedef struct DataValues {
-    String name;
-    float value;
-    struct DataValues *next;
-} DataValues;
-
-
+typedef struct JoyData{
+	float xpos; float ypos; float angle; float mag;
+} JoyData;
 
 class WebPage {
   public:
     WebPage();
-    void newButton(String url, void (*handler)(String), String label, String description);
-    void setValue(String name, float value);
-    bool handleButton(String uri,String value);
     void initalize();
-  private:
-    String getValues();
-    String getButtons();
-    String contents;
-    String html;
-    DataValues *datahead;
-    ButtonMap *buttonhead;
+
+    float getSliderValue(uint32_t number);
+    JoyData getJoystickData();
+
+    void setSliderValue(uint32_t number, float value);
+    void setJoystickValue(float xpos, float ypos, float angle, float mag);
+    float sliders[4];
+    JoyData joystick;
+
 
 };
