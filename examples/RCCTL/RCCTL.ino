@@ -136,6 +136,12 @@ void updateDashboard() {
 		buttonPage.setValue("Left linetracker", leftLineSensor.readMiliVolts());
 		buttonPage.setValue("Right linetracker",
 				rightLineSensor.readMiliVolts());
+		buttonPage.setValue("Ultrasonic",
+				rangefinder1.getDistanceCM());
+		buttonPage.setValue("Left Motor degrees",
+						motor1.getCurrentDegrees());
+		buttonPage.setValue("Right Motor degrees",
+								motor2.getCurrentDegrees());
 		dashboardUpdateTimer.reset();
 	}
 }
