@@ -31,6 +31,12 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
 	  uint32_t command = asInt[0];
     // Data Format
     // 4B: Message Type
+	//		0x10	Value Update
+	//  	  	4B: value index
+	//			4B: value data (float)
+	//		0x1f	New Value
+	//			4B: value index
+	//			*B: value name
     // 		0x20	Joystick Update (size 5*4 20 bytes)
     //			4B: Position X  (float, 0.0-1.0)
 	//			4B: Position Y  (float, 0.0-1.0)
