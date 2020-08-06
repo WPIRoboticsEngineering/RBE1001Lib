@@ -325,6 +325,10 @@ void Motor::setGains(float p, float i, float d) {
 
 void Motor::attach(int MotorPWMPin, int MotorDirectionPin, int EncoderA,
 		int EncoderB) {
+	// Motor timer must be allocated and the thread must be started before starting
+	if (!Motor::timersAllocated){
+		Motor::allocateTimer(0); // used by the DC Motors
+	}
 	pwm = new ESP32PWM();
 	encoder = new ESP32Encoder();
 	ESP32Encoder::useInternalWeakPullResistors = UP;
