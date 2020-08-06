@@ -147,7 +147,7 @@ void updateDashboard() {
 		buttonPage.setValue("Right Motor degrees",
 								motor2.getCurrentDegrees());
 
-		Serial.print("Packets:\t"+String(buttonPage.packetCount));
+		//Serial.println("Packets:\t"+String(buttonPage.packetCount));
 
 		dashboardUpdateTimer.reset();
 	}

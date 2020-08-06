@@ -38,7 +38,7 @@
   appearance: none;
   width: 100px; /* Set a specific slider handle width */
   height: 100px; /* Slider handle height */
-  background: #ff2222; /* Green background */
+  background: #2222ff; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
 
@@ -63,7 +63,7 @@
           zone: document.getElementById('joystick'),
           mode: 'static',
           position: {left: '50%', top: '50%'},
-          color: 'red'
+          color: 'blue'
       });
 
       let socket = new WebSocket("ws://" + location.host + "/test");
@@ -74,6 +74,7 @@
       };
       socket.onmessage = function(event) {
         console.log(`[message] Data received from server: ${event.data}`);
+        console.log(event.data);
       };
 
       socket.onclose = function(event) {

@@ -18,7 +18,7 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
   thisPage->packetCount++;
   float    *asFloat = (float *)data;
   if(type == WS_EVT_CONNECT){
-
+	thisPage->SendAllLabelsAndValues();
     Serial.println("Websocket client connection received");
 
   } else if(type == WS_EVT_DISCONNECT){
@@ -83,14 +83,12 @@ char* String2Chars(String str){
 
 WebPage::WebPage() {
   thisPage = this;
-  sliders[0]=0;
-  sliders[1]=0;
-  sliders[2]=0;
-  sliders[3]=0;
   joystick.xpos  = 0;
   joystick.ypos  = 0;
   joystick.angle = 0;
   joystick.mag   = 0;
+  for(int i=0; i<numValues; i++) values[i].used=false;
+  for(int i=0; i<numSliders; i++) sliders[i]=0;
 }
 
 
@@ -138,9 +136,63 @@ void WebPage::setJoystickValue(float xpos, float ypos, float angle, float mag){
 	joystick.mag   = mag;
 }
 
-void WebPage::setValue(String value, float data){
+void WebPage::setValue(String name, float data){
+	for(int i=0; i<numValues; i++){
+			if (values[i].used){ // compare in use slots
 
+				if (values[i].name==name){ // check label
+					if(values[i].value!=data){ // check if data changed
+						Serial.println("Update '"+name+"' "+String(data));
+						values[i].value = data; // update data
+						sendValueUpdate(i); // push async update to ui
+					}
+					return;
+				}
+			} else {
+				//
+				Serial.println("Create '"+name+"'");
+				values[i].used=true;
+				values[i].name = name;
+				values[i].value = data;
+				sendLabelUpdate(i);
+				sendValueUpdate(i);
+				return;
+			}
+	}
 }
+
+#define valbuflen 8
+void WebPage::SendAllLabelsAndValues(){
+	for(int i=0; i<numValues; i++){
+		sendLabelUpdate(i);
+	}
+	for(int i=0; i<numValues; i++){
+		sendValueUpdate(i);
+	}
+}
+
+void WebPage::sendValueUpdate(uint32_t index){
+	if(index>numValues-1) return;
+	uint8_t buffer[valbuflen];
+	uint32_t *bufferAsInt32=(uint32_t*)&buffer;
+	float *bufferAsFloat=(float*)&buffer;
+	bufferAsInt32[0]=0x10;
+	bufferAsFloat[1]=values[index].value;
+	if (ws.availableForWriteAll())
+		ws.binaryAll(buffer, valbuflen);
+}
+
+#define labelbuflen 256
+void WebPage::sendLabelUpdate(uint32_t index){
+	if(index>numValues-1) return;
+	uint8_t buffer[labelbuflen];
+	uint32_t *bufferAsInt32=(uint32_t*)&buffer;
+	bufferAsInt32[0]=0x1f;
+	values[index].name.toCharArray((char *)buffer, labelbuflen, 4);
+	if (ws.availableForWriteAll())
+		ws.binaryAll(buffer, 256);
+}
+
 
 void WebPage::newButton(String url, void (*handler)(String), String label, String description){
 
