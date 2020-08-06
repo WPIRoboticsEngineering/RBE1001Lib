@@ -133,6 +133,8 @@ void runStateMachine() {
  * to be displayed to help debug your robot program by calling the
  * "setValue" function with a name and a value.
  */
+
+uint32_t packet_old=0;
 void updateDashboard() {
 	// This writes values to the dashboard area at the bottom of the web page
 	if (dashboardUpdateTimer.getMS() > 30) {
@@ -146,10 +148,12 @@ void updateDashboard() {
 						motor1.getCurrentDegrees());
 		buttonPage.setValue("Right Motor degrees",
 								motor2.getCurrentDegrees());
-
-
-		Serial.println("Packets:\t"+String(buttonPage.packetCount));
-
+/*
+		if (buttonPage.packetCount!=packet_old){
+			packet_old=buttonPage.packetCount;
+			//Serial.println("Packets:\t"+String(packet_old));
+			buttonPage.setValue("packets", packet_old);
+		}*/
 		dashboardUpdateTimer.reset();
 	}
 }
