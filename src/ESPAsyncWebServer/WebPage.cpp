@@ -119,13 +119,19 @@ float WebPage::getJoystickAngle(){
 float WebPage::getJoystickMagnitude(){
 	return joystick.mag;
 }
+float WebPage::getJoystickX(){
+	return joystick.xpos;
+}
+float WebPage::getJoystickY(){
+	return joystick.ypos;
+}
 JoyData * WebPage::getJoystickData(){
 
-	Serial.print("\nJoystick Update");
-	Serial.print(" X pos:\t"+String(joystick.xpos));
-	Serial.print(" Y pos:\t"+String(joystick.ypos));
-	Serial.print(" Angle:\t"+String(joystick.angle));
-	Serial.print(" Dist:\t"+String(joystick.mag));
+//	Serial.print("\nJoystick Update");
+//	Serial.print(" X pos:\t"+String(joystick.xpos));
+//	Serial.print(" Y pos:\t"+String(joystick.ypos));
+//	Serial.print(" Angle:\t"+String(joystick.angle));
+//	Serial.print(" Dist:\t"+String(joystick.mag));
 
 	return &joystick;
 }
@@ -135,9 +141,10 @@ void WebPage::setSliderValue(uint32_t number, float value){
 }
 
 void WebPage::setJoystickValue(float xpos, float ypos, float angle, float mag){
-	joystick.xpos  = xpos;
-	joystick.ypos  = ypos;
-	joystick.angle = angle/6.3;
+	angle-=(PI/2.0);
+	joystick.xpos  = cos(angle)*mag;
+	joystick.ypos  = sin(angle)*mag;
+	joystick.angle = 180*angle/PI;
 	joystick.mag   = mag;
 }
 

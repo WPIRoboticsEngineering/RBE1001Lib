@@ -27,7 +27,8 @@ public:
 	JoyData *getJoystickData();
 	float getJoystickAngle();
 	float getJoystickMagnitude();
-
+	float getJoystickX();
+		float getJoystickY();
 	void setSliderValue(uint32_t number, float value);
 	void setJoystickValue(float xpos, float ypos, float angle, float mag);
 	void setValue(String name, float data);
