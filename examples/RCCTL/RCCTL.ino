@@ -138,7 +138,7 @@ void runStateMachine() {
 uint32_t packet_old=0;
 void updateDashboard() {
 	// This writes values to the dashboard area at the bottom of the web page
-	if (dashboardUpdateTimer.getMS() > 30) {
+	if (dashboardUpdateTimer.getMS() > 100) {
 		buttonPage.setValue("Left linetracker", leftLineSensor.readMiliVolts());
 		buttonPage.setValue("Right linetracker",
 				rightLineSensor.readMiliVolts());
