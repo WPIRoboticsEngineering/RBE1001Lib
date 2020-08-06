@@ -130,3 +130,7 @@ void WebPage::setJoystickValue(float xpos, float ypos, float angle, float mag){
 void WebPage::setValue(String value, float data){
 
 }
+
+void WebPage::newButton(String url, void (*handler)(String), String label, String description){
+
+}
