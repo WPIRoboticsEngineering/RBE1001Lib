@@ -88,6 +88,7 @@ void setup() {
 	leftLineSensor.attach(LEFT_LINE_SENSE);
 	rightLineSensor.attach(RIGHT_LINE_SENSE);
 	servoPositionFeedback.attach(SERVO_FEEDBACK_SENSOR);
+	lifter.write(0);
 
 	while (manager.getState() != Connected) {
 		manager.loop();
@@ -114,11 +115,12 @@ void runStateMachine() {
 	case stopped:
 		motor1.SetSpeed(0);
 		motor2.SetSpeed(0);
-
+		lifter.write(0);
 		break;
 	case go:
 		motor1.SetSpeed(360);
 		motor2.SetSpeed(360);
+		lifter.write(180);
 		break;
 	}
 }
@@ -154,5 +156,6 @@ void updateDashboard() {
 void loop() {
 	manager.loop();
 	runStateMachine();  // do a pass through the state machine
-	updateDashboard();  // update the dashboard values
+	if(manager.getState() == Connected)// only update if WiFi is up
+		updateDashboard();  // update the dashboard values
 }
