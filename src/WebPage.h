@@ -4,7 +4,7 @@
 
 typedef struct JoyData{
 	float xpos; float ypos; float angle; float mag;
-} JoyData;
+} _JoyData;
 
 class WebPage {
   public:

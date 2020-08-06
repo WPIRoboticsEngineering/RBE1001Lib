@@ -85,7 +85,7 @@ void setup() {
 	// pin definitions https://wpiroboticsengineering.github.io/RBE1001Lib/RBE1001Lib_8h.html#define-members
 	motor2.attach(MOTOR2_PWM, MOTOR2_DIR, MOTOR2_ENCA, MOTOR2_ENCB);
 	motor1.attach(MOTOR1_PWM, MOTOR1_DIR, MOTOR1_ENCA, MOTOR1_ENCB);
-	rangefinder1.attach(SIDE_ULTRASONIC_TRIG, SIDE_ULTRASONIC_ECHO);
+	//rangefinder1.attach(SIDE_ULTRASONIC_TRIG, SIDE_ULTRASONIC_ECHO);
 	lifter.attach(SERVO_PIN);
 	leftLineSensor.attach(LEFT_LINE_SENSE);
 	rightLineSensor.attach(RIGHT_LINE_SENSE);
@@ -146,7 +146,7 @@ void updateDashboard() {
 						motor1.getCurrentDegrees());
 		buttonPage.setValue("Right Motor degrees",
 								motor2.getCurrentDegrees());
-		lifter.write(buttonPage.getSliderValue(0)*255);
+
 		dashboardUpdateTimer.reset();
 	}
 }
@@ -158,6 +158,9 @@ void updateDashboard() {
  */
 void loop() {
 	manager.loop();
+	//buttonPage.getJoystickData();
+	lifter.write(buttonPage.getSliderValue(0)*128);
+	Serial.println(buttonPage.getSliderValue(0)*128);
 	runStateMachine();  // do a pass through the state machine
 	if(manager.getState() == Connected)// only update if WiFi is up
 		updateDashboard();  // update the dashboard values
