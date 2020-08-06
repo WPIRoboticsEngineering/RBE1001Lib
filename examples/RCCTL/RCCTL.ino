@@ -146,7 +146,7 @@ void updateDashboard() {
 						motor1.getCurrentDegrees());
 		buttonPage.setValue("Right Motor degrees",
 								motor2.getCurrentDegrees());
-
+		Serial.println(buttonPage.getSliderValue(0)*128);
 		dashboardUpdateTimer.reset();
 	}
 }
@@ -160,7 +160,7 @@ void loop() {
 	manager.loop();
 	//buttonPage.getJoystickData();
 	lifter.write(buttonPage.getSliderValue(0)*128);
-	Serial.println(buttonPage.getSliderValue(0)*128);
+	//
 	runStateMachine();  // do a pass through the state machine
 	if(manager.getState() == Connected)// only update if WiFi is up
 		updateDashboard();  // update the dashboard values

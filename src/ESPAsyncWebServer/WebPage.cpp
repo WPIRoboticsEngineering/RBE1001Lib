@@ -110,7 +110,7 @@ void WebPage::initalize(){
 }
 
 float WebPage::getSliderValue(uint32_t number){
-	Serial.println("Index:\t"+String(number));
+	//Serial.println("Index:\t"+String(number));
 	if (number>3) return 0.0;
 	return sliders[number];
 }
@@ -131,7 +131,6 @@ void WebPage::setSliderValue(uint32_t number, float value){
 }
 
 void WebPage::setJoystickValue(float xpos, float ypos, float angle, float mag){
-
 	joystick.xpos  = xpos;
 	joystick.ypos  = ypos;
 	joystick.angle = angle;
