@@ -64,6 +64,13 @@ void stopMotor(String value) {
  * button is pressed.
  */
 
+void setupButtons() {
+	buttonPage.newButton("on", startMotor, "Motors On", "Run motors");
+	buttonPage.newButton("off", stopMotor, "Motors Off",
+			"Stop the motors");
+}
+
+
 /*
  * This is the standard setup function that is called when the ESP32 is rebooted
  * It is used to initialize anything that needs to be done once.
