@@ -43,7 +43,18 @@ void startMotor(String value) {
 	Serial.println("Got from Server: " + value);
 	state = go;
 }
-
+/*
+ * Each of these functions corresponds to a button on the web page. When the
+ * associated button is pressed, the function is called. The functions can
+ * contain any robot code, but in this case, I just set a new state and the
+ * state machine in the loop() function starts doing whatever task you
+ * selected
+ */
+void stopMotor(String value) {
+	Serial.println("STOP!");
+	Serial.println("Got from Server: " + value);
+	state = stopped;
+}
 /*
  * Set up all the buttons that you will use for your final project
  * Each "newButton" call adds a button and connects the button to a function
@@ -54,7 +65,7 @@ void startMotor(String value) {
  */
 void setupButtons() {
 	buttonPage.newButton("on", startMotor, "Motors On", "Turn On the motors");
-	buttonPage.newButton("off", startMotor, "Motors Off",
+	buttonPage.newButton("off", stopMotor, "Motors Off",
 			"Turn Off the motors");
 }
 
