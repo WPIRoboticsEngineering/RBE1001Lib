@@ -173,7 +173,7 @@ void WebPage::setValue(String name, float data){
 	}
 }
 
-#define valbuflen 8
+
 void WebPage::SendAllLabelsAndValues(){
 	for(int i=0; i<numValues; i++){
 		sendLabelUpdate(i);
@@ -194,7 +194,6 @@ void WebPage::sendValueUpdate(uint32_t index){
 		ws.binaryAll(buffer, valbuflen);
 }
 
-#define labelbuflen 256
 void WebPage::sendLabelUpdate(uint32_t index){
 	if(index>numValues-1) return;
 	uint8_t buffer[labelbuflen];

@@ -1,6 +1,8 @@
 #pragma once
 #include <Arduino.h>
 #include <WebServer.h>
+#define valbuflen 8
+#define labelbuflen 256
 
 typedef struct _JoyData {
 	float xpos;
