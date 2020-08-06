@@ -147,7 +147,7 @@ void updateDashboard() {
 		buttonPage.setValue("Right Motor degrees",
 								motor2.getCurrentDegrees());
 
-		lifter.write(buttonPage.getSliderValue(0)*180);
+		Serial.print("Packets:\t"+String(buttonPage.packetCount));
 
 		dashboardUpdateTimer.reset();
 	}

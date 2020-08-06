@@ -20,6 +20,6 @@ class WebPage {
     void newButton(String url, void (*handler)(String), String label, String description);
     float sliders[4];
     JoyData joystick;
-
+    uint32_t packetCount = 0;
 
 };

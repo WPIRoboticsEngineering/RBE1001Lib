@@ -7,7 +7,7 @@
 #include <ESPAsyncWebServer/ESPAsyncWebServer.h>
 
 
-uint32_t packetCount = 0;
+
 AsyncWebServer server(80);
 AsyncWebSocket ws("/test");
 static WebPage *thisPage;
@@ -15,6 +15,7 @@ static char stringBuffer[100];
 
 void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventType type, void * arg, uint8_t *data, size_t len){
   uint32_t *asInt = (uint32_t *)data;
+  thisPage->packetCount++;
   float    *asFloat = (float *)data;
   if(type == WS_EVT_CONNECT){
 
