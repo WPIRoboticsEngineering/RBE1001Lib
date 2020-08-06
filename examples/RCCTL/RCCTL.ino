@@ -125,6 +125,7 @@ void runStateMachine() {
 		//lifter.write(180);
 		break;
 	}
+	lifter.write(buttonPage.getSliderValue(0)*128);
 }
 
 /*
@@ -149,10 +150,6 @@ void updateDashboard() {
 				" magnitude="+String(buttonPage.getJoystickMagnitude())+
 				" x="+String(buttonPage.getJoystickX())+
 								" y="+String(buttonPage.getJoystickY()));
-
-		//Serial.println("Packets:\t"+String(buttonPage.packetCount));
-
-
 		dashboardUpdateTimer.reset();
 	}
 }
@@ -164,9 +161,6 @@ void updateDashboard() {
  */
 void loop() {
 	manager.loop();
-	//buttonPage.getJoystickData();
-	lifter.write(buttonPage.getSliderValue(0)*128);
-	//
 	runStateMachine();  // do a pass through the state machine
 	if(manager.getState() == Connected)// only update if WiFi is up
 		updateDashboard();  // update the dashboard values
