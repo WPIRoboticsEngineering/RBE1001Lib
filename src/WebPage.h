@@ -2,7 +2,7 @@
 #include <Arduino.h>
 #include <WebServer.h>
 
-typedef struct JoyData{
+typedef struct _JoyData{
 	float xpos; float ypos; float angle; float mag;
 } _JoyData;
 

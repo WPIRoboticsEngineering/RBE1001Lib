@@ -98,10 +98,10 @@ void WebPage::initalize(){
 	server.begin();
 	Serial.println("HTTP server started");
 //
-    server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
+    server.on("/", (WebRequestMethod)HTTP_GET, [](AsyncWebServerRequest *request){
         request->send(200, "text/html", String(index_html));
     });
-    server.on("/nipplejs.min.js", HTTP_GET, [](AsyncWebServerRequest *request){
+    server.on("/nipplejs.min.js", (WebRequestMethod)HTTP_GET, [](AsyncWebServerRequest *request){
         request->send(200, "text/javascript", String(nipplejs_min_js));
     });
 
