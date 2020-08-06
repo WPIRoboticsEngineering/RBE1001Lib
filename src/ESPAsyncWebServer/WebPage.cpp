@@ -52,11 +52,7 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
     //Serial.println("Command is: "+String(command)+"\t["+String(packetCount++)+"]");
     switch(command){
     	case 0x20:
-    		//Serial.println("Joystick Update");
-    		//Serial.println("X pos:\t"+String(asFloat[1]));
-    		//Serial.println("Y pos:\t"+String(asFloat[2]));
-    		//Serial.println("Angle:\t"+String(asFloat[3]));
-    		//Serial.println("Dist:\t"+String(asFloat[4]));
+
     		thisPage->setJoystickValue(asFloat[1], asFloat[2], asFloat[3], asFloat[4]);
     		break;
     	case 0x30:{
@@ -114,11 +110,19 @@ void WebPage::initalize(){
 }
 
 float WebPage::getSliderValue(uint32_t number){
+	Serial.println("Index:\t"+String(number));
 	if (number>3) return 0.0;
 	return sliders[number];
 }
 
 JoyData WebPage::getJoystickData(){
+/*
+	Serial.println("Joystick Update");
+	Serial.println("X pos:\t"+String(joystick.xpos));
+	Serial.println("Y pos:\t"+String(joystick.ypos));
+	Serial.println("Angle:\t"+String(joystick.angle));
+	Serial.println("Dist:\t"+String(joystick.mag));
+	*/
 	return joystick;
 }
 
@@ -127,6 +131,10 @@ void WebPage::setSliderValue(uint32_t number, float value){
 }
 
 void WebPage::setJoystickValue(float xpos, float ypos, float angle, float mag){
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5dc10b039eff88cd3b9f22e7036e086a78d562a1
 	joystick.xpos  = xpos;
 	joystick.ypos  = ypos;
 	joystick.angle = angle;
