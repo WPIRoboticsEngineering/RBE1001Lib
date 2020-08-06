@@ -136,7 +136,6 @@ void runStateMachine() {
 void updateDashboard() {
 	// This writes values to the dashboard area at the bottom of the web page
 	if (dashboardUpdateTimer.getMS() > 30) {
-		//buttonPage.setValue("Rangefinder", rangefinder.getDistanceCM());
 		buttonPage.setValue("Left linetracker", leftLineSensor.readMiliVolts());
 		buttonPage.setValue("Right linetracker",
 				rightLineSensor.readMiliVolts());
@@ -146,8 +145,10 @@ void updateDashboard() {
 						motor1.getCurrentDegrees());
 		buttonPage.setValue("Right Motor degrees",
 								motor2.getCurrentDegrees());
+		JoyData *data=	buttonPage.getJoystickData();
+		Serial.println("Joystick xpos="+String(data->xpos)+" ypos="+String(data->ypos));
 
-		Serial.println("Packets:\t"+String(buttonPage.packetCount));
+		//Serial.println("Packets:\t"+String(buttonPage.packetCount));
 
 		dashboardUpdateTimer.reset();
 	}

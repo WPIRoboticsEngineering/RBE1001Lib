@@ -116,7 +116,7 @@ float WebPage::getSliderValue(uint32_t number){
 	return sliders[number];
 }
 
-JoyData WebPage::getJoystickData(){
+JoyData * WebPage::getJoystickData(){
 /*
 	Serial.println("Joystick Update");
 	Serial.println("X pos:\t"+String(joystick.xpos));
@@ -124,7 +124,7 @@ JoyData WebPage::getJoystickData(){
 	Serial.println("Angle:\t"+String(joystick.angle));
 	Serial.println("Dist:\t"+String(joystick.mag));
 	*/
-	return joystick;
+	return &joystick;
 }
 
 void WebPage::setSliderValue(uint32_t number, float value){
