@@ -135,7 +135,7 @@ void runStateMachine() {
  */
 void updateDashboard() {
 	// This writes values to the dashboard area at the bottom of the web page
-	if (dashboardUpdateTimer.getMS() > 100) {
+	if (dashboardUpdateTimer.getMS() > 10) {
 		//buttonPage.setValue("Rangefinder", rangefinder.getDistanceCM());
 		buttonPage.setValue("Left linetracker", leftLineSensor.readMiliVolts());
 		buttonPage.setValue("Right linetracker",
@@ -146,7 +146,7 @@ void updateDashboard() {
 						motor1.getCurrentDegrees());
 		buttonPage.setValue("Right Motor degrees",
 								motor2.getCurrentDegrees());
-		lifter.write(buttonPage.getSliderValue(0)*255);
+		lifter.write(buttonPage.getSliderValue(0)*180);
 		dashboardUpdateTimer.reset();
 	}
 }

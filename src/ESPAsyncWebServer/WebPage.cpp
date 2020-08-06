@@ -102,10 +102,10 @@ void WebPage::initalize(){
 	server.begin();
 	Serial.println("HTTP server started");
 //
-    server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
+    server.on("/", (WebRequestMethod)HTTP_GET, [](AsyncWebServerRequest *request){
         request->send(200, "text/html", String(index_html));
     });
-    server.on("/nipplejs.min.js", HTTP_GET, [](AsyncWebServerRequest *request){
+    server.on("/nipplejs.min.js", (WebRequestMethod)HTTP_GET, [](AsyncWebServerRequest *request){
         request->send(200, "text/javascript", String(nipplejs_min_js));
     });
 
@@ -127,10 +127,10 @@ void WebPage::setSliderValue(uint32_t number, float value){
 }
 
 void WebPage::setJoystickValue(float xpos, float ypos, float angle, float mag){
-	thisPage->joystick.xpos  = xpos;
-	thisPage->joystick.ypos  = ypos;
-	thisPage->joystick.angle = angle;
-	thisPage->joystick.mag   = mag;
+	joystick.xpos  = xpos;
+	joystick.ypos  = ypos;
+	joystick.angle = angle;
+	joystick.mag   = mag;
 }
 
 void WebPage::setValue(String value, float data){
