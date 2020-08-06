@@ -125,6 +125,7 @@ void runStateMachine() {
 		//lifter.write(180);
 		break;
 	}
+	lifter.write(buttonPage.getSliderValue(0)*128);
 }
 
 /*
@@ -138,7 +139,6 @@ uint32_t packet_old=0;
 void updateDashboard() {
 	// This writes values to the dashboard area at the bottom of the web page
 	if (dashboardUpdateTimer.getMS() > 30) {
-		//buttonPage.setValue("Rangefinder", rangefinder.getDistanceCM());
 		buttonPage.setValue("Left linetracker", leftLineSensor.readMiliVolts());
 		buttonPage.setValue("Right linetracker",
 				rightLineSensor.readMiliVolts());
@@ -148,12 +148,11 @@ void updateDashboard() {
 						motor1.getCurrentDegrees());
 		buttonPage.setValue("Right Motor degrees",
 								motor2.getCurrentDegrees());
-/*
-		if (buttonPage.packetCount!=packet_old){
-			packet_old=buttonPage.packetCount;
-			//Serial.println("Packets:\t"+String(packet_old));
-			buttonPage.setValue("packets", packet_old);
-		}*/
+
+		Serial.println("Joystick angle="+String(buttonPage.getJoystickAngle())+
+				" magnitude="+String(buttonPage.getJoystickMagnitude())+
+				" x="+String(buttonPage.getJoystickX())+
+								" y="+String(buttonPage.getJoystickY()));
 		dashboardUpdateTimer.reset();
 	}
 }
@@ -165,9 +164,6 @@ void updateDashboard() {
  */
 void loop() {
 	manager.loop();
-	//buttonPage.getJoystickData();
-	lifter.write(buttonPage.getSliderValue(0)*128);
-	//
 	runStateMachine();  // do a pass through the state machine
 	if(manager.getState() == Connected)// only update if WiFi is up
 		updateDashboard();  // update the dashboard values

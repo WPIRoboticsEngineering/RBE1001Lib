@@ -113,16 +113,27 @@ float WebPage::getSliderValue(uint32_t number){
 	if (number>3) return 0.0;
 	return sliders[number];
 }
+float WebPage::getJoystickAngle(){
+	return joystick.angle;
+}
+float WebPage::getJoystickMagnitude(){
+	return joystick.mag;
+}
+float WebPage::getJoystickX(){
+	return joystick.xpos;
+}
+float WebPage::getJoystickY(){
+	return joystick.ypos;
+}
+JoyData * WebPage::getJoystickData(){
 
-JoyData WebPage::getJoystickData(){
-/*
-	Serial.println("Joystick Update");
-	Serial.println("X pos:\t"+String(joystick.xpos));
-	Serial.println("Y pos:\t"+String(joystick.ypos));
-	Serial.println("Angle:\t"+String(joystick.angle));
-	Serial.println("Dist:\t"+String(joystick.mag));
-	*/
-	return joystick;
+//	Serial.print("\nJoystick Update");
+//	Serial.print(" X pos:\t"+String(joystick.xpos));
+//	Serial.print(" Y pos:\t"+String(joystick.ypos));
+//	Serial.print(" Angle:\t"+String(joystick.angle));
+//	Serial.print(" Dist:\t"+String(joystick.mag));
+
+	return &joystick;
 }
 
 void WebPage::setSliderValue(uint32_t number, float value){
@@ -130,9 +141,10 @@ void WebPage::setSliderValue(uint32_t number, float value){
 }
 
 void WebPage::setJoystickValue(float xpos, float ypos, float angle, float mag){
-	joystick.xpos  = xpos;
-	joystick.ypos  = ypos;
-	joystick.angle = angle;
+	angle-=(PI/2.0);
+	joystick.xpos  = cos(angle)*mag;
+	joystick.ypos  = sin(angle)*mag;
+	joystick.angle = 180*angle/PI;
 	joystick.mag   = mag;
 }
 
@@ -142,7 +154,7 @@ void WebPage::setValue(String name, float data){
 
 				if (values[i].name==name){ // check label
 					if(values[i].value!=data){ // check if data changed
-						Serial.println("Update '"+name+"' "+String(data));
+						//Serial.println("Update '"+name+"' "+String(data));
 						values[i].value = data; // update data
 						sendValueUpdate(i); // push async update to ui
 					}
