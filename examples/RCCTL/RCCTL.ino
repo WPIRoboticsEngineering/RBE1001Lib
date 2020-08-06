@@ -146,7 +146,7 @@ void updateDashboard() {
 		buttonPage.setValue("Right Motor degrees",
 								motor2.getCurrentDegrees());
 		JoyData *data=	buttonPage.getJoystickData();
-		Serial.println("Joystick xpos="+String(data->xpos)+" ypos="+String(data->ypos));
+		Serial.println("Joystick angle="+String(data->angle)+" magnitude="+String(data->mag));
 
 		//Serial.println("Packets:\t"+String(buttonPage.packetCount));
 
