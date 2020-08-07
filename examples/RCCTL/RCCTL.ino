@@ -35,6 +35,10 @@ Timer dashboardUpdateTimer;  // times when the dashboard should update
  */
 void setup() {
 	manager.setup();
+	while (manager.getState() != Connected) {
+		manager.loop();
+		delay(1);
+	}
 	Motor::allocateTimer(0); // used by the DC Motors
 	ESP32PWM::allocateTimer(1); // Used by servos
 	// pin definitions https://wpiroboticsengineering.github.io/RBE1001Lib/RBE1001Lib_8h.html#define-members
@@ -46,12 +50,6 @@ void setup() {
 	rightLineSensor.attach(RIGHT_LINE_SENSE);
 	servoPositionFeedback.attach(SERVO_FEEDBACK_SENSOR);
 	lifter.write(0);
-
-	while (manager.getState() != Connected) {
-		manager.loop();
-		delay(1);
-	}
-
 	buttonPage.initalize();
 	dashboardUpdateTimer.reset(); // reset the dashbaord refresh timer
 
