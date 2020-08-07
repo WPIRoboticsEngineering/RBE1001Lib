@@ -271,7 +271,7 @@ void Motor::loop() {
 	if (closedLoopControl) {
 		//portEXIT_CRITICAL(&mmux);
 		if (mode == VELOCITY_MODE) {
-			if(abs(currentEffort)<0.99)// stall detection
+			if(abs(currentEffort)<0.95)// stall detection
 				Setpoint += milisecondPosIncrementForVelocity;
 		} else {
 			unitDuration = getInterpolationUnitIncrement();
