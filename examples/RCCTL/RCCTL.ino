@@ -134,9 +134,11 @@ void runStateMachine() {
  * to be displayed to help debug your robot program by calling the
  * "setValue" function with a name and a value.
  */
+
+uint32_t packet_old=0;
 void updateDashboard() {
 	// This writes values to the dashboard area at the bottom of the web page
-	if (dashboardUpdateTimer.getMS() > 30) {
+	if (dashboardUpdateTimer.getMS() > 100) {
 		buttonPage.setValue("Left linetracker", leftLineSensor.readMiliVolts());
 		buttonPage.setValue("Right linetracker",
 				rightLineSensor.readMiliVolts());
@@ -146,10 +148,12 @@ void updateDashboard() {
 						motor1.getCurrentDegrees());
 		buttonPage.setValue("Right Motor degrees",
 								motor2.getCurrentDegrees());
-		Serial.println("Joystick angle="+String(buttonPage.getJoystickAngle())+
+
+		/*Serial.println("Joystick angle="+String(buttonPage.getJoystickAngle())+
 				" magnitude="+String(buttonPage.getJoystickMagnitude())+
 				" x="+String(buttonPage.getJoystickX())+
 								" y="+String(buttonPage.getJoystickY()));
+								*/
 		dashboardUpdateTimer.reset();
 	}
 }

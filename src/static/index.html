@@ -55,7 +55,7 @@
   <div class="slidecontainer">
   <input type="range" min="1" max="100" value="50" class="slider" id="myRange" oninput="sendSlider(0,this.value)">
 </div>
-  <div id="joystick"></div>
+  <div id="joystick"><div id="telemetry"><div></div>
 
 
   <script>
@@ -67,14 +67,47 @@
       });
 
       let socket = new WebSocket("ws://" + location.host + "/test");
+      //let socket = new WebSocket("ws://192.168.86.30/test");
       socket.binaryType = 'arraybuffer';
       socket.onopen = function(e) {
         console.log("[open] Connection established");
         console.log("Sending to server");
       };
+
+      var telMap = new Map();
       socket.onmessage = function(event) {
-        console.log(`[message] Data received from server: ${event.data}`);
+        //console.log(`[message] Data received from server: ${event.data}`);
         console.log(event.data);
+        let bufferInt32 = new Int32Array(event.data);
+        let bufferFloat = new Float32Array(event.data);
+        let command = bufferInt32[0];
+        switch(command){
+          case 16:
+            // Update Value
+            let index=bufferInt32[1];
+            let value=bufferFloat[2];
+            let obj =telMap.get(index).data=value;
+            console.log("Update value "+index+": "+value);
+            updateValues();
+            break;
+          case 31:
+            // New Value
+            let pos=bufferInt32[1];
+            let data = new Uint8Array(event.data).slice(12,event.data.length);
+            //console.log(data);
+            labeltext="";
+            for(i=0; i<data.length; i++){
+              let ch=data[i];
+              if (ch!=0) labeltext = labeltext + String.fromCharCode(ch);
+            }
+            //let unicode = String.fromCharCode.apply(null, new Uint8Array(data));
+            //console.log(unicode);
+            console.log("New Label '"+labeltext+"'" );
+            telMap.set(pos,{'name':labeltext,'data':0.0});
+            updateValues();
+            break;
+        }
+
       };
 
       socket.onclose = function(event) {
@@ -122,6 +155,15 @@ function sendSlider(num,value){
   abFloat[1] = num;
   abFloat[2] = value/100.0;
   socket.send(ab);
+}
+
+function updateValues(){
+  var contents="<table><tr><th>Name</th><th>Value</th></tr>";
+  for (let [k,v] of telMap.entries()) {
+    contents += "<tr><td>"+v.name+"</td><td>"+v.data+"</td></tr>";
+  }
+  contents += "</table>"
+  document.getElementById("telemetry").innerHTML=contents;
 }
   </script>
 </body>
