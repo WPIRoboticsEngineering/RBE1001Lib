@@ -237,7 +237,7 @@ void Motor::SetSpeed(float newDegreesPerSecond) {
 //			" scale "+String(TICKS_TO_DEGREES)
 //			+" Setpoint "+String(Setpoint*TICKS_TO_DEGREES)
 //	);
-	Setpoint = nowEncoder;
+	//Setpoint = nowEncoder;
 	mode = VELOCITY_MODE;
 	closedLoopControl = true;
 }
