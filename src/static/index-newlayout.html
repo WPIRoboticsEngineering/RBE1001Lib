@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <style>
+    html,
+    body {
+      margin: 0px;
+      height: 100%;
+    }
+    .wrapper {
+      display: grid;
+      grid-template-columns: 1fr 2fr 6fr;
+      grid-gap: 10px;
+      grid-auto-rows: minmax(100px, auto);
+      height: 100%;
+    }
+
+    .sliderbox{
+      background-color: #fff;
+    }
+    .buttonsbox{
+      background-color: #aaa;
+    }
+    .joystickbox{
+      background-color: #ddd;
+    }
+    /* The slider itself */
+    .slider {
+      -webkit-appearance: slider-vertical;
+      /* Override default CSS styles */
+      appearance: slider-vertical;
+      height: 100%;
+      /* Full-width */
+      width: 100%;
+      /* Specified height */
+      background: #d3d3d3;
+      /* Grey background */
+      outline: none;
+      /* Remove outline */
+      opacity: 0.7;
+      /* Set transparency (for mouse-over effects on hover) */
+      -webkit-transition: .2s;
+      /* 0.2 seconds transition on hover */
+      transition: opacity .2s;
+
+    }
+
+  </style>
+  <script src="nipplejs.min.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="sliderbox">
+        <input type="range" min="1" max="100" value="50" orient="vertical" class="slider" oninput="sendSlider(0,this.value)">
+    </div>
+    <div class="buttonsbox"></div>
+    <div class="joystickbox" id="joystick">
+        <div id="telemetry">
+        </div>
+    </div>
+
+  </div>
+
+
+
+
+      <script>
+        var manager = nipplejs.create({
+          zone: document.getElementById('joystick'),
+          mode: 'static',
+          position: {
+            left: '67%',
+            top: '50%'
+          },
+          color: 'blue'
+        });
+
+        let socket = new WebSocket("ws://" + location.host + "/test");
+        //let socket = new WebSocket("ws://192.168.86.30/test");
+        socket.binaryType = 'arraybuffer';
+        socket.onopen = function(e) {
+          console.log("[open] Connection established");
+          console.log("Sending to server");
+        };
+
+        var telMap = new Map();
+        socket.onmessage = function(event) {
+          //console.log(`[message] Data received from server: ${event.data}`);
+          console.log(event.data);
+          let bufferInt32 = new Int32Array(event.data);
+          let bufferFloat = new Float32Array(event.data);
+          let command = bufferInt32[0];
+          switch (command) {
+            case 16:
+              // Update Value
+              let index = bufferInt32[1];
+              let value = bufferFloat[2];
+              let obj = telMap.get(index).data = value;
+              console.log("Update value " + index + ": " + value);
+              updateValues();
+              break;
+            case 31:
+              // New Value
+              let pos = bufferInt32[1];
+              let data = new Uint8Array(event.data).slice(12, event.data.length);
+              //console.log(data);
+              labeltext = "";
+              for (i = 0; i < data.length; i++) {
+                let ch = data[i];
+                if (ch != 0) labeltext = labeltext + String.fromCharCode(ch);
+              }
+              //let unicode = String.fromCharCode.apply(null, new Uint8Array(data));
+              //console.log(unicode);
+              console.log("New Label '" + labeltext + "'");
+              telMap.set(pos, {
+                'name': labeltext,
+                'data': 0.0
+              });
+              updateValues();
+              break;
+          }
+
+        };
+
+        socket.onclose = function(event) {
+          if (event.wasClean) {
+            console.log(`[close] Connection closed cleanly, code=${event.code} reason=${event.reason}`);
+            setTimeout(location.reload(), 5000);
+          } else {
+            // e.g. server process killed or network down
+            // event.code is usually 1006 in this case
+            console.log('[close] Connection died');
+            setTimeout(location.reload(), 5000);
+          }
+        };
+
+        socket.onerror = function(error) {
+          console.log(`[error] ${error.message}`);
+          setTimeout(location.reload(), 5000);
+        };
+        var joydata = 0;
+        var newData = false;
+        manager.get(0).on('move start end', function(evt, data) {
+          joydata = data;
+          newData = true;
+
+        });
+
+        function sendSlider(num, value) {
+          // build the packet
+          var ab = new ArrayBuffer(12);
+          var abFloat = new Float32Array(ab);
+          var abInt = new Uint32Array(ab);
+          abInt[0] = 48; // js packet
+          abFloat[1] = num;
+          abFloat[2] = value / 100.0;
+          socket.send(ab);
+        }
+
+        function updateValues() {
+          var contents = "<table><tr><th>Name</th><th>Value</th></tr>";
+          for (let [k, v] of telMap.entries()) {
+            contents += "<tr><td>" + v.name + "</td><td>" + v.data + "</td></tr>";
+          }
+          contents += "</table>"
+          document.getElementById("telemetry").innerHTML = contents;
+        }
+
+        function updateJoystick() {
+          if (newData == true) {
+            newData = false;
+            console.log("update");
+            joydata_old = joydata;
+            var nDist = 0.0;
+            if (joydata.distance) {
+              nDist = joydata.distance / 50.0
+            }
+            var Angle = 0.0;
+            if (joydata.angle) {
+              Angle = joydata.angle.radian;
+            }
+            // build the packet
+            var ab = new ArrayBuffer(20);
+            var abFloat = new Float32Array(ab);
+            var abInt = new Uint32Array(ab);
+            abInt[0] = 32; // js packet
+            abFloat[1] = 1
+            abFloat[2] = 1
+            abFloat[3] = Angle;
+            abFloat[4] = nDist;
+            socket.send(ab);
+
+          }
+        }
+
+        setInterval(updateJoystick, 30);
+      </script>
+</body>
+
+</html>
