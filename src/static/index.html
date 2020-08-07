@@ -123,27 +123,12 @@
       socket.onerror = function(error) {
         console.log(`[error] ${error.message}`);
       };
-
+      var joydata=0;
+      var newData=false;
       manager.get(0).on('move start end',function(evt, data) {
+        joydata = data;
+        newData=true;
 
-        var nDist = 0.0;
-        if(data.distance){
-          nDist = data.distance/50.0
-        }
-        var Angle=0.0;
-        if (data.angle){
-                  Angle = data.angle.radian;
-        }
-        // build the packet
-        var ab = new ArrayBuffer(20);
-        var abFloat = new Float32Array(ab);
-        var abInt = new Uint32Array(ab);
-        abInt[0]=32; // js packet
-        abFloat[1] = 1
-        abFloat[2] = 1
-        abFloat[3] = Angle;
-        abFloat[4] = nDist;
-        socket.send(ab);
       });
 
 function sendSlider(num,value){
@@ -165,6 +150,35 @@ function updateValues(){
   contents += "</table>"
   document.getElementById("telemetry").innerHTML=contents;
 }
+
+function updateJoystick(){
+  if (newData==true){
+    newData=false;
+    console.log("update");
+    joydata_old = joydata;
+    var nDist = 0.0;
+    if(joydata.distance){
+      nDist = joydata.distance/50.0
+    }
+    var Angle=0.0;
+    if (joydata.angle){
+              Angle = joydata.angle.radian;
+    }
+    // build the packet
+    var ab = new ArrayBuffer(20);
+    var abFloat = new Float32Array(ab);
+    var abInt = new Uint32Array(ab);
+    abInt[0]=32; // js packet
+    abFloat[1] = 1
+    abFloat[2] = 1
+    abFloat[3] = Angle;
+    abFloat[4] = nDist;
+    socket.send(ab);
+
+  }
+}
+
+setInterval(updateJoystick,30);
   </script>
 </body>
 </html>
