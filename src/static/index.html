@@ -48,6 +48,16 @@
   background: #4CAF50; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
+
+#telemetry {
+  font-family: sans-serif;
+  font-size: 30pt;
+  background-color: #ccc;
+  width: 50%;
+}
+td {
+  padding: 5px 10px 5px 10px;
+}
   </style>
   <script src="nipplejs.min.js"></script>
 </head>
@@ -66,8 +76,8 @@
           color: 'blue'
       });
 
-      let socket = new WebSocket("ws://" + location.host + "/test");
-      //let socket = new WebSocket("ws://192.168.86.30/test");
+      //let socket = new WebSocket("ws://" + location.host + "/test");
+      let socket = new WebSocket("ws://192.168.86.30/test");
       socket.binaryType = 'arraybuffer';
       socket.onopen = function(e) {
         console.log("[open] Connection established");
