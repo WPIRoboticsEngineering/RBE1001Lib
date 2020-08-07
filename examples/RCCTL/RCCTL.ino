@@ -65,8 +65,8 @@ void setup() {
  */
 void runStateMachine() {
 
-	float left = (buttonPage.getJoystickX()+buttonPage.getJoystickY())*800;
-	float right = (buttonPage.getJoystickX()-buttonPage.getJoystickY())*800;
+	float left = (buttonPage.getJoystickX()+buttonPage.getJoystickY())*360;
+	float right = (buttonPage.getJoystickX()-buttonPage.getJoystickY())*360;
 
 	motor1.SetSpeed(left);
 	motor2.SetSpeed(right);
