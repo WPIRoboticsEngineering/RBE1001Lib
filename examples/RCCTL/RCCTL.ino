@@ -24,53 +24,8 @@ WebPage buttonPage;
 
 WifiManager manager;
 
-enum State {
-	stopped, go
-} state;
 
-Timer endTimer;   // end of a timed state timer
 Timer dashboardUpdateTimer;  // times when the dashboard should update
-
-/*
- * Each of these functions corresponds to a button on the web page. When the
- * associated button is pressed, the function is called. The functions can
- * contain any robot code, but in this case, I just set a new state and the
- * state machine in the loop() function starts doing whatever task you
- * selected
- */
-void startMotor(String value) {
-	Serial.println("GO!");
-	Serial.println("Got from Server: " + value);
-	state = go;
-}
-/*
- * Each of these functions corresponds to a button on the web page. When the
- * associated button is pressed, the function is called. The functions can
- * contain any robot code, but in this case, I just set a new state and the
- * state machine in the loop() function starts doing whatever task you
- * selected
- */
-void stopMotor(String value) {
-	Serial.println("STOP!");
-	Serial.println("Got from Server: " + value);
-	state = stopped;
-}
-/*
- * Set up all the buttons that you will use for your final project
- * Each "newButton" call adds a button and connects the button to a function
- * that you add to the program like stopMotor()
- * that you can see above. At the end of each of those functions you need to
- * call "buttonPage.sendHTML()" to force the web page to redisplay after the
- * button is pressed.
- */
-
-void setupButtons() {
-	buttonPage.newButton("on", startMotor, "Motors On", "Run motors");
-	buttonPage.newButton("off", stopMotor, "Motors Off",
-			"Stop the motors");
-}
-
-
 /*
  * This is the standard setup function that is called when the ESP32 is rebooted
  * It is used to initialize anything that needs to be done once.
@@ -98,9 +53,7 @@ void setup() {
 	}
 
 	buttonPage.initalize();
-	endTimer.reset();     // reset the end of state timer
 	dashboardUpdateTimer.reset(); // reset the dashbaord refresh timer
-	state = stopped;   // initially, the robot is in the stopped state
 
 }
 
@@ -113,19 +66,13 @@ void setup() {
  * milliseconds the robot should reamain in that state.
  */
 void runStateMachine() {
-	switch (state) {
-	case stopped:
-		motor1.SetSpeed(0);
-		motor2.SetSpeed(0);
-		//lifter.write(0);
-		break;
-	case go:
-		motor1.SetSpeed(360);
-		motor2.SetSpeed(360);
-		//lifter.write(180);
-		break;
-	}
-	lifter.write(buttonPage.getSliderValue(0)*128);
+
+	float left = (buttonPage.getJoystickX()+buttonPage.getJoystickY())*800;
+	float right = (buttonPage.getJoystickX()-buttonPage.getJoystickY())*800;
+
+	motor1.SetSpeed(left);
+	motor2.SetSpeed(right);
+	lifter.write(buttonPage.getSliderValue(0)*180);
 }
 
 /*
@@ -149,11 +96,11 @@ void updateDashboard() {
 		buttonPage.setValue("Right Motor degrees",
 								motor2.getCurrentDegrees());
 
-		Serial.println("Joystick angle="+String(buttonPage.getJoystickAngle())+
-				" magnitude="+String(buttonPage.getJoystickMagnitude())+
-				" x="+String(buttonPage.getJoystickX())+
-								" y="+String(buttonPage.getJoystickY()) +
-								" slider="+String(buttonPage.getSliderValue(0)));
+//		Serial.println("Joystick angle="+String(buttonPage.getJoystickAngle())+
+//				" magnitude="+String(buttonPage.getJoystickMagnitude())+
+//				" x="+String(buttonPage.getJoystickX())+
+//								" y="+String(buttonPage.getJoystickY()) +
+//								" slider="+String(buttonPage.getSliderValue(0)));
 
 		dashboardUpdateTimer.reset();
 	}
