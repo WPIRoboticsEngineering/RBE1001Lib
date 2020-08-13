@@ -11,7 +11,7 @@
 AsyncWebServer server(80);
 AsyncWebSocket ws("/test");
 static WebPage *thisPage;
-static char stringBuffer[100];
+static char stringBuffer[200];
 
 void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventType type, void * arg, uint8_t *data, size_t len){
   uint32_t *asInt = (uint32_t *)data;
@@ -76,7 +76,7 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
 
 
 char* String2Chars(String str){
-	str.toCharArray(stringBuffer, 100, 0);
+	str.toCharArray(stringBuffer, 200, 0);
 	return stringBuffer;
 }
 
@@ -224,8 +224,9 @@ void WebPage::newButton(String url, void (*handler)(String), String label, Strin
 
 }
 
-void WebPage::addMotor(Motor& motor) {
-	ESP_LOGV(String2Chars("Adding Motor '"+motor->getName()+"'"));
+void WebPage::addMotor(Motor * motor) {
+
+	ESP_LOGI("WebPage::addMotor","Adding Motor %s",String2Chars(motor->getName()) );//, String2Chars("Adding '"+motor->getName()+"'")
 	if (motor_count >= ( num_motors-1 )  ){
 		ESP_LOGE("Max Motors Registered!");
 		return;
@@ -235,9 +236,9 @@ void WebPage::addMotor(Motor& motor) {
 
 
 Motor * WebPage::getMotor(int motor_index) {
-	ESP_LOGV(String2Chars("Looking Up Motor '"+motor_index+"'"));
+	ESP_LOGI("WebPage::getMotor","Looking up Motor %d",motor_index); //
 	if(motor_index <= motor_count){
-		return &motors[motor_index];
+		return motors[motor_index];
 	} else {
 		ESP_LOGV(String2Chars("Lookup out of bounds. max: "+num_motors));
 		return (Motor *)nullptr;

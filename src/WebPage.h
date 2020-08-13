@@ -42,7 +42,7 @@ public:
 	float sliders[numSliders];
 	telemetryValue values[numValues];
 
-	void addMotor(Motor &motor);
+	void addMotor(Motor * motor);
 	Motor * getMotor(int motor_index);
 	uint32_t getMotorCount();
 
@@ -50,7 +50,7 @@ public:
 	uint32_t packetCount = 0;
 #define num_motors 10
 private:
-	Motor motors[num_motors];
+	Motor * motors[num_motors];
 	uint32_t motor_count;
 	void sendValueUpdate(uint32_t index);
 	void sendLabelUpdate(uint32_t index);
