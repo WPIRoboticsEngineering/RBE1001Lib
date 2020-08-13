@@ -36,6 +36,7 @@ void onTimer(void *param) {
 
 }
 
+
 int Rangefinder::getTimeoutState() {
 	return millis() - threadTimeout;
 }
@@ -45,7 +46,7 @@ void Rangefinder::checkTimeout() {
 	bool run = false;
 	run = Rangefinder::getTimeoutState() > 100;
 	if (run) {
-		Serial.println("Ultrasonic thread timeout!");
+		//Serial.println("Ultrasonic thread timeout!");
 		fire();
 	}
 }
@@ -133,7 +134,6 @@ void Rangefinder::attach(int trigger, int echo) {
  * numbers.
  */
 Rangefinder::Rangefinder() {
-
 }
 /**
  * \brief get the time of latest round trip in microseconds
