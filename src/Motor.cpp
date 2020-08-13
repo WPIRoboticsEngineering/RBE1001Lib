@@ -311,6 +311,10 @@ void Motor::loop() {
 	// invert the effort so that the set speed and set effort match
 	SetEffortLocal(currentEffort);
 
+
+	if (listner)listner->valueChanged(name+"Encoder Degrees",this->getCurrentDegrees());
+	if (listner)listner->valueChanged(name+"Encoder Effort",this->GetEffort());
+	if (listner)listner->valueChanged(name+"Encoder Degrees-sec",this->getDegreesPerSecond());
 }
 /**
  * PID gains for the PID controller
@@ -429,3 +433,10 @@ float Motor::getCurrentDegrees() {
 	return tmp * TICKS_TO_DEGREES;
 }
 
+AsyncValueListener * Motor::getListner() {
+	return listner;
+}
+
+void Motor::setListner( AsyncValueListener * listner) {
+	this->listner = listner;
+}
