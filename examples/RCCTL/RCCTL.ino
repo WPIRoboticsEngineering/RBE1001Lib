@@ -41,20 +41,20 @@ void setup() {
 	}
 	Motor::allocateTimer(0); // used by the DC Motors
 	ESP32PWM::allocateTimer(1); // Used by servos
+	control_page.initalize();
 	// pin definitions https://wpiroboticsengineering.github.io/RBE1001Lib/RBE1001Lib_8h.html#define-members
 	motor2.attach(MOTOR2_PWM, MOTOR2_DIR, MOTOR2_ENCA, MOTOR2_ENCB);
 	motor2.setName("Left Motor");
+	motor2.setListner(&control_page);
 	motor1.attach(MOTOR1_PWM, MOTOR1_DIR, MOTOR1_ENCA, MOTOR1_ENCB);
 	motor1.setName("Right Motor");
+	motor1.setListner(&control_page);
 	rangefinder1.attach(SIDE_ULTRASONIC_TRIG, SIDE_ULTRASONIC_ECHO);
 	lifter.attach(SERVO_PIN);
 	leftLineSensor.attach(LEFT_LINE_SENSE);
 	rightLineSensor.attach(RIGHT_LINE_SENSE);
 	servoPositionFeedback.attach(SERVO_FEEDBACK_SENSOR);
 	lifter.write(0);
-	control_page.initalize();
-	control_page.addMotor(&motor1);
-	control_page.addMotor(&motor2);
 	dashboardUpdateTimer.reset(); // reset the dashbaord refresh timer
 
 }
