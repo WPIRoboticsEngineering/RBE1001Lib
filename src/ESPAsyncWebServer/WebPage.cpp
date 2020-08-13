@@ -226,7 +226,7 @@ void WebPage::newButton(String url, void (*handler)(String), String label, Strin
 
 void WebPage::addMotor(Motor * motor) {
 
-	ESP_LOGI("WebPage::addMotor","Adding Motor %s",String2Chars(motor->getName()) );//, String2Chars("Adding '"+motor->getName()+"'")
+	ESP_LOGI("WebPage::addMotor","Adding Motor '%s'",String2Chars(motor->getName()) );//, String2Chars("Adding '"+motor->getName()+"'")
 	if (motor_count >= ( num_motors-1 )  ){
 		ESP_LOGE("Max Motors Registered!");
 		return;
