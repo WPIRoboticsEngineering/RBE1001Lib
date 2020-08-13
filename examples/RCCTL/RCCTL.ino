@@ -53,8 +53,8 @@ void setup() {
 	servoPositionFeedback.attach(SERVO_FEEDBACK_SENSOR);
 	lifter.write(0);
 	control_page.initalize();
-	control_page.addMotor(motor1);
-	control_page.addMotor(motor2);
+	control_page.addMotor(&motor1);
+	control_page.addMotor(&motor2);
 	dashboardUpdateTimer.reset(); // reset the dashbaord refresh timer
 
 }
