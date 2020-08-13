@@ -149,6 +149,7 @@ private:
 	 */
 	float TRAPEZOIDAL_time=0;
 
+	String name;
 public:
 	/**
 	 * use the internal state and current time to comput where along the path from start to finish the interpolation is
@@ -404,6 +405,14 @@ public:
 	 * PID gains for the PID controller
 	 */
 	void setGains(float p, float i, float d);
+
+	const String& getName() const {
+		return name;
+	}
+
+	void setName(const String& name) {
+		this->name = name;
+	}
 };
 
 #endif /* LIBRARIES_RBE1001LIB_SRC_MOTOR_H_ */
