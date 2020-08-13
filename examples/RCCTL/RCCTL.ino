@@ -20,7 +20,7 @@ ESP32AnalogRead leftLineSensor;
 ESP32AnalogRead rightLineSensor;
 ESP32AnalogRead servoPositionFeedback;
 
-WebPage buttonPage;
+WebPage control_page;
 
 WifiManager manager;
 
@@ -43,14 +43,18 @@ void setup() {
 	ESP32PWM::allocateTimer(1); // Used by servos
 	// pin definitions https://wpiroboticsengineering.github.io/RBE1001Lib/RBE1001Lib_8h.html#define-members
 	motor2.attach(MOTOR2_PWM, MOTOR2_DIR, MOTOR2_ENCA, MOTOR2_ENCB);
+	motor2.setName("Left Motor");
 	motor1.attach(MOTOR1_PWM, MOTOR1_DIR, MOTOR1_ENCA, MOTOR1_ENCB);
+	motor2.setName("Right Motor");
 	rangefinder1.attach(SIDE_ULTRASONIC_TRIG, SIDE_ULTRASONIC_ECHO);
 	lifter.attach(SERVO_PIN);
 	leftLineSensor.attach(LEFT_LINE_SENSE);
 	rightLineSensor.attach(RIGHT_LINE_SENSE);
 	servoPositionFeedback.attach(SERVO_FEEDBACK_SENSOR);
 	lifter.write(0);
-	buttonPage.initalize();
+	control_page.initalize();
+	control_page.addMotor(motor1);
+	control_page.addMotor(motor2);
 	dashboardUpdateTimer.reset(); // reset the dashbaord refresh timer
 
 }
@@ -65,12 +69,12 @@ void setup() {
  */
 void runStateMachine() {
 
-	float left = (buttonPage.getJoystickX()+buttonPage.getJoystickY())*360;
-	float right = (buttonPage.getJoystickX()-buttonPage.getJoystickY())*360;
+	float left = (control_page.getJoystickX()+control_page.getJoystickY())*360;
+	float right = (control_page.getJoystickX()-control_page.getJoystickY())*360;
 
 	motor1.SetSpeed(left);
 	motor2.SetSpeed(right);
-	lifter.write(buttonPage.getSliderValue(0)*180);
+	lifter.write(control_page.getSliderValue(0)*180);
 }
 
 /*
@@ -84,14 +88,14 @@ uint32_t packet_old=0;
 void updateDashboard() {
 	// This writes values to the dashboard area at the bottom of the web page
 	if (dashboardUpdateTimer.getMS() > 100) {
-		buttonPage.setValue("Left linetracker", leftLineSensor.readMiliVolts());
-		buttonPage.setValue("Right linetracker",
+		control_page.setValue("Left linetracker", leftLineSensor.readMiliVolts());
+		control_page.setValue("Right linetracker",
 				rightLineSensor.readMiliVolts());
-		buttonPage.setValue("Ultrasonic",
+		control_page.setValue("Ultrasonic",
 				rangefinder1.getDistanceCM());
-		buttonPage.setValue("Left Motor degrees",
+		control_page.setValue("Left Motor degrees",
 						motor1.getCurrentDegrees());
-		buttonPage.setValue("Right Motor degrees",
+		control_page.setValue("Right Motor degrees",
 								motor2.getCurrentDegrees());
 
 //		Serial.println("Joystick angle="+String(buttonPage.getJoystickAngle())+
