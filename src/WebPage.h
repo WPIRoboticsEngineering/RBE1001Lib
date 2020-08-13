@@ -2,6 +2,7 @@
 #include <Arduino.h>
 #include <WebServer.h>
 #include "Motor.h"
+#include "AsyncValueListener.h"
 #define valbuflen 8
 #define labelbuflen 256
 
@@ -21,7 +22,7 @@ typedef struct _telemetryValue {
 #define numSliders 4
 #define numValues 10
 
-class WebPage {
+class WebPage : public AsyncValueListener {
 public:
 	WebPage();
 	void initalize();
@@ -42,15 +43,12 @@ public:
 	float sliders[numSliders];
 	telemetryValue values[numValues];
 
-	void addMotor(Motor * motor);
-	Motor * getMotor(int motor_index);
-	uint32_t getMotorCount();
+	void valueChanged(String name, float value);
+
 
 	JoyData joystick;
 	uint32_t packetCount = 0;
-#define num_motors 10
 private:
-	Motor * motors[num_motors];
 	uint32_t motor_count;
 	void sendValueUpdate(uint32_t index);
 	void sendLabelUpdate(uint32_t index);

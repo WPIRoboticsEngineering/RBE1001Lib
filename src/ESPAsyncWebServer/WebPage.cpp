@@ -224,27 +224,8 @@ void WebPage::newButton(String url, void (*handler)(String), String label, Strin
 
 }
 
-void WebPage::addMotor(Motor * motor) {
 
-	ESP_LOGI("WebPage::addMotor","Adding Motor '%s'",String2Chars(motor->getName()) );//, String2Chars("Adding '"+motor->getName()+"'")
-	if (motor_count >= ( num_motors-1 )  ){
-		ESP_LOGE("Max Motors Registered!");
-		return;
-	}
-	motors[motor_count++]=motor;
-}
-
-
-Motor * WebPage::getMotor(int motor_index) {
-	ESP_LOGI("WebPage::getMotor","Looking up Motor %d",motor_index); //
-	if(motor_index <= motor_count){
-		return motors[motor_index];
-	} else {
-		ESP_LOGV(String2Chars("Lookup out of bounds. max: "+num_motors));
-		return (Motor *)nullptr;
-	}
-}
-
-uint32_t WebPage::getMotorCount() {
-	return motor_count;
+void WebPage::valueChanged(String name, float value){
+	//ESP_LOGI("WebPage::valueChanged","Got async change for '%s'",String2Chars(name)); //
+	setValue(name,value);
 }
