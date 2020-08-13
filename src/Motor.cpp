@@ -312,9 +312,9 @@ void Motor::loop() {
 	SetEffortLocal(currentEffort);
 
 
-	if (listner)listner->valueChanged(name+"Encoder Degrees",this->getCurrentDegrees());
-	if (listner)listner->valueChanged(name+"Encoder Effort",this->GetEffort());
-	if (listner)listner->valueChanged(name+"Encoder Degrees-sec",this->getDegreesPerSecond());
+	if (listner)listner->valueChanged(name+" Encoder Degrees",this->getCurrentDegrees());
+	if (listner)listner->valueChanged(name+" Encoder Effort",this->GetEffort());
+	if (listner)listner->valueChanged(name+" Encoder Degrees-sec",this->getDegreesPerSecond());
 }
 /**
  * PID gains for the PID controller
