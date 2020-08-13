@@ -5,7 +5,7 @@
 #include "static/indexhtml.h"
 #include "static/nipplejsminjs.h"
 #include <ESPAsyncWebServer/ESPAsyncWebServer.h>
-
+#include "Motor.h"
 
 
 AsyncWebServer server(80);
@@ -222,4 +222,28 @@ void WebPage::sendLabelUpdate(uint32_t index){
 
 void WebPage::newButton(String url, void (*handler)(String), String label, String description){
 
+}
+
+void WebPage::addMotor(Motor& motor) {
+	ESP_LOGV(String2Chars("Adding Motor '"+motor->getName()+"'"));
+	if (motor_count >= ( num_motors-1 )  ){
+		ESP_LOGE("Max Motors Registered!");
+		return;
+	}
+	motors[motor_count++]=motor;
+}
+
+
+Motor * WebPage::getMotor(int motor_index) {
+	ESP_LOGV(String2Chars("Looking Up Motor '"+motor_index+"'"));
+	if(motor_index <= motor_count){
+		return &motors[motor_index];
+	} else {
+		ESP_LOGV(String2Chars("Lookup out of bounds. max: "+num_motors));
+		return (Motor *)nullptr;
+	}
+}
+
+uint32_t WebPage::getMotorCount() {
+	return motor_count;
 }

@@ -1,6 +1,7 @@
 #pragma once
 #include <Arduino.h>
 #include <WebServer.h>
+#include "Motor.h"
 #define valbuflen 8
 #define labelbuflen 256
 
@@ -40,9 +41,17 @@ public:
 	void SendAllLabelsAndValues();
 	float sliders[numSliders];
 	telemetryValue values[numValues];
+
+	void addMotor(Motor &motor);
+	Motor * getMotor(int motor_index);
+	uint32_t getMotorCount();
+
 	JoyData joystick;
 	uint32_t packetCount = 0;
+#define num_motors 10
 private:
+	Motor motors[num_motors];
+	uint32_t motor_count;
 	void sendValueUpdate(uint32_t index);
 	void sendLabelUpdate(uint32_t index);
 
