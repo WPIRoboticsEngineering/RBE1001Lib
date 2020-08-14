@@ -95,7 +95,7 @@ static uint32_t _closed_index = []() {
 
 static inline bool _init_async_event_queue(){
     if(!_async_queue){
-        _async_queue = xQueueCreate(32, sizeof(lwip_event_packet_t *));
+        _async_queue = xQueueCreate(64, sizeof(lwip_event_packet_t *));
         if(!_async_queue){
             return false;
         }
@@ -220,7 +220,7 @@ static bool _start_async_task(){
     if(!_async_service_task_handle){
     	xTaskCreate(_async_service_task,
         		"async_tcp",
-				8192 * 2,
+				8192 * 4,
 				NULL,
 				3,
 &_async_service_task_handle);
