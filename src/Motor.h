@@ -74,7 +74,7 @@ private:
 	/**
 	 * PID controller integral constant
 	 */
-	float kI = 0.06;
+	float kI = 0.00001;
 	/**
 	 * PID controller derivitive constant
 	 */
@@ -82,7 +82,7 @@ private:
 	/**
 	 * a variable to store the running avarage for the integral term
 	 */
-	float runntingITerm = 0;
+	float runningITerm = 0;
 	/*
 	 * effort of the motor
 	 * @param a value from -1 to 1 representing effort

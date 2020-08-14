@@ -271,7 +271,7 @@ void Motor::loop() {
 	if (closedLoopControl) {
 		//portEXIT_CRITICAL(&mmux);
 		if (mode == VELOCITY_MODE) {
-			if(abs(currentEffort)<0.95)// stall detection
+			if(fabs(currentEffort)<0.95)// stall detection
 				Setpoint += milisecondPosIncrementForVelocity;
 		} else {
 			unitDuration = getInterpolationUnitIncrement();
@@ -287,15 +287,15 @@ void Motor::loop() {
 		}
 		float controlErr = Setpoint - nowEncoder;
 		// shrink old values out of the sum
-		runntingITerm = runntingITerm * ((I_TERM_SIZE - 1.0) / I_TERM_SIZE);
+		//runntingITerm = runntingITerm * ((I_TERM_SIZE - 1.0) / I_TERM_SIZE);
 		// running sum of error
-		runntingITerm += controlErr;
+		if(fabs(currentEffort)<0.95) runningITerm += controlErr;
 		if(getInterpolationUnitIncrement()<1){
 			// no i term during interpolation
-			runntingITerm=0;
+			//runntingITerm=0;
 		}
 
-		currentEffort = controlErr * kP + ((runntingITerm / I_TERM_SIZE) * kI);
+		currentEffort = controlErr * kP + runningITerm * kI;
 
 		//portEXIT_CRITICAL(&mmux);
 	}
@@ -319,7 +319,7 @@ void Motor::setGains(float p, float i, float d) {
 	kP = p;
 	kI = i;
 	kD = d;
-	runntingITerm = 0;
+	runningITerm = 0;
 	//portEXIT_CRITICAL(&mmux);
 }
 
@@ -369,6 +369,7 @@ void Motor::SetEffort(float effort) {
 	//portENTER_CRITICAL(&mmux);
 	closedLoopControl = false;
 	currentEffort = effort;
+		pwm->writeScaled(abs(effort));
 	//portEXIT_CRITICAL(&mmux);
 }
 /*
