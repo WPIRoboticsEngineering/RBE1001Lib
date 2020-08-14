@@ -19,14 +19,14 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
   float    *asFloat = (float *)data;
   if(type == WS_EVT_CONNECT){
 	thisPage->SendAllLabelsAndValues();
-    Serial.println("Websocket client connection received");
+    //Serial.println("Websocket client connection received");
 
   } else if(type == WS_EVT_DISCONNECT){
-    Serial.println("Client disconnected");
+    //Serial.println("Client disconnected");
 
   } else if(type == WS_EVT_DATA){
 	  if (len<3) {
-		  Serial.println("Packet too short!");
+		  //Serial.println("Packet too short!");
 		  return;
 	  }
 	  uint32_t command = asInt[0];
@@ -91,19 +91,24 @@ WebPage::WebPage() {
   for(int i=0; i<numSliders; i++) sliders[i]=0;
 }
 
+
 void IRAM_ATTR updateTask(void *param){
+	int labinterval=0;
 	while(1){
+		labinterval++;
 		for (int i=0; i<numValues; i++){
+			if (labinterval<=0) thisPage->sendLabelUpdate(i);
 			thisPage->sendValueUpdate(i); // push async update to ui
 		}
+		if (labinterval<=0) labinterval=100;
 		delay(60);
 	}
 }
 
 void WebPage::initalize(){
-	ESP_LOGI("WebPage::WebPage","WebPage Init..");
+	//ESP_LOGI("WebPage::WebPage","WebPage Init..");
 	server.begin();
-	Serial.println("HTTP server started");
+	//Serial.println("HTTP server started");
 //
     server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
         request->send(200, "text/html", String(index_html));
@@ -117,7 +122,7 @@ void WebPage::initalize(){
     xTaskCreatePinnedToCore(
     		updateTask, /* Function to implement the task */
           "updateTask", /* Name of the task */
-          10000,  /* Stack size in words */
+          40000,  /* Stack size in words */
           NULL,  /* Task input parameter */
           0,  /* Priority of the task */
           &thisPage->updateTaskHandle,  /* Task handle. */
@@ -177,12 +182,11 @@ void WebPage::setValue(String name, float data){
 				}
 			} else {
 				//
-				Serial.println("Create '"+name+"'");
+				Serial.println("Create '"+name+"' "+String(i));
 				values[i].used=true;
 				values[i].name = name;
 				values[i].value = data;
-				sendLabelUpdate(i);
-				sendValueUpdate(i);
+
 				return;
 			}
 	}

@@ -94,10 +94,7 @@ void updateDashboard() {
 				rightLineSensor.readMiliVolts());
 		control_page.setValue("Ultrasonic",
 				rangefinder1.getDistanceCM());
-		control_page.setValue("Left Motor degrees",
-						motor1.getCurrentDegrees());
-		control_page.setValue("Right Motor degrees",
-								motor2.getCurrentDegrees());
+
 
 //		Serial.println("Joystick angle="+String(buttonPage.getJoystickAngle())+
 //				" magnitude="+String(buttonPage.getJoystickMagnitude())+
@@ -115,7 +112,7 @@ void updateDashboard() {
  * dashboard data, and handle any web server requests.
  */
 void loop() {
-	control_page.setValue("Packets",control_page.packetCount);
+	//control_page.setValue("Packets",control_page.packetCount);
 	manager.loop();
 	runStateMachine();  // do a pass through the state machine
 	if(manager.getState() == Connected)// only update if WiFi is up

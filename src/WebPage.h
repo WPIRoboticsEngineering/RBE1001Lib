@@ -21,7 +21,7 @@ typedef struct _telemetryValue {
 } telemetryValue;
 
 #define numSliders 4
-#define numValues 10
+#define numValues 30
 
 class WebPage : public AsyncValueListener {
 public:
