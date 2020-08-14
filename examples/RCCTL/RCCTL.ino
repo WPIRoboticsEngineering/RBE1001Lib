@@ -33,6 +33,7 @@ Timer dashboardUpdateTimer;  // times when the dashboard should update
  * sets up some web page buttons, resets some timers, and sets the initial state
  * the robot should start in
  */
+int inc=0;
 void setup() {
 	manager.setup();
 	while (manager.getState() != Connected) {
@@ -55,7 +56,8 @@ void setup() {
 	rightLineSensor.attach(RIGHT_LINE_SENSE);
 	servoPositionFeedback.attach(SERVO_FEEDBACK_SENSOR);
 	lifter.write(0);
-
+	control_page.setValue("Simple Counter",
+					inc++);
 	dashboardUpdateTimer.reset(); // reset the dashbaord refresh timer
 
 }
@@ -94,7 +96,8 @@ void updateDashboard() {
 				rightLineSensor.readMiliVolts());
 		control_page.setValue("Ultrasonic",
 				rangefinder1.getDistanceCM());
-
+		control_page.setValue("Simple Counter",
+						inc++);
 
 //		Serial.println("Joystick angle="+String(buttonPage.getJoystickAngle())+
 //				" magnitude="+String(buttonPage.getJoystickMagnitude())+
@@ -111,10 +114,9 @@ void updateDashboard() {
  * once the ESP32 is started. In here we run the state machine, update the
  * dashboard data, and handle any web server requests.
  */
-int inc=0;
+
 void loop() {
-	control_page.setValue("Simple Counter",
-					inc++);
+
 	//control_page.setValue("Packets",control_page.packetCount);
 	manager.loop();
 	runStateMachine();  // do a pass through the state machine
