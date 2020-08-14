@@ -55,6 +55,7 @@ void setup() {
 	rightLineSensor.attach(RIGHT_LINE_SENSE);
 	servoPositionFeedback.attach(SERVO_FEEDBACK_SENSOR);
 	lifter.write(0);
+
 	dashboardUpdateTimer.reset(); // reset the dashbaord refresh timer
 
 }
@@ -114,6 +115,7 @@ void updateDashboard() {
  * dashboard data, and handle any web server requests.
  */
 void loop() {
+	control_page.setValue("Packets",control_page.packetCount);
 	manager.loop();
 	runStateMachine();  // do a pass through the state machine
 	if(manager.getState() == Connected)// only update if WiFi is up

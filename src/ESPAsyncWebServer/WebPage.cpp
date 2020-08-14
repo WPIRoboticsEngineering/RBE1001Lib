@@ -91,6 +91,14 @@ WebPage::WebPage() {
   for(int i=0; i<numSliders; i++) sliders[i]=0;
 }
 
+void IRAM_ATTR updateTask(void *param){
+	while(1){
+		for (int i=0; i<numValues; i++){
+			thisPage->sendValueUpdate(i); // push async update to ui
+		}
+		delay(60);
+	}
+}
 
 void WebPage::initalize(){
 	ESP_LOGI("WebPage::WebPage","WebPage Init..");
@@ -106,6 +114,14 @@ void WebPage::initalize(){
 
     ws.onEvent(onWsEvent);
     server.addHandler(&ws);
+    xTaskCreatePinnedToCore(
+    		updateTask, /* Function to implement the task */
+          "updateTask", /* Name of the task */
+          10000,  /* Stack size in words */
+          NULL,  /* Task input parameter */
+          0,  /* Priority of the task */
+          &thisPage->updateTaskHandle,  /* Task handle. */
+          0); /* Core where the task should run */
 }
 
 float WebPage::getSliderValue(uint32_t number){
@@ -153,11 +169,10 @@ void WebPage::setValue(String name, float data){
 			if (values[i].used){ // compare in use slots
 
 				if (values[i].name==name){ // check label
-					if(values[i].value!=data){ // check if data changed
+
 						//Serial.println("Update '"+name+"' "+String(data));
 						values[i].value = data; // update data
-						sendValueUpdate(i); // push async update to ui
-					}
+
 					return;
 				}
 			} else {
@@ -184,9 +199,11 @@ void WebPage::SendAllLabelsAndValues(){
 }
 
 #define valbuflen 12
-void WebPage::sendValueUpdate(uint32_t index){
+void IRAM_ATTR WebPage::sendValueUpdate(uint32_t index){
 	if(index>numValues-1) return;
 	if (!values[index].used) return;
+	if (values[index].oldValue==values[index].value) return;
+	values[index].oldValue=values[index].value;
 	uint8_t buffer[valbuflen];
 	uint32_t *bufferAsInt32=(uint32_t*)&buffer;
 	float *bufferAsFloat=(float*)&buffer;

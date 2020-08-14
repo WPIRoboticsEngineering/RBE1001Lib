@@ -16,6 +16,7 @@ typedef struct _JoyData {
 typedef struct _telemetryValue {
 	String name;
 	float value;
+	float oldValue;
 	bool used;
 } telemetryValue;
 
@@ -48,9 +49,11 @@ public:
 
 	JoyData joystick;
 	uint32_t packetCount = 0;
-private:
+	TaskHandle_t updateTaskHandle;
 	uint32_t motor_count;
 	void sendValueUpdate(uint32_t index);
 	void sendLabelUpdate(uint32_t index);
+private:
+
 
 };
