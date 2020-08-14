@@ -87,17 +87,27 @@ WebPage::WebPage() {
   joystick.ypos  = 0;
   joystick.angle = 0;
   joystick.mag   = 0;
-  for(int i=0; i<numValues; i++) values[i].used=false;
+  for(int i=0; i<numValues; i++) {
+	  values[i].used=false;
+	  values[i].value=0;
+	  values[i].oldValue=0;
+	  values[i].name=String("");
+  }
   for(int i=0; i<numSliders; i++) sliders[i]=0;
 }
 
 
-void IRAM_ATTR updateTask(void *param){
+void updateTask(void *param){
 	int labinterval=0;
 	while(1){
 		labinterval++;
 		for (int i=0; i<numValues; i++){
-			if (labinterval<=0) thisPage->sendLabelUpdate(i);
+
+			if (labinterval<=0){
+				delay(5);
+				thisPage->sendLabelUpdate(i);
+			}
+			delay(5);
 			thisPage->sendValueUpdate(i); // push async update to ui
 		}
 		if (labinterval<=0) labinterval=100;

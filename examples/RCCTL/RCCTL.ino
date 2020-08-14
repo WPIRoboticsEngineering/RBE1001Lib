@@ -111,7 +111,10 @@ void updateDashboard() {
  * once the ESP32 is started. In here we run the state machine, update the
  * dashboard data, and handle any web server requests.
  */
+int inc=0;
 void loop() {
+	control_page.setValue("Simple Counter",
+					inc++);
 	//control_page.setValue("Packets",control_page.packetCount);
 	manager.loop();
 	runStateMachine();  // do a pass through the state machine
