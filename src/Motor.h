@@ -15,10 +15,26 @@
 #define GEAR_BOX_RATIO 120.0f
 #define QUADRATUE_MULTIPLYER 1.0f
 #define TICKS_TO_DEGREES (QUADRATUE_MULTIPLYER/(ENCODER_CPR*GEAR_BOX_RATIO/360.0))
+
 #define I_TERM_SIZE 120.0f
 enum interpolateMode {
 	LINEAR_INTERPOLATION, SINUSOIDAL_INTERPOLATION, VELOCITY_MODE, BEZIER, TRAPEZOIDAL
 };
+
+struct Trajectory
+{
+	//all in ticks
+	int32_t startPos = 0;
+	int32_t targetPos = 0;
+	int32_t currPos = 0;
+
+	//int32_t targetSpeed = 0;
+
+	float FractionComplete(void) { return (float)(currPos - startPos) / (float)(targetPos - startPos); }
+};
+
+
+
 /** \brief A PID Motor class using FreeRTOS threads, ESP32Encoder and ESP32PWM
  *
  * This Motor class is intended to be used by RBE 1001 in the WPI Robotics Department.
@@ -70,11 +86,11 @@ private:
 	/**
 	 * PID controller proportional constant
 	 */
-	float kP = 0.05;
+	float kP = 0.01;
 	/**
 	 * PID controller integral constant
 	 */
-	float kI = 0.00001;
+	float kI = 0.00004;
 	/**
 	 * PID controller derivitive constant
 	 */
@@ -104,23 +120,23 @@ private:
 	/**
 	 * PID controller Interpolation duration in miliseconds
 	 */
-	float duration = 0;
+//	float duration = 0;
 	/**
 	 * PID controller Interpolation time in miliseconds that the interplation began
 	 */
-	float startTime = 0;
+//	float startTime = 0;
 	/**
 	 * PID controller Interpolation setpoint for the interpolation to arrive at
 	 */
-	float endSetpoint = 0;
+//	float endSetpoint = 0;
 	/**
 	 * PID controller Interpolation setpoint at the start of interpolation
 	 */
-	float startSetpoint = 0;
+//	float startSetpoint = 0;
 	/**
 	 * Duration of the interpolation mode, 1 equals done, 0 starting
 	 */
-	float unitDuration = 1;
+//	float unitDuration = 1;
 	/**
 	 * Current interpolation mode, linear, sinusoidal or velocity
 	 */
@@ -130,24 +146,31 @@ private:
 	 * when using Red Queen mode for velocity interpolation, this is the amount of setpoint to add to the current  setpoint
 	 * every milisecond to maintain a smooth velocity trajectory.
 	 */
-	float milisecondPosIncrementForVelocity;
+//	float milisecondPosIncrementForVelocity;
 	/**
 	 * \brief BEZIER Control Point 0
 	 *
 	 * https://stackoverflow.com/a/43071667
 	 */
-	float BEZIER_P0=0.25;
+//	float BEZIER_P0=0.25;
 	/**
 	 * \brief  BEZIER Control Point 1
 	 *
 	 * https://stackoverflow.com/a/43071667
 	 */
-	float BEZIER_P1=0.75;
+//	float BEZIER_P1=0.75;
 
 	/**
 	 * \brief the amount of time to ramp up and ramp down the speed
 	 */
-	float TRAPEZOIDAL_time=0;
+//	float TRAPEZOIDAL_time=0;
+
+	float deltaTargetTicks = 0; //used to set constant trajectory
+	float targetTrajTicks = 0;		//target for tracking trajectory, in ticks
+
+	float targetPosDeg = 0; 		//target position for a motion, in degrees
+
+	Trajectory currTrajectory;
 
 public:
 	/**
@@ -288,6 +311,9 @@ public:
 	 * @param newDegreesPerSecond the new speed in degrees per second
 	 */
 	void SetSpeed(float newDegreesPerSecond);
+
+	float SetDelta(float newDegreesPerSecond);
+
 	/**
 	 * SetSpeed in degrees with time
 	 * Set the setpoint for the motor in degrees
@@ -334,10 +360,10 @@ public:
 	 * SetSetpoint in degrees with time
 	 * Set the setpoint for the motor in degrees
 	 * @param newTargetInDegrees the new setpoint for the closed loop controller
-	 */
-	void SetSetpoint(float newTargetInDegrees) {
-		SetSetpointWithTime(newTargetInDegrees, 0, LINEAR_INTERPOLATION);
-	}
+	//  */
+	// void SetSetpoint(float newTargetInDegrees) {
+	// 	SetSetpointWithTime(newTargetInDegrees, 0, LINEAR_INTERPOLATION);
+	// }
 
 	/**
 	 * SetSetpoint in degrees with time
@@ -345,12 +371,12 @@ public:
 	 * @param newTargetInDegrees the new setpoint for the closed loop controller
 	 * @param miliseconds the number of miliseconds to get from current position to the new setpoint
 	 * use linear interoplation
-	 */
-	void SetSetpointWithLinearInterpolation(float newTargetInDegrees,
-			long miliseconds) {
-		SetSetpointWithTime(newTargetInDegrees, miliseconds,
-				LINEAR_INTERPOLATION);
-	}
+	//  */
+	// void SetSetpointWithLinearInterpolation(float newTargetInDegrees,
+	// 		long miliseconds) {
+	// 	SetSetpointWithTime(newTargetInDegrees, miliseconds,
+	// 			LINEAR_INTERPOLATION);
+	// }
 
 	/**
 	 * SetSetpoint in degrees with time
@@ -358,12 +384,12 @@ public:
 	 * @param newTargetInDegrees the new setpoint for the closed loop controller
 	 * @param miliseconds the number of miliseconds to get from current position to the new setpoint
 	 * use sinusoidal interpolation
-	 */
-	void SetSetpointWithSinusoidalInterpolation(float newTargetInDegrees,
-			long miliseconds) {
-		SetSetpointWithTime(newTargetInDegrees, miliseconds,
-				SINUSOIDAL_INTERPOLATION);
-	}
+	//  */
+	// void SetSetpointWithSinusoidalInterpolation(float newTargetInDegrees,
+	// 		long miliseconds) {
+	// 	SetSetpointWithTime(newTargetInDegrees, miliseconds,
+	// 			SINUSOIDAL_INTERPOLATION);
+	// }
 	/**
 	 * SetSetpoint in degrees with time
 	 * Set the setpoint for the motor in degrees
@@ -372,14 +398,14 @@ public:
 	 * @param Control_0 On a scale of 0 to 1, where should the first control  point in the equation go
 	 * @param Control_1 On a scale of 0 to 1, where should the second control point in the equation go
 	 * use Bezier interpolation
-	 */
-	void SetSetpointWithBezierInterpolation(float newTargetInDegrees,
-			long miliseconds, float Control_0=0.5, float Control_1=1.0) {
-		BEZIER_P0=Control_0;
-		BEZIER_P1=Control_1;
-		SetSetpointWithTime(newTargetInDegrees, miliseconds,
-				BEZIER);
-	}
+	//  */
+	// void SetSetpointWithBezierInterpolation(float newTargetInDegrees,
+	// 		long miliseconds, float Control_0=0.5, float Control_1=1.0) {
+	// 	BEZIER_P0=Control_0;
+	// 	BEZIER_P1=Control_1;
+	// 	SetSetpointWithTime(newTargetInDegrees, miliseconds,
+	// 			BEZIER);
+	// }
 	/**
 		 * SetSetpoint in degrees with time
 		 * Set the setpoint for the motor in degrees
@@ -389,17 +415,17 @@ public:
 		 *
 		 *
 		 * use sinusoidal interpolation
-		 */
-		void SetSetpointWithTrapezoidalInterpolation(float newTargetInDegrees,
-				long miliseconds, float trapazoidalTime) {
-			if(trapazoidalTime*2>miliseconds){
-				SetSetpointWithSinusoidalInterpolation(newTargetInDegrees,miliseconds);
-				return;
-			}
-			TRAPEZOIDAL_time=trapazoidalTime;
-			SetSetpointWithTime(newTargetInDegrees, miliseconds,
-					TRAPEZOIDAL);
-		}
+		//  */
+		// void SetSetpointWithTrapezoidalInterpolation(float newTargetInDegrees,
+		// 		long miliseconds, float trapazoidalTime) {
+		// 	if(trapazoidalTime*2>miliseconds){
+		// 		SetSetpointWithSinusoidalInterpolation(newTargetInDegrees,miliseconds);
+		// 		return;
+		// 	}
+		// 	TRAPEZOIDAL_time=trapazoidalTime;
+		// 	SetSetpointWithTime(newTargetInDegrees, miliseconds,
+		// 			TRAPEZOIDAL);
+		// }
 	/**
 	 * PID gains for the PID controller
 	 */
