@@ -10,15 +10,12 @@
 #include <ESP32Servo.h>
 #include <ESP32Encoder.h>
 #include <Arduino.h>
-#define MAX_POSSIBLE_MOTORS 4
-#define ENCODER_CPR 12.0f
-#define GEAR_BOX_RATIO 120.0f
-#define QUADRATUE_MULTIPLYER 1.0f
-#define TICKS_TO_DEGREES (QUADRATUE_MULTIPLYER/(ENCODER_CPR*GEAR_BOX_RATIO/360.0))
 
-#define I_TERM_SIZE 120.0f
+#define MAX_POSSIBLE_MOTORS 4
+
+//#define I_TERM_SIZE 120.0f
 enum interpolateMode {
-	LINEAR_INTERPOLATION, SINUSOIDAL_INTERPOLATION, VELOCITY_MODE, BEZIER, TRAPEZOIDAL
+	MOTOR_IDLE, LINEAR_INTERPOLATION, SINUSOIDAL_INTERPOLATION, VELOCITY_MODE, BEZIER, TRAPEZOIDAL
 };
 
 struct Trajectory
@@ -90,7 +87,7 @@ private:
 	/**
 	 * PID controller integral constant
 	 */
-	float kI = 0.00004;
+	float kI = 0.0002;
 	/**
 	 * PID controller derivitive constant
 	 */
@@ -98,7 +95,7 @@ private:
 	/**
 	 * a variable to store the running avarage for the integral term
 	 */
-	float runningITerm = 0;
+	float errorSum = 0;
 	/*
 	 * effort of the motor
 	 * @param a value from -1 to 1 representing effort

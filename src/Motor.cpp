@@ -7,12 +7,16 @@
 
 #include <Motor.h>
 
+#define ENCODER_CPR 12.0f
+#define GEAR_BOX_RATIO 120.0f
+#define QUADRATUE_MULTIPLYER 1.0f
+
 bool Motor::timersAllocated = false;
 Motor * Motor::list[MAX_POSSIBLE_MOTORS] = { NULL, };
 static TaskHandle_t complexHandlerTask;
 
-
-float TICKS_PER_DEGREE = 1.0/TICKS_TO_DEGREES;
+const float TICKS_TO_DEGREES = (QUADRATUE_MULTIPLYER/(ENCODER_CPR*GEAR_BOX_RATIO/360.0));
+const float TICKS_PER_DEGREE = 1.0/TICKS_TO_DEGREES;
 
 const uint32_t LOOP_PERIOD_MS = 10;
 
@@ -164,7 +168,6 @@ void Motor::MoveTo(float newTargetInDegrees, float speedDegPerSec)
 	return;
 }
 
-
 float Motor::StartMoveTo(float newTargetInDegrees, float speedDegPerSec)
 {
 	currTrajectory.startPos = getCurrentDegrees() * TICKS_PER_DEGREE;
@@ -294,9 +297,10 @@ void Motor::loop()
 
 	if (closedLoopControl) 
 	{
+		//the logic here is sound, but could be streamlined
 		if (mode == VELOCITY_MODE) 
 		{
-			if(fabs(currentEffort)<0.95)// stall detection -- could be less, could be better
+			if(fabs(currentEffort) < 0.95)// stall detection -- could be less, could be smarter
 				Setpoint += deltaTargetTicks;
 		} 
 		
@@ -305,16 +309,17 @@ void Motor::loop()
 			if(currTrajectory.FractionComplete() >= 1.0)
 			{
 				Setpoint = currTrajectory.targetPos;
-			}	
-			else if(fabs(currentEffort)<0.5)// stall detection -- could be less, could be better
+				mode = MOTOR_IDLE;
+			}
+			else if(fabs(currentEffort) < 0.5)// stall detection -- could be less, could be better
 				Setpoint += deltaTargetTicks;
 		}
 
 		float controlErr = Setpoint - nowEncoder;
 
-		if(fabs(currentEffort)<0.5) runningITerm += controlErr;
+		if(fabs(currentEffort) < 0.5) errorSum += controlErr;
 
-		currentEffort = controlErr * kP + runningITerm * kI;
+		currentEffort = controlErr * kP + errorSum * kI;
 	}
 
 	//this needs redoing
@@ -336,7 +341,7 @@ void Motor::setGains(float p, float i, float d) {
 	kP = p;
 	kI = i;
 	kD = d;
-	runningITerm = 0;
+	errorSum = 0;
 	//portEXIT_CRITICAL(&mmux);
 }
 
