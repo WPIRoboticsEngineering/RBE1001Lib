@@ -9,13 +9,13 @@
 
 #define ENCODER_CPR 12.0f
 #define GEAR_BOX_RATIO 120.0f
-#define QUADRATUE_MULTIPLYER 1.0f
+#define QUADRATURE_MULTIPLYER 1.0f
 
 bool Motor::timersAllocated = false;
 Motor * Motor::list[MAX_POSSIBLE_MOTORS] = { NULL, };
 static TaskHandle_t complexHandlerTask;
 
-const float TICKS_TO_DEGREES = (QUADRATUE_MULTIPLYER/(ENCODER_CPR*GEAR_BOX_RATIO/360.0));
+const float TICKS_TO_DEGREES = (QUADRATURE_MULTIPLYER/(ENCODER_CPR*GEAR_BOX_RATIO/360.0));
 const float TICKS_PER_DEGREE = 1.0/TICKS_TO_DEGREES;
 
 const uint32_t LOOP_PERIOD_MS = 10;
@@ -100,7 +100,7 @@ void onMotorTimer(void *param) {
 		}
 		//
 	}
-	Serial.println("ERROR Pid thread died!");
+	Serial.println("ERROR: PID thread died!");
 
 }
 /**
@@ -132,7 +132,7 @@ Motor::~Motor() {
 //  * SetSetpoint in degrees with time
 //  * Set the setpoint for the motor in degrees
 //  * @param newTargetInDegrees the new setpoint for the closed loop controller
-//  * @param msTimeDuration the number of miliseconds to get from current position to the new setpoint
+//  * @param msTimeDuration the number of milliseconds to get from current position to the new setpoint
 //  */
 // void Motor::SetSetpointWithTime(float newTargetInDegrees, long msTimeDuration,
 // 		interpolateMode mode) {
@@ -270,19 +270,19 @@ float Motor::SetDelta(float speedDegPerSec)
  * SetSpeed in degrees with time
  * Set the setpoint for the motor in degrees
  * @param newDegreesPerSecond the new speed in degrees per second
- * @param miliseconds the number of miliseconds to run for
- * @note a value of 0 miliseconds will set the motor into open-ended run mode
+ * @param durationMS the number of milliseconds to run for
+ * @note a value of 0 milliseconds will set the motor into open-ended run mode
  */
-void Motor::SetSpeed(float newDegreesPerSecond, long miliseconds) {
-	if (miliseconds < 1) {
+void Motor::SetSpeed(float newDegreesPerSecond, long durationMS) {
+	if (durationMS < 1) {
 		// 0 time will set up "Red Queen" (sic) interpolation
 		SetSpeed(newDegreesPerSecond);
 		return;
 	}
 	float currentPos = getCurrentDegrees();
 	float distance = currentPos
-			+ (-newDegreesPerSecond * (((float) miliseconds) / 1000.0));
-	SetSetpointWithTime(distance, miliseconds, LINEAR_INTERPOLATION);
+			+ (-newDegreesPerSecond * (((float) durationMS) / 1000.0));
+	SetSetpointWithTime(distance, durationMS, LINEAR_INTERPOLATION);
 }
 
 /**

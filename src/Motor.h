@@ -115,11 +115,11 @@ private:
 	 */
 	float currentEffort = 0;
 	/**
-	 * PID controller Interpolation duration in miliseconds
+	 * PID controller Interpolation duration in milliseconds
 	 */
 //	float duration = 0;
 	/**
-	 * PID controller Interpolation time in miliseconds that the interplation began
+	 * PID controller Interpolation time in milliseconds that the interplation began
 	 */
 //	float startTime = 0;
 	/**
@@ -141,9 +141,9 @@ private:
 
 	/**
 	 * when using Red Queen mode for velocity interpolation, this is the amount of setpoint to add to the current  setpoint
-	 * every milisecond to maintain a smooth velocity trajectory.
+	 * every LOOP_PERIOD_MS to maintain a smooth velocity trajectory.
 	 */
-//	float milisecondPosIncrementForVelocity;
+//	float millisecondPosIncrementForVelocity;
 	/**
 	 * \brief BEZIER Control Point 0
 	 *
@@ -186,7 +186,7 @@ public:
 	/**
 	 * This is a list of all of the Motor objects that have been attached. As a motor is attahed,
 	 *  it adds itself to this list of Motor pointers. This list is read by the PID thread and each
-	 *  object in the list has loop() called. once every milisecond.
+	 *  object in the list has loop() called. once every LOOP_PERIOD_MS ms.
 	 */
 	static Motor * list[MAX_POSSIBLE_MOTORS];
 
@@ -285,10 +285,10 @@ public:
 	 * SetSetpoint in degrees with time
 	 * Set the setpoint for the motor in degrees
 	 * @param newTargetInDegrees the new setpoint for the closed loop controller
-	 * @param miliseconds the number of miliseconds to get from current position to the new setpoint
+	 * @param durationMS the number of milliseconds to get from current position to the new setpoint
 	 * param mode the interpolation mode
 	 */
-	void SetSetpointWithTime(float newTargetInDegrees, long miliseconds,
+	void SetSetpointWithTime(float newTargetInDegrees, long durationMS,
 			interpolateMode mode);
 	/**
 	 * SetSpeed in degrees with time
@@ -315,9 +315,9 @@ public:
 	 * SetSpeed in degrees with time
 	 * Set the setpoint for the motor in degrees
 	 * @param newDegreesPerSecond the new speed in degrees per second
-	 * @param miliseconds the number of miliseconds to run for
+	 * @param durationMS the number of milliseconds to run for
 	 */
-	void SetSpeed(float newDegreesPerSecond, long miliseconds);
+	void SetSpeed(float newDegreesPerSecond, long durationMS);
 	/**
 	 * MoveTo in degrees with speed
 	 * Set the setpoint for the motor in degrees and the speed you want to get there
@@ -369,12 +369,12 @@ public:
 	 * SetSetpoint in degrees with time
 	 * Set the setpoint for the motor in degrees
 	 * @param newTargetInDegrees the new setpoint for the closed loop controller
-	 * @param miliseconds the number of miliseconds to get from current position to the new setpoint
+	 * @param durationMS the number of milliseconds to get from current position to the new setpoint
 	 * use linear interoplation
 	//  */
 	// void SetSetpointWithLinearInterpolation(float newTargetInDegrees,
-	// 		long miliseconds) {
-	// 	SetSetpointWithTime(newTargetInDegrees, miliseconds,
+	// 		long durationMS) {
+	// 	SetSetpointWithTime(newTargetInDegrees, durationMS,
 	// 			LINEAR_INTERPOLATION);
 	// }
 
@@ -382,48 +382,48 @@ public:
 	 * SetSetpoint in degrees with time
 	 * Set the setpoint for the motor in degrees
 	 * @param newTargetInDegrees the new setpoint for the closed loop controller
-	 * @param miliseconds the number of miliseconds to get from current position to the new setpoint
+	 * @param durationMS the number of milliseconds to get from current position to the new setpoint
 	 * use sinusoidal interpolation
 	//  */
 	// void SetSetpointWithSinusoidalInterpolation(float newTargetInDegrees,
-	// 		long miliseconds) {
-	// 	SetSetpointWithTime(newTargetInDegrees, miliseconds,
+	// 		long milliseconds) {
+	// 	SetSetpointWithTime(newTargetInDegrees, milliseconds,
 	// 			SINUSOIDAL_INTERPOLATION);
 	// }
 	/**
 	 * SetSetpoint in degrees with time
 	 * Set the setpoint for the motor in degrees
 	 * @param newTargetInDegrees the new setpoint for the closed loop controller
-	 * @param miliseconds the number of miliseconds to get from current position to the new setpoint
+	 * @param durationMS the number of milliseconds to get from current position to the new setpoint
 	 * @param Control_0 On a scale of 0 to 1, where should the first control  point in the equation go
 	 * @param Control_1 On a scale of 0 to 1, where should the second control point in the equation go
 	 * use Bezier interpolation
 	//  */
 	// void SetSetpointWithBezierInterpolation(float newTargetInDegrees,
-	// 		long miliseconds, float Control_0=0.5, float Control_1=1.0) {
+	// 		long durationMS, float Control_0=0.5, float Control_1=1.0) {
 	// 	BEZIER_P0=Control_0;
 	// 	BEZIER_P1=Control_1;
-	// 	SetSetpointWithTime(newTargetInDegrees, miliseconds,
+	// 	SetSetpointWithTime(newTargetInDegrees, durationMS,
 	// 			BEZIER);
 	// }
 	/**
 		 * SetSetpoint in degrees with time
 		 * Set the setpoint for the motor in degrees
 		 * @param newTargetInDegrees the new setpoint for the closed loop controller
-		 * @param miliseconds the number of miliseconds to get from current position to the new setpoint
-		 * @param trapazoidalTime miliseconds for the ramping to take at the beginning and end.
+		 * @param durationMS the number of milliseconds to get from current position to the new setpoint
+		 * @param trapazoidalTime milliseconds for the ramping to take at the beginning and end.
 		 *
 		 *
 		 * use sinusoidal interpolation
 		//  */
 		// void SetSetpointWithTrapezoidalInterpolation(float newTargetInDegrees,
-		// 		long miliseconds, float trapazoidalTime) {
-		// 	if(trapazoidalTime*2>miliseconds){
-		// 		SetSetpointWithSinusoidalInterpolation(newTargetInDegrees,miliseconds);
+		// 		long durationMS, float trapazoidalTime) {
+		// 	if(trapazoidalTime*2>durationMS){
+		// 		SetSetpointWithSinusoidalInterpolation(newTargetInDegrees,durationMS);
 		// 		return;
 		// 	}
 		// 	TRAPEZOIDAL_time=trapazoidalTime;
-		// 	SetSetpointWithTime(newTargetInDegrees, miliseconds,
+		// 	SetSetpointWithTime(newTargetInDegrees, durationMS,
 		// 			TRAPEZOIDAL);
 		// }
 	/**
