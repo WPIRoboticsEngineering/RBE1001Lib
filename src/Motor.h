@@ -329,6 +329,9 @@ public:
 	 * @param speedDegPerSec  is the speed in degrees per second
 	 */
 	void MoveTo(float newTargetInDegrees, float speedDegPerSec);
+
+	float StartMoveTo(float newTargetInDegrees, float speedDegPerSec);
+
 	/**
 	 * MoveFor a relative amount in degrees with speed
 	 * Set the setpoint for the motor in degrees and the speed you want to get there

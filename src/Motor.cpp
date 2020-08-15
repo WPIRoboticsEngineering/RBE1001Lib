@@ -158,23 +158,29 @@ Motor::~Motor() {
 */
 void Motor::MoveTo(float newTargetInDegrees, float speedDegPerSec)
 {
-    //SetSetpointWithTime(newTargetInDegrees, fabs(newTargetInDegrees/speedDegPerSec) * 1000.0, SINUSOIDAL_INTERPOLATION);
+	StartMoveTo(newTargetInDegrees, speedDegPerSec);
+	while(currTrajectory.FractionComplete() < 1.0) {Serial.println(currTrajectory.FractionComplete());}
 }
 
-float Motor::StartMoveFor(float deltaTargetInDegrees, float speedDegPerSec)
+
+float Motor::StartMoveTo(float newTargetInDegrees, float speedDegPerSec)
 {
 	currTrajectory.startPos = getCurrentDegrees() * TICKS_PER_DEGREE;
+	currTrajectory.targetPos = newTargetInDegrees * TICKS_PER_DEGREE;
 
-	float targetPosDeg = getCurrentDegrees() + deltaTargetInDegrees;
-	currTrajectory.targetPos = targetPosDeg * TICKS_PER_DEGREE;
-
-	if(deltaTargetInDegrees < 0 && speedDegPerSec > 0) speedDegPerSec *= -1;
-	if(deltaTargetInDegrees > 0 && speedDegPerSec < 0) speedDegPerSec *= -1;
+	if(currTrajectory.targetPos > currTrajectory.startPos) speedDegPerSec = fabs(speedDegPerSec);
+	else speedDegPerSec = -fabs(speedDegPerSec);
 
 	SetDelta(speedDegPerSec);
 	mode = LINEAR_INTERPOLATION; 
 
 	return targetPosDeg;
+}
+
+float Motor::StartMoveFor(float deltaTargetInDegrees, float speedDegPerSec)
+{
+	float targetPosDeg = getCurrentDegrees() + deltaTargetInDegrees;
+	return StartMoveTo(targetPosDeg, speedDegPerSec);
 }
 
 // /**
