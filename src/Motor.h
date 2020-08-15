@@ -168,7 +168,7 @@ private:
 	float deltaTargetTicks = 0; //used to set constant trajectory
 	float targetTrajTicks = 0;		//target for tracking trajectory, in ticks
 
-	float targetPosDeg = 0; 		//target position for a motion, in degrees
+	//float targetPosDeg = 0; 		//target position for a motion, in degrees
 
 	Trajectory currTrajectory;
 

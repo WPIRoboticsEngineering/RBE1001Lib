@@ -160,6 +160,8 @@ void Motor::MoveTo(float newTargetInDegrees, float speedDegPerSec)
 {
 	StartMoveTo(newTargetInDegrees, speedDegPerSec);
 	while(currTrajectory.FractionComplete() < 1.0) {Serial.println(currTrajectory.FractionComplete());}
+
+	return;
 }
 
 
@@ -174,7 +176,7 @@ float Motor::StartMoveTo(float newTargetInDegrees, float speedDegPerSec)
 	SetDelta(speedDegPerSec);
 	mode = LINEAR_INTERPOLATION; 
 
-	return targetPosDeg;
+	return newTargetInDegrees;
 }
 
 float Motor::StartMoveFor(float deltaTargetInDegrees, float speedDegPerSec)
