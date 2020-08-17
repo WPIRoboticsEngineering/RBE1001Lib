@@ -2,7 +2,7 @@
  * Motor.cpp
  *
  *  Created on: May 31, 2020
- *      Author: hephaestus
+ *      Author: hephaestus f. gcl8a
  */
 
 #include <Motor.h>
