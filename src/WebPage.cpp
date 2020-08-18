@@ -124,7 +124,7 @@ void updateTask(void *param){
 
 		while(!isSafeToSend()){
 			//Serial.println("W daTA ");
-			//delay(1);
+			delay(1);
 		}
 		lockOutSending=true;
 		//Serial.println("L data Lock");
@@ -142,7 +142,7 @@ void updateTask(void *param){
 			}
 		}
 		thisPage->valueChanged(updtime,((float)millis())/1000.0);
-		delay(5);
+		delay(10);
 	}
 }
 
@@ -155,7 +155,7 @@ void WebPage::initalize(){
 
 			while(!isSafeToSend()){
 				//Serial.println("W text/html Lock");
-				//delay(100);
+				delay(1);
 			}
 			lockOutSending=true;
 			//Serial.println("L text/html Lock");
@@ -169,7 +169,7 @@ void WebPage::initalize(){
 
 			while(!isSafeToSend()){
 				//Serial.println("W text/javascript Lock");
-				//delay(1);
+				delay(1);
 			}
 			lockOutSending=true;
 			//Serial.println("L text/javascript Lock");
