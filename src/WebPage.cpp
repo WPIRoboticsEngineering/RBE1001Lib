@@ -97,9 +97,11 @@ WebPage::WebPage() {
 }
 
 
-void updateTask(void *param){
+void IRAM_ATTR updateTask(void *param){
 	int labinterval=0;
+	char buffer[40];
 	while(1){
+		/*
 		labinterval++;
 		for (int i=0; i<numValues; i++){
 
@@ -111,7 +113,10 @@ void updateTask(void *param){
 			thisPage->sendValueUpdate(i); // push async update to ui
 		}
 		if (labinterval<=0) labinterval=100;
-		delay(60);
+		*/
+		if (ws.availableForWriteAll())
+				ws.binaryAll(buffer, 40);
+		delay(100);
 	}
 }
 
@@ -212,23 +217,24 @@ void WebPage::SendAllLabelsAndValues(){
 	}
 }
 
-#define valbuflen 12
+#define valbuflen 20
+uint8_t labelbuffer[valbuflen];
 void IRAM_ATTR WebPage::sendValueUpdate(uint32_t index){
 	if(index>numValues-1) return;
 	if (!values[index].used) return;
 	if (values[index].oldValue==values[index].value) return;
 	values[index].oldValue=values[index].value;
-	uint8_t buffer[valbuflen];
-	uint32_t *bufferAsInt32=(uint32_t*)&buffer;
-	float *bufferAsFloat=(float*)&buffer;
+
+	uint32_t *bufferAsInt32=(uint32_t*)&labelbuffer;
+	float *bufferAsFloat=(float*)&labelbuffer;
 	bufferAsInt32[0]=0x10;
 	bufferAsInt32[1]=index;
 	bufferAsFloat[2]=values[index].value;
-	if (ws.availableForWriteAll())
-		ws.binaryAll(buffer, valbuflen);
+	//if (ws.availableForWriteAll())
+	//	ws.binaryAll(labelbuffer, valbuflen);
 }
 
-#define labelbuflen 64
+
 void WebPage::sendLabelUpdate(uint32_t index){
 	if(index>numValues-1) return;
 	if (!values[index].used) return;
@@ -246,8 +252,9 @@ void WebPage::sendLabelUpdate(uint32_t index){
 	datalen += (4-(datalen%4)); // round up to multiple of 4
 	if (datalen>=labelbuflen) datalen=labelbuflen;
 
-	if (ws.availableForWriteAll())
-		ws.binaryAll(buffer, datalen);
+
+	//if (ws.availableForWriteAll())
+	//	ws.binaryAll(buffer, datalen);
 }
 
 

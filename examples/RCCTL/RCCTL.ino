@@ -56,8 +56,8 @@ void setup() {
 	rightLineSensor.attach(RIGHT_LINE_SENSE);
 	servoPositionFeedback.attach(SERVO_FEEDBACK_SENSOR);
 	lifter.write(0);
-	control_page.setValue("Simple Counter",
-					inc++);
+	//control_page.setValue("Simple Counter",
+	//				inc++);
 	dashboardUpdateTimer.reset(); // reset the dashbaord refresh timer
 
 }
@@ -98,13 +98,13 @@ void updateDashboard() {
 				rangefinder1.getDistanceCM());
 		control_page.setValue("Simple Counter",
 						inc++);
-
-//		Serial.println("Joystick angle="+String(buttonPage.getJoystickAngle())+
-//				" magnitude="+String(buttonPage.getJoystickMagnitude())+
-//				" x="+String(buttonPage.getJoystickX())+
-//								" y="+String(buttonPage.getJoystickY()) +
-//								" slider="+String(buttonPage.getSliderValue(0)));
-
+/*
+		Serial.println("Joystick angle="+String(control_page.getJoystickAngle())+
+				" magnitude="+String(control_page.getJoystickMagnitude())+
+				" x="+String(control_page.getJoystickX())+
+								" y="+String(control_page.getJoystickY()) +
+								" slider="+String(control_page.getSliderValue(0)));
+*/
 		dashboardUpdateTimer.reset();
 	}
 }
