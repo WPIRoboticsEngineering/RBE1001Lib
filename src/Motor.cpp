@@ -110,7 +110,6 @@ void Motor::allocateTimer(int PWMgenerationTimer) {
 Motor::Motor() {
 	pwm = NULL;
 	encoder = NULL;
-	setName("");
 }
 
 Motor::~Motor() {
