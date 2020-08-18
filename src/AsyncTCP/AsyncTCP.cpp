@@ -218,12 +218,13 @@ static bool _start_async_task(){
         return false;
     }
     if(!_async_service_task_handle){
-    	xTaskCreate(_async_service_task,
-        		"async_tcp",
-				8192 * 4,
-				NULL,
-				3,
-&_async_service_task_handle);
+    	xTaskCreatePinnedToCore(_async_service_task,
+								"async_tcp",
+								8192 * 4,
+								NULL,
+								3,
+								&_async_service_task_handle,
+								1);
         if(!_async_service_task_handle){
             return false;
         }
