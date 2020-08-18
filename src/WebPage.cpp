@@ -12,6 +12,10 @@ AsyncWebServer server(80);
 AsyncWebSocket ws("/test");
 static WebPage *thisPage;
 static char stringBuffer[200];
+//static uint8_t buffer[labelbuflen];
+#define valbuflen 20
+uint8_t labelbuffer[valbuflen];
+const String updtime="Uptime";
 
 void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventType type, void * arg, uint8_t *data, size_t len){
   uint32_t *asInt = (uint32_t *)data;
@@ -102,7 +106,7 @@ const char *strings[12] = { "Left Encoder Degrees","Left Encoder Effort","Left E
 				"3 Encoder Degrees","3 Encoder Effort","3 Encoder Degrees-sec"
 };
 
-const String updtime="Uptime";
+
 void IRAM_ATTR updateTask(void *param){
 	int labinterval=0;
 	char buffer[4*12];
@@ -235,8 +239,7 @@ void WebPage::SendAllLabelsAndValues(){
 	}
 }
 
-#define valbuflen 20
-uint8_t labelbuffer[valbuflen];
+
 void IRAM_ATTR WebPage::sendValueUpdate(uint32_t index){
 	if(index>numValues-1) return;
 	if (!values[index].used) return;
@@ -258,15 +261,15 @@ void WebPage::sendLabelUpdate(uint32_t index){
 	if (!values[index].used) return;
 	if(!values[index].dirty) return;
 	values[index].dirty=false;
-	uint8_t buffer[labelbuflen];
+
 	// clear buffer
-	for (int i=0; i<labelbuflen; i++) buffer[i]=0;
+	for (int i=0; i<labelbuflen; i++) values[index].buffer[i]=0;
 	// cast as 32 bit int.
-	uint32_t *bufferAsInt32=(uint32_t*)&buffer;
+	uint32_t *bufferAsInt32=(uint32_t*)&values[index].buffer;
 	bufferAsInt32[0]=0x1f; // command, label update
 	bufferAsInt32[1]=index; // index
 	// Write out the string to the buffer. offset by 12 bytes.
-	values[index].name.toCharArray((char *)buffer+12, labelbuflen-12);
+	values[index].name.toCharArray((char *)values[index].buffer+12, labelbuflen-12);
 	// only send filled data
 	uint32_t datalen = 12+values[index].name.length();
 	datalen += (4-(datalen%4)); // round up to multiple of 4
@@ -274,7 +277,7 @@ void WebPage::sendLabelUpdate(uint32_t index){
 
 
 	if (ws.availableForWriteAll())
-		ws.binaryAll(buffer, datalen);
+		ws.binaryAll(values[index].buffer, datalen);
 }
 
 

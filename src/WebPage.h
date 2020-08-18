@@ -19,6 +19,7 @@ typedef struct _telemetryValue {
 	float oldValue;
 	bool used;
 	bool dirty;
+	uint8_t buffer[labelbuflen];
 } telemetryValue;
 
 #define numSliders 4
