@@ -141,7 +141,7 @@ void WebPage::initalize(){
           NULL,  /* Task input parameter */
           0,  /* Priority of the task */
           &thisPage->updateTaskHandle,  /* Task handle. */
-          1); /* Core where the task should run */
+          0); /* Core where the task should run */
 }
 
 float WebPage::getSliderValue(uint32_t number){
