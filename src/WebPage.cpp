@@ -108,8 +108,10 @@ WebPage::WebPage() {
 
 
 void updateTask(void *param){
+	//delay(1200);
 	while(1){
-		delay(60);
+		thisPage->SendAllLabelsAndValues();
+		//delay(60);
 		for (int i = 0; i < MAX_POSSIBLE_MOTORS; i++) {
 			if (Motor::list[i] != NULL) {
 				thisPage->valueChanged(strings[i*3],Motor::list[i]->getCurrentDegrees());
@@ -118,7 +120,7 @@ void updateTask(void *param){
 			}
 		}
 		thisPage->valueChanged(updtime,((float)millis())/1000.0);
-		thisPage->SendAllLabelsAndValues();
+
 	}
 }
 
@@ -127,10 +129,10 @@ void WebPage::initalize(){
 	server.begin();
 	//Serial.println("HTTP server started");
 //
-    server.on("/", (WebRequestMethodComposite)HTTP_GET, [](AsyncWebServerRequest *request){
+    server.on("/", 0b00000001, [](AsyncWebServerRequest *request){
         request->send(200, "text/html",String(index_html) );
     });
-    server.on("/nipplejs.min.js", (WebRequestMethodComposite)HTTP_GET, [](AsyncWebServerRequest *request){
+    server.on("/nipplejs.min.js", 0b00000001, [](AsyncWebServerRequest *request){
         request->send(200, "text/javascript", String(nipplejs_min_js));
     });
 
@@ -220,10 +222,18 @@ void WebPage::SendAllLabelsAndValues(){
 		sendLabelUpdate(i,values[i].buffer);
 		sendValueUpdate(i,values[i].buffer);
 
-		uint32_t datalen = 12+values[i].name.length();
+		uint32_t datalen = 12+values[i].name.length()+1;
+		for(int j=datalen;j<datalen+4;j++)values[i].buffer[j]=0;
 		datalen += (4-(datalen%4)); // round up to multiple of 4
 		if (datalen>=labelbuflen) datalen=labelbuflen;
-
+		//datalen=labelbuflen;
+//		Serial.print("\r\nSending Bytes "+String(datalen)+" [");
+//		for(int j=0;j<datalen;j++){
+//
+//			Serial.print(", "+String(values[i].buffer[j])+" ");
+//
+//		}
+//		Serial.print("]");
 		if (ws.availableForWriteAll())
 			ws.binaryAll(values[i].buffer, datalen);
 		delay(5);
@@ -232,10 +242,10 @@ void WebPage::SendAllLabelsAndValues(){
 }
 
 
-void IRAM_ATTR WebPage::sendValueUpdate(uint32_t index,uint8_t *buffer){
+void WebPage::sendValueUpdate(uint32_t index,uint8_t *buffer){
 	if(index>numValues-1) return;
-	if (!values[index].used) return;
-	if (values[index].oldValue==values[index].value) return;
+//	if (!values[index].used) return;
+//	if (values[index].oldValue==values[index].value) return;
 	values[index].oldValue=values[index].value;
 
 
@@ -249,22 +259,13 @@ void IRAM_ATTR WebPage::sendValueUpdate(uint32_t index,uint8_t *buffer){
 
 void WebPage::sendLabelUpdate(uint32_t index,uint8_t *buffer){
 	if(index>numValues-1) return;
-	if (!values[index].used) return;
-	if(!values[index].dirty) return;
+//	if (!values[index].used) return;
+//	if(!values[index].dirty) return;
 	values[index].dirty=false;
 
-
-
-	// clear buffer
-	for (int i=0; i<labelbuflen; i++) buffer[i]=0;
-	// cast as 32 bit int.
-	uint32_t *bufferAsInt32=(uint32_t*)buffer;
-	bufferAsInt32[0]=0x1f; // command, label update
-	bufferAsInt32[1]=index; // index
 	// Write out the string to the buffer. offset by 12 bytes.
 	values[index].name.toCharArray((char *)buffer, values[index].name.length(),12);
-	// only send filled data
-
+	buffer[values[index].name.length()+12]=0;
 
 
 }

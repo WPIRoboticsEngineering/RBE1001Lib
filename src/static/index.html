@@ -99,6 +99,20 @@ td {
             // Update Value
             let index=bufferInt32[1];
             let value=bufferFloat[2];
+			if(!telMap.get(index)){
+				let pos=bufferInt32[1];
+	            let data = new Uint8Array(event.data).slice(12,event.data.length);
+	            //console.log(data);
+	            labeltext="";
+	            for(i=0; i<data.length; i++){
+	              let ch=data[i];
+	              if (ch!=0) labeltext = labeltext + String.fromCharCode(ch);
+	            }
+	            //let unicode = String.fromCharCode.apply(null, new Uint8Array(data));
+	            //console.log(unicode);
+	            console.log("New Label '"+labeltext+"'" );
+	            telMap.set(pos,{'name':labeltext,'data':0.0});
+			}
             let obj =telMap.get(index).data=value;
             console.log("Update value "+index+": "+value);
             updateValues();
