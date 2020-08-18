@@ -16,7 +16,7 @@ static char stringBuffer[200];
 #define valbuflen 20
 uint8_t labelbuffer[valbuflen];
 const String updtime="Uptime";
-const String index =String(index_html);
+const String indexHTML =String(index_html);
 const String js =String(nipplejs_min_js);
 void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventType type, void * arg, uint8_t *data, size_t len){
   uint32_t *asInt = (uint32_t *)data;
@@ -145,7 +145,7 @@ void WebPage::initalize(){
 	//Serial.println("HTTP server started");
 //
     server.on("/", (WebRequestMethodComposite)HTTP_GET, [](AsyncWebServerRequest *request){
-        request->send(200, "text/html",index );
+        request->send(200, "text/html",indexHTML );
     });
     server.on("/nipplejs.min.js", (WebRequestMethodComposite)HTTP_GET, [](AsyncWebServerRequest *request){
         request->send(200, "text/javascript", js);
