@@ -3,9 +3,8 @@
 #include <WebServer.h>
 #include "Motor.h"
 #include "AsyncValueListener.h"
-#define valbuflen 8
 #define labelbuflen 256
-#define valbuflen 20
+#define valbuflen (sizeof(float)*3)
 typedef struct _JoyData {
 	float xpos;
 	float ypos;
@@ -19,8 +18,8 @@ typedef struct _telemetryValue {
 	float oldValue;
 	bool used;
 	bool dirty;
-	uint8_t buffer[labelbuflen];
-	uint8_t labelbuffer[valbuflen];
+	uint8_t buffer[labelbuflen+1];
+	uint8_t labelbuffer[valbuflen+1];
 } telemetryValue;
 
 #define numSliders 4
