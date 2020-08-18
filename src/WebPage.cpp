@@ -96,6 +96,11 @@ WebPage::WebPage() {
   for(int i=0; i<numSliders; i++) sliders[i]=0;
 }
 
+const char *strings[12] = { "Left Encoder Degrees","Left Encoder Effort","Left Encoder Degrees-sec",
+		"Right Encoder Degrees","Right Encoder Effort","Right Encoder Degrees-sec" ,
+				"2 Encoder Degrees","2 Encoder Effort","2 Encoder Degrees-sec" ,
+				"3 Encoder Degrees","3 Encoder Effort","3 Encoder Degrees-sec"
+};
 
 
 void IRAM_ATTR updateTask(void *param){
@@ -120,16 +125,9 @@ void IRAM_ATTR updateTask(void *param){
 		delay(60);
 		for (int i = 0; i < MAX_POSSIBLE_MOTORS; i++) {
 			if (Motor::list[i] != NULL) {
-				String name="Other";
-				if(Motor::list[i]->MotorPWMPin==MOTOR1_PWM){
-					name="Left";
-				}
-				else if(Motor::list[i]->MotorPWMPin==MOTOR2_PWM){
-					name="Right";
-				}
-				thisPage->valueChanged(name+" Encoder Degrees",Motor::list[i]->getCurrentDegrees());
-				thisPage->valueChanged(name+" Encoder Effort",Motor::list[i]->GetEffort());
-				thisPage->valueChanged(name+" Encoder Degrees-sec",Motor::list[i]->getDegreesPerSecond());
+				thisPage->valueChanged(strings[i*3],Motor::list[i]->getCurrentDegrees());
+				thisPage->valueChanged(strings[i*3+1],Motor::list[i]->GetEffort());
+				thisPage->valueChanged(strings[i*3+2],Motor::list[i]->getDegreesPerSecond());
 			}
 		}
 	}
