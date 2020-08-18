@@ -13,8 +13,6 @@ AsyncWebSocket ws("/test");
 static WebPage *thisPage;
 static char stringBuffer[200];
 //static uint8_t buffer[labelbuflen];
-#define valbuflen 20
-uint8_t labelbuffer[valbuflen];
 const String updtime="Uptime";
 const String indexHTML =String(index_html);
 const String js =String(nipplejs_min_js);
@@ -247,13 +245,13 @@ void IRAM_ATTR WebPage::sendValueUpdate(uint32_t index){
 	if (values[index].oldValue==values[index].value) return;
 	values[index].oldValue=values[index].value;
 
-	uint32_t *bufferAsInt32=(uint32_t*)&labelbuffer;
-	float *bufferAsFloat=(float*)&labelbuffer;
+	uint32_t *bufferAsInt32=(uint32_t*)values[index].labelbuffer;
+	float *bufferAsFloat=(float*)values[index].labelbuffer;
 	bufferAsInt32[0]=0x10;
 	bufferAsInt32[1]=index;
 	bufferAsFloat[2]=values[index].value;
 	if (ws.availableForWriteAll())
-		ws.binaryAll(labelbuffer, valbuflen);
+		ws.binaryAll(values[index].labelbuffer, valbuflen);
 }
 
 

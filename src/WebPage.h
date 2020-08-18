@@ -5,7 +5,7 @@
 #include "AsyncValueListener.h"
 #define valbuflen 8
 #define labelbuflen 256
-
+#define valbuflen 20
 typedef struct _JoyData {
 	float xpos;
 	float ypos;
@@ -20,6 +20,7 @@ typedef struct _telemetryValue {
 	bool used;
 	bool dirty;
 	uint8_t buffer[labelbuflen];
+	uint8_t labelbuffer[valbuflen];
 } telemetryValue;
 
 #define numSliders 4
