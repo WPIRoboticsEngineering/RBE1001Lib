@@ -407,13 +407,6 @@ public:
 	 */
 	void setGains(float p, float i, float d);
 
-	const String& getName() const {
-		return name;
-	}
-
-	void setName(const String& name) {
-		this->name = name;
-	}
 
 };
 
