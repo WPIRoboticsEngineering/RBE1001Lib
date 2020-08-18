@@ -6,7 +6,7 @@
 #include "static/nipplejsminjs.h"
 #include <ESPAsyncWebServer/ESPAsyncWebServer.h>
 #include "Motor.h"
-
+#include "RBE1001Lib.h"
 
 AsyncWebServer server(80);
 AsyncWebSocket ws("/test");
@@ -97,6 +97,7 @@ WebPage::WebPage() {
 }
 
 
+
 void IRAM_ATTR updateTask(void *param){
 	int labinterval=0;
 	char buffer[4*12];
@@ -117,6 +118,20 @@ void IRAM_ATTR updateTask(void *param){
 		//if (ws.availableForWriteAll())
 		//		ws.binaryAll(buffer, 4*12);
 		delay(60);
+		for (int i = 0; i < MAX_POSSIBLE_MOTORS; i++) {
+			if (Motor::list[i] != NULL) {
+				String name="Other";
+				if(Motor::list[i]->MotorPWMPin==MOTOR1_PWM){
+					name="Left";
+				}
+				else if(Motor::list[i]->MotorPWMPin==MOTOR2_PWM){
+					name="Right";
+				}
+				thisPage->valueChanged(name+" Encoder Degrees",Motor::list[i]->getCurrentDegrees());
+				thisPage->valueChanged(name+" Encoder Effort",Motor::list[i]->GetEffort());
+				thisPage->valueChanged(name+" Encoder Degrees-sec",Motor::list[i]->getDegreesPerSecond());
+			}
+		}
 	}
 }
 
