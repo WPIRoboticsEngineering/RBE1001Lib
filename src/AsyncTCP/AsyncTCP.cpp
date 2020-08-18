@@ -224,7 +224,7 @@ static bool _start_async_task(){
 								NULL,
 								4,
 								&_async_service_task_handle,
-								0);
+								1);
         if(!_async_service_task_handle){
             return false;
         }
