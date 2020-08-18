@@ -14,8 +14,8 @@ static WebPage *thisPage;
 static char stringBuffer[200];
 //static uint8_t buffer[labelbuflen];
 const String updtime="Uptime";
-const String indexHTML =String(index_html);
-const String js =String(nipplejs_min_js);
+const String * indexHTML =new String(index_html);
+const String * js =new String(nipplejs_min_js);
 void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventType type, void * arg, uint8_t *data, size_t len){
   uint32_t *asInt = (uint32_t *)data;
   thisPage->packetCount++;
@@ -106,7 +106,7 @@ const char *strings[12] = { "Left Encoder Degrees","Left Encoder Effort","Left E
 };
 
 
-void IRAM_ATTR updateTask(void *param){
+void updateTask(void *param){
 	int labinterval=0;
 	char buffer[4*12];
 	while(1){
@@ -143,10 +143,10 @@ void WebPage::initalize(){
 	//Serial.println("HTTP server started");
 //
     server.on("/", (WebRequestMethodComposite)HTTP_GET, [](AsyncWebServerRequest *request){
-        request->send(200, "text/html",indexHTML );
+        request->send(200, "text/html",indexHTML[0] );
     });
     server.on("/nipplejs.min.js", (WebRequestMethodComposite)HTTP_GET, [](AsyncWebServerRequest *request){
-        request->send(200, "text/javascript", js);
+        request->send(200, "text/javascript", js[0]);
     });
 
     ws.onEvent(onWsEvent);

@@ -222,7 +222,7 @@ static bool _start_async_task(){
 								"async_tcp",
 								8192 * 2,
 								NULL,
-								4,
+								2,
 								&_async_service_task_handle,
 								0);
         if(!_async_service_task_handle){
