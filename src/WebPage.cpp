@@ -265,7 +265,7 @@ void WebPage::sendLabelUpdate(uint32_t index){
 	// clear buffer
 	for (int i=0; i<labelbuflen; i++) values[index].buffer[i]=0;
 	// cast as 32 bit int.
-	uint32_t *bufferAsInt32=(uint32_t*)&values[index].buffer;
+	uint32_t *bufferAsInt32=(uint32_t*)values[index].buffer;
 	bufferAsInt32[0]=0x1f; // command, label update
 	bufferAsInt32[1]=index; // index
 	// Write out the string to the buffer. offset by 12 bytes.
