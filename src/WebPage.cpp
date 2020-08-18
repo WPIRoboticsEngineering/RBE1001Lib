@@ -17,6 +17,10 @@ const String updtime="Uptime";
 const String js(nipplejs_min_js);
 const String myHTML(index_html);
 
+static bool lockOutSending = false;
+
+long timeSinceLastSend =0;
+
 const char *strings[12] = { "Left Encoder Degrees","Left Encoder Effort","Left Encoder Degrees-sec",
 		"Right Encoder Degrees","Right Encoder Effort","Right Encoder Degrees-sec" ,
 				"2 Encoder Degrees","2 Encoder Effort","2 Encoder Degrees-sec" ,
@@ -106,14 +110,30 @@ WebPage::WebPage() {
   for(int i=0; i<numSliders; i++) sliders[i]=0;
 }
 
-
+bool isSafeToSend(){
+	if(millis()-timeSinceLastSend>10){
+		return !lockOutSending;
+	}
+	return false;
+}
 
 
 void updateTask(void *param){
 	//delay(1200);
 	while(1){
+
+		while(!isSafeToSend()){
+			//Serial.println("W daTA ");
+			//delay(1);
+		}
+		lockOutSending=true;
+		//Serial.println("L data Lock");
 		thisPage->SendAllLabelsAndValues();
-		//delay(60);
+		timeSinceLastSend=millis();
+		//Serial.println("R data UnLock");
+		lockOutSending=false;
+
+
 		for (int i = 0; i < MAX_POSSIBLE_MOTORS; i++) {
 			if (Motor::list[i] != NULL) {
 				thisPage->valueChanged(strings[i*3],Motor::list[i]->getCurrentDegrees());
@@ -122,7 +142,7 @@ void updateTask(void *param){
 			}
 		}
 		thisPage->valueChanged(updtime,((float)millis())/1000.0);
-
+		delay(5);
 	}
 }
 
@@ -132,10 +152,32 @@ void WebPage::initalize(){
 	//Serial.println("HTTP server started");
 //
     server.on("/", 0b00000001, [](AsyncWebServerRequest *request){
-        request->send(200, "text/html",myHTML );
+
+			while(!isSafeToSend()){
+				//Serial.println("W text/html Lock");
+				//delay(100);
+			}
+			lockOutSending=true;
+			//Serial.println("L text/html Lock");
+			request->send(200, "text/html",myHTML );
+			timeSinceLastSend=millis();
+			//Serial.println("R  text/html UU Lock");
+			lockOutSending=false;
+
     });
     server.on("/nipplejs.min.js", 0b00000001, [](AsyncWebServerRequest *request){
-        request->send(200, "text/javascript", js);
+
+			while(!isSafeToSend()){
+				//Serial.println("W text/javascript Lock");
+				//delay(1);
+			}
+			lockOutSending=true;
+			//Serial.println("L text/javascript Lock");
+			request->send(200, "text/javascript", js);
+			timeSinceLastSend=millis();
+			// Serial.println("R text/javascript UN Lock");
+			lockOutSending=false;
+
     });
 
     ws.onEvent(onWsEvent);
@@ -217,18 +259,21 @@ void WebPage::setValue(String name, float data){
 
 
 void WebPage::SendAllLabelsAndValues(){
-	for(int i=0; i<numValues; i++){
-		if(values[i].buffer)
-			delete values[i].buffer;
-		values[i].buffer=new uint8_t[labelbuflen];
-		sendLabelUpdate(i,values[i].buffer);
-		sendValueUpdate(i,values[i].buffer);
+	if(valueToSendThisLoop>=numValues)
+		valueToSendThisLoop=0;
+	int i= valueToSendThisLoop;
 
-		uint32_t datalen = 12+values[i].name.length()+1;
-		for(int j=datalen;j<datalen+4;j++)values[i].buffer[j]=0;
-		datalen += (4-(datalen%4)); // round up to multiple of 4
-		if (datalen>=labelbuflen) datalen=labelbuflen;
-		//datalen=labelbuflen;
+	if(values[i].buffer)
+		delete values[i].buffer;
+	values[i].buffer=new uint8_t[labelbuflen];
+	sendLabelUpdate(i,values[i].buffer);
+	sendValueUpdate(i,values[i].buffer);
+
+	uint32_t datalen = 12+values[i].name.length()+1;
+	for(int j=datalen;j<datalen+4;j++)values[i].buffer[j]=0;
+	datalen += (4-(datalen%4)); // round up to multiple of 4
+	if (datalen>=labelbuflen) datalen=labelbuflen;
+	//datalen=labelbuflen;
 //		Serial.print("\r\nSending Bytes "+String(datalen)+" [");
 //		for(int j=0;j<datalen;j++){
 //
@@ -236,11 +281,11 @@ void WebPage::SendAllLabelsAndValues(){
 //
 //		}
 //		Serial.print("]");
-		if (ws.availableForWriteAll())
-			ws.binaryAll(values[i].buffer, datalen);
-		delay(5);
-	}
+	if (ws.availableForWriteAll())
+		ws.binaryAll(values[i].buffer, datalen);
+	//delay(5);
 
+	valueToSendThisLoop++;
 }
 
 

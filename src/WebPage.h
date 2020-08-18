@@ -55,6 +55,6 @@ public:
 	void sendValueUpdate(uint32_t index,uint8_t *buffer);
 	void sendLabelUpdate(uint32_t index,uint8_t *buffer);
 private:
-
+	int valueToSendThisLoop=0;
 
 };
