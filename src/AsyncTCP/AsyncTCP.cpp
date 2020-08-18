@@ -220,7 +220,7 @@ static bool _start_async_task(){
     if(!_async_service_task_handle){
     	xTaskCreatePinnedToCore(_async_service_task,
 								"async_tcp",
-								8192 * 4,
+								8192 * 2,
 								NULL,
 								4,
 								&_async_service_task_handle,

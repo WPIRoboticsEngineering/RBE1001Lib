@@ -18,9 +18,8 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
   thisPage->packetCount++;
   float    *asFloat = (float *)data;
   if(type == WS_EVT_CONNECT){
-	thisPage->SendAllLabelsAndValues();
     //Serial.println("Websocket client connection received");
-
+	  thisPage->SendAllLabelsAndValues();
   } else if(type == WS_EVT_DISCONNECT){
     //Serial.println("Client disconnected");
 
@@ -92,6 +91,7 @@ WebPage::WebPage() {
 	  values[i].value=0;
 	  values[i].oldValue=0;
 	  values[i].name=String("");
+	  values[i].dirty=false;
   }
   for(int i=0; i<numSliders; i++) sliders[i]=0;
 }
@@ -99,9 +99,9 @@ WebPage::WebPage() {
 
 void IRAM_ATTR updateTask(void *param){
 	int labinterval=0;
-	char buffer[40];
+	char buffer[4*12];
 	while(1){
-		/*
+
 		labinterval++;
 		for (int i=0; i<numValues; i++){
 
@@ -113,10 +113,10 @@ void IRAM_ATTR updateTask(void *param){
 			thisPage->sendValueUpdate(i); // push async update to ui
 		}
 		if (labinterval<=0) labinterval=100;
-		*/
-		if (ws.availableForWriteAll())
-				ws.binaryAll(buffer, 40);
-		delay(100);
+
+		//if (ws.availableForWriteAll())
+		//		ws.binaryAll(buffer, 4*12);
+		delay(60);
 	}
 }
 
@@ -137,9 +137,9 @@ void WebPage::initalize(){
     xTaskCreatePinnedToCore(
     		updateTask, /* Function to implement the task */
           "updateTask", /* Name of the task */
-          40000,  /* Stack size in words */
+		  8192 * 8,  /* Stack size in words */
           NULL,  /* Task input parameter */
-          0,  /* Priority of the task */
+          2,  /* Priority of the task */
           &thisPage->updateTaskHandle,  /* Task handle. */
           0); /* Core where the task should run */
 }
@@ -192,6 +192,7 @@ void WebPage::setValue(String name, float data){
 
 						//Serial.println("Update '"+name+"' "+String(data));
 						values[i].value = data; // update data
+						values[i].dirty=true;
 
 					return;
 				}
@@ -201,6 +202,7 @@ void WebPage::setValue(String name, float data){
 				values[i].used=true;
 				values[i].name = name;
 				values[i].value = data;
+				values[i].dirty=true;
 
 				return;
 			}
@@ -211,9 +213,11 @@ void WebPage::setValue(String name, float data){
 void WebPage::SendAllLabelsAndValues(){
 	for(int i=0; i<numValues; i++){
 		sendLabelUpdate(i);
+		delay(5);
 	}
 	for(int i=0; i<numValues; i++){
 		sendValueUpdate(i);
+		delay(5);
 	}
 }
 
@@ -230,14 +234,16 @@ void IRAM_ATTR WebPage::sendValueUpdate(uint32_t index){
 	bufferAsInt32[0]=0x10;
 	bufferAsInt32[1]=index;
 	bufferAsFloat[2]=values[index].value;
-	//if (ws.availableForWriteAll())
-	//	ws.binaryAll(labelbuffer, valbuflen);
+	if (ws.availableForWriteAll())
+		ws.binaryAll(labelbuffer, valbuflen);
 }
 
 
 void WebPage::sendLabelUpdate(uint32_t index){
 	if(index>numValues-1) return;
 	if (!values[index].used) return;
+	if(!values[index].dirty) return;
+	values[index].dirty=false;
 	uint8_t buffer[labelbuflen];
 	// clear buffer
 	for (int i=0; i<labelbuflen; i++) buffer[i]=0;
@@ -253,8 +259,8 @@ void WebPage::sendLabelUpdate(uint32_t index){
 	if (datalen>=labelbuflen) datalen=labelbuflen;
 
 
-	//if (ws.availableForWriteAll())
-	//	ws.binaryAll(buffer, datalen);
+	if (ws.availableForWriteAll())
+		ws.binaryAll(buffer, datalen);
 }
 
 

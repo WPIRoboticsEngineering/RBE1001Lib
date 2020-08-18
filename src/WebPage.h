@@ -18,6 +18,7 @@ typedef struct _telemetryValue {
 	float value;
 	float oldValue;
 	bool used;
+	bool dirty;
 } telemetryValue;
 
 #define numSliders 4
