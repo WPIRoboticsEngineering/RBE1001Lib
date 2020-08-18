@@ -19,7 +19,6 @@ typedef struct _telemetryValue {
 	bool used;
 	bool dirty;
 	uint8_t *buffer;
-	uint8_t *labelbuffer;
 } telemetryValue;
 
 #define numSliders 4
@@ -53,8 +52,8 @@ public:
 	uint32_t packetCount = 0;
 	TaskHandle_t updateTaskHandle;
 	uint32_t motor_count;
-	void sendValueUpdate(uint32_t index);
-	void sendLabelUpdate(uint32_t index);
+	void sendValueUpdate(uint32_t index,uint8_t *buffer);
+	void sendLabelUpdate(uint32_t index,uint8_t *buffer);
 private:
 
 

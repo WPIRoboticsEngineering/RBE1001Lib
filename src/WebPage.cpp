@@ -108,23 +108,7 @@ WebPage::WebPage() {
 
 
 void updateTask(void *param){
-	int labinterval=0;
 	while(1){
-
-		labinterval++;
-		for (int i=0; i<numValues; i++){
-
-			if (labinterval<=0){
-				delay(5);
-				thisPage->sendLabelUpdate(i);
-			}
-			delay(5);
-			thisPage->sendValueUpdate(i); // push async update to ui
-		}
-		if (labinterval<=0) labinterval=100;
-
-		//if (ws.availableForWriteAll())
-		//		ws.binaryAll(buffer, 4*12);
 		delay(60);
 		for (int i = 0; i < MAX_POSSIBLE_MOTORS; i++) {
 			if (Motor::list[i] != NULL) {
@@ -134,6 +118,7 @@ void updateTask(void *param){
 			}
 		}
 		thisPage->valueChanged(updtime,((float)millis())/1000.0);
+		thisPage->SendAllLabelsAndValues();
 	}
 }
 
@@ -220,7 +205,7 @@ void WebPage::setValue(String name, float data){
 				values[i].name = name;
 				values[i].value = data;
 				values[i].dirty=true;
-
+				values[i].buffer=0;
 				return;
 			}
 	}
@@ -229,62 +214,59 @@ void WebPage::setValue(String name, float data){
 
 void WebPage::SendAllLabelsAndValues(){
 	for(int i=0; i<numValues; i++){
-		sendLabelUpdate(i);
+		if(values[i].buffer)
+			delete values[i].buffer;
+		values[i].buffer=new uint8_t[labelbuflen];
+		sendLabelUpdate(i,values[i].buffer);
+		sendValueUpdate(i,values[i].buffer);
+
+		uint32_t datalen = 12+values[i].name.length();
+		datalen += (4-(datalen%4)); // round up to multiple of 4
+		if (datalen>=labelbuflen) datalen=labelbuflen;
+
+		if (ws.availableForWriteAll())
+			ws.binaryAll(values[i].buffer, datalen);
 		delay(5);
 	}
-	for(int i=0; i<numValues; i++){
-		sendValueUpdate(i);
-		delay(5);
-	}
+
 }
 
 
-void IRAM_ATTR WebPage::sendValueUpdate(uint32_t index){
+void IRAM_ATTR WebPage::sendValueUpdate(uint32_t index,uint8_t *buffer){
 	if(index>numValues-1) return;
 	if (!values[index].used) return;
 	if (values[index].oldValue==values[index].value) return;
 	values[index].oldValue=values[index].value;
 
-	if(values[index].labelbuffer)
-			delete values[index].labelbuffer;
-	values[index].labelbuffer=new uint8_t[valbuflen+1];
 
-	uint32_t *bufferAsInt32=(uint32_t*)values[index].labelbuffer;
-	float *bufferAsFloat=(float*)values[index].labelbuffer;
+	uint32_t *bufferAsInt32=(uint32_t*)buffer;
+	float *bufferAsFloat=(float*)buffer;
 	bufferAsInt32[0]=0x10;
 	bufferAsInt32[1]=index;
 	bufferAsFloat[2]=values[index].value;
-	if (ws.availableForWriteAll())
-		ws.binaryAll(values[index].labelbuffer, valbuflen);
 }
 
 
-void WebPage::sendLabelUpdate(uint32_t index){
+void WebPage::sendLabelUpdate(uint32_t index,uint8_t *buffer){
 	if(index>numValues-1) return;
 	if (!values[index].used) return;
 	if(!values[index].dirty) return;
 	values[index].dirty=false;
 
-	if(values[index].buffer)
-		delete values[index].buffer;
-	values[index].buffer=new uint8_t[labelbuflen];
+
 
 	// clear buffer
-	for (int i=0; i<labelbuflen; i++) values[index].buffer[i]=0;
+	for (int i=0; i<labelbuflen; i++) buffer[i]=0;
 	// cast as 32 bit int.
-	uint32_t *bufferAsInt32=(uint32_t*)values[index].buffer;
+	uint32_t *bufferAsInt32=(uint32_t*)buffer;
 	bufferAsInt32[0]=0x1f; // command, label update
 	bufferAsInt32[1]=index; // index
 	// Write out the string to the buffer. offset by 12 bytes.
-	values[index].name.toCharArray((char *)values[index].buffer+12, labelbuflen-12);
+	values[index].name.toCharArray((char *)buffer, values[index].name.length(),12);
 	// only send filled data
-	uint32_t datalen = 12+values[index].name.length();
-	datalen += (4-(datalen%4)); // round up to multiple of 4
-	if (datalen>=labelbuflen) datalen=labelbuflen;
 
 
-	if (ws.availableForWriteAll())
-		ws.binaryAll(values[index].buffer, datalen);
+
 }
 
 
