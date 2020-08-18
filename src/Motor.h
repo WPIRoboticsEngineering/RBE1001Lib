@@ -35,7 +35,6 @@ enum interpolateMode {
  */
 class Motor {
 private:
-	AsyncValueListener * listner;
 	/**
 	 * the object that produces PWM for motor speed
 	 */
@@ -44,14 +43,7 @@ private:
 	 * the object that keeps track of the motors position
 	 */
 	ESP32Encoder * encoder;
-	/**
-	 * GPIO pin number of the motor PWM pin
-	 */
-	int MotorPWMPin = -1;
-	/**
-	 * GPIO pin number of the motor direction output flag
-	 */
-	int directionFlag = -1;
+
 	/**
 	 * an internal counter that counts iterations of the PID loop
 	 * this is used to calculate 50ms timing for calculation of the velocity
@@ -151,8 +143,15 @@ private:
 	 */
 	float TRAPEZOIDAL_time=0;
 
-	String name;
 public:
+	/**
+	 * GPIO pin number of the motor PWM pin
+	 */
+	int MotorPWMPin = -1;
+	/**
+	 * GPIO pin number of the motor direction output flag
+	 */
+	int directionFlag = -1;
 	/**
 	 * use the internal state and current time to comput where along the path from start to finish the interpolation is
 	 */
@@ -416,8 +415,6 @@ public:
 		this->name = name;
 	}
 
-	AsyncValueListener* getListner();
-	void setListner(AsyncValueListener* listner);
 };
 
 #endif /* LIBRARIES_RBE1001LIB_SRC_MOTOR_H_ */

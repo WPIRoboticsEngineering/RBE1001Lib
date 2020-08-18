@@ -431,10 +431,3 @@ float Motor::getCurrentDegrees() {
 	return tmp * TICKS_TO_DEGREES;
 }
 
-AsyncValueListener * Motor::getListner() {
-	return listner;
-}
-
-void Motor::setListner( AsyncValueListener * listner) {
-	this->listner = listner;
-}
