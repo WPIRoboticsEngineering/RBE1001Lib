@@ -102,7 +102,7 @@ const char *strings[12] = { "Left Encoder Degrees","Left Encoder Effort","Left E
 				"3 Encoder Degrees","3 Encoder Effort","3 Encoder Degrees-sec"
 };
 
-
+const String updtime="Uptime";
 void IRAM_ATTR updateTask(void *param){
 	int labinterval=0;
 	char buffer[4*12];
@@ -130,6 +130,7 @@ void IRAM_ATTR updateTask(void *param){
 				thisPage->valueChanged(strings[i*3+2],Motor::list[i]->getDegreesPerSecond());
 			}
 		}
+		thisPage->valueChanged(updtime,((float)millis())/1000.0);
 	}
 }
 
