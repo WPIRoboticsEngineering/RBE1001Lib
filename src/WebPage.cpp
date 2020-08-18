@@ -15,6 +15,7 @@ static char stringBuffer[200];
 //static uint8_t buffer[labelbuflen];
 const String updtime="Uptime";
 const String js(nipplejs_min_js);
+const String myHTML(index_html);
 
 const char *strings[12] = { "Left Encoder Degrees","Left Encoder Effort","Left Encoder Degrees-sec",
 		"Right Encoder Degrees","Right Encoder Effort","Right Encoder Degrees-sec" ,
@@ -131,7 +132,7 @@ void WebPage::initalize(){
 	//Serial.println("HTTP server started");
 //
     server.on("/", 0b00000001, [](AsyncWebServerRequest *request){
-        request->send(200, "text/html",String(index_html) );
+        request->send(200, "text/html",myHTML );
     });
     server.on("/nipplejs.min.js", 0b00000001, [](AsyncWebServerRequest *request){
         request->send(200, "text/javascript", js);
