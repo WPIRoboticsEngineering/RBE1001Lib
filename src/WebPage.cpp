@@ -14,8 +14,13 @@ static WebPage *thisPage;
 static char stringBuffer[200];
 //static uint8_t buffer[labelbuflen];
 const String updtime="Uptime";
-const String * indexHTML =new String(index_html);
-const String * js =new String(nipplejs_min_js);
+
+const char *strings[12] = { "Left Encoder Degrees","Left Encoder Effort","Left Encoder Degrees-sec",
+		"Right Encoder Degrees","Right Encoder Effort","Right Encoder Degrees-sec" ,
+				"2 Encoder Degrees","2 Encoder Effort","2 Encoder Degrees-sec" ,
+				"3 Encoder Degrees","3 Encoder Effort","3 Encoder Degrees-sec"
+};
+
 void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventType type, void * arg, uint8_t *data, size_t len){
   uint32_t *asInt = (uint32_t *)data;
   thisPage->packetCount++;
@@ -99,16 +104,11 @@ WebPage::WebPage() {
   for(int i=0; i<numSliders; i++) sliders[i]=0;
 }
 
-const char *strings[12] = { "Left Encoder Degrees","Left Encoder Effort","Left Encoder Degrees-sec",
-		"Right Encoder Degrees","Right Encoder Effort","Right Encoder Degrees-sec" ,
-				"2 Encoder Degrees","2 Encoder Effort","2 Encoder Degrees-sec" ,
-				"3 Encoder Degrees","3 Encoder Effort","3 Encoder Degrees-sec"
-};
+
 
 
 void updateTask(void *param){
 	int labinterval=0;
-	char buffer[4*12];
 	while(1){
 
 		labinterval++;
@@ -143,10 +143,10 @@ void WebPage::initalize(){
 	//Serial.println("HTTP server started");
 //
     server.on("/", (WebRequestMethodComposite)HTTP_GET, [](AsyncWebServerRequest *request){
-        request->send(200, "text/html",indexHTML[0] );
+        request->send(200, "text/html",String(index_html) );
     });
     server.on("/nipplejs.min.js", (WebRequestMethodComposite)HTTP_GET, [](AsyncWebServerRequest *request){
-        request->send(200, "text/javascript", js[0]);
+        request->send(200, "text/javascript", String(nipplejs_min_js));
     });
 
     ws.onEvent(onWsEvent);
@@ -156,7 +156,7 @@ void WebPage::initalize(){
           "updateTask", /* Name of the task */
 		  8192 * 8,  /* Stack size in words */
           NULL,  /* Task input parameter */
-          2,  /* Priority of the task */
+          4,  /* Priority of the task */
           &thisPage->updateTaskHandle,  /* Task handle. */
           0); /* Core where the task should run */
 }
@@ -245,6 +245,10 @@ void IRAM_ATTR WebPage::sendValueUpdate(uint32_t index){
 	if (values[index].oldValue==values[index].value) return;
 	values[index].oldValue=values[index].value;
 
+	if(values[index].labelbuffer)
+			delete values[index].labelbuffer;
+	values[index].labelbuffer=new uint8_t[valbuflen+1];
+
 	uint32_t *bufferAsInt32=(uint32_t*)values[index].labelbuffer;
 	float *bufferAsFloat=(float*)values[index].labelbuffer;
 	bufferAsInt32[0]=0x10;
@@ -260,6 +264,10 @@ void WebPage::sendLabelUpdate(uint32_t index){
 	if (!values[index].used) return;
 	if(!values[index].dirty) return;
 	values[index].dirty=false;
+
+	if(values[index].buffer)
+		delete values[index].buffer;
+	values[index].buffer=new uint8_t[labelbuflen];
 
 	// clear buffer
 	for (int i=0; i<labelbuflen; i++) values[index].buffer[i]=0;
