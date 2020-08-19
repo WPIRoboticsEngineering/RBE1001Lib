@@ -94,12 +94,12 @@ void updateDashboard() {
 				rangefinder1.getDistanceCM());
 		control_page.setValue("Simple Counter",
 						inc++);
-
-//		Serial.println("Joystick angle="+String(control_page.getJoystickAngle())+
-//				" magnitude="+String(control_page.getJoystickMagnitude())+
-//				" x="+String(control_page.getJoystickX())+
-//								" y="+String(control_page.getJoystickY()) +
-//								" slider="+String(control_page.getSliderValue(0)));
+		if(control_page.getJoystickMagnitude()>0.1)
+		Serial.println("Joystick angle="+String(control_page.getJoystickAngle())+
+				" magnitude="+String(control_page.getJoystickMagnitude())+
+				" x="+String(control_page.getJoystickX())+
+								" y="+String(control_page.getJoystickY()) +
+								" slider="+String(control_page.getSliderValue(0)));
 
 		dashboardUpdateTimer.reset();
 	}
