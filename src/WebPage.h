@@ -41,9 +41,10 @@ public:
 	void newButton(String url, void (*handler)(String), String label,
 			String description);
 
-	void SendAllLabelsAndValues();
+	bool SendAllLabelsAndValues();
 	float sliders[numSliders];
 	telemetryValue values[numValues];
+	int numValuesUsed=0;
 
 	void valueChanged(String name, float value);
 

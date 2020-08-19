@@ -116,22 +116,28 @@ bool isSafeToSend(){
 	}
 	return false;
 }
+void lock(){
+	while(!isSafeToSend()){
+			//Serial.println("W daTA ");
+			delay(1);
+		}
+		lockOutSending=true;
+}
+void unlock(){
+	timeSinceLastSend=millis();
+	//Serial.println("R data UnLock");
+	lockOutSending=false;
 
+}
 
 void updateTask(void *param){
 	//delay(1200);
 	while(1){
 
-		while(!isSafeToSend()){
-			//Serial.println("W daTA ");
-			delay(1);
-		}
-		lockOutSending=true;
+		lock();
 		//Serial.println("L data Lock");
 		thisPage->SendAllLabelsAndValues();
-		timeSinceLastSend=millis();
-		//Serial.println("R data UnLock");
-		lockOutSending=false;
+		unlock();
 
 
 		for (int i = 0; i < MAX_POSSIBLE_MOTORS; i++) {
@@ -142,7 +148,7 @@ void updateTask(void *param){
 			}
 		}
 		thisPage->valueChanged(updtime,((float)millis())/1000.0);
-		delay(10);
+		delay(1);
 	}
 }
 
@@ -153,30 +159,18 @@ void WebPage::initalize(){
 //
     server.on("/", 0b00000001, [](AsyncWebServerRequest *request){
 
-			while(!isSafeToSend()){
-				//Serial.println("W text/html Lock");
-				delay(1);
-			}
-			lockOutSending=true;
-			//Serial.println("L text/html Lock");
-			request->send(200, "text/html",myHTML );
-			timeSinceLastSend=millis();
-			//Serial.println("R  text/html UU Lock");
-			lockOutSending=false;
+    	lock();
+		//Serial.println("L text/html Lock");
+		request->send(200, "text/html",myHTML );
+		unlock();
 
     });
     server.on("/nipplejs.min.js", 0b00000001, [](AsyncWebServerRequest *request){
 
-			while(!isSafeToSend()){
-				//Serial.println("W text/javascript Lock");
-				delay(1);
-			}
-			lockOutSending=true;
-			//Serial.println("L text/javascript Lock");
-			request->send(200, "text/javascript", js);
-			timeSinceLastSend=millis();
-			// Serial.println("R text/javascript UN Lock");
-			lockOutSending=false;
+    	lock();
+		//Serial.println("L text/javascript Lock");
+		request->send(200, "text/javascript", js);
+		unlock();
 
     });
 
@@ -252,40 +246,43 @@ void WebPage::setValue(String name, float data){
 				values[i].value = data;
 				values[i].dirty=true;
 				values[i].buffer=0;
+				numValuesUsed++;
 				return;
 			}
 	}
 }
 
 
-void WebPage::SendAllLabelsAndValues(){
-	if(valueToSendThisLoop>=numValues)
+bool WebPage::SendAllLabelsAndValues(){
+	if(valueToSendThisLoop>=numValuesUsed)
 		valueToSendThisLoop=0;
 	int i= valueToSendThisLoop;
+	if(values[i].used){
+		if(values[i].buffer)
+			delete values[i].buffer;
+		values[i].buffer=new uint8_t[labelbuflen];
+		sendLabelUpdate(i,values[i].buffer);
+		sendValueUpdate(i,values[i].buffer);
 
-	if(values[i].buffer)
-		delete values[i].buffer;
-	values[i].buffer=new uint8_t[labelbuflen];
-	sendLabelUpdate(i,values[i].buffer);
-	sendValueUpdate(i,values[i].buffer);
-
-	uint32_t datalen = 12+values[i].name.length()+1;
-	for(int j=datalen;j<datalen+4;j++)values[i].buffer[j]=0;
-	datalen += (4-(datalen%4)); // round up to multiple of 4
-	if (datalen>=labelbuflen) datalen=labelbuflen;
-	//datalen=labelbuflen;
-//		Serial.print("\r\nSending Bytes "+String(datalen)+" [");
-//		for(int j=0;j<datalen;j++){
-//
-//			Serial.print(", "+String(values[i].buffer[j])+" ");
-//
-//		}
-//		Serial.print("]");
-	if (ws.availableForWriteAll())
-		ws.binaryAll(values[i].buffer, datalen);
-	//delay(5);
-
+		uint32_t datalen = 12+values[i].name.length()+1;
+		for(int j=datalen;j<datalen+4;j++)values[i].buffer[j]=0;
+		datalen += (4-(datalen%4)); // round up to multiple of 4
+		if (datalen>=labelbuflen) datalen=labelbuflen;
+		//datalen=labelbuflen;
+	//		Serial.print("\r\nSending Bytes "+String(datalen)+" [");
+	//		for(int j=0;j<datalen;j++){
+	//
+	//			Serial.print(", "+String(values[i].buffer[j])+" ");
+	//
+	//		}
+	//		Serial.print("]");
+		if (ws.availableForWriteAll())
+			ws.binaryAll(values[i].buffer, datalen);
+		//delay(5);
+		//Serial.println("Updating "+values[i].name);
+	}
 	valueToSendThisLoop++;
+	return values[i].used;
 }
 
 
@@ -311,7 +308,9 @@ void WebPage::sendLabelUpdate(uint32_t index,uint8_t *buffer){
 	values[index].dirty=false;
 
 	// Write out the string to the buffer. offset by 12 bytes.
-	values[index].name.toCharArray((char *)buffer, values[index].name.length(),12);
+	for(int i=0;i<values[index].name.length();i++){
+		buffer[i+12]=values[index].name.c_str()[i];
+	}
 	buffer[values[index].name.length()+12]=0;
 
 
