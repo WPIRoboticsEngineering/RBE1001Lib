@@ -16,12 +16,14 @@ typedef struct _telemetryValue {
 	String name;
 	float value;  // the value
 	bool used;    // Slot in use flag
-	bool dirty;   // Slot has new data flag
+	bool valueDirty;   // Slot has new data flag
+	bool labelDirty;
 	uint8_t *buffer;
 } telemetryValue;
 
 #define numSliders 4
 #define numValues 30
+#define labelBufferSize 512
 
 class WebPage : public AsyncValueListener {
 public:
@@ -58,6 +60,7 @@ public:
 	void sendLabelUpdate(uint32_t index,uint8_t *buffer);
 
 	uint8_t * packetBuffer;
+	uint8_t * labelBuffer;
 private:
 	//int valueToSendThisLoop=0;
 

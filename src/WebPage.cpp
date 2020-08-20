@@ -33,6 +33,8 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
   float    *asFloat = (float *)data;
   if(type == WS_EVT_CONNECT){
     //Serial.println("Websocket client connection received");
+	  thisPage->SendAllLabels();
+	  delay(20);
 	  thisPage->SendAllValues();
   } else if(type == WS_EVT_DISCONNECT){
     //Serial.println("Client disconnected");
@@ -110,7 +112,8 @@ WebPage::WebPage() {
 	  values[i].used=false;
 	  values[i].value=0;
 	  values[i].name=String("");
-	  values[i].dirty=false;
+	  values[i].valueDirty=false;
+	  values[i].labelDirty=false;
   }
   for(int i=0; i<numSliders; i++) sliders[i]=0;
 }
@@ -141,6 +144,7 @@ void updateTask(void *param){
 
 		lock();
 		//Serial.println("L data Lock");
+		if (thisPage->SendAllLabels()) delay(20);
 		thisPage->SendAllValues();
 		unlock();
 
@@ -241,7 +245,7 @@ void WebPage::setValue(String name, float data){
 					if(values[i].value!=data){ // Has the value itself changed?
 						//Serial.println("Update '"+name+"' "+String(data));
 						values[i].value = data; // update data
-						values[i].dirty=true;
+						values[i].valueDirty=true;
 					}
 					return;
 				}
@@ -251,7 +255,8 @@ void WebPage::setValue(String name, float data){
 				values[i].used=true;
 				values[i].name = name;
 				values[i].value = data;
-				values[i].dirty=true;
+				values[i].valueDirty=true;
+				values[i].labelDirty=true;
 				values[i].buffer=0;
 				numValuesUsed++;
 				return;
@@ -261,6 +266,7 @@ void WebPage::setValue(String name, float data){
 
 
 bool WebPage::SendAllValues(){
+	if (ws.count()==0) return false;
 	if (packetBuffer) delete packetBuffer; // Deallocate old buffer
 	packetBuffer = new uint8_t[numValues*8]; // Allocate a new one 8 bytes per slot max
 
@@ -274,8 +280,8 @@ bool WebPage::SendAllValues(){
 	uint32_t bufferItemCount=0; // Count the values in this update.
 	for(int i=0; i<numValues; i++){
 		if (values[i].used){ // Is this slot in use?
-			if (values[i].dirty){ // Has this value changed
-				values[i].dirty=false; //reset change flag
+			if (values[i].valueDirty){ // Has this value changed
+				values[i].valueDirty=false; //reset change flag
 				bufferAsInt32[(bufferItemCount+1)*2] = i; // Index of this specific value
 				bufferAsFloat[(bufferItemCount+1)*2+1] = values[i].value; // The float value
 				bufferItemCount++;
@@ -286,9 +292,10 @@ bool WebPage::SendAllValues(){
 	bufferAsInt32[1]=bufferItemCount; // Record the number of elements at position 1 after the packet id
 	uint32_t packetLength = (bufferItemCount+1)*8; // 8 byte header + each int/float pair
 
+
 	if (bufferItemCount>0){
 		// We have at least 1 item, lets send a packet.
-		if ( ws.availableForWriteAll() && (ws.count()>0) ){ // Can we write?
+		if ( ws.availableForWriteAll() ){ // Can we write?
 			txPacketCount++;
 			ws.binaryAll(packetBuffer, packetLength);
 			return true; // update sent
@@ -331,7 +338,69 @@ bool WebPage::SendAllValues(){
 }
 
 bool WebPage::SendAllLabels(){
+	if (ws.count()==0) return false;
+	if (labelBuffer) delete labelBuffer; // remove previous buffer
+	labelBuffer = new uint8_t[labelBufferSize]; // Allocate a buffer
 
+	uint32_t *bufferAsInt32=(uint32_t*)labelBuffer;
+	float *bufferAsFloat=(float*)labelBuffer;
+	char *bufferAsChar=(char*)labelBuffer;
+
+	bufferAsInt32[0]=0x1d; // packet id update all labels
+	bufferAsInt32[1]=0; // num labels
+
+	uint32_t bufferItemCount=0; // Count the values in this update.
+	for(int i=0; i<numValues; i++){
+		if (values[i].used){ // Is this slot in use?
+			if (values[i].labelDirty){ // Has this value changed
+				//Serial.println("Dirty: '"+String(values[i].name)+"' ("+String(i)+")");
+				bufferAsInt32[(bufferItemCount+1)*3] = i; // Index of this specific label
+				bufferAsInt32[(bufferItemCount+1)*3 + 1] = 0; // offset.
+				bufferAsInt32[(bufferItemCount+1)*3 + 2] = values[i].name.length()+1; // length of this specific label. +1 for null terminator
+				bufferItemCount++;
+			}
+		}
+	}
+
+	if (bufferItemCount==0) return false; // Nothing to update, bail.
+	// Write number of labels.
+	bufferAsInt32[1]=bufferItemCount;
+
+	uint32_t startOfStringData=(bufferItemCount+1)*12;
+	uint32_t stringOffset = 0;
+
+
+	//Serial.println("Item Count: '"+String(bufferItemCount)+"'");
+	//Serial.println("String Data Start: '"+String(startOfStringData)+"'");
+	// Load changed strings into buffer.
+	// update offsets as you load them in
+	for(int i=0; i<bufferItemCount; i++){
+		uint32_t index  = bufferAsInt32[(i+1)*3];
+		uint32_t length = bufferAsInt32[(i+1)*3 + 2];
+		if (startOfStringData+stringOffset+values[index].name.length() > labelBufferSize){
+			//Serial.println("Strings won't fit into buffer!");
+			//Serial.println("target: "+String(startOfStringData+stringOffset+values[index].name.length()));
+			//Serial.println("limit:  "+String(labelBufferSize));
+			return false;
+		}
+		//Serial.print("Processing #"+String(i)+"  len: "+String(length)+"... ");
+		memcpy(&bufferAsChar[startOfStringData+stringOffset],values[index].name.c_str(),length);
+		stringOffset+=length;
+		values[index].labelDirty=false;
+		//Serial.println("Done! packet offset: "+String(startOfStringData+stringOffset));
+
+	}
+	//Serial.println("Total Bytes in Buf: '"+String(startOfStringData+stringOffset)+"'");
+	uint32_t packetLength = startOfStringData+stringOffset;
+	packetLength += (4-(packetLength%4));
+	if (bufferItemCount>0){
+		// We have at least 1 item, lets send a packet.
+		if ( ws.availableForWriteAll() ){ // Can we write?
+			txPacketCount++;
+			ws.binaryAll(labelBuffer,packetLength );
+			return true; // update sent
+		}
+	}
 	return false;
 }
 
@@ -351,8 +420,8 @@ void WebPage::sendValueUpdate(uint32_t index,uint8_t *buffer){
 void WebPage::sendLabelUpdate(uint32_t index,uint8_t *buffer){
 	if(index>numValues-1) return;
 //	if (!values[index].used) return;
-//	if(!values[index].dirty) return;
-	values[index].dirty=false;
+//	if(!values[index].valueDirty) return;
+	values[index].valueDirty=false;
 
 	// Write out the string to the buffer. offset by 12 bytes.
 	for(int i=0;i<values[index].name.length();i++){
