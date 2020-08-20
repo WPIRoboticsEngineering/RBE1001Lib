@@ -45,16 +45,27 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
 		  return;
 	  }
 	  uint32_t command = asInt[0];
+	  /*
     // Data Format
     // 4B: Message Type
 	//		0x10 (16)	Value Update
 	//  	  	4B: value index
 	//			4B: value data
+	 * 		0x1d (29)	Update All Labels
+	 * 			4B:	Number of Labels in this update
+	 * 			4B: xx
+	 * 			[repeated next 12B block for each label]
+	 * 			4B: Index to update
+	 * 			4B: String Offset in packet
+	 * 			4B: String Length
+	 *
+	 * 			nB: [all label strings concatenated ]
+	 *
 	//  	0x1e (30)	Update All Values
 	//	  	  	4B: Number of Values
+	 * 			[repeat for all values]
 	//  	    4B:	value index n
 	//			4B:	value data n
-	//			[repeat for all values]
 	//
 	//		0x1f (31)	New Value
 	//			4B: value index
@@ -70,6 +81,8 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
     //      0x40 (64)	Button Update
     //			4B: Button Number
     //			4B: Button State (0.0 or 1.0)
+     *
+     */
 
     //Serial.println("Command is: "+String(command)+"\t["+String(packetCount++)+"]");
     switch(command){
