@@ -29,11 +29,11 @@ const char *strings[12] = { "Left Encoder Degrees","Left Encoder Effort","Left E
 
 void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventType type, void * arg, uint8_t *data, size_t len){
   uint32_t *asInt = (uint32_t *)data;
-  thisPage->packetCount++;
+  thisPage->rxPacketCount++;
   float    *asFloat = (float *)data;
   if(type == WS_EVT_CONNECT){
     //Serial.println("Websocket client connection received");
-	  thisPage->SendAllLabelsAndValues();
+	  thisPage->SendAllValues();
   } else if(type == WS_EVT_DISCONNECT){
     //Serial.println("Client disconnected");
 
@@ -47,7 +47,13 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
     // 4B: Message Type
 	//		0x10 (16)	Value Update
 	//  	  	4B: value index
-	//			4B: value data (float)
+	//			4B: value data
+	//  	0x1e (30)	Update All Values
+	//	  	  	4B: Number of Values
+	//  	    4B:	value index n
+	//			4B:	value data n
+	//			[repeat for all values]
+	//
 	//		0x1f (31)	New Value
 	//			4B: value index
 	//			*B: value name
@@ -103,7 +109,6 @@ WebPage::WebPage() {
   for(int i=0; i<numValues; i++) {
 	  values[i].used=false;
 	  values[i].value=0;
-	  values[i].oldValue=0;
 	  values[i].name=String("");
 	  values[i].dirty=false;
   }
@@ -136,7 +141,7 @@ void updateTask(void *param){
 
 		lock();
 		//Serial.println("L data Lock");
-		thisPage->SendAllLabelsAndValues();
+		thisPage->SendAllValues();
 		unlock();
 
 
@@ -174,8 +179,7 @@ void WebPage::initalize(){
 
     });
 
-    ws.onEvent(onWsEvent);
-    server.addHandler(&ws);
+
     xTaskCreatePinnedToCore(
     		updateTask, /* Function to implement the task */
           "updateTask", /* Name of the task */
@@ -184,6 +188,9 @@ void WebPage::initalize(){
           4,  /* Priority of the task */
           &thisPage->updateTaskHandle,  /* Task handle. */
           1); /* Core where the task should run */
+
+    ws.onEvent(onWsEvent);
+    server.addHandler(&ws);
 }
 
 float WebPage::getSliderValue(uint32_t number){
@@ -231,11 +238,11 @@ void WebPage::setValue(String name, float data){
 			if (values[i].used){ // compare in use slots
 
 				if (values[i].name==name){ // check label
-
+					if(values[i].value!=data){ // Has the value itself changed?
 						//Serial.println("Update '"+name+"' "+String(data));
 						values[i].value = data; // update data
 						values[i].dirty=true;
-
+					}
 					return;
 				}
 			} else {
@@ -253,7 +260,43 @@ void WebPage::setValue(String name, float data){
 }
 
 
-bool WebPage::SendAllLabelsAndValues(){
+bool WebPage::SendAllValues(){
+	if (packetBuffer) delete packetBuffer; // Deallocate old buffer
+	packetBuffer = new uint8_t[numValues*8]; // Allocate a new one 8 bytes per slot max
+
+	// Allocate float and int access arrays
+	uint32_t *bufferAsInt32=(uint32_t*)packetBuffer;
+	float *bufferAsFloat=(float*)packetBuffer;
+
+	bufferAsInt32[0]=0x1e; // packet id update all
+
+
+	uint32_t bufferItemCount=0; // Count the values in this update.
+	for(int i=0; i<numValues; i++){
+		if (values[i].used){ // Is this slot in use?
+			if (values[i].dirty){ // Has this value changed
+				values[i].dirty=false; //reset change flag
+				bufferAsInt32[(bufferItemCount+1)*2] = i; // Index of this specific value
+				bufferAsFloat[(bufferItemCount+1)*2+1] = values[i].value; // The float value
+				bufferItemCount++;
+			}
+		}
+	}
+
+	bufferAsInt32[1]=bufferItemCount; // Record the number of elements at position 1 after the packet id
+	uint32_t packetLength = (bufferItemCount+1)*8; // 8 byte header + each int/float pair
+
+	if (bufferItemCount>0){
+		// We have at least 1 item, lets send a packet.
+		if ( ws.availableForWriteAll() && (ws.count()>0) ){ // Can we write?
+			txPacketCount++;
+			ws.binaryAll(packetBuffer, packetLength);
+			return true; // update sent
+		}
+	}
+
+	return false; // no update sent
+	/*
 	if(valueToSendThisLoop>=numValuesUsed)
 		valueToSendThisLoop=0;
 	int i= valueToSendThisLoop;
@@ -277,21 +320,25 @@ bool WebPage::SendAllLabelsAndValues(){
 	//		}
 	//		Serial.print("]");
 		if (ws.availableForWriteAll())
+			//txPacketCount++;
 			ws.binaryAll(values[i].buffer, datalen);
 		//delay(5);
 		//Serial.println("Updating "+values[i].name);
 	}
 	valueToSendThisLoop++;
 	return values[i].used;
+	*/
 }
 
+bool WebPage::SendAllLabels(){
+
+	return false;
+}
 
 void WebPage::sendValueUpdate(uint32_t index,uint8_t *buffer){
 	if(index>numValues-1) return;
 //	if (!values[index].used) return;
 //	if (values[index].oldValue==values[index].value) return;
-	values[index].oldValue=values[index].value;
-
 
 	uint32_t *bufferAsInt32=(uint32_t*)buffer;
 	float *bufferAsFloat=(float*)buffer;

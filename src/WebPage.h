@@ -14,10 +14,9 @@ typedef struct _JoyData {
 
 typedef struct _telemetryValue {
 	String name;
-	float value;
-	float oldValue;
-	bool used;
-	bool dirty;
+	float value;  // the value
+	bool used;    // Slot in use flag
+	bool dirty;   // Slot has new data flag
 	uint8_t *buffer;
 } telemetryValue;
 
@@ -41,7 +40,8 @@ public:
 	void newButton(String url, void (*handler)(String), String label,
 			String description);
 
-	bool SendAllLabelsAndValues();
+	bool SendAllValues();
+	bool SendAllLabels();
 	float sliders[numSliders];
 	telemetryValue values[numValues];
 	int numValuesUsed=0;
@@ -50,12 +50,15 @@ public:
 
 
 	JoyData joystick;
-	uint32_t packetCount = 0;
+	uint32_t txPacketCount = 0;
+	uint32_t rxPacketCount = 0;
 	TaskHandle_t updateTaskHandle;
 	uint32_t motor_count;
 	void sendValueUpdate(uint32_t index,uint8_t *buffer);
 	void sendLabelUpdate(uint32_t index,uint8_t *buffer);
+
+	uint8_t * packetBuffer;
 private:
-	int valueToSendThisLoop=0;
+	//int valueToSendThisLoop=0;
 
 };

@@ -92,8 +92,10 @@ void updateDashboard() {
 				rightLineSensor.readMiliVolts());
 		control_page.setValue("Ultrasonic",
 				rangefinder1.getDistanceCM());
-		control_page.setValue("Simple Counter",
-						inc++);
+		control_page.setValue("packets rx",
+						control_page.rxPacketCount);
+		control_page.setValue("packets tx",
+						control_page.txPacketCount);
 
 //		Serial.println("Joystick angle="+String(control_page.getJoystickAngle())+
 //				" magnitude="+String(control_page.getJoystickMagnitude())+

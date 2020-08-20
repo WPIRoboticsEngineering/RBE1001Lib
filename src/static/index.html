@@ -89,8 +89,8 @@ td {
 
       var telMap = new Map();
       socket.onmessage = function(event) {
-        //console.log(`[message] Data received from server: ${event.data}`);
-        //console.log(event.data);
+        console.log(`[message] Data received from server: ${event.data}`);
+        console.log(event.data);
         let bufferInt32 = new Int32Array(event.data);
         let bufferFloat = new Float32Array(event.data);
         let command = bufferInt32[0];
