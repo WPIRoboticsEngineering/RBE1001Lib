@@ -243,6 +243,7 @@
     }
 
     function updateLastPacket(){
+      lastPacketDelta=new Date().getTime()-lastPacket;
       document.getElementById("lastPacket").innerHTML = String(lastPacketDelta) + " ms ago";
     }
 
@@ -305,7 +306,7 @@
     }
 
     setInterval(updateJoystick, 30);
-    setInterval(updateLastPacket, 60);
+    setInterval(updateLastPacket, 500);
     setInterval(updateValues, 60);
     setInterval(sendHeartbeat, 5000);
   </script>
