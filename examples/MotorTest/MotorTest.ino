@@ -66,8 +66,8 @@ void loop()
   //The following line will cause the program to wait indefinitely until the button is pressed
   while(digitalRead(buttonPin)) {} 
 
-  motor1.SetEffort(-0.1); 
-  motor2.SetEffort(0.3); 
+  motor1.SetEffort(0.35); 
+  motor2.SetEffort(-0.25); 
 
   startTime = millis(); //note when the motor started
 

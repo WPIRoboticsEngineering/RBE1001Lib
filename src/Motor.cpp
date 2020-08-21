@@ -300,7 +300,7 @@ void Motor::loop()
 		//the logic here is sound, but could be streamlined
 		if (mode == VELOCITY_MODE) 
 		{
-			if(fabs(currentEffort) < 0.95)// stall detection -- could be less, could be smarter
+			if(fabs(currentEffort) < 0.75)// stall detection -- could be better
 				Setpoint += deltaTargetTicks;
 		} 
 		
@@ -311,13 +311,13 @@ void Motor::loop()
 				Setpoint = currTrajectory.targetPos;
 				mode = MOTOR_IDLE;
 			}
-			else if(fabs(currentEffort) < 0.5)// stall detection -- could be less, could be better
+			else if(fabs(currentEffort) < 0.75) // stall detection -- could be better
 				Setpoint += deltaTargetTicks;
 		}
 
 		float controlErr = Setpoint - nowEncoder;
 
-		if(fabs(currentEffort) < 0.5) errorSum += controlErr;
+		if(fabs(currentEffort) < 0.5) errorSum += controlErr; //limit windup
 
 		currentEffort = controlErr * kP + errorSum * kI;
 	}
@@ -330,6 +330,7 @@ void Motor::loop()
 		cachedSpeed = err / (0.05); // ticks per second
 		prevousCount = nowEncoder;
 	}
+	
 	// invert the effort so that the set speed and set effort match
 	SetEffortLocal(currentEffort);
 }
