@@ -33,6 +33,7 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
   float    *asFloat = (float *)data;
   if(type == WS_EVT_CONNECT){
     //Serial.println("Websocket client connection received");
+	  thisPage->markAllDirty();
 	  thisPage->SendAllLabels();
 	  delay(20);
 	  thisPage->SendAllValues();
@@ -51,7 +52,7 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
 	//		0x10 (16)	Value Update
 	//  	  	4B: value index
 	//			4B: value data
-	 * 		0x1d (29)	Update All Labels
+	 * 		0x1d (29)	Bulk Label Update
 	 * 			4B:	Number of Labels in this update
 	 * 			4B: xx
 	 * 			[repeated next 12B block for each label]
@@ -61,7 +62,7 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
 	 *
 	 * 			nB: [all label strings concatenated ]
 	 *
-	//  	0x1e (30)	Update All Values
+	//  	0x1e (30)	Bulk Value Update
 	//	  	  	4B: Number of Values
 	 * 			[repeat for all values]
 	//  	    4B:	value index n
@@ -455,3 +456,13 @@ void WebPage::valueChanged(String name, float value){
 	//ESP_LOGI("WebPage::valueChanged","Got async change for '%s'",String2Chars(name)); //
 	setValue(name,value);
 }
+
+void WebPage::markAllDirty(){
+	for(int i=0; i<numValues; i++){
+		if (values[i].used){ // Is this slot in use?
+			values[i].labelDirty=true;
+			values[i].valueDirty=true;
+		}
+	}
+}
+
