@@ -98,6 +98,8 @@ void updateDashboard() {
 						control_page.rxPacketCount);
 		control_page.setValue("packets tx",
 						control_page.txPacketCount);
+		control_page.setValue("slider",
+						control_page.getSliderValue(0)*100);
 
 //		Serial.println("Joystick angle="+String(control_page.getJoystickAngle())+
 //				" magnitude="+String(control_page.getJoystickMagnitude())+
