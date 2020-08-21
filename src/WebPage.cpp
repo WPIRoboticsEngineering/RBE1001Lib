@@ -54,7 +54,7 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
 	//			4B: value data
 	 * 		0x1d (29)	Bulk Label Update
 	 * 			4B:	Number of Labels in this update
-	 * 			4B: xx
+	 * 			4B: Start of string data
 	 * 			[repeated next 12B block for each label]
 	 * 			4B: Index to update
 	 * 			4B: String Offset in packet
@@ -82,6 +82,8 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
     //      0x40 (64)	Button Update
     //			4B: Button Number
     //			4B: Button State (0.0 or 1.0)
+     * 		0x50 (80)	Heartbeat
+     * 			4B: random int.
      *
      */
 
@@ -100,6 +102,10 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
     		break;
     	case 0x40:
     		//Serial.println("Button Update");
+    		break;
+    	case 0x50:
+    		// heartbeat message.
+    		thisPage->setHeartbeatUUID(asInt[1]);
     		break;
 
     }
@@ -158,7 +164,8 @@ void updateTask(void *param){
 
 		lock();
 		//Serial.println("L data Lock");
-		if (thisPage->SendAllLabels()) delay(20);
+		if(thisPage->sendHeartbeat()) return;
+		if (thisPage->SendAllLabels()) return;
 		thisPage->SendAllValues();
 		unlock();
 
@@ -171,7 +178,6 @@ void updateTask(void *param){
 			}
 		}
 		thisPage->valueChanged(updtime,((float)millis())/1000.0);
-		delay(1);
 	}
 }
 
@@ -383,7 +389,7 @@ bool WebPage::SendAllLabels(){
 	uint32_t startOfStringData=(bufferItemCount+1)*12;
 	uint32_t stringOffset = 0;
 
-
+	bufferAsInt32[2]=startOfStringData;
 	//Serial.println("Item Count: '"+String(bufferItemCount)+"'");
 	//Serial.println("String Data Start: '"+String(startOfStringData)+"'");
 	// Load changed strings into buffer.
@@ -398,6 +404,7 @@ bool WebPage::SendAllLabels(){
 			return false;
 		}
 		//Serial.print("Processing #"+String(i)+"  len: "+String(length)+"... ");
+		bufferAsInt32[(i+1)*3 + 1] = stringOffset;
 		memcpy(&bufferAsChar[startOfStringData+stringOffset],values[index].name.c_str(),length);
 		stringOffset+=length;
 		values[index].labelDirty=false;
@@ -464,5 +471,25 @@ void WebPage::markAllDirty(){
 			values[i].valueDirty=true;
 		}
 	}
+}
+void WebPage::setHeartbeatUUID(uint32_t uuid){
+	_heartbeat_uuid=uuid;
+}
+
+bool WebPage::sendHeartbeat(){
+	if (_heartbeat_uuid==0) return false;
+	if (ws.count()==0) return false;
+	if(heartbeatBuffer) delete heartbeatBuffer;
+	heartbeatBuffer = new uint8_t[8];
+	uint32_t *bufferAsInt32=(uint32_t*)heartbeatBuffer;
+	bufferAsInt32[0]=0x50;
+	bufferAsInt32[1]=_heartbeat_uuid;
+	_heartbeat_uuid=0;
+	if ( ws.availableForWriteAll() ){ // Can we write?
+		txPacketCount++;
+		ws.binaryAll(heartbeatBuffer,8);
+		return true; // update sent
+	}
+	return false;
 }
 

@@ -61,9 +61,14 @@ public:
 
 	void markAllDirty();
 
+	bool sendHeartbeat();
+	void setHeartbeatUUID(uint32_t uuid);
+
 	uint8_t * packetBuffer;
 	uint8_t * labelBuffer;
+	uint8_t * heartbeatBuffer;
 private:
 	//int valueToSendThisLoop=0;
+	uint32_t _heartbeat_uuid=0;
 
 };
