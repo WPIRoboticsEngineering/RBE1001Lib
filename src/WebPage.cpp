@@ -164,8 +164,8 @@ void updateTask(void *param){
 
 		lock();
 		//Serial.println("L data Lock");
-		if(thisPage->sendHeartbeat()) continue;
-		if (thisPage->SendAllLabels()) continue;
+		thisPage->sendHeartbeat();
+		thisPage->SendAllLabels();
 		thisPage->SendAllValues();
 		unlock();
 
