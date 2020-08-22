@@ -24,7 +24,6 @@ WebPage buttonPage;
 
 WifiManager manager;
 
-
 Timer dashboardUpdateTimer;  // times when the dashboard should update
 /*
  * This is the standard setup function that is called when the ESP32 is rebooted
