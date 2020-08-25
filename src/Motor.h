@@ -405,6 +405,14 @@ public:
 	 * PID gains for the PID controller
 	 */
 	void setGains(float p, float i, float d);
+	void setGainsP(float p);
+	void setGainsI(float i);
+	void setGainsD(float d);
+
+	float getGainsP(){return kP;}
+	float getGainsI(){return kI;}
+	float getGainsD(){return kD;}
+
 
 
 };

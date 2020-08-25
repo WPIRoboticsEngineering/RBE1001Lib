@@ -189,6 +189,59 @@ void WebPage::initalize(){
 		unlock();
 
     });
+    server.on("/pidvalues", 0b00000001, [](AsyncWebServerRequest *request){
+
+    	lock();
+		//Serial.println("L text/javascript Lock");
+
+		Serial.print("args: ");
+		Serial.println(request->args());
+		for(int i=0; i<request->args(); i++){
+			String key = request->argName(i);
+			if (key.length()>=2){
+				int32_t index = key.substring(1).toInt()-1;
+				if (index!=-1 && index<MAX_POSSIBLE_MOTORS && Motor::list[index] != NULL){
+
+					float value = request->arg(i).toFloat();
+					if (key.charAt(0)=='p'){
+						Serial.print("Setting P Gain ");
+						Serial.print(index);
+						Serial.print(":\t");
+						Serial.println(value);
+						Motor::list[index]->setGainsP(value);
+					}
+					if (key.charAt(0)=='i'){
+						Serial.print("Setting I Gain ");
+						Serial.print(index);
+						Serial.print(":\t");
+						Serial.println(value);
+						Motor::list[index]->setGainsI(value);
+					}
+					if (key.charAt(0)=='d'){
+						Serial.print("Setting D Gain ");
+						Serial.print(index);
+						Serial.print(":\t");
+						Serial.println(value);
+						Motor::list[index]->setGainsD(value);
+					}
+				}
+			}
+		}
+		String pidvals="[";
+		for(int i=0; i<MAX_POSSIBLE_MOTORS; i++){
+
+			if(Motor::list[i] != NULL){
+				if (i!=0) pidvals+=",";
+				pidvals+="["+String(Motor::list[i]->getGainsP())+
+						","+String(Motor::list[i]->getGainsI())+
+						","+String(Motor::list[i]->getGainsD())+"]";
+			}
+		}
+		pidvals += "]";
+		request->send(200, "text/html", pidvals);
+		unlock();
+
+    });
 
 
     xTaskCreatePinnedToCore(
