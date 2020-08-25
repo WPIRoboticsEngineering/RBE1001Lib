@@ -256,9 +256,9 @@ void Motor::SetSpeed(float speedDegPerSec)
 float Motor::SetDelta(float speedDegPerSec)
 {
 	deltaTargetTicks = speedDegPerSec * TICKS_PER_DEGREE * LOOP_PERIOD_MS / 1000.0;
-	Serial.println("Setting Speed "+String(speedDegPerSec)+
-			" increment "+String(deltaTargetTicks)
-	);
+	//Serial.println("Setting Speed "+String(speedDegPerSec)+
+	//		" increment "+String(deltaTargetTicks)
+	//);
 
 	Setpoint = nowEncoder;
 	closedLoopControl = true;
