@@ -2,7 +2,6 @@
 #include <Arduino.h>
 #include <WebServer.h>
 #include "Motor.h"
-#include "AsyncValueListener.h"
 #define labelbuflen 256
 #define valbuflen (sizeof(float)*3)
 typedef struct _JoyData {
@@ -25,7 +24,7 @@ typedef struct _telemetryValue {
 #define numValues 30
 #define labelBufferSize 512
 
-class WebPage : public AsyncValueListener {
+class WebPage{
 public:
 	WebPage();
 	void initalize();

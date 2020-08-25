@@ -21,11 +21,7 @@ static bool lockOutSending = false;
 
 long timeSinceLastSend =0;
 
-const char *strings[12] = { "Left Encoder Degrees","Left Encoder Effort","Left Encoder Degrees-sec",
-		"Right Encoder Degrees","Right Encoder Effort","Right Encoder Degrees-sec" ,
-				"2 Encoder Degrees","2 Encoder Effort","2 Encoder Degrees-sec" ,
-				"3 Encoder Degrees","3 Encoder Effort","3 Encoder Degrees-sec"
-};
+
 
 void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventType type, void * arg, uint8_t *data, size_t len){
   uint32_t *asInt = (uint32_t *)data;
@@ -164,20 +160,11 @@ void updateTask(void *param){
 
 		lock();
 		//Serial.println("L data Lock");
-		if(thisPage->sendHeartbeat()) delay(10);
+		thisPage->sendHeartbeat();
 		if(thisPage->SendAllLabels()) delay(10);
 		thisPage->SendAllValues();
 		unlock();
 
-
-		for (int i = 0; i < MAX_POSSIBLE_MOTORS; i++) {
-			if (Motor::list[i] != NULL) {
-				thisPage->valueChanged(strings[i*3],Motor::list[i]->getCurrentDegrees());
-				thisPage->valueChanged(strings[i*3+1],Motor::list[i]->GetEffort());
-				thisPage->valueChanged(strings[i*3+2],Motor::list[i]->getDegreesPerSecond());
-			}
-		}
-		thisPage->valueChanged(updtime,((float)millis())/1000.0);
 	}
 }
 
