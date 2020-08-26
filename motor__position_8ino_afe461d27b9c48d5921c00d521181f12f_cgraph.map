@@ -3,4 +3,6 @@
 <area shape="rect" id="node3" href="$classMotor.html#aeb102c0704799cf2e2f5523e8900fc08" title="Motor::getDegreesPerSecond" alt="" coords="100,56,295,83"/>
 <area shape="rect" id="node4" href="$classMotor.html#a9c18b8ee3f9e4f1458ec904a53c73a4f" title="Motor::MoveTo" alt="" coords="142,107,253,133"/>
 <area shape="rect" id="node5" href="$classMotor.html#a8037ce5f12ee18be5600dc2ee08be578" title="Motor::SetSetpointWithTime" alt="" coords="343,107,529,133"/>
+<area shape="rect" id="node6" href="$classESP32Encoder.html#ab555afb955fbfb2446b525a64c1efbb1" title="ESP32Encoder::getCount" alt="" coords="577,107,749,133"/>
+<area shape="rect" id="node7" href="$classESP32Encoder.html#aa408a8969aa799cf2e96413ee0a65080" title="ESP32Encoder::getCountRaw" alt="" coords="797,107,996,133"/>
 </map>

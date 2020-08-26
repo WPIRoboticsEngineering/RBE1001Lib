@@ -1,0 +1,5 @@
+<map id="AsyncWebSocketClient::_onDisconnect" name="AsyncWebSocketClient::_onDisconnect">
+<area shape="rect" id="node2" href="$classAsyncWebSocket.html#a6467baa0a148f992e8962020a023e26c" title="AsyncWebSocket::_handleDisconnect" alt="" coords="215,35,461,61"/>
+<area shape="rect" id="node3" href="$classAsyncWebSocketClient.html#a9468ef28a6ccb9218a75d6fe8788f4ff" title="AsyncWebSocketClient::id" alt="" coords="509,5,688,32"/>
+<area shape="rect" id="node4" href="$classLinkedList.html#a2c659523d4dd0f8a47f1bc57f2cc98c8" title="LinkedList::remove\l_first" alt="" coords="533,57,665,98"/>
+</map>

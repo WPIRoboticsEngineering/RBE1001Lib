@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['none',['NONE',['../ESP32Encoder_8h.html#adca399663765c125d26e6f2896b5b349ac157bdf0b85a40d2619cbc8bc1ae5fe2',1,'ESP32Encoder.h']]]
+  ['initialconnect',['InitialConnect',['../WifiManager_8h.html#a2cb8df04852a8d762834daac6c32965ba44354011398c828845e014b8c8df03d1',1,'WifiManager.h']]]
 ];

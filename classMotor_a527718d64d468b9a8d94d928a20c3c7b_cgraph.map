@@ -1,4 +1,5 @@
 <map id="Motor::SetSetpointWithSinusoidalInterpolation" name="Motor::SetSetpointWithSinusoidalInterpolation">
-<area shape="rect" id="node2" href="$classMotor.html#a693fec0cfe3f2951157467464c1a97b6" title="Motor::setGains" alt="" coords="308,5,423,32"/>
-<area shape="rect" id="node3" href="$classMotor.html#a8037ce5f12ee18be5600dc2ee08be578" title="Motor::SetSetpointWithTime" alt="" coords="272,56,459,83"/>
+<area shape="rect" id="node2" href="$classMotor.html#a8037ce5f12ee18be5600dc2ee08be578" title="Motor::SetSetpointWithTime" alt="" coords="272,13,459,39"/>
+<area shape="rect" id="node3" href="$classESP32Encoder.html#ab555afb955fbfb2446b525a64c1efbb1" title="ESP32Encoder::getCount" alt="" coords="507,13,679,39"/>
+<area shape="rect" id="node4" href="$classESP32Encoder.html#aa408a8969aa799cf2e96413ee0a65080" title="ESP32Encoder::getCountRaw" alt="" coords="727,13,925,39"/>
 </map>

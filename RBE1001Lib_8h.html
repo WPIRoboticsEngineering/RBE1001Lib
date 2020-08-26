@@ -68,20 +68,27 @@ $(function() {
 <div class="title">RBE1001Lib.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="Rangefinder_8h_source.html">Rangefinder.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="Esp32WifiManager_8h_source.html">Esp32WifiManager.h</a>&gt;</code><br />
+<code>#include &lt;WebServer.h&gt;</code><br />
+<code>#include &lt;ESPmDNS.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="ESP32AnalogRead_8h_source.html">ESP32AnalogRead.h</a>&gt;</code><br />
+<code>#include &quot;<a class="el" href="Rangefinder_8h_source.html">Rangefinder.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Motor_8h_source.html">Motor.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for RBE1001Lib.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="RBE1001Lib_8h__incl.png" border="0" usemap="#src_2RBE1001Lib_8h" alt=""/></div>
 <map name="src_2RBE1001Lib_8h" id="src_2RBE1001Lib_8h">
-<area shape="rect" id="node2" href="Rangefinder_8h.html" title="Rangefinder.h" alt="" coords="635,80,737,107"/>
-<area shape="rect" id="node7" href="Motor_8h.html" title="Motor.h" alt="" coords="443,80,510,107"/>
-<area shape="rect" id="node8" href="ESP32Servo_8h.html" title="ESP32Servo.h" alt="" coords="117,155,225,181"/>
-<area shape="rect" id="node14" href="ESP32Encoder_8h.html" title="ESP32Encoder.h" alt="" coords="357,155,479,181"/>
-<area shape="rect" id="node9" href="analogWrite_8h.html" title="analogWrite.h" alt="" coords="224,304,327,331"/>
-<area shape="rect" id="node12" href="ESP32PWM_8h.html" title="ESP32PWM.h" alt="" coords="93,304,199,331"/>
-<area shape="rect" id="node13" href="ESP32Tone_8h.html" title="ESP32Tone.h" alt="" coords="5,229,108,256"/>
+<area shape="rect" id="node2" href="Esp32WifiManager_8h.html" title="Esp32WifiManager.h" alt="" coords="119,80,261,107"/>
+<area shape="rect" id="node10" href="ESP32AnalogRead_8h.html" title="ESP32AnalogRead.h" alt="" coords="691,80,836,107"/>
+<area shape="rect" id="node12" href="Rangefinder_8h.html" title="Rangefinder.h" alt="" coords="561,80,664,107"/>
+<area shape="rect" id="node16" href="Motor_8h.html" title="Motor.h" alt="" coords="1017,80,1083,107"/>
+<area shape="rect" id="node3" href="WifiManager_8h.html" title="wifi/WifiManager.h" alt="" coords="97,155,227,181"/>
+<area shape="rect" id="node17" href="ESP32Servo_8h.html" title="ESP32Servo.h" alt="" coords="1184,155,1292,181"/>
+<area shape="rect" id="node23" href="ESP32Encoder_8h.html" title="ESP32Encoder.h" alt="" coords="937,155,1059,181"/>
+<area shape="rect" id="node18" href="analogWrite_8h.html" title="analogWrite.h" alt="" coords="1271,304,1373,331"/>
+<area shape="rect" id="node21" href="ESP32PWM_8h.html" title="ESP32PWM.h" alt="" coords="1139,304,1246,331"/>
+<area shape="rect" id="node22" href="ESP32Tone_8h.html" title="ESP32Tone.h" alt="" coords="1140,229,1243,256"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -89,17 +96,20 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="RBE1001Lib_8h__dep__incl.png" border="0" usemap="#src_2RBE1001Lib_8hdep" alt=""/></div>
 <map name="src_2RBE1001Lib_8hdep" id="src_2RBE1001Lib_8hdep">
-<area shape="rect" id="node2" href="FullSystemTest_8ino.html" title="examples/FullSystemTest\l/FullSystemTest.ino" alt="" coords="5,80,180,121"/>
-<area shape="rect" id="node3" href="LineTrackerTest_8ino.html" title="examples/LineTrackerTest\l/LineTrackerTest.ino" alt="" coords="205,80,381,121"/>
-<area shape="rect" id="node4" href="MotorTest_8ino.html" title="examples/MotorTest\l/MotorTest.ino" alt="" coords="405,80,546,121"/>
-<area shape="rect" id="node5" href="MotorVelocityTest_8ino.html" title="examples/MotorVelocityTest\l/MotorVelocityTest.ino" alt="" coords="571,80,759,121"/>
-<area shape="rect" id="node6" href="RangeFinderTest_8ino.html" title="examples/RangeFinderTest\l/RangeFinderTest.ino" alt="" coords="783,80,965,121"/>
-<area shape="rect" id="node7" href="UltrasonicProject_8ino.html" title="examples/UltrasonicProject\l/UltrasonicProject.ino" alt="" coords="989,80,1172,121"/>
-<area shape="rect" id="node8" href="motor__position_8ino.html" title="examples/week01/motor\l_position/motor_position.ino" alt="" coords="1197,80,1381,121"/>
-<area shape="rect" id="node9" href="motor__speed_8ino.html" title="examples/week01/motor\l_speed/motor_speed.ino" alt="" coords="1405,80,1569,121"/>
-<area shape="rect" id="node10" href="move__for__test_8ino.html" title="examples/week01/move\l_for_test/move_for_test.ino" alt="" coords="1594,80,1775,121"/>
-<area shape="rect" id="node11" href="photoresistor_8ino.html" title="examples/week02b/photoresistor\l/photoresistor.ino" alt="" coords="1799,80,2013,121"/>
-<area shape="rect" id="node12" href="ultrasonic_8ino.html" title="examples/week02b/ultrasonic\l/ultrasonic.ino" alt="" coords="2037,80,2231,121"/>
+<area shape="rect" id="node2" href="WebPage_8cpp.html" title="src/WebPage.cpp" alt="" coords="5,87,132,114"/>
+<area shape="rect" id="node3" href="FullSystemTest_8ino.html" title="examples/FullSystemTest\l/FullSystemTest.ino" alt="" coords="156,80,331,121"/>
+<area shape="rect" id="node4" href="LineTrackerTest_8ino.html" title="examples/LineTrackerTest\l/LineTrackerTest.ino" alt="" coords="355,80,531,121"/>
+<area shape="rect" id="node5" href="MotorTest_8ino.html" title="examples/MotorTest\l/MotorTest.ino" alt="" coords="555,80,697,121"/>
+<area shape="rect" id="node6" href="MotorVelocityTest_8ino.html" title="examples/MotorVelocityTest\l/MotorVelocityTest.ino" alt="" coords="721,80,909,121"/>
+<area shape="rect" id="node7" href="RangeFinderTest_8ino.html" title="examples/RangeFinderTest\l/RangeFinderTest.ino" alt="" coords="933,80,1116,121"/>
+<area shape="rect" id="node8" href="RCCTL_8ino.html" title="examples/RCCTL/RCCTL.ino" alt="" coords="1141,87,1338,114"/>
+<area shape="rect" id="node9" href="UltrasonicProject_8ino.html" title="examples/UltrasonicProject\l/UltrasonicProject.ino" alt="" coords="1363,80,1545,121"/>
+<area shape="rect" id="node10" href="button_8ino.html" title="examples/week01/button\l/button.ino" alt="" coords="1569,80,1736,121"/>
+<area shape="rect" id="node11" href="motor__position_8ino.html" title="examples/week01/motor\l_position/motor_position.ino" alt="" coords="1761,80,1945,121"/>
+<area shape="rect" id="node12" href="motor__speed_8ino.html" title="examples/week01/motor\l_speed/motor_speed.ino" alt="" coords="1969,80,2133,121"/>
+<area shape="rect" id="node13" href="move__for__test_8ino.html" title="examples/week01/move\l_for_test/move_for_test.ino" alt="" coords="2158,80,2339,121"/>
+<area shape="rect" id="node14" href="photoresistor_8ino.html" title="examples/week02b/photoresistor\l/photoresistor.ino" alt="" coords="2363,80,2577,121"/>
+<area shape="rect" id="node15" href="ultrasonic_8ino.html" title="examples/week02b/ultrasonic\l/ultrasonic.ino" alt="" coords="2601,80,2795,121"/>
 </map>
 </div>
 </div>
@@ -125,9 +135,9 @@ Macros</h2></td></tr>
 <tr class="separator:a750ca7c9b92cfc9e57272ff3a49db48b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81f0aae3c3a2adba06ac3b802b38915a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RBE1001Lib_8h.html#a81f0aae3c3a2adba06ac3b802b38915a">SPI_SS</a>&#160;&#160;&#160;5</td></tr>
 <tr class="separator:a81f0aae3c3a2adba06ac3b802b38915a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6da27060fefa17bba711a0a52b1d65a8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RBE1001Lib_8h.html#a6da27060fefa17bba711a0a52b1d65a8">SIDE_ULTRASONIC_TRIG</a>&#160;&#160;&#160;17</td></tr>
+<tr class="memitem:a6da27060fefa17bba711a0a52b1d65a8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RBE1001Lib_8h.html#a6da27060fefa17bba711a0a52b1d65a8">SIDE_ULTRASONIC_TRIG</a>&#160;&#160;&#160;23</td></tr>
 <tr class="separator:a6da27060fefa17bba711a0a52b1d65a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76ee7db366aae2e2dc039c6a9dd331c6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RBE1001Lib_8h.html#a76ee7db366aae2e2dc039c6a9dd331c6">SIDE_ULTRASONIC_ECHO</a>&#160;&#160;&#160;16</td></tr>
+<tr class="memitem:a76ee7db366aae2e2dc039c6a9dd331c6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RBE1001Lib_8h.html#a76ee7db366aae2e2dc039c6a9dd331c6">SIDE_ULTRASONIC_ECHO</a>&#160;&#160;&#160;22</td></tr>
 <tr class="separator:a76ee7db366aae2e2dc039c6a9dd331c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4a60dbb81987e880c8e33aeee1936d9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RBE1001Lib_8h.html#ae4a60dbb81987e880c8e33aeee1936d9">LEFT_LINE_SENSE</a>&#160;&#160;&#160;36</td></tr>
 <tr class="separator:ae4a60dbb81987e880c8e33aeee1936d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -139,22 +149,22 @@ Macros</h2></td></tr>
 <tr class="separator:a5218f89aa292654356a48989319aafb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24332eae079e5457f53d49190fe3deed"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RBE1001Lib_8h.html#a24332eae079e5457f53d49190fe3deed">MOTOR_DISABLE</a>&#160;&#160;&#160;15</td></tr>
 <tr class="separator:a24332eae079e5457f53d49190fe3deed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b942ae1310c124145c8a7c8d486db33"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RBE1001Lib_8h.html#a1b942ae1310c124145c8a7c8d486db33">MOTOR1_PWM</a>&#160;&#160;&#160;13</td></tr>
-<tr class="separator:a1b942ae1310c124145c8a7c8d486db33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81e59bddb13c0a7898a9eb4cdd811bc7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RBE1001Lib_8h.html#a81e59bddb13c0a7898a9eb4cdd811bc7">MOTOR1_DIR</a>&#160;&#160;&#160;4</td></tr>
-<tr class="separator:a81e59bddb13c0a7898a9eb4cdd811bc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0fcb1011ecb6d47a95a3ef79cd288b7d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RBE1001Lib_8h.html#a0fcb1011ecb6d47a95a3ef79cd288b7d">MOTOR2_PWM</a>&#160;&#160;&#160;12</td></tr>
-<tr class="separator:a0fcb1011ecb6d47a95a3ef79cd288b7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2967bf5c2085f6433131c100608edd61"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RBE1001Lib_8h.html#a2967bf5c2085f6433131c100608edd61">MOTOR2_DIR</a>&#160;&#160;&#160;25</td></tr>
-<tr class="separator:a2967bf5c2085f6433131c100608edd61"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f12153c6504f8b51c1222535569bfbb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RBE1001Lib_8h.html#a9f12153c6504f8b51c1222535569bfbb">MOTOR1_ENCA</a>&#160;&#160;&#160;27</td></tr>
-<tr class="separator:a9f12153c6504f8b51c1222535569bfbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd492b7515de333a6b18dd637983efdf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RBE1001Lib_8h.html#abd492b7515de333a6b18dd637983efdf">MOTOR1_ENCB</a>&#160;&#160;&#160;26</td></tr>
-<tr class="separator:abd492b7515de333a6b18dd637983efdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3aa022b36607610f62a335396304f259"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RBE1001Lib_8h.html#a3aa022b36607610f62a335396304f259">MOTOR2_ENCA</a>&#160;&#160;&#160;32</td></tr>
-<tr class="separator:a3aa022b36607610f62a335396304f259"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2f3b885fe2414e1e47544678512b28e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RBE1001Lib_8h.html#ae2f3b885fe2414e1e47544678512b28e">MOTOR2_ENCB</a>&#160;&#160;&#160;14</td></tr>
-<tr class="separator:ae2f3b885fe2414e1e47544678512b28e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afaf7f71c8dff8707b73258805f47203d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RBE1001Lib_8h.html#afaf7f71c8dff8707b73258805f47203d">MOTOR_LEFT_PWM</a>&#160;&#160;&#160;13</td></tr>
+<tr class="separator:afaf7f71c8dff8707b73258805f47203d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab653924cd54584661884fa0ab680cc25"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RBE1001Lib_8h.html#ab653924cd54584661884fa0ab680cc25">MOTOR_LEFT_DIR</a>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:ab653924cd54584661884fa0ab680cc25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca84469f61192a28df038ff2bdc38d22"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RBE1001Lib_8h.html#aca84469f61192a28df038ff2bdc38d22">MOTOR_RIGHT_PWM</a>&#160;&#160;&#160;12</td></tr>
+<tr class="separator:aca84469f61192a28df038ff2bdc38d22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2311cc3d885258a94ea430e07fc5d34b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RBE1001Lib_8h.html#a2311cc3d885258a94ea430e07fc5d34b">MOTOR_RIGHT_DIR</a>&#160;&#160;&#160;25</td></tr>
+<tr class="separator:a2311cc3d885258a94ea430e07fc5d34b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b8e45ab685584dd56cf81dbef13872c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RBE1001Lib_8h.html#a7b8e45ab685584dd56cf81dbef13872c">MOTOR_LEFT_ENCA</a>&#160;&#160;&#160;27</td></tr>
+<tr class="separator:a7b8e45ab685584dd56cf81dbef13872c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3cd04d0c7b11460ab9df11f0c44344c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RBE1001Lib_8h.html#ab3cd04d0c7b11460ab9df11f0c44344c">MOTOR_LEFT_ENCB</a>&#160;&#160;&#160;26</td></tr>
+<tr class="separator:ab3cd04d0c7b11460ab9df11f0c44344c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d0557b91ad8e0d8fcec67f4c1f628c6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RBE1001Lib_8h.html#a4d0557b91ad8e0d8fcec67f4c1f628c6">MOTOR_RIGHT_ENCA</a>&#160;&#160;&#160;32</td></tr>
+<tr class="separator:a4d0557b91ad8e0d8fcec67f4c1f628c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae688518b690e6a1f3c26048c9ff7728b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RBE1001Lib_8h.html#ae688518b690e6a1f3c26048c9ff7728b">MOTOR_RIGHT_ENCB</a>&#160;&#160;&#160;14</td></tr>
+<tr class="separator:ae688518b690e6a1f3c26048c9ff7728b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a88ae201421ebdf8709ec200d184e1392"></a>
@@ -169,7 +179,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00006">6</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00012">12</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
 
 </div>
 </div>
@@ -185,7 +195,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00008">8</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00014">14</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
 
 </div>
 </div>
@@ -201,7 +211,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00007">7</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00013">13</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
 
 </div>
 </div>
@@ -217,155 +227,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00022">22</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="FullSystemTest_8ino_source.html#l00023">setup()</a>.</p>
-
-</div>
-</div>
-<a id="a81e59bddb13c0a7898a9eb4cdd811bc7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a81e59bddb13c0a7898a9eb4cdd811bc7">&#9670;&nbsp;</a></span>MOTOR1_DIR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MOTOR1_DIR&#160;&#160;&#160;4</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Pin for setting the direction of the H-Bridge </p>
-
-<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00042">42</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="FullSystemTest_8ino_source.html#l00023">setup()</a>.</p>
-
-</div>
-</div>
-<a id="a9f12153c6504f8b51c1222535569bfbb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f12153c6504f8b51c1222535569bfbb">&#9670;&nbsp;</a></span>MOTOR1_ENCA</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MOTOR1_ENCA&#160;&#160;&#160;27</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00054">54</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="FullSystemTest_8ino_source.html#l00023">setup()</a>.</p>
-
-</div>
-</div>
-<a id="abd492b7515de333a6b18dd637983efdf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abd492b7515de333a6b18dd637983efdf">&#9670;&nbsp;</a></span>MOTOR1_ENCB</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MOTOR1_ENCB&#160;&#160;&#160;26</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00056">56</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="FullSystemTest_8ino_source.html#l00023">setup()</a>.</p>
-
-</div>
-</div>
-<a id="a1b942ae1310c124145c8a7c8d486db33"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b942ae1310c124145c8a7c8d486db33">&#9670;&nbsp;</a></span>MOTOR1_PWM</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MOTOR1_PWM&#160;&#160;&#160;13</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Drive motor 1 10Khz full duty PWM pin </p>
-
-<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00037">37</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="FullSystemTest_8ino_source.html#l00023">setup()</a>.</p>
-
-</div>
-</div>
-<a id="a2967bf5c2085f6433131c100608edd61"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2967bf5c2085f6433131c100608edd61">&#9670;&nbsp;</a></span>MOTOR2_DIR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MOTOR2_DIR&#160;&#160;&#160;25</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Pin for setting the direction of the H-Bridge </p>
-
-<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00051">51</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="FullSystemTest_8ino_source.html#l00023">setup()</a>.</p>
-
-</div>
-</div>
-<a id="a3aa022b36607610f62a335396304f259"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3aa022b36607610f62a335396304f259">&#9670;&nbsp;</a></span>MOTOR2_ENCA</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MOTOR2_ENCA&#160;&#160;&#160;32</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00059">59</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="FullSystemTest_8ino_source.html#l00023">setup()</a>.</p>
-
-</div>
-</div>
-<a id="ae2f3b885fe2414e1e47544678512b28e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2f3b885fe2414e1e47544678512b28e">&#9670;&nbsp;</a></span>MOTOR2_ENCB</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MOTOR2_ENCB&#160;&#160;&#160;14</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00060">60</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="FullSystemTest_8ino_source.html#l00023">setup()</a>.</p>
-
-</div>
-</div>
-<a id="a0fcb1011ecb6d47a95a3ef79cd288b7d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0fcb1011ecb6d47a95a3ef79cd288b7d">&#9670;&nbsp;</a></span>MOTOR2_PWM</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MOTOR2_PWM&#160;&#160;&#160;12</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Drive motor 2 10Khz full duty PWM pin </p>
-
-<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00046">46</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00028">28</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="FullSystemTest_8ino_source.html#l00023">setup()</a>.</p>
 
@@ -383,7 +245,155 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00032">32</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00038">38</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
+
+</div>
+</div>
+<a id="ab653924cd54584661884fa0ab680cc25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab653924cd54584661884fa0ab680cc25">&#9670;&nbsp;</a></span>MOTOR_LEFT_DIR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MOTOR_LEFT_DIR&#160;&#160;&#160;4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Pin for setting the direction of the H-Bridge </p>
+
+<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00048">48</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="FullSystemTest_8ino_source.html#l00023">setup()</a>.</p>
+
+</div>
+</div>
+<a id="a7b8e45ab685584dd56cf81dbef13872c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b8e45ab685584dd56cf81dbef13872c">&#9670;&nbsp;</a></span>MOTOR_LEFT_ENCA</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MOTOR_LEFT_ENCA&#160;&#160;&#160;27</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00060">60</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="FullSystemTest_8ino_source.html#l00023">setup()</a>.</p>
+
+</div>
+</div>
+<a id="ab3cd04d0c7b11460ab9df11f0c44344c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3cd04d0c7b11460ab9df11f0c44344c">&#9670;&nbsp;</a></span>MOTOR_LEFT_ENCB</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MOTOR_LEFT_ENCB&#160;&#160;&#160;26</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00062">62</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="FullSystemTest_8ino_source.html#l00023">setup()</a>.</p>
+
+</div>
+</div>
+<a id="afaf7f71c8dff8707b73258805f47203d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afaf7f71c8dff8707b73258805f47203d">&#9670;&nbsp;</a></span>MOTOR_LEFT_PWM</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MOTOR_LEFT_PWM&#160;&#160;&#160;13</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Drive motor 1 10Khz full duty PWM pin </p>
+
+<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00043">43</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="FullSystemTest_8ino_source.html#l00023">setup()</a>.</p>
+
+</div>
+</div>
+<a id="a2311cc3d885258a94ea430e07fc5d34b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2311cc3d885258a94ea430e07fc5d34b">&#9670;&nbsp;</a></span>MOTOR_RIGHT_DIR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MOTOR_RIGHT_DIR&#160;&#160;&#160;25</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Pin for setting the direction of the H-Bridge </p>
+
+<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00057">57</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="FullSystemTest_8ino_source.html#l00023">setup()</a>.</p>
+
+</div>
+</div>
+<a id="a4d0557b91ad8e0d8fcec67f4c1f628c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d0557b91ad8e0d8fcec67f4c1f628c6">&#9670;&nbsp;</a></span>MOTOR_RIGHT_ENCA</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MOTOR_RIGHT_ENCA&#160;&#160;&#160;32</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00065">65</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="FullSystemTest_8ino_source.html#l00023">setup()</a>.</p>
+
+</div>
+</div>
+<a id="ae688518b690e6a1f3c26048c9ff7728b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae688518b690e6a1f3c26048c9ff7728b">&#9670;&nbsp;</a></span>MOTOR_RIGHT_ENCB</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MOTOR_RIGHT_ENCB&#160;&#160;&#160;14</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00066">66</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="FullSystemTest_8ino_source.html#l00023">setup()</a>.</p>
+
+</div>
+</div>
+<a id="aca84469f61192a28df038ff2bdc38d22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca84469f61192a28df038ff2bdc38d22">&#9670;&nbsp;</a></span>MOTOR_RIGHT_PWM</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MOTOR_RIGHT_PWM&#160;&#160;&#160;12</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Drive motor 2 10Khz full duty PWM pin </p>
+
+<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00052">52</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="FullSystemTest_8ino_source.html#l00023">setup()</a>.</p>
 
 </div>
 </div>
@@ -399,7 +409,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00024">24</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00030">30</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="FullSystemTest_8ino_source.html#l00023">setup()</a>.</p>
 
@@ -417,7 +427,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00010">10</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00016">16</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
 
 </div>
 </div>
@@ -433,7 +443,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00009">9</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00015">15</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
 
 </div>
 </div>
@@ -449,7 +459,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00026">26</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00032">32</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="FullSystemTest_8ino_source.html#l00023">setup()</a>.</p>
 
@@ -468,7 +478,7 @@ Macros</h2></td></tr>
 </div><div class="memdoc">
 <p>Gripper pin for <a class="el" href="classServo.html">Servo</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00030">30</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00036">36</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="FullSystemTest_8ino_source.html#l00023">setup()</a>.</p>
 
@@ -481,12 +491,12 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SIDE_ULTRASONIC_ECHO&#160;&#160;&#160;16</td>
+          <td class="memname">#define SIDE_ULTRASONIC_ECHO&#160;&#160;&#160;22</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00019">19</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00025">25</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="FullSystemTest_8ino_source.html#l00023">setup()</a>.</p>
 
@@ -499,12 +509,12 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SIDE_ULTRASONIC_TRIG&#160;&#160;&#160;17</td>
+          <td class="memname">#define SIDE_ULTRASONIC_TRIG&#160;&#160;&#160;23</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00018">18</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00024">24</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="FullSystemTest_8ino_source.html#l00023">setup()</a>.</p>
 
@@ -522,7 +532,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00013">13</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00019">19</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
 
 </div>
 </div>
@@ -538,7 +548,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00012">12</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00018">18</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
 
 </div>
 </div>
@@ -554,7 +564,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00014">14</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00020">20</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
 
 </div>
 </div>
@@ -570,7 +580,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00015">15</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RBE1001Lib_8h_source.html#l00021">21</a> of file <a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>.</p>
 
 </div>
 </div>

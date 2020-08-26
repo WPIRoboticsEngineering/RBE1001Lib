@@ -1,0 +1,9 @@
+<map id="AsyncWebSocketResponse" name="AsyncWebSocketResponse">
+<area shape="rect" id="node2" href="$classAsyncWebServerResponse.html" title="AsyncWebServerResponse" alt="" coords="327,35,509,61"/>
+<area shape="rect" id="node3" href="$classLinkedList.html" title="LinkedList\&lt; AsyncWebHeader *\&gt;" alt="" coords="5,5,221,32"/>
+<area shape="rect" id="node4" href="$classAsyncWebSocket.html" title="AsyncWebSocket" alt="" coords="355,115,481,141"/>
+<area shape="rect" id="node5" href="$classAsyncWebHandler.html" title="AsyncWebHandler" alt="" coords="48,56,179,83"/>
+<area shape="rect" id="node6" href="$classLinkedList.html" title="LinkedList\&lt; AsyncWebSocket\lMessageBuffer *\&gt;" alt="" coords="14,107,213,149"/>
+<area shape="rect" id="node7" href="$classLinkedList.html" title="LinkedList\&lt; AsyncWebSocket\lClient * \&gt;" alt="" coords="14,173,213,214"/>
+<area shape="rect" id="node8" href="$classAsyncWebLock.html" title="AsyncWebLock" alt="" coords="56,239,171,265"/>
+</map>

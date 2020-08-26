@@ -60,7 +60,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pub-attribs">Data Fields</a> &#124;
 <a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">WebPage Class Reference</div>  </div>
@@ -73,56 +73,90 @@ Collaboration diagram for WebPage:</div>
 <div class="dyncontent">
 <div class="center"><img src="classWebPage__coll__graph.png" border="0" usemap="#WebPage_coll__map" alt="Collaboration graph"/></div>
 <map name="WebPage_coll__map" id="WebPage_coll__map">
-<area shape="rect" id="node2" href="classSimpleWebServer.html" title="SimpleWebServer" alt="" coords="5,5,132,32"/>
-<area shape="rect" id="node3" href="structDataValues.html" title="DataValues" alt="" coords="157,5,247,32"/>
+<area shape="rect" id="node2" href="struct__telemetryValue.html" title="_telemetryValue" alt="" coords="5,5,121,32"/>
+<area shape="rect" id="node3" href="struct__JoyData.html" title="_JoyData" alt="" coords="145,5,224,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a66c10e43bed6f73e58704e6ded8593e6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#a66c10e43bed6f73e58704e6ded8593e6">WebPage</a> (<a class="el" href="classSimpleWebServer.html">SimpleWebServer</a> &amp;sws)</td></tr>
-<tr class="separator:a66c10e43bed6f73e58704e6ded8593e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19aa8540c4a4ac9bb0c9ca371ca65593"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#a19aa8540c4a4ac9bb0c9ca371ca65593">newButton</a> (String url, void(*handler)(), String label, String description)</td></tr>
-<tr class="separator:a19aa8540c4a4ac9bb0c9ca371ca65593"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1701fb71510b3e3e2e3b050cf3f83ba5"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#a1701fb71510b3e3e2e3b050cf3f83ba5">getPage</a> ()</td></tr>
-<tr class="separator:a1701fb71510b3e3e2e3b050cf3f83ba5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a122ef35e1475973ddb45f400e77b114d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#a122ef35e1475973ddb45f400e77b114d">finishPage</a> ()</td></tr>
-<tr class="separator:a122ef35e1475973ddb45f400e77b114d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9333723de02a0c31f3a8044a945aa8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#ab9333723de02a0c31f3a8044a945aa8c">setValue</a> (String name, float value)</td></tr>
-<tr class="separator:ab9333723de02a0c31f3a8044a945aa8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a166d1025f5bc1ca348accec8b98aca"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#a4a166d1025f5bc1ca348accec8b98aca">getHTML</a> ()</td></tr>
-<tr class="separator:a4a166d1025f5bc1ca348accec8b98aca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40ceb3debbc2383645860943dfff9390"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#a40ceb3debbc2383645860943dfff9390">sendHTML</a> ()</td></tr>
-<tr class="separator:a40ceb3debbc2383645860943dfff9390"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4bfea845b682a652a2149f090ace93b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#ac4bfea845b682a652a2149f090ace93b">dataUpdate</a> ()</td></tr>
-<tr class="separator:ac4bfea845b682a652a2149f090ace93b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07ef27add77ba1b3e218ec4a190e46f6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#a07ef27add77ba1b3e218ec4a190e46f6">WebPage</a> ()</td></tr>
+<tr class="separator:a07ef27add77ba1b3e218ec4a190e46f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2caf8ebfb7c96664cdf0dccef253e78a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#a2caf8ebfb7c96664cdf0dccef253e78a">initalize</a> ()</td></tr>
+<tr class="separator:a2caf8ebfb7c96664cdf0dccef253e78a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abae7b8e001129bcaeb8249f20a0cbab0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#abae7b8e001129bcaeb8249f20a0cbab0">getSliderValue</a> (uint32_t number)</td></tr>
+<tr class="separator:abae7b8e001129bcaeb8249f20a0cbab0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86be1a6d46aa4638bce70c3b5ebad11d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="WebPage_8h.html#a1f67b6acdb3bc6ce6a918e3bca70cdab">JoyData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#a86be1a6d46aa4638bce70c3b5ebad11d">getJoystickData</a> ()</td></tr>
+<tr class="separator:a86be1a6d46aa4638bce70c3b5ebad11d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a120f4e8d6844f431ea31be229787578a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#a120f4e8d6844f431ea31be229787578a">getJoystickAngle</a> ()</td></tr>
+<tr class="separator:a120f4e8d6844f431ea31be229787578a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace56c19c78b30f752c4319a1da71b69c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#ace56c19c78b30f752c4319a1da71b69c">getJoystickMagnitude</a> ()</td></tr>
+<tr class="separator:ace56c19c78b30f752c4319a1da71b69c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb85af5d59ce7b475daed9b8dff23e15"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#acb85af5d59ce7b475daed9b8dff23e15">getJoystickX</a> ()</td></tr>
+<tr class="separator:acb85af5d59ce7b475daed9b8dff23e15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad186168de72408c424553645f0753784"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#ad186168de72408c424553645f0753784">getJoystickY</a> ()</td></tr>
+<tr class="separator:ad186168de72408c424553645f0753784"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a336eea64f6d880b7c11f3b916d8989a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#a336eea64f6d880b7c11f3b916d8989a9">setSliderValue</a> (uint32_t number, float value)</td></tr>
+<tr class="separator:a336eea64f6d880b7c11f3b916d8989a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90afc8046c36040500d8b96da9ec269e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#a90afc8046c36040500d8b96da9ec269e">setJoystickValue</a> (float xpos, float ypos, float angle, float mag)</td></tr>
+<tr class="separator:a90afc8046c36040500d8b96da9ec269e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a311c64a0b24e4ff9e9d2fe8269b6a7e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#a311c64a0b24e4ff9e9d2fe8269b6a7e3">setValue</a> (String name, float data)</td></tr>
+<tr class="separator:a311c64a0b24e4ff9e9d2fe8269b6a7e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb8011e016998e7c4276d02d63701586"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#aeb8011e016998e7c4276d02d63701586">newButton</a> (String url, void(*handler)(String), String label, String description)</td></tr>
+<tr class="separator:aeb8011e016998e7c4276d02d63701586"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef7e846a1d8c68240b6aadc41074767d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#aef7e846a1d8c68240b6aadc41074767d">SendAllValues</a> ()</td></tr>
+<tr class="separator:aef7e846a1d8c68240b6aadc41074767d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a958b189c48eec8d2b2177b9e56442d80"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#a958b189c48eec8d2b2177b9e56442d80">SendAllLabels</a> ()</td></tr>
+<tr class="separator:a958b189c48eec8d2b2177b9e56442d80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af246063dfc5e02c05e0ad469d2c7907c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#af246063dfc5e02c05e0ad469d2c7907c">valueChanged</a> (String name, float value)</td></tr>
+<tr class="separator:af246063dfc5e02c05e0ad469d2c7907c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa10494b741f803ca632270536a3337fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#aa10494b741f803ca632270536a3337fb">sendValueUpdate</a> (uint32_t index, uint8_t *buffer)</td></tr>
+<tr class="separator:aa10494b741f803ca632270536a3337fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2824e51d3807da4c52aa8175f6f99e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#ae2824e51d3807da4c52aa8175f6f99e3">sendLabelUpdate</a> (uint32_t index, uint8_t *buffer)</td></tr>
+<tr class="separator:ae2824e51d3807da4c52aa8175f6f99e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a6cb8d704e67dce02fb64cad81e4c56"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#a8a6cb8d704e67dce02fb64cad81e4c56">markAllDirty</a> ()</td></tr>
+<tr class="separator:a8a6cb8d704e67dce02fb64cad81e4c56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e62427a2e22862245a9467633ebb133"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#a8e62427a2e22862245a9467633ebb133">sendHeartbeat</a> ()</td></tr>
+<tr class="separator:a8e62427a2e22862245a9467633ebb133"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bb06280ee0d8c75fc5371f5ab3d5841"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#a2bb06280ee0d8c75fc5371f5ab3d5841">setHeartbeatUUID</a> (uint32_t uuid)</td></tr>
+<tr class="separator:a2bb06280ee0d8c75fc5371f5ab3d5841"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:ac512a802fa4bbb53df81a1c1832c31e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#ac512a802fa4bbb53df81a1c1832c31e2">add</a> (String s)</td></tr>
-<tr class="separator:ac512a802fa4bbb53df81a1c1832c31e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af36dca006786df8fdccab1f7f82d60fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#af36dca006786df8fdccab1f7f82d60fe">add</a> (float f)</td></tr>
-<tr class="separator:af36dca006786df8fdccab1f7f82d60fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a422fea249ce190f69a15e43a572f6597"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#a422fea249ce190f69a15e43a572f6597">postResponse</a> ()</td></tr>
-<tr class="separator:a422fea249ce190f69a15e43a572f6597"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Data Fields</h2></td></tr>
+<tr class="memitem:a5c3ed27a2e57ba97e2a47e765bc98602"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#a5c3ed27a2e57ba97e2a47e765bc98602">sliders</a> [<a class="el" href="WebPage_8h.html#a1236f3d035e5dbbf704b5c0e4432eab3">numSliders</a>]</td></tr>
+<tr class="separator:a5c3ed27a2e57ba97e2a47e765bc98602"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af229dc191e47aeedf60a145a8577985d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="WebPage_8h.html#a59190eb0914bdb8d80bc25491b4cb1f8">telemetryValue</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#af229dc191e47aeedf60a145a8577985d">values</a> [<a class="el" href="WebPage_8h.html#a6e4a68678fe8d73ce391ccb07c637ab2">numValues</a>]</td></tr>
+<tr class="separator:af229dc191e47aeedf60a145a8577985d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e7dc9e48f8f35fff0da5df5e121a492"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#a6e7dc9e48f8f35fff0da5df5e121a492">numValuesUsed</a> =0</td></tr>
+<tr class="separator:a6e7dc9e48f8f35fff0da5df5e121a492"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ee006a0824950e204932c0a85c0d93d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="WebPage_8h.html#a1f67b6acdb3bc6ce6a918e3bca70cdab">JoyData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#a4ee006a0824950e204932c0a85c0d93d">joystick</a></td></tr>
+<tr class="separator:a4ee006a0824950e204932c0a85c0d93d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a745f0a69af0cbe013a73ee88f8bafb63"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#a745f0a69af0cbe013a73ee88f8bafb63">txPacketCount</a> = 0</td></tr>
+<tr class="separator:a745f0a69af0cbe013a73ee88f8bafb63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a061d698615284ca885c8bbe1e6efdb7c"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#a061d698615284ca885c8bbe1e6efdb7c">rxPacketCount</a> = 0</td></tr>
+<tr class="separator:a061d698615284ca885c8bbe1e6efdb7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae37ed01e7eeff89e0fe8b9a4a60b8252"><td class="memItemLeft" align="right" valign="top">TaskHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#ae37ed01e7eeff89e0fe8b9a4a60b8252">updateTaskHandle</a></td></tr>
+<tr class="separator:ae37ed01e7eeff89e0fe8b9a4a60b8252"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af239e1cce29e3aabf461251764a98d78"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#af239e1cce29e3aabf461251764a98d78">motor_count</a></td></tr>
+<tr class="separator:af239e1cce29e3aabf461251764a98d78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a152f73612f50a6396edf6dfe3c49f127"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#a152f73612f50a6396edf6dfe3c49f127">packetBuffer</a></td></tr>
+<tr class="separator:a152f73612f50a6396edf6dfe3c49f127"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef2f2c0a467df1ce1cda7b25c7c69f95"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#aef2f2c0a467df1ce1cda7b25c7c69f95">labelBuffer</a></td></tr>
+<tr class="separator:aef2f2c0a467df1ce1cda7b25c7c69f95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0c25cc33c825e2bcafd9b88d7794e7c"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#ab0c25cc33c825e2bcafd9b88d7794e7c">heartbeatBuffer</a></td></tr>
+<tr class="separator:ab0c25cc33c825e2bcafd9b88d7794e7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:acd79be50e83f58cd77857cb54026702b"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#acd79be50e83f58cd77857cb54026702b">contents</a></td></tr>
-<tr class="separator:acd79be50e83f58cd77857cb54026702b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4e759b8e31825d624acaafc3e51ff55"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSimpleWebServer.html">SimpleWebServer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#ab4e759b8e31825d624acaafc3e51ff55">ws</a></td></tr>
-<tr class="separator:ab4e759b8e31825d624acaafc3e51ff55"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace16974378cfc9c72cb6c66d6892c439"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#ace16974378cfc9c72cb6c66d6892c439">html</a></td></tr>
-<tr class="separator:ace16974378cfc9c72cb6c66d6892c439"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7bb7fe5c9b428c1d785935da72486f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structDataValues.html">DataValues</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#af7bb7fe5c9b428c1d785935da72486f9">head</a></td></tr>
-<tr class="separator:af7bb7fe5c9b428c1d785935da72486f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f47ab6bc738d3269399ae0515235f51"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html#a2f47ab6bc738d3269399ae0515235f51">_heartbeat_uuid</a> =0</td></tr>
+<tr class="separator:a2f47ab6bc738d3269399ae0515235f51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="WebPage_8h_source.html#l00011">11</a> of file <a class="el" href="WebPage_8h_source.html">WebPage.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WebPage_8h_source.html#l00027">27</a> of file <a class="el" href="WebPage_8h_source.html">WebPage.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a66c10e43bed6f73e58704e6ded8593e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a66c10e43bed6f73e58704e6ded8593e6">&#9670;&nbsp;</a></span>WebPage()</h2>
+<a id="a07ef27add77ba1b3e218ec4a190e46f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07ef27add77ba1b3e218ec4a190e46f6">&#9670;&nbsp;</a></span>WebPage()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -130,99 +164,27 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">WebPage::WebPage </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classSimpleWebServer.html">SimpleWebServer</a> &amp;&#160;</td>
-          <td class="paramname"><em>sws</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00049">49</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00121">121</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="WebPage_8cpp_source.html#l00005">buttonStyle</a>, <a class="el" href="WebPage_8h_source.html#l00025">contents</a>, <a class="el" href="WebPage_8h_source.html#l00028">head</a>, <a class="el" href="SimpleWebServer_8cpp_source.html#l00049">SimpleWebServer::registerHandler()</a>, <a class="el" href="WebPage_8cpp_source.html#l00041">update()</a>, and <a class="el" href="WebPage_8h_source.html#l00026">ws</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classWebPage_a66c10e43bed6f73e58704e6ded8593e6_cgraph.png" border="0" usemap="#classWebPage_a66c10e43bed6f73e58704e6ded8593e6_cgraph" alt=""/></div>
-<map name="classWebPage_a66c10e43bed6f73e58704e6ded8593e6_cgraph" id="classWebPage_a66c10e43bed6f73e58704e6ded8593e6_cgraph">
-<area shape="rect" id="node2" href="classSimpleWebServer.html#ae1cbf8206649517ded2c7785b9144007" title="SimpleWebServer::register\lHandler" alt="" coords="307,5,485,47"/>
-<area shape="rect" id="node4" href="WebPage_8cpp.html#aa8637a1aae95dd486fb201d7ad124364" title="update" alt="" coords="197,67,259,94"/>
-<area shape="rect" id="node3" href="SimpleWebServer_8cpp.html#a62d2d61025124223ffdbddb8e63cc53b" title="server" alt="" coords="804,38,863,65"/>
-<area shape="rect" id="node5" href="classWebPage.html#ac4bfea845b682a652a2149f090ace93b" title="WebPage::dataUpdate" alt="" coords="319,71,473,98"/>
-<area shape="rect" id="node6" href="classSimpleWebServer.html#a408534450431426e848bdb6357add8ef" title="SimpleWebServer::sendResponse" alt="" coords="533,63,756,90"/>
-<area shape="rect" id="node7" href="classWebPage.html#a4a166d1025f5bc1ca348accec8b98aca" title="WebPage::getHTML" alt="" coords="574,114,715,141"/>
-</map>
-</div>
+<p class="reference">References <a class="el" href="WebPage_8h_source.html#l00010">_JoyData::angle</a>, <a class="el" href="WebPage_8h_source.html#l00053">joystick</a>, <a class="el" href="WebPage_8h_source.html#l00019">_telemetryValue::labelDirty</a>, <a class="el" href="WebPage_8h_source.html#l00011">_JoyData::mag</a>, <a class="el" href="WebPage_8h_source.html#l00015">_telemetryValue::name</a>, <a class="el" href="WebPage_8h_source.html#l00023">numSliders</a>, <a class="el" href="WebPage_8h_source.html#l00024">numValues</a>, <a class="el" href="WebPage_8h_source.html#l00046">sliders</a>, <a class="el" href="WebPage_8h_source.html#l00017">_telemetryValue::used</a>, <a class="el" href="WebPage_8h_source.html#l00016">_telemetryValue::value</a>, <a class="el" href="WebPage_8h_source.html#l00018">_telemetryValue::valueDirty</a>, <a class="el" href="WebPage_8h_source.html#l00047">values</a>, <a class="el" href="WebPage_8h_source.html#l00008">_JoyData::xpos</a>, and <a class="el" href="WebPage_8h_source.html#l00009">_JoyData::ypos</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ac512a802fa4bbb53df81a1c1832c31e2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac512a802fa4bbb53df81a1c1832c31e2">&#9670;&nbsp;</a></span>add() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void WebPage::add </td>
-          <td>(</td>
-          <td class="paramtype">String&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00056">56</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
-
-<p class="reference">References <a class="el" href="WebPage_8h_source.html#l00025">contents</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00060">finishPage()</a>, and <a class="el" href="WebPage_8cpp_source.html#l00070">newButton()</a>.</p>
-
-</div>
-</div>
-<a id="af36dca006786df8fdccab1f7f82d60fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af36dca006786df8fdccab1f7f82d60fe">&#9670;&nbsp;</a></span>add() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void WebPage::add </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac4bfea845b682a652a2149f090ace93b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4bfea845b682a652a2149f090ace93b">&#9670;&nbsp;</a></span>dataUpdate()</h2>
+<a id="a120f4e8d6844f431ea31be229787578a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a120f4e8d6844f431ea31be229787578a">&#9670;&nbsp;</a></span>getJoystickAngle()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void WebPage::dataUpdate </td>
+          <td class="memname">float WebPage::getJoystickAngle </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -230,32 +192,211 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00045">45</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00265">265</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="WebPage_8cpp_source.html#l00090">getHTML()</a>, <a class="el" href="SimpleWebServer_8cpp_source.html#l00036">SimpleWebServer::sendResponse()</a>, and <a class="el" href="WebPage_8h_source.html#l00026">ws</a>.</p>
+<p class="reference">References <a class="el" href="WebPage_8h_source.html#l00010">_JoyData::angle</a>, and <a class="el" href="WebPage_8h_source.html#l00053">joystick</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00041">update()</a>.</p>
+</div>
+</div>
+<a id="a86be1a6d46aa4638bce70c3b5ebad11d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86be1a6d46aa4638bce70c3b5ebad11d">&#9670;&nbsp;</a></span>getJoystickData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="WebPage_8h.html#a1f67b6acdb3bc6ce6a918e3bca70cdab">JoyData</a> * WebPage::getJoystickData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00277">277</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="WebPage_8h_source.html#l00053">joystick</a>.</p>
+
+</div>
+</div>
+<a id="ace56c19c78b30f752c4319a1da71b69c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace56c19c78b30f752c4319a1da71b69c">&#9670;&nbsp;</a></span>getJoystickMagnitude()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float WebPage::getJoystickMagnitude </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00268">268</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="WebPage_8h_source.html#l00053">joystick</a>, and <a class="el" href="WebPage_8h_source.html#l00011">_JoyData::mag</a>.</p>
+
+</div>
+</div>
+<a id="acb85af5d59ce7b475daed9b8dff23e15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb85af5d59ce7b475daed9b8dff23e15">&#9670;&nbsp;</a></span>getJoystickX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float WebPage::getJoystickX </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00271">271</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="WebPage_8h_source.html#l00053">joystick</a>, and <a class="el" href="WebPage_8h_source.html#l00008">_JoyData::xpos</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="RCCTL_8ino_source.html#l00073">runStateMachine()</a>.</p>
+
+</div>
+</div>
+<a id="ad186168de72408c424553645f0753784"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad186168de72408c424553645f0753784">&#9670;&nbsp;</a></span>getJoystickY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float WebPage::getJoystickY </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00274">274</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="WebPage_8h_source.html#l00053">joystick</a>, and <a class="el" href="WebPage_8h_source.html#l00009">_JoyData::ypos</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="RCCTL_8ino_source.html#l00073">runStateMachine()</a>.</p>
+
+</div>
+</div>
+<a id="abae7b8e001129bcaeb8249f20a0cbab0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abae7b8e001129bcaeb8249f20a0cbab0">&#9670;&nbsp;</a></span>getSliderValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float WebPage::getSliderValue </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>number</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00260">260</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="WebPage_8h_source.html#l00046">sliders</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="RCCTL_8ino_source.html#l00073">runStateMachine()</a>, and <a class="el" href="RCCTL_8ino_source.html#l00091">updateDashboard()</a>.</p>
+
+</div>
+</div>
+<a id="a2caf8ebfb7c96664cdf0dccef253e78a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2caf8ebfb7c96664cdf0dccef253e78a">&#9670;&nbsp;</a></span>initalize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void WebPage::initalize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00171">171</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="WebServer_8cpp_source.html#l00073">AsyncWebServer::addHandler()</a>, <a class="el" href="WebRequest_8cpp_source.html#l00888">AsyncWebServerRequest::arg()</a>, <a class="el" href="WebRequest_8cpp_source.html#l00916">AsyncWebServerRequest::argName()</a>, <a class="el" href="ESPAsyncWebServer_8h_source.html#l00272">AsyncWebServerRequest::args()</a>, <a class="el" href="WebServer_8cpp_source.html#l00082">AsyncWebServer::begin()</a>, <a class="el" href="WebPage_8cpp.html#a344a7bc7ba7f11c95e5281040ff1123d">js()</a>, <a class="el" href="Motor_8h_source.html#l00172">Motor::list</a>, <a class="el" href="WebPage_8cpp_source.html#l00143">lock()</a>, <a class="el" href="Motor_8h_source.html#l00013">MAX_POSSIBLE_MOTORS</a>, <a class="el" href="WebPage_8cpp.html#a4c0ef776e5fc279981ed4178343fb92c">myHTML()</a>, <a class="el" href="WebServer_8cpp_source.html#l00157">AsyncWebServer::on()</a>, <a class="el" href="AsyncWebSocket_8h_source.html#l00315">AsyncWebSocket::onEvent()</a>, <a class="el" href="WebPage_8cpp_source.html#l00026">onWsEvent()</a>, <a class="el" href="WebRequest_8cpp_source.html#l00711">AsyncWebServerRequest::send()</a>, <a class="el" href="WebPage_8cpp.html#a984259bbe8c041d0aa249826ee5e7084">server</a>, <a class="el" href="Motor_8cpp_source.html#l00330">Motor::setGainsD()</a>, <a class="el" href="Motor_8cpp_source.html#l00329">Motor::setGainsI()</a>, <a class="el" href="Motor_8cpp_source.html#l00328">Motor::setGainsP()</a>, <a class="el" href="WebPage_8cpp_source.html#l00150">unlock()</a>, <a class="el" href="WebPage_8cpp_source.html#l00157">updateTask()</a>, <a class="el" href="WebPage_8h_source.html#l00056">updateTaskHandle</a>, and <a class="el" href="WebPage_8cpp.html#a9429bd7ec307c9ed49c08696cbc0e00b">ws</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="RCCTL_8ino_source.html#l00041">setup()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classWebPage_ac4bfea845b682a652a2149f090ace93b_cgraph.png" border="0" usemap="#classWebPage_ac4bfea845b682a652a2149f090ace93b_cgraph" alt=""/></div>
-<map name="classWebPage_ac4bfea845b682a652a2149f090ace93b_cgraph" id="classWebPage_ac4bfea845b682a652a2149f090ace93b_cgraph">
-<area shape="rect" id="node2" href="classWebPage.html#a4a166d1025f5bc1ca348accec8b98aca" title="WebPage::getHTML" alt="" coords="249,5,390,32"/>
-<area shape="rect" id="node3" href="classSimpleWebServer.html#a408534450431426e848bdb6357add8ef" title="SimpleWebServer::sendResponse" alt="" coords="208,56,431,83"/>
-<area shape="rect" id="node4" href="SimpleWebServer_8cpp.html#a62d2d61025124223ffdbddb8e63cc53b" title="server" alt="" coords="479,56,537,83"/>
+<div class="center"><img src="classWebPage_a2caf8ebfb7c96664cdf0dccef253e78a_cgraph.png" border="0" usemap="#classWebPage_a2caf8ebfb7c96664cdf0dccef253e78a_cgraph" alt=""/></div>
+<map name="classWebPage_a2caf8ebfb7c96664cdf0dccef253e78a_cgraph" id="classWebPage_a2caf8ebfb7c96664cdf0dccef253e78a_cgraph">
+<area shape="rect" id="node2" href="classAsyncWebServer.html#a62acd93a321c03a56457fd4d6eb0aabe" title="AsyncWebServer::addHandler" alt="" coords="431,5,629,32"/>
+<area shape="rect" id="node4" href="classAsyncWebServerRequest.html#aa963514f3c7e90ea646fa69fd7f50e94" title="AsyncWebServerRequest::arg" alt="" coords="184,192,383,219"/>
+<area shape="rect" id="node5" href="classAsyncWebServerRequest.html#ae07c0e4b278c6ae3506c456e7c568834" title="AsyncWebServerRequest\l::argName" alt="" coords="197,243,370,285"/>
+<area shape="rect" id="node10" href="classAsyncWebServerRequest.html#a94655690f674766e2f0343090b158897" title="AsyncWebServerRequest\l::args" alt="" coords="197,326,370,367"/>
+<area shape="rect" id="node11" href="classAsyncWebServer.html#ad15e69f1d41e19718794c96a3665e257" title="AsyncWebServer::begin" alt="" coords="202,392,365,419"/>
+<area shape="rect" id="node19" href="WebPage_8cpp.html#a344a7bc7ba7f11c95e5281040ff1123d" title="js" alt="" coords="264,443,303,469"/>
+<area shape="rect" id="node20" href="WebPage_8cpp.html#aa81aed607133209dade63a226818224d" title="lock" alt="" coords="507,476,553,503"/>
+<area shape="rect" id="node22" href="WebPage_8cpp.html#a4c0ef776e5fc279981ed4178343fb92c" title="myHTML" alt="" coords="245,729,321,756"/>
+<area shape="rect" id="node23" href="classAsyncWebServer.html#a210bd0ab1f056f8f081c46e4827aaab7" title="AsyncWebServer::on" alt="" coords="210,111,357,137"/>
+<area shape="rect" id="node26" href="classAsyncWebSocket.html#afd3c7bb269ada9c420fa9a74b71d6ae7" title="AsyncWebSocket::onEvent" alt="" coords="192,780,375,807"/>
+<area shape="rect" id="node27" href="WebPage_8cpp.html#a7064e9828984f378d3e04f9b7a47bcae" title="onWsEvent" alt="" coords="238,679,329,705"/>
+<area shape="rect" id="node37" href="classAsyncWebServerRequest.html#a4247e73eb8d8c7b386f9bb4ab10f3856" title="AsyncWebServerRequest\l::send" alt="" coords="197,925,370,966"/>
+<area shape="rect" id="node45" href="classMotor.html#aa993310cb3a689aa1b0eca5ee2e2a598" title="Motor::setGainsD" alt="" coords="221,991,346,1017"/>
+<area shape="rect" id="node46" href="classMotor.html#a805a15d7a59b74a1d711428e580e180a" title="Motor::setGainsI" alt="" coords="224,1041,343,1068"/>
+<area shape="rect" id="node47" href="classMotor.html#afa223e0a454ac7ae326e98ea0d506272" title="Motor::setGainsP" alt="" coords="221,1092,345,1119"/>
+<area shape="rect" id="node48" href="WebPage_8cpp.html#a9278be8203e1c42e2619179882ae4403" title="unlock" alt="" coords="500,527,560,553"/>
+<area shape="rect" id="node49" href="WebPage_8cpp.html#a1f589c61ec1453de2efa6f2d8b7c5c69" title="updateTask" alt="" coords="238,595,329,621"/>
+<area shape="rect" id="node3" href="classLinkedList.html#a3a284c668d6f717be3e8b5d283ff5419" title="LinkedList::add" alt="" coords="743,5,854,32"/>
+<area shape="rect" id="node6" href="classAsyncWebServerRequest.html#af8bf81f74de6f1961afdd631eed9bb46" title="AsyncWebServerRequest\l::getParam" alt="" coords="443,239,617,281"/>
+<area shape="rect" id="node9" href="classAsyncWebParameter.html#a567985286e88882afd3f3f0d0dca2c87" title="AsyncWebParameter::name" alt="" coords="705,117,892,144"/>
+<area shape="rect" id="node7" href="classAsyncWebParameter.html#a303e06c6c9379c1b2756943f42180e7a" title="AsyncWebParameter::\lisFile" alt="" coords="721,169,876,210"/>
+<area shape="rect" id="node8" href="classAsyncWebParameter.html#a36b2d2f67b6e743ee6e43dffd5f8f0bf" title="AsyncWebParameter::\lisPost" alt="" coords="721,234,876,275"/>
+<area shape="rect" id="node12" href="classAsyncServer.html#a7e9ce55e4e1d0fab5531bac98ebfb3f9" title="AsyncServer::begin" alt="" coords="462,401,598,428"/>
+<area shape="rect" id="node18" href="classAsyncServer.html#a551c051eee1e69d1591fd8ef6f46c16a" title="AsyncServer::setNoDelay" alt="" coords="443,351,617,377"/>
+<area shape="rect" id="node13" href="classAsyncServer.html#a9cfd997e84bd4ba394f3225863536d5e" title="AsyncServer::_s_accept" alt="" coords="716,452,881,479"/>
+<area shape="rect" id="node14" href="AsyncTCP_8cpp.html#a4d0de407bcfcc96b61af40aca3156708" title="_start_async_task" alt="" coords="734,503,863,529"/>
+<area shape="rect" id="node15" href="AsyncTCP_8cpp.html#a1d69fe6616ae6044a10ab2df4a2bf2d8" title="_tcp_bind" alt="" coords="759,300,838,327"/>
+<area shape="rect" id="node16" href="AsyncTCP_8cpp.html#a3602c1ebfae2fb2ff64a0e3d7b0568ce" title="_tcp_close" alt="" coords="756,351,841,377"/>
+<area shape="rect" id="node17" href="AsyncTCP_8cpp.html#aa8106649d1aa026817f604c32f273fae" title="_tcp_listen_with_backlog" alt="" coords="715,401,883,428"/>
+<area shape="rect" id="node21" href="WebPage_8cpp.html#a2c4a64e679de7cdcdb8552078758785f" title="isSafeToSend" alt="" coords="747,553,851,580"/>
+<area shape="rect" id="node24" href="classAsyncCallbackWebHandler.html#a552b0bc56d644a5121f890f3b78ed77d" title="AsyncCallbackWebHandler\l::onRequest" alt="" coords="439,122,621,163"/>
+<area shape="rect" id="node25" href="classAsyncCallbackWebHandler.html#ab9b5c921fbff5c036c39e3559e4a1d67" title="AsyncCallbackWebHandler\l::setUri" alt="" coords="439,57,621,98"/>
+<area shape="rect" id="node28" href="classWebPage.html#a8a6cb8d704e67dce02fb64cad81e4c56" title="WebPage::markAllDirty" alt="" coords="451,831,609,857"/>
+<area shape="rect" id="node29" href="classWebPage.html#a958b189c48eec8d2b2177b9e56442d80" title="WebPage::SendAllLabels" alt="" coords="445,679,615,705"/>
+<area shape="rect" id="node33" href="classWebPage.html#aef7e846a1d8c68240b6aadc41074767d" title="WebPage::SendAllValues" alt="" coords="444,628,616,655"/>
+<area shape="rect" id="node34" href="classWebPage.html#a2bb06280ee0d8c75fc5371f5ab3d5841" title="WebPage::setHeartbeatUUID" alt="" coords="432,881,628,908"/>
+<area shape="rect" id="node35" href="classWebPage.html#a90afc8046c36040500d8b96da9ec269e" title="WebPage::setJoystickValue" alt="" coords="437,729,623,756"/>
+<area shape="rect" id="node36" href="classWebPage.html#a336eea64f6d880b7c11f3b916d8989a9" title="WebPage::setSliderValue" alt="" coords="445,780,615,807"/>
+<area shape="rect" id="node30" href="classAsyncWebSocket.html#a1039bdf2bee39cf3dd198e61a7bb6c0b" title="AsyncWebSocket::count" alt="" coords="715,604,882,631"/>
+<area shape="rect" id="node31" href="classAsyncWebSocket.html#a51da0aba5820b30a7d8ffd1ef90f45b1" title="AsyncWebSocket::available\lForWriteAll" alt="" coords="705,655,892,697"/>
+<area shape="rect" id="node32" href="classAsyncWebSocket.html#a9e5e456ce66c41e3666535a52bbcd47b" title="AsyncWebSocket::binaryAll" alt="" coords="706,721,891,748"/>
+<area shape="rect" id="node38" href="classAsyncWebServerRequest.html#ade7b9bc8fc59f39b2cf0ccc26e104845" title="AsyncWebServerRequest\l::_onDisconnect" alt="" coords="443,1166,617,1207"/>
+<area shape="rect" id="node40" href="classAsyncWebServerResponse.html#a2a4f57d58072777d668602480f7885a3" title="AsyncWebServerResponse\l::_respond" alt="" coords="439,1101,621,1142"/>
+<area shape="rect" id="node42" href="classAsyncClient.html#a0305fe0b036257c03829ceaa5cc43361" title="AsyncClient::close" alt="" coords="733,991,865,1017"/>
+<area shape="rect" id="node43" href="classAsyncWebServerResponse.html#a066db80b641b3ce65c0875425f110afd" title="AsyncWebServerResponse\l::_sourceValid" alt="" coords="439,983,621,1025"/>
+<area shape="rect" id="node44" href="classAsyncClient.html#a815402f77f76a3f21bd8f8e06e7fe1e0" title="AsyncClient::setRxTimeout" alt="" coords="439,1049,621,1076"/>
+<area shape="rect" id="node39" href="classAsyncWebServer.html#a39bb34e0ddb79f5b5af23d175f8cfcf2" title="AsyncWebServer::_handleDisconnect" alt="" coords="677,1173,920,1200"/>
+<area shape="rect" id="node41" href="classAsyncWebServerRequest.html#aca27487c506eb3d0bdd6ff356815a488" title="AsyncWebServerRequest\l::client" alt="" coords="712,1101,885,1142"/>
+<area shape="rect" id="node50" href="classWebPage.html#a8e62427a2e22862245a9467633ebb133" title="WebPage::sendHeartbeat" alt="" coords="444,577,616,604"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a122ef35e1475973ddb45f400e77b114d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a122ef35e1475973ddb45f400e77b114d">&#9670;&nbsp;</a></span>finishPage()</h2>
+<a id="a8a6cb8d704e67dce02fb64cad81e4c56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a6cb8d704e67dce02fb64cad81e4c56">&#9670;&nbsp;</a></span>markAllDirty()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void WebPage::finishPage </td>
+          <td class="memname">void WebPage::markAllDirty </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -263,68 +404,16 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00060">60</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00509">509</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="WebPage_8cpp_source.html#l00056">add()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classWebPage_a122ef35e1475973ddb45f400e77b114d_cgraph.png" border="0" usemap="#classWebPage_a122ef35e1475973ddb45f400e77b114d_cgraph" alt=""/></div>
-<map name="classWebPage_a122ef35e1475973ddb45f400e77b114d_cgraph" id="classWebPage_a122ef35e1475973ddb45f400e77b114d_cgraph">
-<area shape="rect" id="node2" href="classWebPage.html#ac512a802fa4bbb53df81a1c1832c31e2" title="WebPage::add" alt="" coords="201,5,309,32"/>
-</map>
-</div>
+<p class="reference">References <a class="el" href="WebPage_8h_source.html#l00019">_telemetryValue::labelDirty</a>, <a class="el" href="WebPage_8h_source.html#l00024">numValues</a>, <a class="el" href="WebPage_8h_source.html#l00018">_telemetryValue::valueDirty</a>, and <a class="el" href="WebPage_8h_source.html#l00047">values</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00026">onWsEvent()</a>.</p>
 
 </div>
 </div>
-<a id="a4a166d1025f5bc1ca348accec8b98aca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a166d1025f5bc1ca348accec8b98aca">&#9670;&nbsp;</a></span>getHTML()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">String WebPage::getHTML </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00090">90</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
-
-<p class="reference">References <a class="el" href="WebPage_8h_source.html#l00028">head</a>, and <a class="el" href="WebPage_8h_source.html#l00008">DataValues::next</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00045">dataUpdate()</a>.</p>
-
-</div>
-</div>
-<a id="a1701fb71510b3e3e2e3b050cf3f83ba5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1701fb71510b3e3e2e3b050cf3f83ba5">&#9670;&nbsp;</a></span>getPage()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">String WebPage::getPage </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00066">66</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
-
-<p class="reference">References <a class="el" href="WebPage_8h_source.html#l00025">contents</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00099">sendHTML()</a>.</p>
-
-</div>
-</div>
-<a id="a19aa8540c4a4ac9bb0c9ca371ca65593"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19aa8540c4a4ac9bb0c9ca371ca65593">&#9670;&nbsp;</a></span>newButton()</h2>
+<a id="aeb8011e016998e7c4276d02d63701586"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb8011e016998e7c4276d02d63701586">&#9670;&nbsp;</a></span>newButton()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -338,7 +427,7 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">void(*)()&#160;</td>
+          <td class="paramtype">void(*)(String)&#160;</td>
           <td class="paramname"><em>handler</em>, </td>
         </tr>
         <tr>
@@ -361,55 +450,18 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00070">70</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
-
-<p class="reference">References <a class="el" href="WebPage_8cpp_source.html#l00056">add()</a>, <a class="el" href="SimpleWebServer_8cpp_source.html#l00049">SimpleWebServer::registerHandler()</a>, and <a class="el" href="WebPage_8h_source.html#l00026">ws</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classWebPage_a19aa8540c4a4ac9bb0c9ca371ca65593_cgraph.png" border="0" usemap="#classWebPage_a19aa8540c4a4ac9bb0c9ca371ca65593_cgraph" alt=""/></div>
-<map name="classWebPage_a19aa8540c4a4ac9bb0c9ca371ca65593_cgraph" id="classWebPage_a19aa8540c4a4ac9bb0c9ca371ca65593_cgraph">
-<area shape="rect" id="node2" href="classWebPage.html#ac512a802fa4bbb53df81a1c1832c31e2" title="WebPage::add" alt="" coords="238,5,346,32"/>
-<area shape="rect" id="node3" href="classSimpleWebServer.html#ae1cbf8206649517ded2c7785b9144007" title="SimpleWebServer::register\lHandler" alt="" coords="203,57,381,98"/>
-<area shape="rect" id="node4" href="SimpleWebServer_8cpp.html#a62d2d61025124223ffdbddb8e63cc53b" title="server" alt="" coords="429,64,488,91"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00499">499</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a422fea249ce190f69a15e43a572f6597"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a422fea249ce190f69a15e43a572f6597">&#9670;&nbsp;</a></span>postResponse()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void WebPage::postResponse </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a40ceb3debbc2383645860943dfff9390"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40ceb3debbc2383645860943dfff9390">&#9670;&nbsp;</a></span>sendHTML()</h2>
+<a id="a958b189c48eec8d2b2177b9e56442d80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a958b189c48eec8d2b2177b9e56442d80">&#9670;&nbsp;</a></span>SendAllLabels()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void WebPage::sendHTML </td>
+          <td class="memname">bool WebPage::SendAllLabels </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -417,30 +469,312 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00099">99</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00402">402</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="WebPage_8cpp_source.html#l00066">getPage()</a>, <a class="el" href="SimpleWebServer_8cpp_source.html#l00040">SimpleWebServer::sendHTMLResponse()</a>, and <a class="el" href="WebPage_8h_source.html#l00026">ws</a>.</p>
+<p class="reference">References <a class="el" href="AsyncWebSocket_8cpp_source.html#l00890">AsyncWebSocket::availableForWriteAll()</a>, <a class="el" href="AsyncWebSocket_8cpp_source.html#l00983">AsyncWebSocket::binaryAll()</a>, <a class="el" href="AsyncWebSocket_8cpp_source.html#l00904">AsyncWebSocket::count()</a>, <a class="el" href="WebPage_8h_source.html#l00067">labelBuffer</a>, <a class="el" href="WebPage_8h_source.html#l00025">labelBufferSize</a>, <a class="el" href="WebPage_8h_source.html#l00019">_telemetryValue::labelDirty</a>, <a class="el" href="WebPage_8h_source.html#l00024">numValues</a>, <a class="el" href="WebPage_8h_source.html#l00054">txPacketCount</a>, <a class="el" href="WebPage_8h_source.html#l00047">values</a>, and <a class="el" href="WebPage_8cpp.html#a9429bd7ec307c9ed49c08696cbc0e00b">ws</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00026">onWsEvent()</a>, and <a class="el" href="WebPage_8cpp_source.html#l00157">updateTask()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classWebPage_a40ceb3debbc2383645860943dfff9390_cgraph.png" border="0" usemap="#classWebPage_a40ceb3debbc2383645860943dfff9390_cgraph" alt=""/></div>
-<map name="classWebPage_a40ceb3debbc2383645860943dfff9390_cgraph" id="classWebPage_a40ceb3debbc2383645860943dfff9390_cgraph">
-<area shape="rect" id="node2" href="classWebPage.html#a1701fb71510b3e3e2e3b050cf3f83ba5" title="WebPage::getPage" alt="" coords="266,5,401,32"/>
-<area shape="rect" id="node3" href="classSimpleWebServer.html#a32baf564be7764b2baca6e166184411c" title="SimpleWebServer::sendHTMLResponse" alt="" coords="204,56,463,83"/>
-<area shape="rect" id="node4" href="SimpleWebServer_8cpp.html#a62d2d61025124223ffdbddb8e63cc53b" title="server" alt="" coords="511,56,569,83"/>
+<div class="center"><img src="classWebPage_a958b189c48eec8d2b2177b9e56442d80_cgraph.png" border="0" usemap="#classWebPage_a958b189c48eec8d2b2177b9e56442d80_cgraph" alt=""/></div>
+<map name="classWebPage_a958b189c48eec8d2b2177b9e56442d80_cgraph" id="classWebPage_a958b189c48eec8d2b2177b9e56442d80_cgraph">
+<area shape="rect" id="node2" href="classAsyncWebSocket.html#a51da0aba5820b30a7d8ffd1ef90f45b1" title="AsyncWebSocket::available\lForWriteAll" alt="" coords="224,5,411,47"/>
+<area shape="rect" id="node3" href="classAsyncWebSocket.html#a9e5e456ce66c41e3666535a52bbcd47b" title="AsyncWebSocket::binaryAll" alt="" coords="225,71,410,98"/>
+<area shape="rect" id="node6" href="classAsyncWebSocket.html#a1039bdf2bee39cf3dd198e61a7bb6c0b" title="AsyncWebSocket::count" alt="" coords="234,122,401,149"/>
+<area shape="rect" id="node4" href="classAsyncWebSocket.html#a91a4f6c8ec269eeae3af0090ab16d66b" title="AsyncWebSocket::makeBuffer" alt="" coords="459,71,661,98"/>
+<area shape="rect" id="node5" href="classLinkedList.html#a3a284c668d6f717be3e8b5d283ff5419" title="LinkedList::add" alt="" coords="709,71,820,98"/>
+<area shape="rect" id="node7" href="classLinkedList.html#a442c00ea105c9c46425ec05c7043c77a" title="LinkedList::count_if" alt="" coords="493,122,627,149"/>
+<area shape="rect" id="node8" href="classAsyncWebSocketClient.html#aa17cd4c97a830c0a4cbe02f62f3f636b" title="AsyncWebSocketClient\l::status" alt="" coords="479,173,641,215"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="ab9333723de02a0c31f3a8044a945aa8c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab9333723de02a0c31f3a8044a945aa8c">&#9670;&nbsp;</a></span>setValue()</h2>
+<a id="aef7e846a1d8c68240b6aadc41074767d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef7e846a1d8c68240b6aadc41074767d">&#9670;&nbsp;</a></span>SendAllValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool WebPage::SendAllValues </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00330">330</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="AsyncWebSocket_8cpp_source.html#l00890">AsyncWebSocket::availableForWriteAll()</a>, <a class="el" href="AsyncWebSocket_8cpp_source.html#l00983">AsyncWebSocket::binaryAll()</a>, <a class="el" href="AsyncWebSocket_8cpp_source.html#l00904">AsyncWebSocket::count()</a>, <a class="el" href="WebPage_8h_source.html#l00024">numValues</a>, <a class="el" href="WebPage_8h_source.html#l00066">packetBuffer</a>, <a class="el" href="WebPage_8h_source.html#l00054">txPacketCount</a>, <a class="el" href="WebPage_8h_source.html#l00018">_telemetryValue::valueDirty</a>, <a class="el" href="WebPage_8h_source.html#l00047">values</a>, and <a class="el" href="WebPage_8cpp.html#a9429bd7ec307c9ed49c08696cbc0e00b">ws</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00026">onWsEvent()</a>, and <a class="el" href="WebPage_8cpp_source.html#l00157">updateTask()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classWebPage_aef7e846a1d8c68240b6aadc41074767d_cgraph.png" border="0" usemap="#classWebPage_aef7e846a1d8c68240b6aadc41074767d_cgraph" alt=""/></div>
+<map name="classWebPage_aef7e846a1d8c68240b6aadc41074767d_cgraph" id="classWebPage_aef7e846a1d8c68240b6aadc41074767d_cgraph">
+<area shape="rect" id="node2" href="classAsyncWebSocket.html#a51da0aba5820b30a7d8ffd1ef90f45b1" title="AsyncWebSocket::available\lForWriteAll" alt="" coords="225,5,412,47"/>
+<area shape="rect" id="node3" href="classAsyncWebSocket.html#a9e5e456ce66c41e3666535a52bbcd47b" title="AsyncWebSocket::binaryAll" alt="" coords="226,71,411,98"/>
+<area shape="rect" id="node6" href="classAsyncWebSocket.html#a1039bdf2bee39cf3dd198e61a7bb6c0b" title="AsyncWebSocket::count" alt="" coords="235,122,402,149"/>
+<area shape="rect" id="node4" href="classAsyncWebSocket.html#a91a4f6c8ec269eeae3af0090ab16d66b" title="AsyncWebSocket::makeBuffer" alt="" coords="460,71,663,98"/>
+<area shape="rect" id="node5" href="classLinkedList.html#a3a284c668d6f717be3e8b5d283ff5419" title="LinkedList::add" alt="" coords="711,71,821,98"/>
+<area shape="rect" id="node7" href="classLinkedList.html#a442c00ea105c9c46425ec05c7043c77a" title="LinkedList::count_if" alt="" coords="494,122,629,149"/>
+<area shape="rect" id="node8" href="classAsyncWebSocketClient.html#aa17cd4c97a830c0a4cbe02f62f3f636b" title="AsyncWebSocketClient\l::status" alt="" coords="481,173,642,215"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a8e62427a2e22862245a9467633ebb133"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e62427a2e22862245a9467633ebb133">&#9670;&nbsp;</a></span>sendHeartbeat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool WebPage::sendHeartbeat </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00521">521</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="WebPage_8h_source.html#l00071">_heartbeat_uuid</a>, <a class="el" href="AsyncWebSocket_8cpp_source.html#l00890">AsyncWebSocket::availableForWriteAll()</a>, <a class="el" href="AsyncWebSocket_8cpp_source.html#l00983">AsyncWebSocket::binaryAll()</a>, <a class="el" href="AsyncWebSocket_8cpp_source.html#l00904">AsyncWebSocket::count()</a>, <a class="el" href="WebPage_8h_source.html#l00068">heartbeatBuffer</a>, <a class="el" href="WebPage_8h_source.html#l00054">txPacketCount</a>, and <a class="el" href="WebPage_8cpp.html#a9429bd7ec307c9ed49c08696cbc0e00b">ws</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00157">updateTask()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classWebPage_a8e62427a2e22862245a9467633ebb133_cgraph.png" border="0" usemap="#classWebPage_a8e62427a2e22862245a9467633ebb133_cgraph" alt=""/></div>
+<map name="classWebPage_a8e62427a2e22862245a9467633ebb133_cgraph" id="classWebPage_a8e62427a2e22862245a9467633ebb133_cgraph">
+<area shape="rect" id="node2" href="classAsyncWebSocket.html#a51da0aba5820b30a7d8ffd1ef90f45b1" title="AsyncWebSocket::available\lForWriteAll" alt="" coords="225,5,412,47"/>
+<area shape="rect" id="node3" href="classAsyncWebSocket.html#a9e5e456ce66c41e3666535a52bbcd47b" title="AsyncWebSocket::binaryAll" alt="" coords="226,71,411,98"/>
+<area shape="rect" id="node6" href="classAsyncWebSocket.html#a1039bdf2bee39cf3dd198e61a7bb6c0b" title="AsyncWebSocket::count" alt="" coords="235,122,402,149"/>
+<area shape="rect" id="node4" href="classAsyncWebSocket.html#a91a4f6c8ec269eeae3af0090ab16d66b" title="AsyncWebSocket::makeBuffer" alt="" coords="460,71,663,98"/>
+<area shape="rect" id="node5" href="classLinkedList.html#a3a284c668d6f717be3e8b5d283ff5419" title="LinkedList::add" alt="" coords="711,71,821,98"/>
+<area shape="rect" id="node7" href="classLinkedList.html#a442c00ea105c9c46425ec05c7043c77a" title="LinkedList::count_if" alt="" coords="494,122,629,149"/>
+<area shape="rect" id="node8" href="classAsyncWebSocketClient.html#aa17cd4c97a830c0a4cbe02f62f3f636b" title="AsyncWebSocketClient\l::status" alt="" coords="481,173,642,215"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ae2824e51d3807da4c52aa8175f6f99e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2824e51d3807da4c52aa8175f6f99e3">&#9670;&nbsp;</a></span>sendLabelUpdate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void WebPage::sendLabelUpdate </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>buffer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00483">483</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="WebPage_8h_source.html#l00015">_telemetryValue::name</a>, <a class="el" href="WebPage_8h_source.html#l00024">numValues</a>, <a class="el" href="WebPage_8h_source.html#l00018">_telemetryValue::valueDirty</a>, and <a class="el" href="WebPage_8h_source.html#l00047">values</a>.</p>
+
+</div>
+</div>
+<a id="aa10494b741f803ca632270536a3337fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa10494b741f803ca632270536a3337fb">&#9670;&nbsp;</a></span>sendValueUpdate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void WebPage::sendValueUpdate </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>buffer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00470">470</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="WebPage_8h_source.html#l00024">numValues</a>, <a class="el" href="WebPage_8h_source.html#l00016">_telemetryValue::value</a>, and <a class="el" href="WebPage_8h_source.html#l00047">values</a>.</p>
+
+</div>
+</div>
+<a id="a2bb06280ee0d8c75fc5371f5ab3d5841"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bb06280ee0d8c75fc5371f5ab3d5841">&#9670;&nbsp;</a></span>setHeartbeatUUID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void WebPage::setHeartbeatUUID </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>uuid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00517">517</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="WebPage_8h_source.html#l00071">_heartbeat_uuid</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00026">onWsEvent()</a>.</p>
+
+</div>
+</div>
+<a id="a90afc8046c36040500d8b96da9ec269e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90afc8046c36040500d8b96da9ec269e">&#9670;&nbsp;</a></span>setJoystickValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void WebPage::setJoystickValue </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>xpos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>ypos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>angle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>mag</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00292">292</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="WebPage_8h_source.html#l00010">_JoyData::angle</a>, <a class="el" href="WebPage_8h_source.html#l00053">joystick</a>, <a class="el" href="WebPage_8h_source.html#l00011">_JoyData::mag</a>, <a class="el" href="WebPage_8h_source.html#l00008">_JoyData::xpos</a>, and <a class="el" href="WebPage_8h_source.html#l00009">_JoyData::ypos</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00026">onWsEvent()</a>.</p>
+
+</div>
+</div>
+<a id="a336eea64f6d880b7c11f3b916d8989a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a336eea64f6d880b7c11f3b916d8989a9">&#9670;&nbsp;</a></span>setSliderValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void WebPage::setSliderValue </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>number</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00288">288</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="WebPage_8h_source.html#l00046">sliders</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00026">onWsEvent()</a>.</p>
+
+</div>
+</div>
+<a id="a311c64a0b24e4ff9e9d2fe8269b6a7e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a311c64a0b24e4ff9e9d2fe8269b6a7e3">&#9670;&nbsp;</a></span>setValue()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void WebPage::setValue </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00300">300</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="WebPage_8h_source.html#l00020">_telemetryValue::buffer</a>, <a class="el" href="WebPage_8h_source.html#l00019">_telemetryValue::labelDirty</a>, <a class="el" href="WebPage_8h_source.html#l00015">_telemetryValue::name</a>, <a class="el" href="WebPage_8h_source.html#l00024">numValues</a>, <a class="el" href="WebPage_8h_source.html#l00048">numValuesUsed</a>, <a class="el" href="WebPage_8h_source.html#l00017">_telemetryValue::used</a>, <a class="el" href="WebPage_8h_source.html#l00016">_telemetryValue::value</a>, <a class="el" href="WebPage_8h_source.html#l00018">_telemetryValue::valueDirty</a>, and <a class="el" href="WebPage_8h_source.html#l00047">values</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="RCCTL_8ino_source.html#l00091">updateDashboard()</a>, and <a class="el" href="WebPage_8cpp_source.html#l00504">valueChanged()</a>.</p>
+
+</div>
+</div>
+<a id="af246063dfc5e02c05e0ad469d2c7907c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af246063dfc5e02c05e0ad469d2c7907c">&#9670;&nbsp;</a></span>valueChanged()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void WebPage::valueChanged </td>
           <td>(</td>
           <td class="paramtype">String&#160;</td>
           <td class="paramname"><em>name</em>, </td>
@@ -459,15 +793,23 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00076">76</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00504">504</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="WebPage_8h_source.html#l00028">head</a>, <a class="el" href="WebPage_8h_source.html#l00006">DataValues::name</a>, <a class="el" href="WebPage_8h_source.html#l00008">DataValues::next</a>, and <a class="el" href="WebPage_8h_source.html#l00007">DataValues::value</a>.</p>
+<p class="reference">References <a class="el" href="WebPage_8cpp_source.html#l00300">setValue()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classWebPage_af246063dfc5e02c05e0ad469d2c7907c_cgraph.png" border="0" usemap="#classWebPage_af246063dfc5e02c05e0ad469d2c7907c_cgraph" alt=""/></div>
+<map name="classWebPage_af246063dfc5e02c05e0ad469d2c7907c_cgraph" id="classWebPage_af246063dfc5e02c05e0ad469d2c7907c_cgraph">
+<area shape="rect" id="node2" href="classWebPage.html#a311c64a0b24e4ff9e9d2fe8269b6a7e3" title="WebPage::setValue" alt="" coords="224,5,363,32"/>
+</map>
+</div>
 
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
-<a id="acd79be50e83f58cd77857cb54026702b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd79be50e83f58cd77857cb54026702b">&#9670;&nbsp;</a></span>contents</h2>
+<a id="a2f47ab6bc738d3269399ae0515235f51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f47ab6bc738d3269399ae0515235f51">&#9670;&nbsp;</a></span>_heartbeat_uuid</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -476,7 +818,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">String WebPage::contents</td>
+          <td class="memname">uint32_t WebPage::_heartbeat_uuid =0</td>
         </tr>
       </table>
   </td>
@@ -486,85 +828,205 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WebPage_8h_source.html#l00025">25</a> of file <a class="el" href="WebPage_8h_source.html">WebPage.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WebPage_8h_source.html#l00071">71</a> of file <a class="el" href="WebPage_8h_source.html">WebPage.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00056">add()</a>, <a class="el" href="WebPage_8cpp_source.html#l00066">getPage()</a>, and <a class="el" href="WebPage_8cpp_source.html#l00049">WebPage()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00521">sendHeartbeat()</a>, and <a class="el" href="WebPage_8cpp_source.html#l00517">setHeartbeatUUID()</a>.</p>
 
 </div>
 </div>
-<a id="af7bb7fe5c9b428c1d785935da72486f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7bb7fe5c9b428c1d785935da72486f9">&#9670;&nbsp;</a></span>head</h2>
+<a id="ab0c25cc33c825e2bcafd9b88d7794e7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0c25cc33c825e2bcafd9b88d7794e7c">&#9670;&nbsp;</a></span>heartbeatBuffer</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structDataValues.html">DataValues</a>* WebPage::head</td>
+          <td class="memname">uint8_t* WebPage::heartbeatBuffer</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WebPage_8h_source.html#l00028">28</a> of file <a class="el" href="WebPage_8h_source.html">WebPage.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WebPage_8h_source.html#l00068">68</a> of file <a class="el" href="WebPage_8h_source.html">WebPage.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00090">getHTML()</a>, <a class="el" href="WebPage_8cpp_source.html#l00076">setValue()</a>, and <a class="el" href="WebPage_8cpp_source.html#l00049">WebPage()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00521">sendHeartbeat()</a>.</p>
 
 </div>
 </div>
-<a id="ace16974378cfc9c72cb6c66d6892c439"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace16974378cfc9c72cb6c66d6892c439">&#9670;&nbsp;</a></span>html</h2>
+<a id="a4ee006a0824950e204932c0a85c0d93d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ee006a0824950e204932c0a85c0d93d">&#9670;&nbsp;</a></span>joystick</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">String WebPage::html</td>
+          <td class="memname"><a class="el" href="WebPage_8h.html#a1f67b6acdb3bc6ce6a918e3bca70cdab">JoyData</a> WebPage::joystick</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WebPage_8h_source.html#l00027">27</a> of file <a class="el" href="WebPage_8h_source.html">WebPage.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WebPage_8h_source.html#l00053">53</a> of file <a class="el" href="WebPage_8h_source.html">WebPage.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00265">getJoystickAngle()</a>, <a class="el" href="WebPage_8cpp_source.html#l00277">getJoystickData()</a>, <a class="el" href="WebPage_8cpp_source.html#l00268">getJoystickMagnitude()</a>, <a class="el" href="WebPage_8cpp_source.html#l00271">getJoystickX()</a>, <a class="el" href="WebPage_8cpp_source.html#l00274">getJoystickY()</a>, <a class="el" href="WebPage_8cpp_source.html#l00292">setJoystickValue()</a>, and <a class="el" href="WebPage_8cpp_source.html#l00121">WebPage()</a>.</p>
 
 </div>
 </div>
-<a id="ab4e759b8e31825d624acaafc3e51ff55"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab4e759b8e31825d624acaafc3e51ff55">&#9670;&nbsp;</a></span>ws</h2>
+<a id="aef2f2c0a467df1ce1cda7b25c7c69f95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef2f2c0a467df1ce1cda7b25c7c69f95">&#9670;&nbsp;</a></span>labelBuffer</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classSimpleWebServer.html">SimpleWebServer</a> WebPage::ws</td>
+          <td class="memname">uint8_t* WebPage::labelBuffer</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WebPage_8h_source.html#l00026">26</a> of file <a class="el" href="WebPage_8h_source.html">WebPage.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WebPage_8h_source.html#l00067">67</a> of file <a class="el" href="WebPage_8h_source.html">WebPage.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00045">dataUpdate()</a>, <a class="el" href="WebPage_8cpp_source.html#l00070">newButton()</a>, <a class="el" href="WebPage_8cpp_source.html#l00099">sendHTML()</a>, and <a class="el" href="WebPage_8cpp_source.html#l00049">WebPage()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00402">SendAllLabels()</a>.</p>
+
+</div>
+</div>
+<a id="af239e1cce29e3aabf461251764a98d78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af239e1cce29e3aabf461251764a98d78">&#9670;&nbsp;</a></span>motor_count</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t WebPage::motor_count</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8h_source.html#l00057">57</a> of file <a class="el" href="WebPage_8h_source.html">WebPage.h</a>.</p>
+
+</div>
+</div>
+<a id="a6e7dc9e48f8f35fff0da5df5e121a492"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e7dc9e48f8f35fff0da5df5e121a492">&#9670;&nbsp;</a></span>numValuesUsed</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int WebPage::numValuesUsed =0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8h_source.html#l00048">48</a> of file <a class="el" href="WebPage_8h_source.html">WebPage.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00300">setValue()</a>.</p>
+
+</div>
+</div>
+<a id="a152f73612f50a6396edf6dfe3c49f127"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a152f73612f50a6396edf6dfe3c49f127">&#9670;&nbsp;</a></span>packetBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t* WebPage::packetBuffer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8h_source.html#l00066">66</a> of file <a class="el" href="WebPage_8h_source.html">WebPage.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00330">SendAllValues()</a>.</p>
+
+</div>
+</div>
+<a id="a061d698615284ca885c8bbe1e6efdb7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a061d698615284ca885c8bbe1e6efdb7c">&#9670;&nbsp;</a></span>rxPacketCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t WebPage::rxPacketCount = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8h_source.html#l00055">55</a> of file <a class="el" href="WebPage_8h_source.html">WebPage.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00026">onWsEvent()</a>, and <a class="el" href="RCCTL_8ino_source.html#l00091">updateDashboard()</a>.</p>
+
+</div>
+</div>
+<a id="a5c3ed27a2e57ba97e2a47e765bc98602"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c3ed27a2e57ba97e2a47e765bc98602">&#9670;&nbsp;</a></span>sliders</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float WebPage::sliders[<a class="el" href="WebPage_8h.html#a1236f3d035e5dbbf704b5c0e4432eab3">numSliders</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8h_source.html#l00046">46</a> of file <a class="el" href="WebPage_8h_source.html">WebPage.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00260">getSliderValue()</a>, <a class="el" href="WebPage_8cpp_source.html#l00288">setSliderValue()</a>, and <a class="el" href="WebPage_8cpp_source.html#l00121">WebPage()</a>.</p>
+
+</div>
+</div>
+<a id="a745f0a69af0cbe013a73ee88f8bafb63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a745f0a69af0cbe013a73ee88f8bafb63">&#9670;&nbsp;</a></span>txPacketCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t WebPage::txPacketCount = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8h_source.html#l00054">54</a> of file <a class="el" href="WebPage_8h_source.html">WebPage.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00402">SendAllLabels()</a>, <a class="el" href="WebPage_8cpp_source.html#l00330">SendAllValues()</a>, <a class="el" href="WebPage_8cpp_source.html#l00521">sendHeartbeat()</a>, and <a class="el" href="RCCTL_8ino_source.html#l00091">updateDashboard()</a>.</p>
+
+</div>
+</div>
+<a id="ae37ed01e7eeff89e0fe8b9a4a60b8252"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae37ed01e7eeff89e0fe8b9a4a60b8252">&#9670;&nbsp;</a></span>updateTaskHandle</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TaskHandle_t WebPage::updateTaskHandle</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8h_source.html#l00056">56</a> of file <a class="el" href="WebPage_8h_source.html">WebPage.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00171">initalize()</a>.</p>
+
+</div>
+</div>
+<a id="af229dc191e47aeedf60a145a8577985d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af229dc191e47aeedf60a145a8577985d">&#9670;&nbsp;</a></span>values</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="WebPage_8h.html#a59190eb0914bdb8d80bc25491b4cb1f8">telemetryValue</a> WebPage::values[<a class="el" href="WebPage_8h.html#a6e4a68678fe8d73ce391ccb07c637ab2">numValues</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8h_source.html#l00047">47</a> of file <a class="el" href="WebPage_8h_source.html">WebPage.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00509">markAllDirty()</a>, <a class="el" href="WebPage_8cpp_source.html#l00402">SendAllLabels()</a>, <a class="el" href="WebPage_8cpp_source.html#l00330">SendAllValues()</a>, <a class="el" href="WebPage_8cpp_source.html#l00483">sendLabelUpdate()</a>, <a class="el" href="WebPage_8cpp_source.html#l00470">sendValueUpdate()</a>, <a class="el" href="WebPage_8cpp_source.html#l00300">setValue()</a>, and <a class="el" href="WebPage_8cpp_source.html#l00121">WebPage()</a>.</p>
 
 </div>
 </div>

@@ -1,10 +1,13 @@
 <map id="examples/week01/move_for_test/move_for_test.ino" name="examples/week01/move_for_test/move_for_test.ino">
-<area shape="rect" id="node3" href="$RBE1001Lib_8h.html" title="RBE1001Lib.h" alt="" coords="280,95,387,121"/>
-<area shape="rect" id="node4" href="$Rangefinder_8h.html" title="Rangefinder.h" alt="" coords="282,169,385,196"/>
-<area shape="rect" id="node8" href="$Motor_8h.html" title="Motor.h" alt="" coords="743,169,809,196"/>
-<area shape="rect" id="node9" href="$ESP32Servo_8h.html" title="ESP32Servo.h" alt="" coords="895,244,1003,271"/>
-<area shape="rect" id="node15" href="$ESP32Encoder_8h.html" title="ESP32Encoder.h" alt="" coords="648,244,771,271"/>
-<area shape="rect" id="node10" href="$analogWrite_8h.html" title="analogWrite.h" alt="" coords="866,393,969,420"/>
-<area shape="rect" id="node13" href="$ESP32PWM_8h.html" title="ESP32PWM.h" alt="" coords="993,393,1100,420"/>
-<area shape="rect" id="node14" href="$ESP32Tone_8h.html" title="ESP32Tone.h" alt="" coords="1001,319,1103,345"/>
+<area shape="rect" id="node3" href="$RBE1001Lib_8h.html" title="RBE1001Lib.h" alt="" coords="405,95,512,121"/>
+<area shape="rect" id="node4" href="$Esp32WifiManager_8h.html" title="Esp32WifiManager.h" alt="" coords="73,169,215,196"/>
+<area shape="rect" id="node11" href="$ESP32AnalogRead_8h.html" title="ESP32AnalogRead.h" alt="" coords="239,169,385,196"/>
+<area shape="rect" id="node13" href="$Rangefinder_8h.html" title="Rangefinder.h" alt="" coords="657,169,759,196"/>
+<area shape="rect" id="node17" href="$Motor_8h.html" title="Motor.h" alt="" coords="1037,169,1104,196"/>
+<area shape="rect" id="node5" href="$WifiManager_8h.html" title="wifi/WifiManager.h" alt="" coords="80,244,211,271"/>
+<area shape="rect" id="node18" href="$ESP32Servo_8h.html" title="ESP32Servo.h" alt="" coords="1191,244,1299,271"/>
+<area shape="rect" id="node24" href="$ESP32Encoder_8h.html" title="ESP32Encoder.h" alt="" coords="960,244,1083,271"/>
+<area shape="rect" id="node19" href="$analogWrite_8h.html" title="analogWrite.h" alt="" coords="1143,393,1246,420"/>
+<area shape="rect" id="node22" href="$ESP32PWM_8h.html" title="ESP32PWM.h" alt="" coords="1271,393,1377,420"/>
+<area shape="rect" id="node23" href="$ESP32Tone_8h.html" title="ESP32Tone.h" alt="" coords="1223,319,1326,345"/>
 </map>

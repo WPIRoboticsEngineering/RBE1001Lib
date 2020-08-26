@@ -1,0 +1,7 @@
+<map id="AsyncEventSourceResponse" name="AsyncEventSourceResponse">
+<area shape="rect" id="node2" href="$classAsyncWebServerResponse.html" title="AsyncWebServerResponse" alt="" coords="327,7,509,33"/>
+<area shape="rect" id="node3" href="$classLinkedList.html" title="LinkedList\&lt; AsyncWebHeader *\&gt;" alt="" coords="5,7,221,33"/>
+<area shape="rect" id="node4" href="$classAsyncEventSource.html" title="AsyncEventSource" alt="" coords="351,57,485,84"/>
+<area shape="rect" id="node5" href="$classAsyncWebHandler.html" title="AsyncWebHandler" alt="" coords="48,57,179,84"/>
+<area shape="rect" id="node6" href="$classLinkedList.html" title="LinkedList\&lt; AsyncEventSource\lClient *\&gt;" alt="" coords="11,109,216,150"/>
+</map>

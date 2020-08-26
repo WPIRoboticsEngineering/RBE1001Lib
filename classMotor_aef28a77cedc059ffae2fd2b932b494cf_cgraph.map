@@ -5,4 +5,6 @@
 <area shape="rect" id="node4" href="$classMotor.html#aeb102c0704799cf2e2f5523e8900fc08" title="Motor::getDegreesPerSecond" alt="" coords="411,5,605,32"/>
 <area shape="rect" id="node5" href="$classMotor.html#aee3b24180cc7221ab63e1c2c32363693" title="Motor::getInterpolationUnit\lIncrement" alt="" coords="420,57,596,98"/>
 <area shape="rect" id="node7" href="$classMotor.html#a8037ce5f12ee18be5600dc2ee08be578" title="Motor::SetSetpointWithTime" alt="" coords="415,173,601,200"/>
+<area shape="rect" id="node8" href="$classESP32Encoder.html#ab555afb955fbfb2446b525a64c1efbb1" title="ESP32Encoder::getCount" alt="" coords="653,173,825,200"/>
+<area shape="rect" id="node9" href="$classESP32Encoder.html#aa408a8969aa799cf2e96413ee0a65080" title="ESP32Encoder::getCountRaw" alt="" coords="873,173,1072,200"/>
 </map>

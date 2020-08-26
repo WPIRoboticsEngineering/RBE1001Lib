@@ -1,3 +1,5 @@
 <map id="Motor::SetSetpoint" name="Motor::SetSetpoint">
 <area shape="rect" id="node2" href="$classMotor.html#a8037ce5f12ee18be5600dc2ee08be578" title="Motor::SetSetpointWithTime" alt="" coords="184,5,371,32"/>
+<area shape="rect" id="node3" href="$classESP32Encoder.html#ab555afb955fbfb2446b525a64c1efbb1" title="ESP32Encoder::getCount" alt="" coords="419,5,591,32"/>
+<area shape="rect" id="node4" href="$classESP32Encoder.html#aa408a8969aa799cf2e96413ee0a65080" title="ESP32Encoder::getCountRaw" alt="" coords="639,5,837,32"/>
 </map>

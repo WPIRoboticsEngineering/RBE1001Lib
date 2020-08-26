@@ -1,14 +1,14 @@
 var searchData=
 [
-  ['photoresistorpin',['photoresistorPin',['../photoresistor_8ino.html#af6d42483b8d07956e4795e0ca779a441',1,'photoresistor.ino']]],
-  ['pin',['pin',['../classESP32PWM.html#af87252d85a8b2257380f6587f4acd46e',1,'ESP32PWM::pin()'],['../ToneExample_8ino.html#aeabac9491522ec7f68102bfeab33d5c1',1,'pin():&#160;ToneExample.ino']]],
-  ['pingindex',['pingIndex',['../classRangefinder.html#a0aa0a904072e2429de65930d8b85c321',1,'Rangefinder']]],
-  ['pinnumber',['pinNumber',['../classServo.html#abdf85c5c5629f2f7ff5ea0486cf296e9',1,'Servo']]],
-  ['pos',['pos',['../Multiple-Servo-Example-Arduino_8ino.html#a1910d262855b71da353ed0d07a6c7823',1,'pos():&#160;Multiple-Servo-Example-Arduino.ino'],['../Sweep_8ino.html#a1910d262855b71da353ed0d07a6c7823',1,'pos():&#160;Sweep.ino']]],
-  ['potpin',['potPin',['../Knob_8ino.html#a03a5093d3b18a90d2e000cdd972f180d',1,'Knob.ino']]],
-  ['preferences',['preferences',['../classWifiManager.html#af5c742e58311c9c1e2a15255bfce1252',1,'WifiManager']]],
-  ['prevouscount',['prevousCount',['../classMotor.html#aae18a0691052647c16bb4266fa5ab9a1',1,'Motor']]],
-  ['pwm',['pwm',['../classMotor.html#a47375223649b0893c6120efb3d152855',1,'Motor::pwm()'],['../classServo.html#ab0cadb8894920833adcbc41e133769e5',1,'Servo::pwm()'],['../Multiple-Servo-Example-Arduino_8ino.html#a18212db6612256d3c8c9b9b1e548c065',1,'pwm():&#160;Multiple-Servo-Example-Arduino.ino'],['../PWMExample_8ino.html#a18212db6612256d3c8c9b9b1e548c065',1,'pwm():&#160;PWMExample.ino']]],
-  ['pwmchannel',['pwmChannel',['../classESP32PWM.html#ae67724be92fb446880d074553a75043b',1,'ESP32PWM']]],
-  ['pwmcount',['PWMCount',['../classESP32PWM.html#a1e98064d5eb3fd8e2885175702834bcb',1,'ESP32PWM']]]
+  ['name',['name',['../structlwip__event__packet__t.html#a68d1416f6273b703f4234ddd858203c9',1,'lwip_event_packet_t::name()'],['../struct__telemetryValue.html#a9e9434ca3102c994869df9eae4907f12',1,'_telemetryValue::name()']]],
+  ['networknameserver',['networkNameServer',['../classWifiManager.html#a284e42a72a36bb412822e4519f8cc152',1,'WifiManager']]],
+  ['networkpswdserver',['networkPswdServer',['../classWifiManager.html#ad8e70709741c98aa235b8db9c339728d',1,'WifiManager']]],
+  ['next',['next',['../classAsyncClient.html#a2a377cf161c666f0a7fa56fa51a90425',1,'AsyncClient::next()'],['../structExcludeListS.html#ab207a1986eb15e2491a9a2a7abaa61ab',1,'ExcludeListS::next()'],['../classLinkedListNode.html#aa5c476ce69cd8be8ce9fb0023c84f99c',1,'LinkedListNode::next()']]],
+  ['nipplejs_5fmin_5fjs',['nipplejs_min_js',['../nipplejsminjs_8h.html#acb1929ba5965e1ff25cde7a04ec7f04a',1,'nipplejsminjs.h']]],
+  ['nipplejs_5fmin_5fjs_5flen',['nipplejs_min_js_len',['../nipplejsminjs_8h.html#a828a4bea4ebe32ceb9860a8c738f5974',1,'nipplejsminjs.h']]],
+  ['nippleminjs',['nippleminjs',['../staticFiles_8h.html#ad4294116e3568122e8b11e589f06cabc',1,'staticFiles.h']]],
+  ['nowencoder',['nowEncoder',['../classMotor.html#a40d1c01567cc5f79cca0b3849fda01fc',1,'Motor']]],
+  ['num',['num',['../structAwsFrameInfo.html#a241c5e8a92dbd8323986961da36708e7',1,'AwsFrameInfo']]],
+  ['numberoffinders',['numberOfFinders',['../classRangefinder.html#a68c770b40863cfbba7d9282a2b2966f5',1,'Rangefinder']]],
+  ['numvaluesused',['numValuesUsed',['../classWebPage.html#a6e7dc9e48f8f35fff0da5df5e121a492',1,'WebPage']]]
 ];

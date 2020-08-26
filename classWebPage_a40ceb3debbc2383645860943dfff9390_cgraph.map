@@ -1,5 +1,0 @@
-<map id="WebPage::sendHTML" name="WebPage::sendHTML">
-<area shape="rect" id="node2" href="$classWebPage.html#a1701fb71510b3e3e2e3b050cf3f83ba5" title="WebPage::getPage" alt="" coords="266,5,401,32"/>
-<area shape="rect" id="node3" href="$classSimpleWebServer.html#a32baf564be7764b2baca6e166184411c" title="SimpleWebServer::sendHTMLResponse" alt="" coords="204,56,463,83"/>
-<area shape="rect" id="node4" href="$SimpleWebServer_8cpp.html#a62d2d61025124223ffdbddb8e63cc53b" title="server" alt="" coords="511,56,569,83"/>
-</map>

@@ -1,9 +1,12 @@
 <map id="src/RBE1001Lib.h" name="src/RBE1001Lib.h">
-<area shape="rect" id="node2" href="$Rangefinder_8h.html" title="Rangefinder.h" alt="" coords="635,80,737,107"/>
-<area shape="rect" id="node7" href="$Motor_8h.html" title="Motor.h" alt="" coords="443,80,510,107"/>
-<area shape="rect" id="node8" href="$ESP32Servo_8h.html" title="ESP32Servo.h" alt="" coords="117,155,225,181"/>
-<area shape="rect" id="node14" href="$ESP32Encoder_8h.html" title="ESP32Encoder.h" alt="" coords="357,155,479,181"/>
-<area shape="rect" id="node9" href="$analogWrite_8h.html" title="analogWrite.h" alt="" coords="224,304,327,331"/>
-<area shape="rect" id="node12" href="$ESP32PWM_8h.html" title="ESP32PWM.h" alt="" coords="93,304,199,331"/>
-<area shape="rect" id="node13" href="$ESP32Tone_8h.html" title="ESP32Tone.h" alt="" coords="5,229,108,256"/>
+<area shape="rect" id="node2" href="$Esp32WifiManager_8h.html" title="Esp32WifiManager.h" alt="" coords="119,80,261,107"/>
+<area shape="rect" id="node10" href="$ESP32AnalogRead_8h.html" title="ESP32AnalogRead.h" alt="" coords="691,80,836,107"/>
+<area shape="rect" id="node12" href="$Rangefinder_8h.html" title="Rangefinder.h" alt="" coords="561,80,664,107"/>
+<area shape="rect" id="node16" href="$Motor_8h.html" title="Motor.h" alt="" coords="1017,80,1083,107"/>
+<area shape="rect" id="node3" href="$WifiManager_8h.html" title="wifi/WifiManager.h" alt="" coords="97,155,227,181"/>
+<area shape="rect" id="node17" href="$ESP32Servo_8h.html" title="ESP32Servo.h" alt="" coords="1184,155,1292,181"/>
+<area shape="rect" id="node23" href="$ESP32Encoder_8h.html" title="ESP32Encoder.h" alt="" coords="937,155,1059,181"/>
+<area shape="rect" id="node18" href="$analogWrite_8h.html" title="analogWrite.h" alt="" coords="1271,304,1373,331"/>
+<area shape="rect" id="node21" href="$ESP32PWM_8h.html" title="ESP32PWM.h" alt="" coords="1139,304,1246,331"/>
+<area shape="rect" id="node22" href="$ESP32Tone_8h.html" title="ESP32Tone.h" alt="" coords="1140,229,1243,256"/>
 </map>

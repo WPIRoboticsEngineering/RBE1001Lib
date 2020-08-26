@@ -1,0 +1,10 @@
+<map id="src/ESPAsyncWebServer/WebRequest.cpp" name="src/ESPAsyncWebServer/WebRequest.cpp">
+<area shape="rect" id="node2" href="$ESPAsyncWebServer_8h.html" title="ESPAsyncWebServer.h" alt="" coords="347,95,509,121"/>
+<area shape="rect" id="node9" href="$WebResponseImpl_8h.html" title="WebResponseImpl.h" alt="" coords="921,169,1065,196"/>
+<area shape="rect" id="node18" href="$WebAuthentication_8h.html" title="WebAuthentication.h" alt="" coords="51,95,194,121"/>
+<area shape="rect" id="node6" href="$StringArray_8h.html" title="StringArray.h" alt="" coords="799,169,897,196"/>
+<area shape="rect" id="node11" href="$WebHandlerImpl_8h.html" title="WebHandlerImpl.h" alt="" coords="644,169,775,196"/>
+<area shape="rect" id="node14" href="$AsyncWebSocket_8h.html" title="AsyncWebSocket.h" alt="" coords="81,169,220,196"/>
+<area shape="rect" id="node17" href="$AsyncEventSource_8h.html" title="AsyncEventSource.h" alt="" coords="245,169,390,196"/>
+<area shape="rect" id="node16" href="$AsyncWebSynchronization_8h.html" title="AsyncWebSynchronization.h" alt="" coords="255,244,446,271"/>
+</map>

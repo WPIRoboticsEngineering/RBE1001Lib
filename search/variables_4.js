@@ -1,12 +1,9 @@
 var searchData=
 [
-  ['echopin',['echoPin',['../classRangefinder.html#a59919b603d4e6e0f95cf6ee981ad3afa',1,'Rangefinder']]],
-  ['encoder',['encoder',['../classMotor.html#a7cc0fe1b794fea00ca822160b5a03772',1,'Motor::encoder()'],['../Encoder_8ino.html#a36ca563a7fbbc30050542cad8c8bdce4',1,'encoder():&#160;Encoder.ino']]],
-  ['encoder2',['encoder2',['../Encoder_8ino.html#a1b6dc6b24b074193b7f676e0cbc99c17',1,'Encoder.ino']]],
-  ['encoder2lasttoggled',['encoder2lastToggled',['../Encoder_8ino.html#a14b898ad2deb872d942941c4589219a7',1,'Encoder.ino']]],
-  ['encoder2paused',['encoder2Paused',['../Encoder_8ino.html#a6e1e9a8cc7d7637f552ea08f480097b0',1,'Encoder.ino']]],
-  ['encoders',['encoders',['../classESP32Encoder.html#a7e686a55f97c29add9488ed9245b4f50',1,'ESP32Encoder']]],
-  ['endsetpoint',['endSetpoint',['../classMotor.html#a478fbdffa96f3bfa2633d551aeb30a29',1,'Motor']]],
-  ['esp32encoder',['ESP32Encoder',['../ESP32Encoder_8cpp.html#a06267953b58d1fcc155dd842950bc450',1,'ESP32Encoder.cpp']]],
-  ['explicateallocationmode',['explicateAllocationMode',['../classESP32PWM.html#ace4cae37c1bcb61ec627584e4c4965fd',1,'ESP32PWM']]]
+  ['dashboardupdatetimer',['dashboardUpdateTimer',['../RCCTL_8ino.html#ace2e0d944a5f795a697be2a25f5b296a',1,'RCCTL.ino']]],
+  ['data',['data',['../structtcp__api__call__t.html#aae935f5ff2e4a508ae70d456c864757c',1,'tcp_api_call_t']]],
+  ['direction',['direction',['../classESP32Encoder.html#a08484f95b20bdd1b5d2032585dfafeba',1,'ESP32Encoder']]],
+  ['directionflag',['directionFlag',['../classMotor.html#a2fb7cd4e9b93a6114eaf85e5aa23c70d',1,'Motor']]],
+  ['dns',['dns',['../structlwip__event__packet__t.html#a1bdfb99f2c6c86075680d40a0e411853',1,'lwip_event_packet_t']]],
+  ['duration',['duration',['../classMotor.html#a08a0479708534c9c9207b242e9d09b88',1,'Motor']]]
 ];

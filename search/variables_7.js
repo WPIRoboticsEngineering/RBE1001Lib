@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['interruptcountforvelocity',['interruptCountForVelocity',['../classMotor.html#a40d821c50be1a978af0134232143ab31',1,'Motor']]]
+  ['heartbeatbuffer',['heartbeatBuffer',['../classWebPage.html#ab0c25cc33c825e2bcafd9b88d7794e7c',1,'WebPage']]],
+  ['highestpin',['highestPin',['../analogWriteExample_8ino.html#aed75235b3f79965abc9512345e8de41a',1,'analogWriteExample.ino']]]
 ];

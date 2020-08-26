@@ -1,0 +1,6 @@
+<map id="AsyncWebServerRequest::_onPoll" name="AsyncWebServerRequest::_onPoll">
+<area shape="rect" id="node2" href="$classAsyncWebServerResponse.html#a56f622c57b17a97fa2c29184e960c8d9" title="AsyncWebServerResponse\l::_ack" alt="" coords="227,5,409,47"/>
+<area shape="rect" id="node3" href="$classAsyncWebServerResponse.html#aff8fdcc612590031f1e637a5f07b5f36" title="AsyncWebServerResponse\l::_finished" alt="" coords="227,71,409,112"/>
+<area shape="rect" id="node4" href="$classAsyncClient.html#acd05c724494c44f7fb5d8f730d026b8e" title="AsyncClient::canSend" alt="" coords="242,137,394,163"/>
+<area shape="rect" id="node5" href="$classAsyncClient.html#a039b989cd1e955709e8b90567045fdbb" title="AsyncClient::space" alt="" coords="457,137,593,163"/>
+</map>

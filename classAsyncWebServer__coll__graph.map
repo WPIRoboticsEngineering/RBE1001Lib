@@ -1,0 +1,7 @@
+<map id="AsyncWebServer" name="AsyncWebServer">
+<area shape="rect" id="node2" href="$classAsyncServer.html" title="AsyncServer" alt="" coords="246,5,343,32"/>
+<area shape="rect" id="node3" href="$classLinkedList.html" title="LinkedList\&lt; AsyncWebRewrite *\&gt;" alt="" coords="185,56,404,83"/>
+<area shape="rect" id="node4" href="$classAsyncCallbackWebHandler.html" title="AsyncCallbackWebHandler" alt="" coords="203,107,386,133"/>
+<area shape="rect" id="node5" href="$classAsyncWebHandler.html" title="AsyncWebHandler" alt="" coords="5,107,136,133"/>
+<area shape="rect" id="node6" href="$classLinkedList.html" title="LinkedList\&lt; AsyncWebHandler *\&gt;" alt="" coords="185,157,404,184"/>
+</map>

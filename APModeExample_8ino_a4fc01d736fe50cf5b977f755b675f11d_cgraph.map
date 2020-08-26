@@ -1,8 +1,9 @@
 <map id="setup" name="setup">
-<area shape="rect" id="node2" href="$classWifiManager.html#a49500557085820f032112b25e2aaec83" title="WifiManager::setupAP" alt="" coords="108,5,261,32"/>
-<area shape="rect" id="node3" href="$classWifiManager.html#ac1c00fd2d738b500e5cc77884c31256e" title="WifiManager::setup" alt="" coords="309,5,444,32"/>
-<area shape="rect" id="node4" href="$WifiManager_8cpp.html#a78d9184275d069bcc924ce89e8939f4a" title="WiFiEventWifiManager" alt="" coords="492,5,648,32"/>
-<area shape="rect" id="node5" href="$classWifiManager.html#a42a9633eaed14840cdd6653afd3086b3" title="WifiManager::WiFiEvent" alt="" coords="696,5,860,32"/>
-<area shape="rect" id="node6" href="$classWifiManager.html#a6ba59aca9a892953c20837da9479941a" title="WifiManager::printState" alt="" coords="1123,5,1281,32"/>
-<area shape="rect" id="node7" href="$classWifiManager.html#a2b0fc1360c90922972c2caee5531afbb" title="WifiManager::disconnect" alt="" coords="908,31,1075,57"/>
+<area shape="rect" id="node2" href="$classWifiManager.html#a49500557085820f032112b25e2aaec83" title="WifiManager::setupAP" alt="" coords="108,31,261,57"/>
+<area shape="rect" id="node3" href="$classWifiManager.html#ac1c00fd2d738b500e5cc77884c31256e" title="WifiManager::setup" alt="" coords="309,31,444,57"/>
+<area shape="rect" id="node4" href="$classWifiManager.html#a4ad62e3bb8f8d057cb683808b3ac99b9" title="WifiManager::getPassword" alt="" coords="492,5,671,32"/>
+<area shape="rect" id="node5" href="$WifiManager_8cpp.html#a78d9184275d069bcc924ce89e8939f4a" title="WiFiEventWifiManager" alt="" coords="503,56,659,83"/>
+<area shape="rect" id="node6" href="$classWifiManager.html#a42a9633eaed14840cdd6653afd3086b3" title="WifiManager::WiFiEvent" alt="" coords="719,56,883,83"/>
+<area shape="rect" id="node7" href="$classWifiManager.html#a6ba59aca9a892953c20837da9479941a" title="WifiManager::printState" alt="" coords="1145,56,1304,83"/>
+<area shape="rect" id="node8" href="$classWifiManager.html#a2b0fc1360c90922972c2caee5531afbb" title="WifiManager::disconnect" alt="" coords="931,81,1097,108"/>
 </map>

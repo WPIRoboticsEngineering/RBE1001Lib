@@ -1,0 +1,14 @@
+<map id="AsyncWebServerResponse::_respond" name="AsyncWebServerResponse::_respond">
+<area shape="rect" id="node2" href="$classAsyncWebServerRequest.html#aca27487c506eb3d0bdd6ff356815a488" title="AsyncWebServerRequest\l::client" alt="" coords="236,41,409,82"/>
+<area shape="rect" id="node3" href="$classAsyncClient.html#a0305fe0b036257c03829ceaa5cc43361" title="AsyncClient::close" alt="" coords="257,107,389,133"/>
+<area shape="rect" id="node4" href="$classAsyncClient.html#a98ff872bc84919f006f3bb8a249ed36d" title="AsyncClient::_close" alt="" coords="457,81,596,108"/>
+<area shape="rect" id="node12" href="$AsyncTCP_8cpp.html#acfb3f5bacaaabd2c616896510fd1f10b" title="_tcp_recved" alt="" coords="480,132,573,159"/>
+<area shape="rect" id="node5" href="$AsyncTCP_8cpp.html#ab053d5adb5be879f37181af512213bb6" title="_tcp_clear_events" alt="" coords="645,5,773,32"/>
+<area shape="rect" id="node7" href="$AsyncTCP_8cpp.html#a3602c1ebfae2fb2ff64a0e3d7b0568ce" title="_tcp_close" alt="" coords="667,56,752,83"/>
+<area shape="rect" id="node9" href="$classAsyncClient.html#a09e777ff005d8e0f81166e704dc14979" title="AsyncClient::abort" alt="" coords="644,107,775,133"/>
+<area shape="rect" id="node6" href="$AsyncTCP_8cpp.html#a859f51f5251f16218d48111079ead254" title="_prepend_async_event" alt="" coords="823,5,979,32"/>
+<area shape="rect" id="node8" href="$AsyncTCP_8cpp.html#a7c4346c7dec98a175f7b96b03873839a" title="_tcp_close_api" alt="" coords="846,56,955,83"/>
+<area shape="rect" id="node10" href="$AsyncTCP_8cpp.html#a3e2474b46f6a3f01db216511d2bcfc4c" title="_tcp_abort" alt="" coords="859,107,942,133"/>
+<area shape="rect" id="node11" href="$AsyncTCP_8cpp.html#a1116bc106bb6f68220dc19896e08e831" title="_tcp_abort_api" alt="" coords="1027,107,1133,133"/>
+<area shape="rect" id="node13" href="$AsyncTCP_8cpp.html#ac6939df8a76eab232541be004e935be2" title="_tcp_recved_api" alt="" coords="651,157,768,184"/>
+</map>

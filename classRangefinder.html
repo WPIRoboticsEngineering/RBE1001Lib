@@ -161,7 +161,7 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Rangefinder_8cpp_source.html#l00135">135</a> of file <a class="el" href="Rangefinder_8cpp_source.html">Rangefinder.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Rangefinder_8cpp_source.html#l00136">136</a> of file <a class="el" href="Rangefinder_8cpp_source.html">Rangefinder.cpp</a>.</p>
 
 </div>
 </div>
@@ -196,9 +196,9 @@ Static Public Attributes</h2></td></tr>
 <p>The trigger pin needs to be an output, and the echo pin needs to have CHANGE interrupts.</p>
 <p>Interrupts are managed through Arduio attachInterrupt() </p>
 
-<p class="definition">Definition at line <a class="el" href="Rangefinder_8cpp_source.html#l00091">91</a> of file <a class="el" href="Rangefinder_8cpp_source.html">Rangefinder.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Rangefinder_8cpp_source.html#l00092">92</a> of file <a class="el" href="Rangefinder_8cpp_source.html">Rangefinder.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="Rangefinder_8cpp_source.html#l00004">complexHandlerTaskUS</a>, <a class="el" href="Rangefinder_8h_source.html#l00055">echoPin</a>, <a class="el" href="Rangefinder_8h_source.html#l00006">MAX_POSSIBLE_INTERRUPT_RANGEFINDER</a>, <a class="el" href="Rangefinder_8h_source.html#l00035">numberOfFinders</a>, <a class="el" href="Rangefinder_8cpp_source.html#l00025">onTimer()</a>, <a class="el" href="Rangefinder_8cpp_source.html#l00053">sensorISR0()</a>, <a class="el" href="Rangefinder_8cpp_source.html#l00056">sensorISR1()</a>, <a class="el" href="Rangefinder_8cpp_source.html#l00059">sensorISR2()</a>, <a class="el" href="Rangefinder_8cpp_source.html#l00062">sensorISR3()</a>, <a class="el" href="Rangefinder_8h_source.html#l00039">timoutThreadStarted</a>, and <a class="el" href="Rangefinder_8h_source.html#l00059">triggerPin</a>.</p>
+<p class="reference">References <a class="el" href="Rangefinder_8cpp_source.html#l00004">complexHandlerTaskUS</a>, <a class="el" href="Rangefinder_8h_source.html#l00055">echoPin</a>, <a class="el" href="Rangefinder_8h_source.html#l00006">MAX_POSSIBLE_INTERRUPT_RANGEFINDER</a>, <a class="el" href="Rangefinder_8h_source.html#l00035">numberOfFinders</a>, <a class="el" href="Rangefinder_8cpp_source.html#l00025">onTimer()</a>, <a class="el" href="Rangefinder_8cpp_source.html#l00054">sensorISR0()</a>, <a class="el" href="Rangefinder_8cpp_source.html#l00057">sensorISR1()</a>, <a class="el" href="Rangefinder_8cpp_source.html#l00060">sensorISR2()</a>, <a class="el" href="Rangefinder_8cpp_source.html#l00063">sensorISR3()</a>, <a class="el" href="Rangefinder_8h_source.html#l00039">timoutThreadStarted</a>, and <a class="el" href="Rangefinder_8h_source.html#l00059">triggerPin</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="FullSystemTest_8ino_source.html#l00023">setup()</a>.</p>
 <div class="dynheader">
@@ -245,9 +245,9 @@ Here is the call graph for this function:</div>
 
 <p>check the current state of timeout and fire if its time to do so </p>
 
-<p class="definition">Definition at line <a class="el" href="Rangefinder_8cpp_source.html#l00043">43</a> of file <a class="el" href="Rangefinder_8cpp_source.html">Rangefinder.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Rangefinder_8cpp_source.html#l00044">44</a> of file <a class="el" href="Rangefinder_8cpp_source.html">Rangefinder.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="Rangefinder_8cpp_source.html#l00065">fire()</a>, and <a class="el" href="Rangefinder_8cpp_source.html#l00039">getTimeoutState()</a>.</p>
+<p class="reference">References <a class="el" href="Rangefinder_8cpp_source.html#l00066">fire()</a>, and <a class="el" href="Rangefinder_8cpp_source.html#l00040">getTimeoutState()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Rangefinder_8cpp_source.html#l00025">onTimer()</a>.</p>
 <div class="dynheader">
@@ -288,11 +288,11 @@ Here is the call graph for this function:</div>
 <p>fire a strobe of the trig pin </p>
 <p>this will initiate a chirp and wait for the echo to come back </p>
 
-<p class="definition">Definition at line <a class="el" href="Rangefinder_8cpp_source.html#l00065">65</a> of file <a class="el" href="Rangefinder_8cpp_source.html">Rangefinder.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Rangefinder_8cpp_source.html#l00066">66</a> of file <a class="el" href="Rangefinder_8cpp_source.html">Rangefinder.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="Rangefinder_8h_source.html#l00047">forceFire</a>, <a class="el" href="Rangefinder_8h_source.html#l00035">numberOfFinders</a>, <a class="el" href="Rangefinder_8h_source.html#l00043">pingIndex</a>, <a class="el" href="Rangefinder_8cpp_source.html#l00012">threadTimeout</a>, and <a class="el" href="Rangefinder_8h_source.html#l00059">triggerPin</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Rangefinder_8cpp_source.html#l00043">checkTimeout()</a>, and <a class="el" href="Rangefinder_8cpp_source.html#l00025">onTimer()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Rangefinder_8cpp_source.html#l00044">checkTimeout()</a>, and <a class="el" href="Rangefinder_8cpp_source.html#l00025">onTimer()</a>.</p>
 
 </div>
 </div>
@@ -318,7 +318,7 @@ Here is the call graph for this function:</div>
 
 <p class="reference">References <a class="el" href="Rangefinder_8cpp_source.html#l00143">getRoundTripTimeMicroSeconds()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="FullSystemTest_8ino_source.html#l00044">loop()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="FullSystemTest_8ino_source.html#l00044">loop()</a>, and <a class="el" href="RCCTL_8ino_source.html#l00091">updateDashboard()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -381,11 +381,11 @@ Here is the call graph for this function:</div>
 
 <p>Function used by the timeout check thread to determine if this object has timed out. </p>
 
-<p class="definition">Definition at line <a class="el" href="Rangefinder_8cpp_source.html#l00039">39</a> of file <a class="el" href="Rangefinder_8cpp_source.html">Rangefinder.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Rangefinder_8cpp_source.html#l00040">40</a> of file <a class="el" href="Rangefinder_8cpp_source.html">Rangefinder.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="Rangefinder_8cpp_source.html#l00012">threadTimeout</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Rangefinder_8cpp_source.html#l00043">checkTimeout()</a>, and <a class="el" href="RangeFinderTest_8ino_source.html#l00025">loop()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Rangefinder_8cpp_source.html#l00044">checkTimeout()</a>, and <a class="el" href="RangeFinderTest_8ino_source.html#l00025">loop()</a>.</p>
 
 </div>
 </div>
@@ -407,11 +407,11 @@ Here is the call graph for this function:</div>
 <p>The method called from the ISR indicating the echo pin changed state. </p>
 <p>This method is called by the static method for the associated interrupt. </p>
 
-<p class="definition">Definition at line <a class="el" href="Rangefinder_8cpp_source.html#l00081">81</a> of file <a class="el" href="Rangefinder_8cpp_source.html">Rangefinder.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Rangefinder_8cpp_source.html#l00082">82</a> of file <a class="el" href="Rangefinder_8cpp_source.html">Rangefinder.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="Rangefinder_8h_source.html#l00055">echoPin</a>, <a class="el" href="Rangefinder_8h_source.html#l00047">forceFire</a>, <a class="el" href="Rangefinder_8h_source.html#l00067">roundTripTime</a>, <a class="el" href="Rangefinder_8h_source.html#l00063">startTime</a>, and <a class="el" href="Rangefinder_8h_source.html#l00051">synch</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Rangefinder_8cpp_source.html#l00053">sensorISR0()</a>, <a class="el" href="Rangefinder_8cpp_source.html#l00056">sensorISR1()</a>, <a class="el" href="Rangefinder_8cpp_source.html#l00059">sensorISR2()</a>, and <a class="el" href="Rangefinder_8cpp_source.html#l00062">sensorISR3()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Rangefinder_8cpp_source.html#l00054">sensorISR0()</a>, <a class="el" href="Rangefinder_8cpp_source.html#l00057">sensorISR1()</a>, <a class="el" href="Rangefinder_8cpp_source.html#l00060">sensorISR2()</a>, and <a class="el" href="Rangefinder_8cpp_source.html#l00063">sensorISR3()</a>.</p>
 
 </div>
 </div>
@@ -431,7 +431,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Rangefinder_8h_source.html#l00055">55</a> of file <a class="el" href="Rangefinder_8h_source.html">Rangefinder.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Rangefinder_8cpp_source.html#l00091">attach()</a>, and <a class="el" href="Rangefinder_8cpp_source.html#l00081">sensorISR()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Rangefinder_8cpp_source.html#l00092">attach()</a>, and <a class="el" href="Rangefinder_8cpp_source.html#l00082">sensorISR()</a>.</p>
 
 </div>
 </div>
@@ -458,7 +458,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Rangefinder_8h_source.html#l00047">47</a> of file <a class="el" href="Rangefinder_8h_source.html">Rangefinder.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Rangefinder_8cpp_source.html#l00065">fire()</a>, <a class="el" href="Rangefinder_8cpp_source.html#l00025">onTimer()</a>, and <a class="el" href="Rangefinder_8cpp_source.html#l00081">sensorISR()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Rangefinder_8cpp_source.html#l00066">fire()</a>, <a class="el" href="Rangefinder_8cpp_source.html#l00025">onTimer()</a>, and <a class="el" href="Rangefinder_8cpp_source.html#l00082">sensorISR()</a>.</p>
 
 </div>
 </div>
@@ -512,7 +512,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Rangefinder_8h_source.html#l00035">35</a> of file <a class="el" href="Rangefinder_8h_source.html">Rangefinder.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Rangefinder_8cpp_source.html#l00091">attach()</a>, and <a class="el" href="Rangefinder_8cpp_source.html#l00065">fire()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Rangefinder_8cpp_source.html#l00092">attach()</a>, and <a class="el" href="Rangefinder_8cpp_source.html#l00066">fire()</a>.</p>
 
 </div>
 </div>
@@ -539,7 +539,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Rangefinder_8h_source.html#l00043">43</a> of file <a class="el" href="Rangefinder_8h_source.html">Rangefinder.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Rangefinder_8cpp_source.html#l00065">fire()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Rangefinder_8cpp_source.html#l00066">fire()</a>.</p>
 
 </div>
 </div>
@@ -558,7 +558,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Rangefinder_8h_source.html#l00067">67</a> of file <a class="el" href="Rangefinder_8h_source.html">Rangefinder.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Rangefinder_8cpp_source.html#l00143">getRoundTripTimeMicroSeconds()</a>, and <a class="el" href="Rangefinder_8cpp_source.html#l00081">sensorISR()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Rangefinder_8cpp_source.html#l00143">getRoundTripTimeMicroSeconds()</a>, and <a class="el" href="Rangefinder_8cpp_source.html#l00082">sensorISR()</a>.</p>
 
 </div>
 </div>
@@ -577,7 +577,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Rangefinder_8h_source.html#l00063">63</a> of file <a class="el" href="Rangefinder_8h_source.html">Rangefinder.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Rangefinder_8cpp_source.html#l00081">sensorISR()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Rangefinder_8cpp_source.html#l00082">sensorISR()</a>.</p>
 
 </div>
 </div>
@@ -596,7 +596,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Rangefinder_8h_source.html#l00051">51</a> of file <a class="el" href="Rangefinder_8h_source.html">Rangefinder.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Rangefinder_8cpp_source.html#l00143">getRoundTripTimeMicroSeconds()</a>, and <a class="el" href="Rangefinder_8cpp_source.html#l00081">sensorISR()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Rangefinder_8cpp_source.html#l00143">getRoundTripTimeMicroSeconds()</a>, and <a class="el" href="Rangefinder_8cpp_source.html#l00082">sensorISR()</a>.</p>
 
 </div>
 </div>
@@ -623,7 +623,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Rangefinder_8h_source.html#l00039">39</a> of file <a class="el" href="Rangefinder_8h_source.html">Rangefinder.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Rangefinder_8cpp_source.html#l00091">attach()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Rangefinder_8cpp_source.html#l00092">attach()</a>.</p>
 
 </div>
 </div>
@@ -642,7 +642,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="Rangefinder_8h_source.html#l00059">59</a> of file <a class="el" href="Rangefinder_8h_source.html">Rangefinder.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Rangefinder_8cpp_source.html#l00091">attach()</a>, and <a class="el" href="Rangefinder_8cpp_source.html#l00065">fire()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Rangefinder_8cpp_source.html#l00092">attach()</a>, and <a class="el" href="Rangefinder_8cpp_source.html#l00066">fire()</a>.</p>
 
 </div>
 </div>

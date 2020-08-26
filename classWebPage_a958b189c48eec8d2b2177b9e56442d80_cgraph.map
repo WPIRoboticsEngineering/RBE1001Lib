@@ -1,0 +1,9 @@
+<map id="WebPage::SendAllLabels" name="WebPage::SendAllLabels">
+<area shape="rect" id="node2" href="$classAsyncWebSocket.html#a51da0aba5820b30a7d8ffd1ef90f45b1" title="AsyncWebSocket::available\lForWriteAll" alt="" coords="224,5,411,47"/>
+<area shape="rect" id="node3" href="$classAsyncWebSocket.html#a9e5e456ce66c41e3666535a52bbcd47b" title="AsyncWebSocket::binaryAll" alt="" coords="225,71,410,98"/>
+<area shape="rect" id="node6" href="$classAsyncWebSocket.html#a1039bdf2bee39cf3dd198e61a7bb6c0b" title="AsyncWebSocket::count" alt="" coords="234,122,401,149"/>
+<area shape="rect" id="node4" href="$classAsyncWebSocket.html#a91a4f6c8ec269eeae3af0090ab16d66b" title="AsyncWebSocket::makeBuffer" alt="" coords="459,71,661,98"/>
+<area shape="rect" id="node5" href="$classLinkedList.html#a3a284c668d6f717be3e8b5d283ff5419" title="LinkedList::add" alt="" coords="709,71,820,98"/>
+<area shape="rect" id="node7" href="$classLinkedList.html#a442c00ea105c9c46425ec05c7043c77a" title="LinkedList::count_if" alt="" coords="493,122,627,149"/>
+<area shape="rect" id="node8" href="$classAsyncWebSocketClient.html#aa17cd4c97a830c0a4cbe02f62f3f636b" title="AsyncWebSocketClient\l::status" alt="" coords="479,173,641,215"/>
+</map>

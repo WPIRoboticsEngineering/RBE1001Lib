@@ -1,12 +1,14 @@
 <map id="loop" name="loop">
-<area shape="rect" id="node2" href="$classWifiManager.html#a195f62c3e4d48c3210b5ef7e149b9135" title="WifiManager::getState" alt="" coords="100,107,252,133"/>
-<area shape="rect" id="node3" href="$classWifiManager.html#aaac549f9b270f56c57615cb04a85079e" title="WifiManager::loop" alt="" coords="113,157,239,184"/>
-<area shape="rect" id="node4" href="$classWifiManager.html#ab3fc171499ba03812dfb63ffeb9dd316" title="WifiManager::runSerialLoop" alt="" coords="304,5,487,32"/>
-<area shape="rect" id="node6" href="$classWifiManager.html#a2b0fc1360c90922972c2caee5531afbb" title="WifiManager::disconnect" alt="" coords="539,56,705,83"/>
-<area shape="rect" id="node7" href="$classWifiManager.html#a6ba59aca9a892953c20837da9479941a" title="WifiManager::printState" alt="" coords="753,81,912,108"/>
-<area shape="rect" id="node8" href="$classWifiManager.html#af642437fb5940794f2eb9fe0c2311c18" title="WifiManager::updateApList" alt="" coords="306,157,485,184"/>
-<area shape="rect" id="node9" href="$classWifiManager.html#aa8427e775bcbd68b779afcb4a2018698" title="WifiManager::rescan" alt="" coords="324,208,467,235"/>
-<area shape="rect" id="node10" href="$classWifiManager.html#a946ac93e07eaf2e5da6a5e482bc054ee" title="WifiManager::connectToWiFi" alt="" coords="300,259,491,285"/>
-<area shape="rect" id="node11" href="$classWifiManager.html#a7cf530ef10fd1ffcac59fe5e4f58ad57" title="WifiManager::startAP" alt="" coords="322,309,469,336"/>
-<area shape="rect" id="node5" href="$classWifiManager.html#a6f2df7095f4e01872024ac914273722c" title="WifiManager::erase" alt="" coords="555,5,689,32"/>
+<area shape="rect" id="node2" href="$classWifiManager.html#a195f62c3e4d48c3210b5ef7e149b9135" title="WifiManager::getState" alt="" coords="100,176,252,203"/>
+<area shape="rect" id="node3" href="$classWifiManager.html#aaac549f9b270f56c57615cb04a85079e" title="WifiManager::loop" alt="" coords="113,227,239,254"/>
+<area shape="rect" id="node4" href="$classWifiManager.html#ab3fc171499ba03812dfb63ffeb9dd316" title="WifiManager::runSerialLoop" alt="" coords="304,75,487,102"/>
+<area shape="rect" id="node6" href="$classWifiManager.html#a2b0fc1360c90922972c2caee5531afbb" title="WifiManager::disconnect" alt="" coords="545,126,711,152"/>
+<area shape="rect" id="node7" href="$classWifiManager.html#a6ba59aca9a892953c20837da9479941a" title="WifiManager::printState" alt="" coords="765,75,924,102"/>
+<area shape="rect" id="node8" href="$classWifiManager.html#a4ad62e3bb8f8d057cb683808b3ac99b9" title="WifiManager::getPassword" alt="" coords="539,328,717,355"/>
+<area shape="rect" id="node9" href="$classWifiManager.html#a547d00fa67484a33b341f63c7ca7f74d" title="WifiManager::setPassword" alt="" coords="539,202,717,228"/>
+<area shape="rect" id="node10" href="$classWifiManager.html#af642437fb5940794f2eb9fe0c2311c18" title="WifiManager::updateApList" alt="" coords="306,278,485,304"/>
+<area shape="rect" id="node11" href="$classWifiManager.html#aa8427e775bcbd68b779afcb4a2018698" title="WifiManager::rescan" alt="" coords="324,430,467,456"/>
+<area shape="rect" id="node12" href="$classWifiManager.html#a946ac93e07eaf2e5da6a5e482bc054ee" title="WifiManager::connectToWiFi" alt="" coords="300,379,491,406"/>
+<area shape="rect" id="node13" href="$classWifiManager.html#a7cf530ef10fd1ffcac59fe5e4f58ad57" title="WifiManager::startAP" alt="" coords="322,227,469,254"/>
+<area shape="rect" id="node5" href="$classWifiManager.html#a6f2df7095f4e01872024ac914273722c" title="WifiManager::erase" alt="" coords="561,75,695,102"/>
 </map>

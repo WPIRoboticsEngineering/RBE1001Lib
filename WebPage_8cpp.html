@@ -70,15 +70,40 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;Arduino.h&gt;</code><br />
+<code>#include &lt;WebServer.h&gt;</code><br />
+<code>#include &lt;HTTP_Method.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="WebPage_8h_source.html">WebPage.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="SimpleWebServer_8h_source.html">SimpleWebServer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="indexhtml_8h_source.html">static/indexhtml.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="nipplejsminjs_8h_source.html">static/nipplejsminjs.h</a>&quot;</code><br />
+<code>#include &lt;<a class="el" href="ESPAsyncWebServer_8h_source.html">ESPAsyncWebServer/ESPAsyncWebServer.h</a>&gt;</code><br />
+<code>#include &quot;<a class="el" href="Motor_8h_source.html">Motor.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="RBE1001Lib_8h_source.html">RBE1001Lib.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for WebPage.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="WebPage_8cpp__incl.png" border="0" usemap="#src_2WebPage_8cpp" alt=""/></div>
 <map name="src_2WebPage_8cpp" id="src_2WebPage_8cpp">
-<area shape="rect" id="node3" href="WebPage_8h.html" title="WebPage.h" alt="" coords="27,80,117,107"/>
-<area shape="rect" id="node4" href="SimpleWebServer_8h.html" title="SimpleWebServer.h" alt="" coords="81,155,220,181"/>
+<area shape="rect" id="node5" href="WebPage_8h.html" title="WebPage.h" alt="" coords="581,80,671,107"/>
+<area shape="rect" id="node6" href="Motor_8h.html" title="Motor.h" alt="" coords="479,155,546,181"/>
+<area shape="rect" id="node16" href="indexhtml_8h.html" title="static/indexhtml.h" alt="" coords="746,80,871,107"/>
+<area shape="rect" id="node17" href="nipplejsminjs_8h.html" title="static/nipplejsminjs.h" alt="" coords="895,80,1039,107"/>
+<area shape="rect" id="node18" href="ESPAsyncWebServer_8h.html" title="ESPAsyncWebServer/ESPAsync\lWebServer.h" alt="" coords="1510,304,1729,345"/>
+<area shape="rect" id="node33" href="RBE1001Lib_8h.html" title="RBE1001Lib.h" alt="" coords="1063,80,1170,107"/>
+<area shape="rect" id="node7" href="ESP32Servo_8h.html" title="ESP32Servo.h" alt="" coords="104,229,212,256"/>
+<area shape="rect" id="node13" href="ESP32Encoder_8h.html" title="ESP32Encoder.h" alt="" coords="419,229,542,256"/>
+<area shape="rect" id="node8" href="analogWrite_8h.html" title="analogWrite.h" alt="" coords="140,393,243,420"/>
+<area shape="rect" id="node11" href="ESP32PWM_8h.html" title="ESP32PWM.h" alt="" coords="9,393,115,420"/>
+<area shape="rect" id="node12" href="ESP32Tone_8h.html" title="ESP32Tone.h" alt="" coords="5,311,108,338"/>
+<area shape="rect" id="node21" href="StringArray_8h.html" title="StringArray.h" alt="" coords="1431,393,1530,420"/>
+<area shape="rect" id="node24" href="WebResponseImpl_8h.html" title="WebResponseImpl.h" alt="" coords="1263,393,1407,420"/>
+<area shape="rect" id="node26" href="WebHandlerImpl_8h.html" title="WebHandlerImpl.h" alt="" coords="1554,393,1685,420"/>
+<area shape="rect" id="node29" href="AsyncWebSocket_8h.html" title="AsyncWebSocket.h" alt="" coords="1879,393,2018,420"/>
+<area shape="rect" id="node32" href="AsyncEventSource_8h.html" title="AsyncEventSource.h" alt="" coords="1709,393,1855,420"/>
+<area shape="rect" id="node31" href="AsyncWebSynchronization_8h.html" title="AsyncWebSynchronization.h" alt="" coords="1900,468,2091,495"/>
+<area shape="rect" id="node34" href="Esp32WifiManager_8h.html" title="Esp32WifiManager.h" alt="" coords="1080,155,1223,181"/>
+<area shape="rect" id="node40" href="ESP32AnalogRead_8h.html" title="ESP32AnalogRead.h" alt="" coords="787,155,932,181"/>
+<area shape="rect" id="node42" href="Rangefinder_8h.html" title="Rangefinder.h" alt="" coords="1247,155,1349,181"/>
+<area shape="rect" id="node35" href="WifiManager_8h.html" title="wifi/WifiManager.h" alt="" coords="911,229,1042,256"/>
 </map>
 </div>
 </div>
@@ -86,19 +111,305 @@ Include dependency graph for WebPage.cpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aa8637a1aae95dd486fb201d7ad124364"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WebPage_8cpp.html#aa8637a1aae95dd486fb201d7ad124364">update</a> ()</td></tr>
-<tr class="separator:aa8637a1aae95dd486fb201d7ad124364"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a344a7bc7ba7f11c95e5281040ff1123d"><td class="memItemLeft" align="right" valign="top">const String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WebPage_8cpp.html#a344a7bc7ba7f11c95e5281040ff1123d">js</a> (<a class="el" href="nipplejsminjs_8h.html#acb1929ba5965e1ff25cde7a04ec7f04a">nipplejs_min_js</a>)</td></tr>
+<tr class="separator:a344a7bc7ba7f11c95e5281040ff1123d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c0ef776e5fc279981ed4178343fb92c"><td class="memItemLeft" align="right" valign="top">const String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WebPage_8cpp.html#a4c0ef776e5fc279981ed4178343fb92c">myHTML</a> (<a class="el" href="indexhtml_8h.html#a4caf8adaac59472b739f76c9e2f7274f">index_html</a>)</td></tr>
+<tr class="separator:a4c0ef776e5fc279981ed4178343fb92c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7064e9828984f378d3e04f9b7a47bcae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WebPage_8cpp.html#a7064e9828984f378d3e04f9b7a47bcae">onWsEvent</a> (<a class="el" href="classAsyncWebSocket.html">AsyncWebSocket</a> *<a class="el" href="WebPage_8cpp.html#a984259bbe8c041d0aa249826ee5e7084">server</a>, <a class="el" href="classAsyncWebSocketClient.html">AsyncWebSocketClient</a> *client, <a class="el" href="AsyncWebSocket_8h.html#a3c33b5e64d6635e10f74e3577e642293">AwsEventType</a> type, void *arg, uint8_t *data, size_t len)</td></tr>
+<tr class="separator:a7064e9828984f378d3e04f9b7a47bcae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b35778401b8b4975de9a910bb0aed80"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WebPage_8cpp.html#a1b35778401b8b4975de9a910bb0aed80">String2Chars</a> (String str)</td></tr>
+<tr class="separator:a1b35778401b8b4975de9a910bb0aed80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c4a64e679de7cdcdb8552078758785f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WebPage_8cpp.html#a2c4a64e679de7cdcdb8552078758785f">isSafeToSend</a> ()</td></tr>
+<tr class="separator:a2c4a64e679de7cdcdb8552078758785f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa81aed607133209dade63a226818224d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WebPage_8cpp.html#aa81aed607133209dade63a226818224d">lock</a> ()</td></tr>
+<tr class="separator:aa81aed607133209dade63a226818224d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9278be8203e1c42e2619179882ae4403"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WebPage_8cpp.html#a9278be8203e1c42e2619179882ae4403">unlock</a> ()</td></tr>
+<tr class="separator:a9278be8203e1c42e2619179882ae4403"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f589c61ec1453de2efa6f2d8b7c5c69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WebPage_8cpp.html#a1f589c61ec1453de2efa6f2d8b7c5c69">updateTask</a> (void *param)</td></tr>
+<tr class="separator:a1f589c61ec1453de2efa6f2d8b7c5c69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a906f46705a9dd30708fb47e21dd10aa2"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WebPage_8cpp.html#a906f46705a9dd30708fb47e21dd10aa2">buttonStyle</a></td></tr>
-<tr class="separator:a906f46705a9dd30708fb47e21dd10aa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a984259bbe8c041d0aa249826ee5e7084"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classAsyncWebServer.html">AsyncWebServer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WebPage_8cpp.html#a984259bbe8c041d0aa249826ee5e7084">server</a> (80)</td></tr>
+<tr class="separator:a984259bbe8c041d0aa249826ee5e7084"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9429bd7ec307c9ed49c08696cbc0e00b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classAsyncWebSocket.html">AsyncWebSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WebPage_8cpp.html#a9429bd7ec307c9ed49c08696cbc0e00b">ws</a> (&quot;/test&quot;)</td></tr>
+<tr class="separator:a9429bd7ec307c9ed49c08696cbc0e00b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a559ab4ce595102d363c6b5246ed0073e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classWebPage.html">WebPage</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WebPage_8cpp.html#a559ab4ce595102d363c6b5246ed0073e">thisPage</a></td></tr>
 <tr class="separator:a559ab4ce595102d363c6b5246ed0073e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c9c8ad22e908ca67930b4225ff49dc3"><td class="memItemLeft" align="right" valign="top">static char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WebPage_8cpp.html#a6c9c8ad22e908ca67930b4225ff49dc3">stringBuffer</a> [200]</td></tr>
+<tr class="separator:a6c9c8ad22e908ca67930b4225ff49dc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9621a8d64b5272a4230815aec18be41d"><td class="memItemLeft" align="right" valign="top">const String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WebPage_8cpp.html#a9621a8d64b5272a4230815aec18be41d">updtime</a> =&quot;Uptime&quot;</td></tr>
+<tr class="separator:a9621a8d64b5272a4230815aec18be41d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c048ac3315ac9041611f10abb6ac12e"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WebPage_8cpp.html#a6c048ac3315ac9041611f10abb6ac12e">lockOutSending</a> = false</td></tr>
+<tr class="separator:a6c048ac3315ac9041611f10abb6ac12e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6003a896d02611d147c85ff5c1b864ed"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WebPage_8cpp.html#a6003a896d02611d147c85ff5c1b864ed">timeSinceLastSend</a> =0</td></tr>
+<tr class="separator:a6003a896d02611d147c85ff5c1b864ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="aa8637a1aae95dd486fb201d7ad124364"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa8637a1aae95dd486fb201d7ad124364">&#9670;&nbsp;</a></span>update()</h2>
+<a id="a2c4a64e679de7cdcdb8552078758785f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c4a64e679de7cdcdb8552078758785f">&#9670;&nbsp;</a></span>isSafeToSend()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool isSafeToSend </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00137">137</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="WebPage_8cpp_source.html#l00020">lockOutSending</a>, and <a class="el" href="WebPage_8cpp_source.html#l00022">timeSinceLastSend</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00143">lock()</a>.</p>
+
+</div>
+</div>
+<a id="a344a7bc7ba7f11c95e5281040ff1123d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a344a7bc7ba7f11c95e5281040ff1123d">&#9670;&nbsp;</a></span>js()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const String js </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="nipplejsminjs_8h.html#acb1929ba5965e1ff25cde7a04ec7f04a">nipplejs_min_js</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00171">WebPage::initalize()</a>.</p>
+
+</div>
+</div>
+<a id="aa81aed607133209dade63a226818224d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa81aed607133209dade63a226818224d">&#9670;&nbsp;</a></span>lock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lock </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00143">143</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="WebPage_8cpp_source.html#l00137">isSafeToSend()</a>, and <a class="el" href="WebPage_8cpp_source.html#l00020">lockOutSending</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00171">WebPage::initalize()</a>, and <a class="el" href="WebPage_8cpp_source.html#l00157">updateTask()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="WebPage_8cpp_aa81aed607133209dade63a226818224d_cgraph.png" border="0" usemap="#WebPage_8cpp_aa81aed607133209dade63a226818224d_cgraph" alt=""/></div>
+<map name="WebPage_8cpp_aa81aed607133209dade63a226818224d_cgraph" id="WebPage_8cpp_aa81aed607133209dade63a226818224d_cgraph">
+<area shape="rect" id="node2" href="WebPage_8cpp.html#a2c4a64e679de7cdcdb8552078758785f" title="isSafeToSend" alt="" coords="100,5,204,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4c0ef776e5fc279981ed4178343fb92c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c0ef776e5fc279981ed4178343fb92c">&#9670;&nbsp;</a></span>myHTML()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const String myHTML </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="indexhtml_8h.html#a4caf8adaac59472b739f76c9e2f7274f">index_html</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00171">WebPage::initalize()</a>.</p>
+
+</div>
+</div>
+<a id="a7064e9828984f378d3e04f9b7a47bcae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7064e9828984f378d3e04f9b7a47bcae">&#9670;&nbsp;</a></span>onWsEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void onWsEvent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classAsyncWebSocket.html">AsyncWebSocket</a> *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classAsyncWebSocketClient.html">AsyncWebSocketClient</a> *&#160;</td>
+          <td class="paramname"><em>client</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="AsyncWebSocket_8h.html#a3c33b5e64d6635e10f74e3577e642293">AwsEventType</a>&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>arg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00026">26</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="WebPage_8cpp_source.html#l00509">WebPage::markAllDirty()</a>, <a class="el" href="WebPage_8h_source.html#l00055">WebPage::rxPacketCount</a>, <a class="el" href="WebPage_8cpp_source.html#l00402">WebPage::SendAllLabels()</a>, <a class="el" href="WebPage_8cpp_source.html#l00330">WebPage::SendAllValues()</a>, <a class="el" href="WebPage_8cpp_source.html#l00517">WebPage::setHeartbeatUUID()</a>, <a class="el" href="WebPage_8cpp_source.html#l00292">WebPage::setJoystickValue()</a>, <a class="el" href="WebPage_8cpp_source.html#l00288">WebPage::setSliderValue()</a>, <a class="el" href="AsyncWebSocket_8h_source.html#l00081">WS_EVT_CONNECT</a>, <a class="el" href="AsyncWebSocket_8h_source.html#l00081">WS_EVT_DATA</a>, and <a class="el" href="AsyncWebSocket_8h_source.html#l00081">WS_EVT_DISCONNECT</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00171">WebPage::initalize()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="WebPage_8cpp_a7064e9828984f378d3e04f9b7a47bcae_cgraph.png" border="0" usemap="#WebPage_8cpp_a7064e9828984f378d3e04f9b7a47bcae_cgraph" alt=""/></div>
+<map name="WebPage_8cpp_a7064e9828984f378d3e04f9b7a47bcae_cgraph" id="WebPage_8cpp_a7064e9828984f378d3e04f9b7a47bcae_cgraph">
+<area shape="rect" id="node2" href="classWebPage.html#a8a6cb8d704e67dce02fb64cad81e4c56" title="WebPage::markAllDirty" alt="" coords="163,25,321,51"/>
+<area shape="rect" id="node3" href="classWebPage.html#a958b189c48eec8d2b2177b9e56442d80" title="WebPage::SendAllLabels" alt="" coords="157,75,327,102"/>
+<area shape="rect" id="node11" href="classWebPage.html#aef7e846a1d8c68240b6aadc41074767d" title="WebPage::SendAllValues" alt="" coords="156,126,328,153"/>
+<area shape="rect" id="node12" href="classWebPage.html#a2bb06280ee0d8c75fc5371f5ab3d5841" title="WebPage::setHeartbeatUUID" alt="" coords="144,177,340,203"/>
+<area shape="rect" id="node13" href="classWebPage.html#a90afc8046c36040500d8b96da9ec269e" title="WebPage::setJoystickValue" alt="" coords="149,227,335,254"/>
+<area shape="rect" id="node14" href="classWebPage.html#a336eea64f6d880b7c11f3b916d8989a9" title="WebPage::setSliderValue" alt="" coords="157,278,327,305"/>
+<area shape="rect" id="node4" href="classAsyncWebSocket.html#a1039bdf2bee39cf3dd198e61a7bb6c0b" title="AsyncWebSocket::count" alt="" coords="398,42,565,69"/>
+<area shape="rect" id="node7" href="classAsyncWebSocket.html#a51da0aba5820b30a7d8ffd1ef90f45b1" title="AsyncWebSocket::available\lForWriteAll" alt="" coords="388,93,575,135"/>
+<area shape="rect" id="node8" href="classAsyncWebSocket.html#a9e5e456ce66c41e3666535a52bbcd47b" title="AsyncWebSocket::binaryAll" alt="" coords="389,159,574,186"/>
+<area shape="rect" id="node5" href="classLinkedList.html#a442c00ea105c9c46425ec05c7043c77a" title="LinkedList::count_if" alt="" coords="657,71,791,98"/>
+<area shape="rect" id="node6" href="classAsyncWebSocketClient.html#aa17cd4c97a830c0a4cbe02f62f3f636b" title="AsyncWebSocketClient\l::status" alt="" coords="643,5,805,47"/>
+<area shape="rect" id="node9" href="classAsyncWebSocket.html#a91a4f6c8ec269eeae3af0090ab16d66b" title="AsyncWebSocket::makeBuffer" alt="" coords="623,159,825,186"/>
+<area shape="rect" id="node10" href="classLinkedList.html#a3a284c668d6f717be3e8b5d283ff5419" title="LinkedList::add" alt="" coords="873,159,984,186"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a1b35778401b8b4975de9a910bb0aed80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b35778401b8b4975de9a910bb0aed80">&#9670;&nbsp;</a></span>String2Chars()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* String2Chars </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00115">115</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="WebPage_8cpp_source.html#l00014">stringBuffer</a>.</p>
+
+</div>
+</div>
+<a id="a9278be8203e1c42e2619179882ae4403"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9278be8203e1c42e2619179882ae4403">&#9670;&nbsp;</a></span>unlock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void unlock </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00150">150</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="WebPage_8cpp_source.html#l00020">lockOutSending</a>, and <a class="el" href="WebPage_8cpp_source.html#l00022">timeSinceLastSend</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00171">WebPage::initalize()</a>, and <a class="el" href="WebPage_8cpp_source.html#l00157">updateTask()</a>.</p>
+
+</div>
+</div>
+<a id="a1f589c61ec1453de2efa6f2d8b7c5c69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f589c61ec1453de2efa6f2d8b7c5c69">&#9670;&nbsp;</a></span>updateTask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void updateTask </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>param</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00157">157</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="WebPage_8cpp_source.html#l00143">lock()</a>, <a class="el" href="WebPage_8cpp_source.html#l00402">WebPage::SendAllLabels()</a>, <a class="el" href="WebPage_8cpp_source.html#l00330">WebPage::SendAllValues()</a>, <a class="el" href="WebPage_8cpp_source.html#l00521">WebPage::sendHeartbeat()</a>, and <a class="el" href="WebPage_8cpp_source.html#l00150">unlock()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00171">WebPage::initalize()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="WebPage_8cpp_a1f589c61ec1453de2efa6f2d8b7c5c69_cgraph.png" border="0" usemap="#WebPage_8cpp_a1f589c61ec1453de2efa6f2d8b7c5c69_cgraph" alt=""/></div>
+<map name="WebPage_8cpp_a1f589c61ec1453de2efa6f2d8b7c5c69_cgraph" id="WebPage_8cpp_a1f589c61ec1453de2efa6f2d8b7c5c69_cgraph">
+<area shape="rect" id="node2" href="WebPage_8cpp.html#aa81aed607133209dade63a226818224d" title="lock" alt="" coords="207,8,253,35"/>
+<area shape="rect" id="node4" href="classWebPage.html#a958b189c48eec8d2b2177b9e56442d80" title="WebPage::SendAllLabels" alt="" coords="145,63,315,89"/>
+<area shape="rect" id="node12" href="classWebPage.html#aef7e846a1d8c68240b6aadc41074767d" title="WebPage::SendAllValues" alt="" coords="144,113,316,140"/>
+<area shape="rect" id="node13" href="classWebPage.html#a8e62427a2e22862245a9467633ebb133" title="WebPage::sendHeartbeat" alt="" coords="144,164,316,191"/>
+<area shape="rect" id="node14" href="WebPage_8cpp.html#a9278be8203e1c42e2619179882ae4403" title="unlock" alt="" coords="200,215,260,241"/>
+<area shape="rect" id="node3" href="WebPage_8cpp.html#a2c4a64e679de7cdcdb8552078758785f" title="isSafeToSend" alt="" coords="405,5,509,32"/>
+<area shape="rect" id="node5" href="classAsyncWebSocket.html#a1039bdf2bee39cf3dd198e61a7bb6c0b" title="AsyncWebSocket::count" alt="" coords="374,173,541,200"/>
+<area shape="rect" id="node8" href="classAsyncWebSocket.html#a51da0aba5820b30a7d8ffd1ef90f45b1" title="AsyncWebSocket::available\lForWriteAll" alt="" coords="364,107,551,149"/>
+<area shape="rect" id="node9" href="classAsyncWebSocket.html#a9e5e456ce66c41e3666535a52bbcd47b" title="AsyncWebSocket::binaryAll" alt="" coords="365,56,550,83"/>
+<area shape="rect" id="node6" href="classLinkedList.html#a442c00ea105c9c46425ec05c7043c77a" title="LinkedList::count_if" alt="" coords="633,203,767,229"/>
+<area shape="rect" id="node7" href="classAsyncWebSocketClient.html#aa17cd4c97a830c0a4cbe02f62f3f636b" title="AsyncWebSocketClient\l::status" alt="" coords="619,137,781,178"/>
+<area shape="rect" id="node10" href="classAsyncWebSocket.html#a91a4f6c8ec269eeae3af0090ab16d66b" title="AsyncWebSocket::makeBuffer" alt="" coords="599,56,801,83"/>
+<area shape="rect" id="node11" href="classLinkedList.html#a3a284c668d6f717be3e8b5d283ff5419" title="LinkedList::add" alt="" coords="849,56,960,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a6c048ac3315ac9041611f10abb6ac12e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c048ac3315ac9041611f10abb6ac12e">&#9670;&nbsp;</a></span>lockOutSending</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -107,10 +418,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void update </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">bool lockOutSending = false</td>
         </tr>
       </table>
   </td>
@@ -120,41 +428,51 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00041">41</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00020">20</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="WebPage_8cpp_source.html#l00045">WebPage::dataUpdate()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00049">WebPage::WebPage()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="WebPage_8cpp_aa8637a1aae95dd486fb201d7ad124364_cgraph.png" border="0" usemap="#WebPage_8cpp_aa8637a1aae95dd486fb201d7ad124364_cgraph" alt=""/></div>
-<map name="WebPage_8cpp_aa8637a1aae95dd486fb201d7ad124364_cgraph" id="WebPage_8cpp_aa8637a1aae95dd486fb201d7ad124364_cgraph">
-<area shape="rect" id="node2" href="classWebPage.html#ac4bfea845b682a652a2149f090ace93b" title="WebPage::dataUpdate" alt="" coords="115,31,269,57"/>
-<area shape="rect" id="node3" href="classSimpleWebServer.html#a408534450431426e848bdb6357add8ef" title="SimpleWebServer::sendResponse" alt="" coords="317,5,540,32"/>
-<area shape="rect" id="node5" href="classWebPage.html#a4a166d1025f5bc1ca348accec8b98aca" title="WebPage::getHTML" alt="" coords="358,56,499,83"/>
-<area shape="rect" id="node4" href="SimpleWebServer_8cpp.html#a62d2d61025124223ffdbddb8e63cc53b" title="server" alt="" coords="588,5,647,32"/>
-</map>
-</div>
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00137">isSafeToSend()</a>, <a class="el" href="WebPage_8cpp_source.html#l00143">lock()</a>, and <a class="el" href="WebPage_8cpp_source.html#l00150">unlock()</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="a906f46705a9dd30708fb47e21dd10aa2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a906f46705a9dd30708fb47e21dd10aa2">&#9670;&nbsp;</a></span>buttonStyle</h2>
+<a id="a984259bbe8c041d0aa249826ee5e7084"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a984259bbe8c041d0aa249826ee5e7084">&#9670;&nbsp;</a></span>server</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">String buttonStyle</td>
+          <td class="memname"><a class="el" href="classAsyncWebServer.html">AsyncWebServer</a> server(80)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= R<span class="stringliteral">&quot;=====(</span></div><div class="line"><span class="stringliteral">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="stringliteral">&lt;style&gt;html { font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: left;}</span></div><div class="line"><span class="stringliteral">.button { background-color: #4CAF50; border: none; color: white; padding: 16px 40px;</span></div><div class="line"><span class="stringliteral">text-decoration: none; font-size: 30px; margin: 2px; cursor: pointer;}</span></div><div class="line"><span class="stringliteral">&lt;/style&gt;</span></div><div class="line"><span class="stringliteral"></span></div><div class="line"><span class="stringliteral">&lt;html&gt;</span></div><div class="line"><span class="stringliteral">&lt;body&gt;&lt;h1&gt;ESP32 Web Server&lt;/h1&gt;</span></div><div class="line"><span class="stringliteral"></span></div><div class="line"><span class="stringliteral">&lt;script&gt;</span></div><div class="line"><span class="stringliteral">setInterval(function() {</span></div><div class="line"><span class="stringliteral">  // Call a function repetatively with 1 Second interval</span></div><div class="line"><span class="stringliteral">  getData();</span></div><div class="line"><span class="stringliteral">  }, 1000); //2000mSeconds update rate</span></div><div class="line"><span class="stringliteral"></span></div><div class="line"><span class="stringliteral">function getData() {</span></div><div class="line"><span class="stringliteral">  var xhttp = new XMLHttpRequest();</span></div><div class="line"><span class="stringliteral">  xhttp.onreadystatechange = function() {</span></div><div class="line"><span class="stringliteral">    if (this.readyState == 4 &amp;&amp; this.status == 200) {</span></div><div class="line"><span class="stringliteral">      document.getElementById(&quot;DataValue&quot;).innerHTML = this.responseText;</span></div><div class="line"><span class="stringliteral">    }</span></div><div class="line"><span class="stringliteral">  };</span></div><div class="line"><span class="stringliteral">  xhttp.open(&quot;GET&quot;, &quot;readData&quot;, true);</span></div><div class="line"><span class="stringliteral">  xhttp.send();</span></div><div class="line"><span class="stringliteral">}</span></div><div class="line"><span class="stringliteral">&lt;/script&gt;</span></div><div class="line"><span class="stringliteral">)=====&quot;</span></div></div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00005">5</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00049">WebPage::WebPage()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="AsyncEventSource_8cpp_source.html#l00154">AsyncEventSourceClient::AsyncEventSourceClient()</a>, <a class="el" href="AsyncEventSource_8cpp_source.html#l00347">AsyncEventSourceResponse::AsyncEventSourceResponse()</a>, <a class="el" href="AsyncWebSocket_8cpp_source.html#l01251">AsyncWebSocketResponse::AsyncWebSocketResponse()</a>, and <a class="el" href="WebPage_8cpp_source.html#l00171">WebPage::initalize()</a>.</p>
+
+</div>
+</div>
+<a id="a6c9c8ad22e908ca67930b4225ff49dc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c9c8ad22e908ca67930b4225ff49dc3">&#9670;&nbsp;</a></span>stringBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char stringBuffer[200]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00014">14</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00115">String2Chars()</a>.</p>
 
 </div>
 </div>
@@ -178,7 +496,57 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00039">39</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00013">13</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a6003a896d02611d147c85ff5c1b864ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6003a896d02611d147c85ff5c1b864ed">&#9670;&nbsp;</a></span>timeSinceLastSend</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">long timeSinceLastSend =0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00022">22</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00137">isSafeToSend()</a>, and <a class="el" href="WebPage_8cpp_source.html#l00150">unlock()</a>.</p>
+
+</div>
+</div>
+<a id="a9621a8d64b5272a4230815aec18be41d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9621a8d64b5272a4230815aec18be41d">&#9670;&nbsp;</a></span>updtime</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const String updtime =&quot;Uptime&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8cpp_source.html#l00016">16</a> of file <a class="el" href="WebPage_8cpp_source.html">WebPage.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a9429bd7ec307c9ed49c08696cbc0e00b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9429bd7ec307c9ed49c08696cbc0e00b">&#9670;&nbsp;</a></span>ws</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classAsyncWebSocket.html">AsyncWebSocket</a> ws(&quot;/test&quot;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00171">WebPage::initalize()</a>, <a class="el" href="WebPage_8cpp_source.html#l00402">WebPage::SendAllLabels()</a>, <a class="el" href="WebPage_8cpp_source.html#l00330">WebPage::SendAllValues()</a>, and <a class="el" href="WebPage_8cpp_source.html#l00521">WebPage::sendHeartbeat()</a>.</p>
 
 </div>
 </div>

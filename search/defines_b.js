@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['refresh_5fusec',['REFRESH_USEC',['../ESP32Servo_8h.html#a5804a4242d2b0ff3e6156ae62c2b5021',1,'ESP32Servo.h']]],
-  ['rescanincrement',['rescanIncrement',['../WifiManager_8h.html#a8b70db3aa16f89a6540718d0dbdf5fe7',1,'WifiManager.h']]],
-  ['right_5fline_5fsense',['RIGHT_LINE_SENSE',['../RBE1001Lib_8h.html#a847207039caf07af5fbdded6bc67e4ef',1,'RBE1001Lib.h']]]
+  ['num_5fpwm',['NUM_PWM',['../ESP32PWM_8h.html#a6f04e4616ed807982151bfc71eacd600',1,'ESP32PWM.h']]],
+  ['numsliders',['numSliders',['../WebPage_8h.html#a1236f3d035e5dbbf704b5c0e4432eab3',1,'WebPage.h']]],
+  ['numvalues',['numValues',['../WebPage_8h.html#a6e4a68678fe8d73ce391ccb07c637ab2',1,'WebPage.h']]]
 ];

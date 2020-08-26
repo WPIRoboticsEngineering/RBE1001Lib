@@ -1,18 +1,17 @@
 var searchData=
 [
-  ['thispage',['thisPage',['../WebPage_8cpp.html#a559ab4ce595102d363c6b5246ed0073e',1,'WebPage.cpp']]],
-  ['threadtimeout',['threadTimeout',['../Rangefinder_8cpp.html#a46a2a5cd3eff40b5122b10a69c90666d',1,'Rangefinder.cpp']]],
-  ['ticks',['ticks',['../classServo.html#a63c3d219b32ae9910c41ad9346e9ae8e',1,'Servo']]],
-  ['timeoflastconnect',['timeOfLastConnect',['../classWifiManager.html#a5da30fe0eefad4cba2d39dd8a9852b5b',1,'WifiManager']]],
-  ['timeoflastdisconnect',['timeOfLastDisconnect',['../classWifiManager.html#af05d6040edefb31ffa957265613200e4',1,'WifiManager']]],
-  ['timer_5fwidth',['timer_width',['../classServo.html#a8901b6f01ee2f3b946a8730431198835',1,'Servo']]],
-  ['timer_5fwidth_5fticks',['timer_width_ticks',['../classServo.html#aa68ae7b20692b1d48ca30e5a86392751',1,'Servo']]],
-  ['timercount',['timerCount',['../classESP32PWM.html#a21b8a9c0ff46141f2960f916d32ff8d7',1,'ESP32PWM']]],
-  ['timerfreqset',['timerFreqSet',['../classESP32PWM.html#aa41405ec19fd5a956ed8b952b8c95c4f',1,'ESP32PWM']]],
-  ['timernum',['timerNum',['../classESP32PWM.html#aa0ce5a8afda5cb6e1575ddf9da522b59',1,'ESP32PWM']]],
-  ['timersallocated',['timersAllocated',['../classMotor.html#a8b2ff4e0b8b6914efc009b8848e9e71a',1,'Motor']]],
-  ['timesinceapprint',['timeSinceAPPrint',['../classWifiManager.html#af80663a08bd6640cc0a78820a25310e7',1,'WifiManager']]],
-  ['timesinceapstart',['timeSinceAPStart',['../classWifiManager.html#af5d866645022c584285674c63eb63c23',1,'WifiManager']]],
-  ['timoutthreadstarted',['timoutThreadStarted',['../classRangefinder.html#aa739bdecb96d6ff6ee3d2041f4247de6',1,'Rangefinder']]],
-  ['triggerpin',['triggerPin',['../classRangefinder.html#a3e9e288f2dd7f5f39b6bb8c19c101cc2',1,'Rangefinder']]]
+  ['r_5fenc_5fconfig',['r_enc_config',['../classESP32Encoder.html#afa5b2c49ecf4d7b434ed7ef6e0e11bc9',1,'ESP32Encoder']]],
+  ['rangefinder',['rangeFinder',['../UltrasonicProject_8ino.html#aa029cf5accf32717a5cf6fe8067e5da0',1,'UltrasonicProject.ino']]],
+  ['rangefinder1',['rangefinder1',['../FullSystemTest_8ino.html#a607ccff33b947a0eb27ccb1205b616c0',1,'rangefinder1():&#160;FullSystemTest.ino'],['../RangeFinderTest_8ino.html#a607ccff33b947a0eb27ccb1205b616c0',1,'rangefinder1():&#160;RangeFinderTest.ino'],['../RCCTL_8ino.html#a607ccff33b947a0eb27ccb1205b616c0',1,'rangefinder1():&#160;RCCTL.ino']]],
+  ['received',['received',['../structtcp__api__call__t.html#a9f11522417688eba325566e113f87618',1,'tcp_api_call_t']]],
+  ['recv',['recv',['../structlwip__event__packet__t.html#a944cbf5d8fde912e4bdff52914b7176e',1,'lwip_event_packet_t']]],
+  ['refresh_5fcps',['REFRESH_CPS',['../classServo.html#a9e7f5471e7c3fdc389b1aa5443fad151',1,'Servo']]],
+  ['resolutionbits',['resolutionBits',['../classESP32PWM.html#a7f964ab78ebcc8d2ec7d9fb9eb964be4',1,'ESP32PWM']]],
+  ['right_5fmotor',['right_motor',['../FullSystemTest_8ino.html#aeec36bf46f747c7833f7846844916b72',1,'right_motor():&#160;FullSystemTest.ino'],['../MotorTest_8ino.html#aeec36bf46f747c7833f7846844916b72',1,'right_motor():&#160;MotorTest.ino'],['../MotorVelocityTest_8ino.html#aeec36bf46f747c7833f7846844916b72',1,'right_motor():&#160;MotorVelocityTest.ino'],['../RCCTL_8ino.html#aeec36bf46f747c7833f7846844916b72',1,'right_motor():&#160;RCCTL.ino'],['../move__for__test_8ino.html#aeec36bf46f747c7833f7846844916b72',1,'right_motor():&#160;move_for_test.ino']]],
+  ['rightlinesensor',['rightLineSensor',['../FullSystemTest_8ino.html#ad5f591e45faf8f4ff5a8e764c3e60a2d',1,'rightLineSensor():&#160;FullSystemTest.ino'],['../RCCTL_8ino.html#ad5f591e45faf8f4ff5a8e764c3e60a2d',1,'rightLineSensor():&#160;RCCTL.ino']]],
+  ['rightpindir',['rightPinDIR',['../classDriveBase.html#a27644845a742fa57fe9c3b974b9091ff',1,'DriveBase']]],
+  ['rightpinpwm',['rightPinPWM',['../classDriveBase.html#a8c53a01d09a4f2bd4724dc4049d15c35',1,'DriveBase']]],
+  ['roundtriptime',['roundTripTime',['../classRangefinder.html#a2bf7917bcefac11957c3d33b9905a048',1,'Rangefinder']]],
+  ['runntingiterm',['runntingITerm',['../classMotor.html#adfc82a32345a86811bcbd739aa3ada05',1,'Motor']]],
+  ['rxpacketcount',['rxPacketCount',['../classWebPage.html#a061d698615284ca885c8bbe1e6efdb7c',1,'WebPage']]]
 ];

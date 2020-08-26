@@ -1,3 +1,8 @@
 <map id="src/WebPage.h" name="src/WebPage.h">
-<area shape="rect" id="node3" href="$SimpleWebServer_8h.html" title="SimpleWebServer.h" alt="" coords="45,80,184,107"/>
+<area shape="rect" id="node4" href="$Motor_8h.html" title="Motor.h" alt="" coords="261,80,328,107"/>
+<area shape="rect" id="node5" href="$ESP32Servo_8h.html" title="ESP32Servo.h" alt="" coords="425,155,533,181"/>
+<area shape="rect" id="node11" href="$ESP32Encoder_8h.html" title="ESP32Encoder.h" alt="" coords="165,155,288,181"/>
+<area shape="rect" id="node6" href="$analogWrite_8h.html" title="analogWrite.h" alt="" coords="382,304,485,331"/>
+<area shape="rect" id="node9" href="$ESP32PWM_8h.html" title="ESP32PWM.h" alt="" coords="509,304,616,331"/>
+<area shape="rect" id="node10" href="$ESP32Tone_8h.html" title="ESP32Tone.h" alt="" coords="453,229,555,256"/>
 </map>

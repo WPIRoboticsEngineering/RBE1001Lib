@@ -1,6 +1,28 @@
 var searchData=
 [
-  ['update',['update',['../WebPage_8cpp.html#aa8637a1aae95dd486fb201d7ad124364',1,'WebPage.cpp']]],
-  ['updateaplist',['updateApList',['../classWifiManager.html#af642437fb5940794f2eb9fe0c2311c18',1,'WifiManager']]],
-  ['ustoticks',['usToTicks',['../classServo.html#ae4e54d3027d8574936b59301b290df25',1,'Servo']]]
+  ['rangefinder',['Rangefinder',['../classRangefinder.html#a9f54fc35eb6f41e55932cd24a309e05b',1,'Rangefinder']]],
+  ['read',['read',['../classESP32PWM.html#ae6f0dd8edfc7bf16f4c480cdb682d554',1,'ESP32PWM::read()'],['../classServo.html#aaca0af33ba7d7c87c8a785b8eabf95a7',1,'Servo::read()']]],
+  ['readfreq',['readFreq',['../classESP32PWM.html#adf53d1c2756d03fdf388df7a6d7b7fd9',1,'ESP32PWM']]],
+  ['readmicroseconds',['readMicroseconds',['../classServo.html#a43950424d146c1414460066483d9561b',1,'Servo']]],
+  ['readmilivolts',['readMiliVolts',['../classESP32AnalogRead.html#a9a94737b4ad1c6bd43bbd1c463ae97db',1,'ESP32AnalogRead']]],
+  ['readtimerwidth',['readTimerWidth',['../classServo.html#a82931b23f008782c5e390a7715d5853a',1,'Servo']]],
+  ['readvoltage',['readVoltage',['../classESP32AnalogRead.html#a7e1eeb11bbe426f91769375c58619b46',1,'ESP32AnalogRead']]],
+  ['redirect',['redirect',['../classAsyncWebServerRequest.html#a47d02f880c2b2fe41fa4f2021dfe57a6',1,'AsyncWebServerRequest']]],
+  ['remoteip',['remoteIP',['../classAsyncClient.html#af3c1c33653e9fea15744a062da459d64',1,'AsyncClient::remoteIP()'],['../classAsyncWebSocketClient.html#ab7956c34d576e1c377a4d6ce647429a0',1,'AsyncWebSocketClient::remoteIP()']]],
+  ['remoteport',['remotePort',['../classAsyncClient.html#a213cfa85bf66c232df8aaf0a24987709',1,'AsyncClient::remotePort()'],['../classAsyncWebSocketClient.html#a7178a876d105368925eebcfa5922b829',1,'AsyncWebSocketClient::remotePort()']]],
+  ['remove',['remove',['../classLinkedList.html#a900eba3eb48390fd4b6c92785e122175',1,'LinkedList']]],
+  ['remove_5ffirst',['remove_first',['../classLinkedList.html#a2c659523d4dd0f8a47f1bc57f2cc98c8',1,'LinkedList']]],
+  ['removehandler',['removeHandler',['../classAsyncWebServer.html#ac7c5bfd0ae358ef42f85042ab63405a9',1,'AsyncWebServer']]],
+  ['removerewrite',['removeRewrite',['../classAsyncWebServer.html#a0c5109a3acff61afab30d3ab961751ef',1,'AsyncWebServer']]],
+  ['requestauthentication',['requestAuthentication',['../classAsyncWebServerRequest.html#a03ef5c898b5bf81a5ade789b9f6d8f49',1,'AsyncWebServerRequest']]],
+  ['requestdigestauthentication',['requestDigestAuthentication',['../WebAuthentication_8cpp.html#a75326e7a310b196b485e626e03258ff4',1,'requestDigestAuthentication(const char *realm):&#160;WebAuthentication.cpp'],['../WebAuthentication_8h.html#a75326e7a310b196b485e626e03258ff4',1,'requestDigestAuthentication(const char *realm):&#160;WebAuthentication.cpp']]],
+  ['requestedconntype',['requestedConnType',['../classAsyncWebServerRequest.html#a360b1b225d3431c7e9a6dba5ba613965',1,'AsyncWebServerRequest']]],
+  ['requestedconntypetostring',['requestedConnTypeToString',['../classAsyncWebServerRequest.html#a5bc7d843c35d60af63365e91faab2908',1,'AsyncWebServerRequest']]],
+  ['rescan',['rescan',['../classWifiManager.html#aa8427e775bcbd68b779afcb4a2018698',1,'WifiManager']]],
+  ['reserve',['reserve',['../classAsyncWebSocketMessageBuffer.html#ac0adab7651ffe2ba47043bd9cbca14b4',1,'AsyncWebSocketMessageBuffer']]],
+  ['reset',['reset',['../classAsyncWebServer.html#a6c9e56b27b91c211b6622d5c271a5b36',1,'AsyncWebServer::reset()'],['../classTimer.html#a9020542d73357a4eef512eefaf57524b',1,'Timer::reset()']]],
+  ['resumecount',['resumeCount',['../classESP32Encoder.html#a6db0fb11290d36f129716d019c8626d4',1,'ESP32Encoder']]],
+  ['rewrite',['rewrite',['../classAsyncWebServer.html#a911db4ffe3e5dcedddd4aba997bbb0f5',1,'AsyncWebServer']]],
+  ['runserialloop',['runSerialLoop',['../classWifiManager.html#ab3fc171499ba03812dfb63ffeb9dd316',1,'WifiManager']]],
+  ['runstatemachine',['runStateMachine',['../RCCTL_8ino.html#ad85662a00ab58b372e49a715c6b30433',1,'RCCTL.ino']]]
 ];

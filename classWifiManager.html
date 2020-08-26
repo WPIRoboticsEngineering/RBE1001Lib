@@ -121,6 +121,10 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:aa8427e775bcbd68b779afcb4a2018698"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3fc171499ba03812dfb63ffeb9dd316"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWifiManager.html#ab3fc171499ba03812dfb63ffeb9dd316">runSerialLoop</a> ()</td></tr>
 <tr class="separator:ab3fc171499ba03812dfb63ffeb9dd316"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a547d00fa67484a33b341f63c7ca7f74d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWifiManager.html#a547d00fa67484a33b341f63c7ca7f74d">setPassword</a> (String ssid, String pass)</td></tr>
+<tr class="separator:a547d00fa67484a33b341f63c7ca7f74d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ad62e3bb8f8d057cb683808b3ac99b9"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWifiManager.html#a4ad62e3bb8f8d057cb683808b3ac99b9">getPassword</a> (String ssid, String defaultPass=&quot;none&quot;)</td></tr>
+<tr class="separator:a4ad62e3bb8f8d057cb683808b3ac99b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -244,7 +248,7 @@ Private Attributes</h2></td></tr>
 
 <p class="reference">References <a class="el" href="WifiManager_8h_source.html#l00018">Disconnected</a>, <a class="el" href="WifiManager_8h_source.html#l00014">rescanIncrement</a>, <a class="el" href="WifiManager_8h_source.html#l00046">state</a>, <a class="el" href="WifiManager_8h_source.html#l00036">timeOfLastConnect</a>, and <a class="el" href="WifiManager_8h_source.html#l00035">timeOfLastDisconnect</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00276">loop()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00288">loop()</a>.</p>
 
 </div>
 </div>
@@ -264,11 +268,11 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>disconnect Force a disconnection and rescan of the system </p>
 
-<p class="definition">Definition at line <a class="el" href="WifiManager_8cpp_source.html#l00380">380</a> of file <a class="el" href="WifiManager_8cpp_source.html">WifiManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WifiManager_8cpp_source.html#l00392">392</a> of file <a class="el" href="WifiManager_8cpp_source.html">WifiManager.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="WifiManager_8h_source.html#l00033">APMode</a>, <a class="el" href="WifiManager_8h_source.html#l00041">connectionAttempts</a>, <a class="el" href="WifiManager_8h_source.html#l00018">Disconnected</a>, <a class="el" href="WifiManager_8h_source.html#l00037">networkNameServer</a>, <a class="el" href="WifiManager_8cpp_source.html#l00025">printState()</a>, <a class="el" href="WifiManager_8h_source.html#l00014">rescanIncrement</a>, <a class="el" href="WifiManager_8h_source.html#l00046">state</a>, <a class="el" href="WifiManager_8h_source.html#l00036">timeOfLastConnect</a>, <a class="el" href="WifiManager_8h_source.html#l00035">timeOfLastDisconnect</a>, and <a class="el" href="WifiManager_8h_source.html#l00015">timeoutTime</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00276">loop()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00234">runSerialLoop()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00063">setupScan()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00392">WiFiEvent()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00288">loop()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00233">runSerialLoop()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00063">setupScan()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00404">WiFiEvent()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -296,11 +300,53 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p><a class="el" href="classWifiManager.html#a6f2df7095f4e01872024ac914273722c">erase()</a> Erase all stored passwords and AP mode settings </p>
 
-<p class="definition">Definition at line <a class="el" href="WifiManager_8cpp_source.html#l00517">517</a> of file <a class="el" href="WifiManager_8cpp_source.html">WifiManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WifiManager_8cpp_source.html#l00529">529</a> of file <a class="el" href="WifiManager_8cpp_source.html">WifiManager.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="WifiManager_8h_source.html#l00042">preferences</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00234">runSerialLoop()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00233">runSerialLoop()</a>.</p>
+
+</div>
+</div>
+<a id="a4ad62e3bb8f8d057cb683808b3ac99b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ad62e3bb8f8d057cb683808b3ac99b9">&#9670;&nbsp;</a></span>getPassword()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">String WifiManager::getPassword </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>ssid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>defaultPass</em> = <code>&quot;none&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WifiManager_8cpp_source.html#l00283">283</a> of file <a class="el" href="WifiManager_8cpp_source.html">WifiManager.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="WifiManager_8h_source.html#l00042">preferences</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00288">loop()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00163">rescan()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00067">setup()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00094">startAP()</a>.</p>
 
 </div>
 </div>
@@ -324,7 +370,7 @@ Here is the call graph for this function:</div>
 
 <p class="reference">References <a class="el" href="WifiManager_8h_source.html#l00046">state</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="SimpleWebServer_8cpp_source.html#l00019">SimpleWebServer::initialize()</a>, and <a class="el" href="APModeExample_8ino_source.html#l00011">loop()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="APModeExample_8ino_source.html#l00011">loop()</a>, and <a class="el" href="RCCTL_8ino_source.html#l00041">setup()</a>.</p>
 
 </div>
 </div>
@@ -344,7 +390,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p>Check to see if the device is already in AP mode. </p>
 
-<p class="definition">Definition at line <a class="el" href="WifiManager_8cpp_source.html#l00509">509</a> of file <a class="el" href="WifiManager_8cpp_source.html">WifiManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WifiManager_8cpp_source.html#l00521">521</a> of file <a class="el" href="WifiManager_8cpp_source.html">WifiManager.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="WifiManager_8h_source.html#l00033">APMode</a>.</p>
 
@@ -366,24 +412,26 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p>call the loop function to update the state </p>
 
-<p class="definition">Definition at line <a class="el" href="WifiManager_8cpp_source.html#l00276">276</a> of file <a class="el" href="WifiManager_8cpp_source.html">WifiManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WifiManager_8cpp_source.html#l00288">288</a> of file <a class="el" href="WifiManager_8cpp_source.html">WifiManager.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="WifiManager_8h_source.html#l00020">apconnected</a>, <a class="el" href="WifiManager_8h_source.html#l00033">APMode</a>, <a class="el" href="WifiManager_8h_source.html#l00040">apPswdServer</a>, <a class="el" href="WifiManager_8h_source.html#l00024">APWaitingForSTA</a>, <a class="el" href="WifiManager_8h_source.html#l00021">Connected</a>, <a class="el" href="WifiManager_8h_source.html#l00041">connectionAttempts</a>, <a class="el" href="WifiManager_8cpp_source.html#l00123">connectToWiFi()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00380">disconnect()</a>, <a class="el" href="WifiManager_8h_source.html#l00018">Disconnected</a>, <a class="el" href="WifiManager_8h_source.html#l00017">firstStart</a>, <a class="el" href="WifiManager_8h_source.html#l00022">HaveSSIDSerial</a>, <a class="el" href="WifiManager_8h_source.html#l00019">InitialConnect</a>, <a class="el" href="WifiManager_8h_source.html#l00037">networkNameServer</a>, <a class="el" href="WifiManager_8h_source.html#l00038">networkPswdServer</a>, <a class="el" href="WifiManager_8h_source.html#l00042">preferences</a>, <a class="el" href="WifiManager_8cpp_source.html#l00025">printState()</a>, <a class="el" href="WifiManager_8h_source.html#l00023">reconnect</a>, <a class="el" href="WifiManager_8cpp_source.html#l00163">rescan()</a>, <a class="el" href="WifiManager_8h_source.html#l00014">rescanIncrement</a>, <a class="el" href="WifiManager_8cpp_source.html#l00234">runSerialLoop()</a>, <a class="el" href="WifiManager_8h_source.html#l00026">scanDone</a>, <a class="el" href="WifiManager_8h_source.html#l00025">scanRunning</a>, <a class="el" href="WifiManager_8cpp_source.html#l00094">startAP()</a>, <a class="el" href="WifiManager_8h_source.html#l00046">state</a>, <a class="el" href="WifiManager_8h_source.html#l00036">timeOfLastConnect</a>, <a class="el" href="WifiManager_8h_source.html#l00035">timeOfLastDisconnect</a>, <a class="el" href="WifiManager_8h_source.html#l00015">timeoutTime</a>, <a class="el" href="WifiManager_8h_source.html#l00044">timeSinceAPPrint</a>, <a class="el" href="WifiManager_8h_source.html#l00045">timeSinceAPStart</a>, <a class="el" href="WifiManager_8cpp_source.html#l00150">updateApList()</a>, and <a class="el" href="WifiManager_8h_source.html#l00047">whatToDoAfterScanning</a>.</p>
+<p class="reference">References <a class="el" href="WifiManager_8h_source.html#l00020">apconnected</a>, <a class="el" href="WifiManager_8h_source.html#l00033">APMode</a>, <a class="el" href="WifiManager_8h_source.html#l00040">apPswdServer</a>, <a class="el" href="WifiManager_8h_source.html#l00024">APWaitingForSTA</a>, <a class="el" href="WifiManager_8h_source.html#l00021">Connected</a>, <a class="el" href="WifiManager_8h_source.html#l00041">connectionAttempts</a>, <a class="el" href="WifiManager_8cpp_source.html#l00123">connectToWiFi()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00392">disconnect()</a>, <a class="el" href="WifiManager_8h_source.html#l00018">Disconnected</a>, <a class="el" href="WifiManager_8h_source.html#l00017">firstStart</a>, <a class="el" href="WifiManager_8cpp_source.html#l00283">getPassword()</a>, <a class="el" href="WifiManager_8h_source.html#l00022">HaveSSIDSerial</a>, <a class="el" href="WifiManager_8h_source.html#l00019">InitialConnect</a>, <a class="el" href="WifiManager_8h_source.html#l00037">networkNameServer</a>, <a class="el" href="WifiManager_8h_source.html#l00038">networkPswdServer</a>, <a class="el" href="WifiManager_8h_source.html#l00042">preferences</a>, <a class="el" href="WifiManager_8cpp_source.html#l00025">printState()</a>, <a class="el" href="WifiManager_8h_source.html#l00023">reconnect</a>, <a class="el" href="WifiManager_8cpp_source.html#l00163">rescan()</a>, <a class="el" href="WifiManager_8h_source.html#l00014">rescanIncrement</a>, <a class="el" href="WifiManager_8cpp_source.html#l00233">runSerialLoop()</a>, <a class="el" href="WifiManager_8h_source.html#l00026">scanDone</a>, <a class="el" href="WifiManager_8h_source.html#l00025">scanRunning</a>, <a class="el" href="WifiManager_8cpp_source.html#l00276">setPassword()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00094">startAP()</a>, <a class="el" href="WifiManager_8h_source.html#l00046">state</a>, <a class="el" href="WifiManager_8h_source.html#l00036">timeOfLastConnect</a>, <a class="el" href="WifiManager_8h_source.html#l00035">timeOfLastDisconnect</a>, <a class="el" href="WifiManager_8h_source.html#l00015">timeoutTime</a>, <a class="el" href="WifiManager_8h_source.html#l00044">timeSinceAPPrint</a>, <a class="el" href="WifiManager_8h_source.html#l00045">timeSinceAPStart</a>, <a class="el" href="WifiManager_8cpp_source.html#l00150">updateApList()</a>, and <a class="el" href="WifiManager_8h_source.html#l00047">whatToDoAfterScanning</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="SimpleWebServer_8cpp_source.html#l00044">SimpleWebServer::handleClient()</a>, <a class="el" href="SimpleWebServer_8cpp_source.html#l00019">SimpleWebServer::initialize()</a>, and <a class="el" href="APModeExample_8ino_source.html#l00011">loop()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="APModeExample_8ino_source.html#l00011">loop()</a>, and <a class="el" href="RCCTL_8ino_source.html#l00041">setup()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classWifiManager_aaac549f9b270f56c57615cb04a85079e_cgraph.png" border="0" usemap="#classWifiManager_aaac549f9b270f56c57615cb04a85079e_cgraph" alt=""/></div>
 <map name="classWifiManager_aaac549f9b270f56c57615cb04a85079e_cgraph" id="classWifiManager_aaac549f9b270f56c57615cb04a85079e_cgraph">
 <area shape="rect" id="node2" href="classWifiManager.html#a946ac93e07eaf2e5da6a5e482bc054ee" title="WifiManager::connectToWiFi" alt="" coords="180,5,371,32"/>
-<area shape="rect" id="node3" href="classWifiManager.html#a2b0fc1360c90922972c2caee5531afbb" title="WifiManager::disconnect" alt="" coords="419,107,585,133"/>
-<area shape="rect" id="node4" href="classWifiManager.html#a6ba59aca9a892953c20837da9479941a" title="WifiManager::printState" alt="" coords="633,81,792,108"/>
-<area shape="rect" id="node5" href="classWifiManager.html#aa8427e775bcbd68b779afcb4a2018698" title="WifiManager::rescan" alt="" coords="204,157,347,184"/>
-<area shape="rect" id="node6" href="classWifiManager.html#ab3fc171499ba03812dfb63ffeb9dd316" title="WifiManager::runSerialLoop" alt="" coords="184,208,367,235"/>
-<area shape="rect" id="node8" href="classWifiManager.html#a7cf530ef10fd1ffcac59fe5e4f58ad57" title="WifiManager::startAP" alt="" coords="202,259,349,285"/>
-<area shape="rect" id="node9" href="classWifiManager.html#af642437fb5940794f2eb9fe0c2311c18" title="WifiManager::updateApList" alt="" coords="186,309,365,336"/>
-<area shape="rect" id="node7" href="classWifiManager.html#a6f2df7095f4e01872024ac914273722c" title="WifiManager::erase" alt="" coords="435,208,569,235"/>
+<area shape="rect" id="node3" href="classWifiManager.html#a2b0fc1360c90922972c2caee5531afbb" title="WifiManager::disconnect" alt="" coords="425,56,591,83"/>
+<area shape="rect" id="node4" href="classWifiManager.html#a6ba59aca9a892953c20837da9479941a" title="WifiManager::printState" alt="" coords="645,107,804,133"/>
+<area shape="rect" id="node5" href="classWifiManager.html#a4ad62e3bb8f8d057cb683808b3ac99b9" title="WifiManager::getPassword" alt="" coords="419,259,597,285"/>
+<area shape="rect" id="node6" href="classWifiManager.html#aa8427e775bcbd68b779afcb4a2018698" title="WifiManager::rescan" alt="" coords="204,259,347,285"/>
+<area shape="rect" id="node7" href="classWifiManager.html#ab3fc171499ba03812dfb63ffeb9dd316" title="WifiManager::runSerialLoop" alt="" coords="184,107,367,133"/>
+<area shape="rect" id="node9" href="classWifiManager.html#a547d00fa67484a33b341f63c7ca7f74d" title="WifiManager::setPassword" alt="" coords="419,335,597,361"/>
+<area shape="rect" id="node10" href="classWifiManager.html#a7cf530ef10fd1ffcac59fe5e4f58ad57" title="WifiManager::startAP" alt="" coords="202,309,349,336"/>
+<area shape="rect" id="node11" href="classWifiManager.html#af642437fb5940794f2eb9fe0c2311c18" title="WifiManager::updateApList" alt="" coords="186,411,365,437"/>
+<area shape="rect" id="node8" href="classWifiManager.html#a6f2df7095f4e01872024ac914273722c" title="WifiManager::erase" alt="" coords="441,107,575,133"/>
 </map>
 </div>
 
@@ -409,7 +457,7 @@ Here is the call graph for this function:</div>
 
 <p class="reference">References <a class="el" href="WifiManager_8h_source.html#l00024">APWaitingForSTA</a>, <a class="el" href="WifiManager_8h_source.html#l00021">Connected</a>, <a class="el" href="WifiManager_8h_source.html#l00018">Disconnected</a>, <a class="el" href="WifiManager_8h_source.html#l00017">firstStart</a>, <a class="el" href="WifiManager_8h_source.html#l00022">HaveSSIDSerial</a>, <a class="el" href="WifiManager_8h_source.html#l00019">InitialConnect</a>, <a class="el" href="WifiManager_8h_source.html#l00023">reconnect</a>, and <a class="el" href="WifiManager_8h_source.html#l00046">state</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00380">disconnect()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00276">loop()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00392">WiFiEvent()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00392">disconnect()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00288">loop()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00404">WiFiEvent()</a>.</p>
 
 </div>
 </div>
@@ -438,9 +486,17 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="WifiManager_8cpp_source.html#l00163">163</a> of file <a class="el" href="WifiManager_8cpp_source.html">WifiManager.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="WifiManager_8h_source.html#l00033">APMode</a>, <a class="el" href="WifiManager_8h_source.html#l00037">networkNameServer</a>, <a class="el" href="WifiManager_8h_source.html#l00038">networkPswdServer</a>, <a class="el" href="WifiManager_8h_source.html#l00042">preferences</a>, <a class="el" href="WifiManager_8h_source.html#l00023">reconnect</a>, and <a class="el" href="WifiManager_8h_source.html#l00046">state</a>.</p>
+<p class="reference">References <a class="el" href="WifiManager_8h_source.html#l00033">APMode</a>, <a class="el" href="WifiManager_8cpp_source.html#l00283">getPassword()</a>, <a class="el" href="WifiManager_8h_source.html#l00037">networkNameServer</a>, <a class="el" href="WifiManager_8h_source.html#l00038">networkPswdServer</a>, <a class="el" href="WifiManager_8h_source.html#l00042">preferences</a>, <a class="el" href="WifiManager_8h_source.html#l00023">reconnect</a>, and <a class="el" href="WifiManager_8h_source.html#l00046">state</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00276">loop()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00288">loop()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classWifiManager_aa8427e775bcbd68b779afcb4a2018698_cgraph.png" border="0" usemap="#classWifiManager_aa8427e775bcbd68b779afcb4a2018698_cgraph" alt=""/></div>
+<map name="classWifiManager_aa8427e775bcbd68b779afcb4a2018698_cgraph" id="classWifiManager_aa8427e775bcbd68b779afcb4a2018698_cgraph">
+<area shape="rect" id="node2" href="classWifiManager.html#a4ad62e3bb8f8d057cb683808b3ac99b9" title="WifiManager::getPassword" alt="" coords="196,5,375,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -467,11 +523,11 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="WifiManager_8cpp_source.html#l00234">234</a> of file <a class="el" href="WifiManager_8cpp_source.html">WifiManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WifiManager_8cpp_source.html#l00233">233</a> of file <a class="el" href="WifiManager_8cpp_source.html">WifiManager.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="WifiManager_8h_source.html#l00033">APMode</a>, <a class="el" href="WifiManager_8h_source.html#l00039">apNameServer</a>, <a class="el" href="WifiManager_8cpp_source.html#l00380">disconnect()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00517">erase()</a>, <a class="el" href="WifiManager_8h_source.html#l00022">HaveSSIDSerial</a>, <a class="el" href="WifiManager_8h_source.html#l00037">networkNameServer</a>, <a class="el" href="WifiManager_8h_source.html#l00023">reconnect</a>, and <a class="el" href="WifiManager_8h_source.html#l00046">state</a>.</p>
+<p class="reference">References <a class="el" href="WifiManager_8h_source.html#l00033">APMode</a>, <a class="el" href="WifiManager_8h_source.html#l00039">apNameServer</a>, <a class="el" href="WifiManager_8cpp_source.html#l00392">disconnect()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00529">erase()</a>, <a class="el" href="WifiManager_8h_source.html#l00022">HaveSSIDSerial</a>, <a class="el" href="WifiManager_8h_source.html#l00037">networkNameServer</a>, <a class="el" href="WifiManager_8h_source.html#l00023">reconnect</a>, and <a class="el" href="WifiManager_8h_source.html#l00046">state</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00276">loop()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00288">loop()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -482,6 +538,48 @@ Here is the call graph for this function:</div>
 <area shape="rect" id="node3" href="classWifiManager.html#a6ba59aca9a892953c20837da9479941a" title="WifiManager::printState" alt="" coords="451,5,609,32"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="a547d00fa67484a33b341f63c7ca7f74d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a547d00fa67484a33b341f63c7ca7f74d">&#9670;&nbsp;</a></span>setPassword()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void WifiManager::setPassword </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>ssid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>pass</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WifiManager_8cpp_source.html#l00276">276</a> of file <a class="el" href="WifiManager_8cpp_source.html">WifiManager.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="WifiManager_8h_source.html#l00037">networkNameServer</a>, and <a class="el" href="WifiManager_8h_source.html#l00042">preferences</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00288">loop()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00094">startAP()</a>.</p>
 
 </div>
 </div>
@@ -503,18 +601,19 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="WifiManager_8cpp_source.html#l00067">67</a> of file <a class="el" href="WifiManager_8cpp_source.html">WifiManager.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="WifiManager_8h_source.html#l00039">apNameServer</a>, <a class="el" href="WifiManager_8h_source.html#l00040">apPswdServer</a>, <a class="el" href="WifiManager_8h_source.html#l00041">connectionAttempts</a>, <a class="el" href="WifiManager_8h_source.html#l00037">networkNameServer</a>, <a class="el" href="WifiManager_8h_source.html#l00038">networkPswdServer</a>, <a class="el" href="WifiManager_8h_source.html#l00042">preferences</a>, <a class="el" href="WifiManager_8h_source.html#l00023">reconnect</a>, <a class="el" href="WifiManager_8h_source.html#l00048">setupDone</a>, <a class="el" href="WifiManager_8h_source.html#l00046">state</a>, <a class="el" href="WifiManager_8h_source.html#l00054">staticRef</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00011">WiFiEventWifiManager()</a>.</p>
+<p class="reference">References <a class="el" href="WifiManager_8h_source.html#l00039">apNameServer</a>, <a class="el" href="WifiManager_8h_source.html#l00040">apPswdServer</a>, <a class="el" href="WifiManager_8h_source.html#l00041">connectionAttempts</a>, <a class="el" href="WifiManager_8cpp_source.html#l00283">getPassword()</a>, <a class="el" href="WifiManager_8h_source.html#l00037">networkNameServer</a>, <a class="el" href="WifiManager_8h_source.html#l00038">networkPswdServer</a>, <a class="el" href="WifiManager_8h_source.html#l00042">preferences</a>, <a class="el" href="WifiManager_8h_source.html#l00023">reconnect</a>, <a class="el" href="WifiManager_8h_source.html#l00048">setupDone</a>, <a class="el" href="WifiManager_8h_source.html#l00046">state</a>, <a class="el" href="WifiManager_8h_source.html#l00056">staticRef</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00011">WiFiEventWifiManager()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="SimpleWebServer_8cpp_source.html#l00019">SimpleWebServer::initialize()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00052">setupAP()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00063">setupScan()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="RCCTL_8ino_source.html#l00041">setup()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00052">setupAP()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00063">setupScan()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classWifiManager_ac1c00fd2d738b500e5cc77884c31256e_cgraph.png" border="0" usemap="#classWifiManager_ac1c00fd2d738b500e5cc77884c31256e_cgraph" alt=""/></div>
 <map name="classWifiManager_ac1c00fd2d738b500e5cc77884c31256e_cgraph" id="classWifiManager_ac1c00fd2d738b500e5cc77884c31256e_cgraph">
-<area shape="rect" id="node2" href="WifiManager_8cpp.html#a78d9184275d069bcc924ce89e8939f4a" title="WiFiEventWifiManager" alt="" coords="188,5,344,32"/>
-<area shape="rect" id="node3" href="classWifiManager.html#a42a9633eaed14840cdd6653afd3086b3" title="WifiManager::WiFiEvent" alt="" coords="392,5,556,32"/>
-<area shape="rect" id="node4" href="classWifiManager.html#a6ba59aca9a892953c20837da9479941a" title="WifiManager::printState" alt="" coords="819,5,977,32"/>
-<area shape="rect" id="node5" href="classWifiManager.html#a2b0fc1360c90922972c2caee5531afbb" title="WifiManager::disconnect" alt="" coords="604,31,771,57"/>
+<area shape="rect" id="node2" href="classWifiManager.html#a4ad62e3bb8f8d057cb683808b3ac99b9" title="WifiManager::getPassword" alt="" coords="188,5,367,32"/>
+<area shape="rect" id="node3" href="WifiManager_8cpp.html#a78d9184275d069bcc924ce89e8939f4a" title="WiFiEventWifiManager" alt="" coords="199,56,355,83"/>
+<area shape="rect" id="node4" href="classWifiManager.html#a42a9633eaed14840cdd6653afd3086b3" title="WifiManager::WiFiEvent" alt="" coords="415,56,579,83"/>
+<area shape="rect" id="node5" href="classWifiManager.html#a6ba59aca9a892953c20837da9479941a" title="WifiManager::printState" alt="" coords="841,56,1000,83"/>
+<area shape="rect" id="node6" href="classWifiManager.html#a2b0fc1360c90922972c2caee5531afbb" title="WifiManager::disconnect" alt="" coords="627,81,793,108"/>
 </map>
 </div>
 
@@ -546,11 +645,12 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classWifiManager_a49500557085820f032112b25e2aaec83_cgraph.png" border="0" usemap="#classWifiManager_a49500557085820f032112b25e2aaec83_cgraph" alt=""/></div>
 <map name="classWifiManager_a49500557085820f032112b25e2aaec83_cgraph" id="classWifiManager_a49500557085820f032112b25e2aaec83_cgraph">
-<area shape="rect" id="node2" href="classWifiManager.html#ac1c00fd2d738b500e5cc77884c31256e" title="WifiManager::setup" alt="" coords="207,5,341,32"/>
-<area shape="rect" id="node3" href="WifiManager_8cpp.html#a78d9184275d069bcc924ce89e8939f4a" title="WiFiEventWifiManager" alt="" coords="389,5,545,32"/>
-<area shape="rect" id="node4" href="classWifiManager.html#a42a9633eaed14840cdd6653afd3086b3" title="WifiManager::WiFiEvent" alt="" coords="593,5,757,32"/>
-<area shape="rect" id="node5" href="classWifiManager.html#a6ba59aca9a892953c20837da9479941a" title="WifiManager::printState" alt="" coords="1020,5,1179,32"/>
-<area shape="rect" id="node6" href="classWifiManager.html#a2b0fc1360c90922972c2caee5531afbb" title="WifiManager::disconnect" alt="" coords="805,31,972,57"/>
+<area shape="rect" id="node2" href="classWifiManager.html#ac1c00fd2d738b500e5cc77884c31256e" title="WifiManager::setup" alt="" coords="207,31,341,57"/>
+<area shape="rect" id="node3" href="classWifiManager.html#a4ad62e3bb8f8d057cb683808b3ac99b9" title="WifiManager::getPassword" alt="" coords="389,5,568,32"/>
+<area shape="rect" id="node4" href="WifiManager_8cpp.html#a78d9184275d069bcc924ce89e8939f4a" title="WiFiEventWifiManager" alt="" coords="401,56,557,83"/>
+<area shape="rect" id="node5" href="classWifiManager.html#a42a9633eaed14840cdd6653afd3086b3" title="WifiManager::WiFiEvent" alt="" coords="616,56,780,83"/>
+<area shape="rect" id="node6" href="classWifiManager.html#a6ba59aca9a892953c20837da9479941a" title="WifiManager::printState" alt="" coords="1043,56,1201,83"/>
+<area shape="rect" id="node7" href="classWifiManager.html#a2b0fc1360c90922972c2caee5531afbb" title="WifiManager::disconnect" alt="" coords="828,81,995,108"/>
 </map>
 </div>
 
@@ -574,7 +674,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="WifiManager_8cpp_source.html#l00063">63</a> of file <a class="el" href="WifiManager_8cpp_source.html">WifiManager.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="WifiManager_8cpp_source.html#l00380">disconnect()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00067">setup()</a>.</p>
+<p class="reference">References <a class="el" href="WifiManager_8cpp_source.html#l00392">disconnect()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00067">setup()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="WifiManagerExample_8ino_source.html#l00008">setup()</a>.</p>
 <div class="dynheader">
@@ -582,11 +682,12 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classWifiManager_a99804905edecaa634733fcd1b5098c92_cgraph.png" border="0" usemap="#classWifiManager_a99804905edecaa634733fcd1b5098c92_cgraph" alt=""/></div>
 <map name="classWifiManager_a99804905edecaa634733fcd1b5098c92_cgraph" id="classWifiManager_a99804905edecaa634733fcd1b5098c92_cgraph">
-<area shape="rect" id="node2" href="classWifiManager.html#a2b0fc1360c90922972c2caee5531afbb" title="WifiManager::disconnect" alt="" coords="817,5,984,32"/>
-<area shape="rect" id="node4" href="classWifiManager.html#ac1c00fd2d738b500e5cc77884c31256e" title="WifiManager::setup" alt="" coords="219,56,353,83"/>
-<area shape="rect" id="node3" href="classWifiManager.html#a6ba59aca9a892953c20837da9479941a" title="WifiManager::printState" alt="" coords="1032,31,1191,57"/>
-<area shape="rect" id="node5" href="WifiManager_8cpp.html#a78d9184275d069bcc924ce89e8939f4a" title="WiFiEventWifiManager" alt="" coords="401,56,557,83"/>
-<area shape="rect" id="node6" href="classWifiManager.html#a42a9633eaed14840cdd6653afd3086b3" title="WifiManager::WiFiEvent" alt="" coords="605,56,769,83"/>
+<area shape="rect" id="node2" href="classWifiManager.html#a2b0fc1360c90922972c2caee5531afbb" title="WifiManager::disconnect" alt="" coords="840,5,1007,32"/>
+<area shape="rect" id="node4" href="classWifiManager.html#ac1c00fd2d738b500e5cc77884c31256e" title="WifiManager::setup" alt="" coords="219,31,353,57"/>
+<area shape="rect" id="node3" href="classWifiManager.html#a6ba59aca9a892953c20837da9479941a" title="WifiManager::printState" alt="" coords="1055,31,1213,57"/>
+<area shape="rect" id="node5" href="classWifiManager.html#a4ad62e3bb8f8d057cb683808b3ac99b9" title="WifiManager::getPassword" alt="" coords="401,31,580,57"/>
+<area shape="rect" id="node6" href="WifiManager_8cpp.html#a78d9184275d069bcc924ce89e8939f4a" title="WiFiEventWifiManager" alt="" coords="413,81,569,108"/>
+<area shape="rect" id="node7" href="classWifiManager.html#a42a9633eaed14840cdd6653afd3086b3" title="WifiManager::WiFiEvent" alt="" coords="628,56,792,83"/>
 </map>
 </div>
 
@@ -617,9 +718,18 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="WifiManager_8cpp_source.html#l00094">94</a> of file <a class="el" href="WifiManager_8cpp_source.html">WifiManager.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="WifiManager_8h_source.html#l00039">apNameServer</a>, <a class="el" href="WifiManager_8h_source.html#l00040">apPswdServer</a>, <a class="el" href="WifiManager_8h_source.html#l00042">preferences</a>, <a class="el" href="WifiManager_8h_source.html#l00014">rescanIncrement</a>, <a class="el" href="WifiManager_8h_source.html#l00036">timeOfLastConnect</a>, <a class="el" href="WifiManager_8h_source.html#l00035">timeOfLastDisconnect</a>, and <a class="el" href="WifiManager_8h_source.html#l00045">timeSinceAPStart</a>.</p>
+<p class="reference">References <a class="el" href="WifiManager_8h_source.html#l00039">apNameServer</a>, <a class="el" href="WifiManager_8h_source.html#l00040">apPswdServer</a>, <a class="el" href="WifiManager_8cpp_source.html#l00283">getPassword()</a>, <a class="el" href="WifiManager_8h_source.html#l00042">preferences</a>, <a class="el" href="WifiManager_8h_source.html#l00014">rescanIncrement</a>, <a class="el" href="WifiManager_8cpp_source.html#l00276">setPassword()</a>, <a class="el" href="WifiManager_8h_source.html#l00036">timeOfLastConnect</a>, <a class="el" href="WifiManager_8h_source.html#l00035">timeOfLastDisconnect</a>, and <a class="el" href="WifiManager_8h_source.html#l00045">timeSinceAPStart</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00276">loop()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00288">loop()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classWifiManager_a7cf530ef10fd1ffcac59fe5e4f58ad57_cgraph.png" border="0" usemap="#classWifiManager_a7cf530ef10fd1ffcac59fe5e4f58ad57_cgraph" alt=""/></div>
+<map name="classWifiManager_a7cf530ef10fd1ffcac59fe5e4f58ad57_cgraph" id="classWifiManager_a7cf530ef10fd1ffcac59fe5e4f58ad57_cgraph">
+<area shape="rect" id="node2" href="classWifiManager.html#a4ad62e3bb8f8d057cb683808b3ac99b9" title="WifiManager::getPassword" alt="" coords="200,5,379,32"/>
+<area shape="rect" id="node3" href="classWifiManager.html#a547d00fa67484a33b341f63c7ca7f74d" title="WifiManager::setPassword" alt="" coords="200,56,379,83"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -644,7 +754,7 @@ Here is the call graph for this function:</div>
 
 <p class="reference">References <a class="el" href="WifiManager_8h_source.html#l00023">reconnect</a>, <a class="el" href="WifiManager_8h_source.html#l00025">scanRunning</a>, <a class="el" href="WifiManager_8h_source.html#l00046">state</a>, and <a class="el" href="WifiManager_8h_source.html#l00047">whatToDoAfterScanning</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00276">loop()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00288">loop()</a>.</p>
 
 </div>
 </div>
@@ -689,9 +799,9 @@ Here is the call graph for this function:</div>
 <p>&lt; ESP32 ethernet phy link down</p>
 <p>&lt; ESP32 ethernet got IP from connected AP </p>
 
-<p class="definition">Definition at line <a class="el" href="WifiManager_8cpp_source.html#l00392">392</a> of file <a class="el" href="WifiManager_8cpp_source.html">WifiManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WifiManager_8cpp_source.html#l00404">404</a> of file <a class="el" href="WifiManager_8cpp_source.html">WifiManager.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="WifiManager_8h_source.html#l00020">apconnected</a>, <a class="el" href="WifiManager_8h_source.html#l00033">APMode</a>, <a class="el" href="WifiManager_8h_source.html#l00024">APWaitingForSTA</a>, <a class="el" href="WifiManager_8h_source.html#l00021">Connected</a>, <a class="el" href="WifiManager_8h_source.html#l00041">connectionAttempts</a>, <a class="el" href="WifiManager_8cpp_source.html#l00380">disconnect()</a>, <a class="el" href="WifiManager_8h_source.html#l00018">Disconnected</a>, <a class="el" href="WifiManager_8h_source.html#l00022">HaveSSIDSerial</a>, <a class="el" href="WifiManager_8h_source.html#l00019">InitialConnect</a>, <a class="el" href="WifiManager_8cpp_source.html#l00025">printState()</a>, <a class="el" href="WifiManager_8h_source.html#l00014">rescanIncrement</a>, <a class="el" href="WifiManager_8h_source.html#l00046">state</a>, <a class="el" href="WifiManager_8h_source.html#l00036">timeOfLastConnect</a>, and <a class="el" href="WifiManager_8h_source.html#l00035">timeOfLastDisconnect</a>.</p>
+<p class="reference">References <a class="el" href="WifiManager_8h_source.html#l00020">apconnected</a>, <a class="el" href="WifiManager_8h_source.html#l00033">APMode</a>, <a class="el" href="WifiManager_8h_source.html#l00024">APWaitingForSTA</a>, <a class="el" href="WifiManager_8h_source.html#l00021">Connected</a>, <a class="el" href="WifiManager_8h_source.html#l00041">connectionAttempts</a>, <a class="el" href="WifiManager_8cpp_source.html#l00392">disconnect()</a>, <a class="el" href="WifiManager_8h_source.html#l00018">Disconnected</a>, <a class="el" href="WifiManager_8h_source.html#l00022">HaveSSIDSerial</a>, <a class="el" href="WifiManager_8h_source.html#l00019">InitialConnect</a>, <a class="el" href="WifiManager_8cpp_source.html#l00025">printState()</a>, <a class="el" href="WifiManager_8h_source.html#l00014">rescanIncrement</a>, <a class="el" href="WifiManager_8h_source.html#l00046">state</a>, <a class="el" href="WifiManager_8h_source.html#l00036">timeOfLastConnect</a>, and <a class="el" href="WifiManager_8h_source.html#l00035">timeOfLastDisconnect</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00011">WiFiEventWifiManager()</a>.</p>
 <div class="dynheader">
@@ -729,7 +839,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="WifiManager_8h_source.html#l00033">33</a> of file <a class="el" href="WifiManager_8h_source.html">WifiManager.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00380">disconnect()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00509">isApMode()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00276">loop()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00163">rescan()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00234">runSerialLoop()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00052">setupAP()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00392">WiFiEvent()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00392">disconnect()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00521">isApMode()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00288">loop()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00163">rescan()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00233">runSerialLoop()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00052">setupAP()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00404">WiFiEvent()</a>.</p>
 
 </div>
 </div>
@@ -755,7 +865,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="WifiManager_8h_source.html#l00039">39</a> of file <a class="el" href="WifiManager_8h_source.html">WifiManager.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00234">runSerialLoop()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00067">setup()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00094">startAP()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00233">runSerialLoop()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00067">setup()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00094">startAP()</a>.</p>
 
 </div>
 </div>
@@ -781,7 +891,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="WifiManager_8h_source.html#l00040">40</a> of file <a class="el" href="WifiManager_8h_source.html">WifiManager.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00276">loop()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00067">setup()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00094">startAP()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00288">loop()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00067">setup()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00094">startAP()</a>.</p>
 
 </div>
 </div>
@@ -807,7 +917,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="WifiManager_8h_source.html#l00041">41</a> of file <a class="el" href="WifiManager_8h_source.html">WifiManager.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00380">disconnect()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00276">loop()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00067">setup()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00392">WiFiEvent()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00392">disconnect()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00288">loop()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00067">setup()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00404">WiFiEvent()</a>.</p>
 
 </div>
 </div>
@@ -833,7 +943,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="WifiManager_8h_source.html#l00037">37</a> of file <a class="el" href="WifiManager_8h_source.html">WifiManager.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00380">disconnect()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00276">loop()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00163">rescan()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00234">runSerialLoop()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00067">setup()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00392">disconnect()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00288">loop()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00163">rescan()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00233">runSerialLoop()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00276">setPassword()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00067">setup()</a>.</p>
 
 </div>
 </div>
@@ -859,7 +969,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="WifiManager_8h_source.html#l00038">38</a> of file <a class="el" href="WifiManager_8h_source.html">WifiManager.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00276">loop()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00163">rescan()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00067">setup()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00288">loop()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00163">rescan()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00067">setup()</a>.</p>
 
 </div>
 </div>
@@ -885,7 +995,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="WifiManager_8h_source.html#l00042">42</a> of file <a class="el" href="WifiManager_8h_source.html">WifiManager.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00517">erase()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00276">loop()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00163">rescan()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00067">setup()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00094">startAP()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00529">erase()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00283">getPassword()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00288">loop()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00163">rescan()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00276">setPassword()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00067">setup()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00094">startAP()</a>.</p>
 
 </div>
 </div>
@@ -937,7 +1047,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="WifiManager_8h_source.html#l00046">46</a> of file <a class="el" href="WifiManager_8h_source.html">WifiManager.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00123">connectToWiFi()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00380">disconnect()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00022">getState()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00276">loop()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00025">printState()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00163">rescan()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00234">runSerialLoop()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00067">setup()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00052">setupAP()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00150">updateApList()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00392">WiFiEvent()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00123">connectToWiFi()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00392">disconnect()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00022">getState()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00288">loop()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00025">printState()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00163">rescan()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00233">runSerialLoop()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00067">setup()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00052">setupAP()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00150">updateApList()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00404">WiFiEvent()</a>.</p>
 
 </div>
 </div>
@@ -962,7 +1072,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p>Static reference used by the wifi event to pass the event from the static context to the object context. </p>
 
-<p class="definition">Definition at line <a class="el" href="WifiManager_8h_source.html#l00054">54</a> of file <a class="el" href="WifiManager_8h_source.html">WifiManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="WifiManager_8h_source.html#l00056">56</a> of file <a class="el" href="WifiManager_8h_source.html">WifiManager.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00067">setup()</a>.</p>
 
@@ -990,7 +1100,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="WifiManager_8h_source.html#l00036">36</a> of file <a class="el" href="WifiManager_8h_source.html">WifiManager.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00123">connectToWiFi()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00380">disconnect()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00276">loop()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00094">startAP()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00392">WiFiEvent()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00123">connectToWiFi()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00392">disconnect()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00288">loop()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00094">startAP()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00404">WiFiEvent()</a>.</p>
 
 </div>
 </div>
@@ -1016,7 +1126,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="WifiManager_8h_source.html#l00035">35</a> of file <a class="el" href="WifiManager_8h_source.html">WifiManager.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00123">connectToWiFi()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00380">disconnect()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00276">loop()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00094">startAP()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00392">WiFiEvent()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00123">connectToWiFi()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00392">disconnect()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00288">loop()</a>, <a class="el" href="WifiManager_8cpp_source.html#l00094">startAP()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00404">WiFiEvent()</a>.</p>
 
 </div>
 </div>
@@ -1042,7 +1152,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="WifiManager_8h_source.html#l00044">44</a> of file <a class="el" href="WifiManager_8h_source.html">WifiManager.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00276">loop()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00288">loop()</a>.</p>
 
 </div>
 </div>
@@ -1068,7 +1178,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="WifiManager_8h_source.html#l00045">45</a> of file <a class="el" href="WifiManager_8h_source.html">WifiManager.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00276">loop()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00094">startAP()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00288">loop()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00094">startAP()</a>.</p>
 
 </div>
 </div>
@@ -1094,7 +1204,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="WifiManager_8h_source.html#l00047">47</a> of file <a class="el" href="WifiManager_8h_source.html">WifiManager.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00276">loop()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00150">updateApList()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="WifiManager_8cpp_source.html#l00288">loop()</a>, and <a class="el" href="WifiManager_8cpp_source.html#l00150">updateApList()</a>.</p>
 
 </div>
 </div>

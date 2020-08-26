@@ -1,0 +1,13 @@
+<map id="AsyncWebSocketBasicMessage::betweenFrames" name="AsyncWebSocketBasicMessage::betweenFrames">
+<area shape="rect" id="node2" href="$classAsyncWebSocketControl.html#a294cb06821a5ef2de8c599277eb91e19" title="AsyncWebSocketControl::len" alt="" coords="267,23,461,49"/>
+<area shape="rect" id="node3" href="$classAsyncWebSocketControl.html#a1ea79c0e784b71ebda23fe4af2d25111" title="AsyncWebSocketControl\l::send" alt="" coords="279,74,449,115"/>
+<area shape="rect" id="node4" href="$AsyncWebSocket_8cpp.html#a4dd441276418a4bf10c2018970c04d7a" title="webSocketSendFrame" alt="" coords="509,81,664,108"/>
+<area shape="rect" id="node5" href="$classAsyncClient.html#a7dbadbf7ba142571b6c0ef33785f4292" title="AsyncClient::add" alt="" coords="727,5,849,32"/>
+<area shape="rect" id="node8" href="$classAsyncClient.html#a039b989cd1e955709e8b90567045fdbb" title="AsyncClient::space" alt="" coords="912,56,1048,83"/>
+<area shape="rect" id="node9" href="$classAsyncClient.html#acd05c724494c44f7fb5d8f730d026b8e" title="AsyncClient::canSend" alt="" coords="712,107,864,133"/>
+<area shape="rect" id="node10" href="$classAsyncClient.html#aa2d6f5a753f8928469e0fd1b01116e61" title="AsyncClient::send" alt="" coords="723,157,853,184"/>
+<area shape="rect" id="node6" href="$AsyncTCP_8cpp.html#a139d659560ae3b41b186955258551e53" title="_tcp_write" alt="" coords="939,5,1021,32"/>
+<area shape="rect" id="node7" href="$AsyncTCP_8cpp.html#af7ec69a9a2424dded82f025dfc754fe5" title="_tcp_write_api" alt="" coords="1100,5,1207,32"/>
+<area shape="rect" id="node11" href="$AsyncTCP_8cpp.html#a32a44c4db7c9b6ee6a58167d8e2e5210" title="_tcp_output" alt="" coords="935,157,1025,184"/>
+<area shape="rect" id="node12" href="$AsyncTCP_8cpp.html#a0ff01c08c6ab13d1532d782b33aec0df" title="_tcp_output_api" alt="" coords="1096,157,1211,184"/>
+</map>

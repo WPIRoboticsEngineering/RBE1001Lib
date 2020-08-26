@@ -1,0 +1,10 @@
+<map id="AsyncBasicResponse::_respond" name="AsyncBasicResponse::_respond">
+<area shape="rect" id="node2" href="$classAsyncWebServerResponse.html#ad07a32bd3540394c263ceaccb236f62f" title="AsyncWebServerResponse\l::_assembleHead" alt="" coords="204,37,387,79"/>
+<area shape="rect" id="node6" href="$classAsyncWebServerRequest.html#aca27487c506eb3d0bdd6ff356815a488" title="AsyncWebServerRequest\l::client" alt="" coords="209,103,382,144"/>
+<area shape="rect" id="node7" href="$classAsyncClient.html#a039b989cd1e955709e8b90567045fdbb" title="AsyncClient::space" alt="" coords="227,169,363,195"/>
+<area shape="rect" id="node8" href="$classAsyncWebServerRequest.html#afba06f62d04d4c69448094baccaae920" title="AsyncWebServerRequest\l::version" alt="" coords="209,220,382,261"/>
+<area shape="rect" id="node9" href="$classAsyncClient.html#a83b5abb57799a9584f8fccce1d31db8c" title="AsyncClient::write" alt="" coords="231,286,360,313"/>
+<area shape="rect" id="node3" href="$classAsyncWebServerResponse.html#a56c370dbf9c75c17cb3cd8d22239205a" title="AsyncWebServerResponse\l::addHeader" alt="" coords="435,5,617,47"/>
+<area shape="rect" id="node5" href="$classAsyncWebServerResponse.html#a361aa1bed4dc4d5da66107ee97189313" title="AsyncWebServerResponse\l::_responseCodeToString" alt="" coords="435,71,617,112"/>
+<area shape="rect" id="node4" href="$classLinkedList.html#a3a284c668d6f717be3e8b5d283ff5419" title="LinkedList::add" alt="" coords="665,13,776,39"/>
+</map>

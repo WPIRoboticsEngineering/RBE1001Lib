@@ -1,0 +1,26 @@
+<map id="AsyncWebSocket::text" name="AsyncWebSocket::text">
+<area shape="rect" id="node2" href="$classAsyncWebSocket.html#aa0b52bad69f1052215b3c0cb091b6168" title="AsyncWebSocket::client" alt="" coords="211,23,377,49"/>
+<area shape="rect" id="node3" href="$classAsyncWebSocketClient.html#a39fe017d2f6411392728eafa274da663" title="AsyncWebSocketClient\l::text" alt="" coords="213,74,375,115"/>
+<area shape="rect" id="node4" href="$classAsyncWebSocketClient.html#ab94ac4834b0a9bb149e1e52dc584825a" title="AsyncWebSocketClient\l::_queueMessage" alt="" coords="425,74,587,115"/>
+<area shape="rect" id="node5" href="$classLinkedList.html#acc07c5e0ee959113f7e464683987113a" title="LinkedList::length" alt="" coords="653,5,777,32"/>
+<area shape="rect" id="node6" href="$classLinkedList.html#a3a284c668d6f717be3e8b5d283ff5419" title="LinkedList::add" alt="" coords="660,56,771,83"/>
+<area shape="rect" id="node7" href="$classAsyncClient.html#acd05c724494c44f7fb5d8f730d026b8e" title="AsyncClient::canSend" alt="" coords="1336,183,1488,209"/>
+<area shape="rect" id="node9" href="$classAsyncWebSocketClient.html#a8b4046f57aba085d379fd7706b3ac155" title="AsyncWebSocketClient\l::_runQueue" alt="" coords="635,358,796,399"/>
+<area shape="rect" id="node8" href="$classAsyncClient.html#a039b989cd1e955709e8b90567045fdbb" title="AsyncClient::space" alt="" coords="1536,208,1672,235"/>
+<area shape="rect" id="node10" href="$classLinkedList.html#a15c7737a56cd82e70284b15bd710eec8" title="LinkedList::isEmpty" alt="" coords="873,457,1010,484"/>
+<area shape="rect" id="node11" href="$classLinkedList.html#afc4c86cfbc215c2a4f742fc9a2f69bda" title="LinkedList::front" alt="" coords="884,508,999,535"/>
+<area shape="rect" id="node12" href="$classAsyncWebSocketMessage.html#a4e89fb66f45fb42366fd2f5a76b3b1e7" title="AsyncWebSocketMessage\l::finished" alt="" coords="851,559,1031,601"/>
+<area shape="rect" id="node13" href="$classLinkedList.html#a900eba3eb48390fd4b6c92785e122175" title="LinkedList::remove" alt="" coords="875,625,1007,652"/>
+<area shape="rect" id="node14" href="$classAsyncWebSocketMessage.html#ae3d89de006f2933dacfc5ffaeb051a57" title="AsyncWebSocketMessage\l::betweenFrames" alt="" coords="851,209,1031,250"/>
+<area shape="rect" id="node15" href="$AsyncWebSocket_8cpp.html#a09e989b0d4f557bd9c149d555ed5d23a" title="webSocketSendFrameWindow" alt="" coords="1087,157,1288,184"/>
+<area shape="rect" id="node16" href="$classAsyncWebSocketControl.html#a294cb06821a5ef2de8c599277eb91e19" title="AsyncWebSocketControl::len" alt="" coords="844,275,1039,301"/>
+<area shape="rect" id="node17" href="$classAsyncWebSocketControl.html#a1ea79c0e784b71ebda23fe4af2d25111" title="AsyncWebSocketControl\l::send" alt="" coords="857,391,1026,433"/>
+<area shape="rect" id="node25" href="$classAsyncWebSocketMessage.html#acef9f93ab7ed239029dc8b41f10bd5ea" title="AsyncWebSocketMessage\l::send" alt="" coords="851,326,1031,367"/>
+<area shape="rect" id="node18" href="$AsyncWebSocket_8cpp.html#a4dd441276418a4bf10c2018970c04d7a" title="webSocketSendFrame" alt="" coords="1110,284,1265,311"/>
+<area shape="rect" id="node19" href="$classAsyncClient.html#a7dbadbf7ba142571b6c0ef33785f4292" title="AsyncClient::add" alt="" coords="1351,284,1473,311"/>
+<area shape="rect" id="node22" href="$classAsyncClient.html#aa2d6f5a753f8928469e0fd1b01116e61" title="AsyncClient::send" alt="" coords="1347,335,1477,361"/>
+<area shape="rect" id="node20" href="$AsyncTCP_8cpp.html#a139d659560ae3b41b186955258551e53" title="_tcp_write" alt="" coords="1563,284,1645,311"/>
+<area shape="rect" id="node21" href="$AsyncTCP_8cpp.html#af7ec69a9a2424dded82f025dfc754fe5" title="_tcp_write_api" alt="" coords="1724,284,1831,311"/>
+<area shape="rect" id="node23" href="$AsyncTCP_8cpp.html#a32a44c4db7c9b6ee6a58167d8e2e5210" title="_tcp_output" alt="" coords="1559,335,1649,361"/>
+<area shape="rect" id="node24" href="$AsyncTCP_8cpp.html#a0ff01c08c6ab13d1532d782b33aec0df" title="_tcp_output_api" alt="" coords="1720,335,1835,361"/>
+</map>

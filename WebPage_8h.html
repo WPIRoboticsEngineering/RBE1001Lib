@@ -64,19 +64,26 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
 <div class="title">WebPage.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;Arduino.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="SimpleWebServer_8h_source.html">SimpleWebServer.h</a>&quot;</code><br />
+<code>#include &lt;WebServer.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="Motor_8h_source.html">Motor.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for WebPage.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="WebPage_8h__incl.png" border="0" usemap="#src_2WebPage_8h" alt=""/></div>
 <map name="src_2WebPage_8h" id="src_2WebPage_8h">
-<area shape="rect" id="node3" href="SimpleWebServer_8h.html" title="SimpleWebServer.h" alt="" coords="45,80,184,107"/>
+<area shape="rect" id="node4" href="Motor_8h.html" title="Motor.h" alt="" coords="261,80,328,107"/>
+<area shape="rect" id="node5" href="ESP32Servo_8h.html" title="ESP32Servo.h" alt="" coords="425,155,533,181"/>
+<area shape="rect" id="node11" href="ESP32Encoder_8h.html" title="ESP32Encoder.h" alt="" coords="165,155,288,181"/>
+<area shape="rect" id="node6" href="analogWrite_8h.html" title="analogWrite.h" alt="" coords="382,304,485,331"/>
+<area shape="rect" id="node9" href="ESP32PWM_8h.html" title="ESP32PWM.h" alt="" coords="509,304,616,331"/>
+<area shape="rect" id="node10" href="ESP32Tone_8h.html" title="ESP32Tone.h" alt="" coords="453,229,555,256"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -85,6 +92,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="center"><img src="WebPage_8h__dep__incl.png" border="0" usemap="#src_2WebPage_8hdep" alt=""/></div>
 <map name="src_2WebPage_8hdep" id="src_2WebPage_8hdep">
 <area shape="rect" id="node2" href="WebPage_8cpp.html" title="src/WebPage.cpp" alt="" coords="5,80,132,107"/>
+<area shape="rect" id="node3" href="RCCTL_8ino.html" title="examples/RCCTL/RCCTL.ino" alt="" coords="157,80,354,107"/>
 </map>
 </div>
 </div>
@@ -92,25 +100,143 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDataValues.html">DataValues</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct__JoyData.html">_JoyData</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct__telemetryValue.html">_telemetryValue</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebPage.html">WebPage</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ae602fd02dbc970321b1bfa8080223ab8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WebPage_8h.html#ae602fd02dbc970321b1bfa8080223ab8">labelbuflen</a>&#160;&#160;&#160;256</td></tr>
+<tr class="separator:ae602fd02dbc970321b1bfa8080223ab8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a438437be476258676887178e8c572f67"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WebPage_8h.html#a438437be476258676887178e8c572f67">valbuflen</a>&#160;&#160;&#160;(sizeof(float)*3)</td></tr>
+<tr class="separator:a438437be476258676887178e8c572f67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1236f3d035e5dbbf704b5c0e4432eab3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WebPage_8h.html#a1236f3d035e5dbbf704b5c0e4432eab3">numSliders</a>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:a1236f3d035e5dbbf704b5c0e4432eab3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e4a68678fe8d73ce391ccb07c637ab2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WebPage_8h.html#a6e4a68678fe8d73ce391ccb07c637ab2">numValues</a>&#160;&#160;&#160;30</td></tr>
+<tr class="separator:a6e4a68678fe8d73ce391ccb07c637ab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afba60eed4deaa02a257ab5a26d4b5bc3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WebPage_8h.html#afba60eed4deaa02a257ab5a26d4b5bc3">labelBufferSize</a>&#160;&#160;&#160;512</td></tr>
+<tr class="separator:afba60eed4deaa02a257ab5a26d4b5bc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a8abc93670bd0e6b0920d47d5119a6cf8"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structDataValues.html">DataValues</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WebPage_8h.html#a8abc93670bd0e6b0920d47d5119a6cf8">DataValues</a></td></tr>
-<tr class="separator:a8abc93670bd0e6b0920d47d5119a6cf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f67b6acdb3bc6ce6a918e3bca70cdab"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct__JoyData.html">_JoyData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WebPage_8h.html#a1f67b6acdb3bc6ce6a918e3bca70cdab">JoyData</a></td></tr>
+<tr class="separator:a1f67b6acdb3bc6ce6a918e3bca70cdab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59190eb0914bdb8d80bc25491b4cb1f8"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct__telemetryValue.html">_telemetryValue</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="WebPage_8h.html#a59190eb0914bdb8d80bc25491b4cb1f8">telemetryValue</a></td></tr>
+<tr class="separator:a59190eb0914bdb8d80bc25491b4cb1f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Typedef Documentation</h2>
-<a id="a8abc93670bd0e6b0920d47d5119a6cf8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8abc93670bd0e6b0920d47d5119a6cf8">&#9670;&nbsp;</a></span>DataValues</h2>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="afba60eed4deaa02a257ab5a26d4b5bc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afba60eed4deaa02a257ab5a26d4b5bc3">&#9670;&nbsp;</a></span>labelBufferSize</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef struct <a class="el" href="structDataValues.html">DataValues</a>  <a class="el" href="structDataValues.html">DataValues</a></td>
+          <td class="memname">#define labelBufferSize&#160;&#160;&#160;512</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8h_source.html#l00025">25</a> of file <a class="el" href="WebPage_8h_source.html">WebPage.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00402">WebPage::SendAllLabels()</a>.</p>
+
+</div>
+</div>
+<a id="ae602fd02dbc970321b1bfa8080223ab8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae602fd02dbc970321b1bfa8080223ab8">&#9670;&nbsp;</a></span>labelbuflen</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define labelbuflen&#160;&#160;&#160;256</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8h_source.html#l00005">5</a> of file <a class="el" href="WebPage_8h_source.html">WebPage.h</a>.</p>
+
+</div>
+</div>
+<a id="a1236f3d035e5dbbf704b5c0e4432eab3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1236f3d035e5dbbf704b5c0e4432eab3">&#9670;&nbsp;</a></span>numSliders</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define numSliders&#160;&#160;&#160;4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8h_source.html#l00023">23</a> of file <a class="el" href="WebPage_8h_source.html">WebPage.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00121">WebPage::WebPage()</a>.</p>
+
+</div>
+</div>
+<a id="a6e4a68678fe8d73ce391ccb07c637ab2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e4a68678fe8d73ce391ccb07c637ab2">&#9670;&nbsp;</a></span>numValues</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define numValues&#160;&#160;&#160;30</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8h_source.html#l00024">24</a> of file <a class="el" href="WebPage_8h_source.html">WebPage.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="WebPage_8cpp_source.html#l00509">WebPage::markAllDirty()</a>, <a class="el" href="WebPage_8cpp_source.html#l00402">WebPage::SendAllLabels()</a>, <a class="el" href="WebPage_8cpp_source.html#l00330">WebPage::SendAllValues()</a>, <a class="el" href="WebPage_8cpp_source.html#l00483">WebPage::sendLabelUpdate()</a>, <a class="el" href="WebPage_8cpp_source.html#l00470">WebPage::sendValueUpdate()</a>, <a class="el" href="WebPage_8cpp_source.html#l00300">WebPage::setValue()</a>, and <a class="el" href="WebPage_8cpp_source.html#l00121">WebPage::WebPage()</a>.</p>
+
+</div>
+</div>
+<a id="a438437be476258676887178e8c572f67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a438437be476258676887178e8c572f67">&#9670;&nbsp;</a></span>valbuflen</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define valbuflen&#160;&#160;&#160;(sizeof(float)*3)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="WebPage_8h_source.html#l00006">6</a> of file <a class="el" href="WebPage_8h_source.html">WebPage.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="a1f67b6acdb3bc6ce6a918e3bca70cdab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f67b6acdb3bc6ce6a918e3bca70cdab">&#9670;&nbsp;</a></span>JoyData</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct__JoyData.html">_JoyData</a>  <a class="el" href="WebPage_8h.html#a1f67b6acdb3bc6ce6a918e3bca70cdab">JoyData</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a59190eb0914bdb8d80bc25491b4cb1f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59190eb0914bdb8d80bc25491b4cb1f8">&#9670;&nbsp;</a></span>telemetryValue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct__telemetryValue.html">_telemetryValue</a>  <a class="el" href="WebPage_8h.html#a59190eb0914bdb8d80bc25491b4cb1f8">telemetryValue</a></td>
         </tr>
       </table>
 </div><div class="memdoc">

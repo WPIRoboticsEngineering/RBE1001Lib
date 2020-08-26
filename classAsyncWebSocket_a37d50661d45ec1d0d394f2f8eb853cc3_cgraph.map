@@ -1,0 +1,35 @@
+<map id="AsyncWebSocket::handleRequest" name="AsyncWebSocket::handleRequest">
+<area shape="rect" id="node2" href="$classAsyncWebServerResponse.html#a56c370dbf9c75c17cb3cd8d22239205a" title="AsyncWebServerResponse\l::addHeader" alt="" coords="499,5,682,47"/>
+<area shape="rect" id="node4" href="$classAsyncWebServerRequest.html#a7dcd942309c563d42e3613d62d4a9006" title="AsyncWebServerRequest\l::authenticate" alt="" coords="276,123,449,164"/>
+<area shape="rect" id="node9" href="$classAsyncWebServerRequest.html#a133a829c7bc4c486ed41f3476666ea51" title="AsyncWebServerRequest\l::beginResponse" alt="" coords="504,188,677,229"/>
+<area shape="rect" id="node10" href="$classAsyncWebServerRequest.html#acc847b55e687445eb7baff15b4d197c8" title="AsyncWebServerRequest\l::getHeader" alt="" coords="737,247,910,288"/>
+<area shape="rect" id="node11" href="$classAsyncWebServerRequest.html#ad48de245a31775c3ec0e0c81eff816c4" title="AsyncWebServerRequest\l::hasHeader" alt="" coords="276,297,449,339"/>
+<area shape="rect" id="node12" href="$classAsyncWebServerRequest.html#a03ef5c898b5bf81a5ade789b9f6d8f49" title="AsyncWebServerRequest\l::requestAuthentication" alt="" coords="276,363,449,404"/>
+<area shape="rect" id="node14" href="$classAsyncWebHeader.html#ad1a29b5524309c5e2298c073a1f5287e" title="AsyncWebHeader::value" alt="" coords="740,313,907,339"/>
+<area shape="rect" id="node17" href="$classAsyncWebServerRequest.html#a4247e73eb8d8c7b386f9bb4ab10f3856" title="AsyncWebServerRequest\l::send" alt="" coords="504,480,677,521"/>
+<area shape="rect" id="node3" href="$classLinkedList.html#a3a284c668d6f717be3e8b5d283ff5419" title="LinkedList::add" alt="" coords="768,13,879,39"/>
+<area shape="rect" id="node5" href="$WebAuthentication_8cpp.html#a23c996c214b5d0bf1eb9968448df35f3" title="checkDigestAuthentication" alt="" coords="501,71,680,98"/>
+<area shape="rect" id="node8" href="$classAsyncWebServerRequest.html#afc49e90174b643ae55d609738a1021e1" title="AsyncWebServerRequest\l::methodToString" alt="" coords="504,123,677,164"/>
+<area shape="rect" id="node6" href="$WebAuthentication_8cpp.html#af22366eaf84e909538e759bd586d6650" title="stringMD5" alt="" coords="782,133,865,159"/>
+<area shape="rect" id="node7" href="$WebAuthentication_8cpp.html#ab53d94788d2966060030b21dd278ab22" title="getMD5" alt="" coords="1050,218,1118,245"/>
+<area shape="rect" id="node13" href="$classAsyncWebServerRequest.html#aa0614d7de1cfcd6741d7f8840ad63ee3" title="AsyncWebServerRequest\l::header" alt="" coords="504,305,677,347"/>
+<area shape="rect" id="node15" href="$WebAuthentication_8cpp.html#a75326e7a310b196b485e626e03258ff4" title="requestDigestAuthentication" alt="" coords="497,371,684,398"/>
+<area shape="rect" id="node16" href="$WebAuthentication_8cpp.html#a7a1bccc319edffd190067b39bf106bec" title="genRandomMD5" alt="" coords="763,363,883,390"/>
+<area shape="rect" id="node18" href="$classAsyncWebServerRequest.html#ade7b9bc8fc59f39b2cf0ccc26e104845" title="AsyncWebServerRequest\l::_onDisconnect" alt="" coords="737,415,910,456"/>
+<area shape="rect" id="node20" href="$classAsyncWebServerResponse.html#a2a4f57d58072777d668602480f7885a3" title="AsyncWebServerResponse\l::_respond" alt="" coords="732,480,915,521"/>
+<area shape="rect" id="node22" href="$classAsyncClient.html#a0305fe0b036257c03829ceaa5cc43361" title="AsyncClient::close" alt="" coords="1018,546,1150,573"/>
+<area shape="rect" id="node33" href="$classAsyncWebServerResponse.html#a066db80b641b3ce65c0875425f110afd" title="AsyncWebServerResponse\l::_sourceValid" alt="" coords="732,597,915,639"/>
+<area shape="rect" id="node34" href="$classAsyncClient.html#a815402f77f76a3f21bd8f8e06e7fe1e0" title="AsyncClient::setRxTimeout" alt="" coords="732,663,915,690"/>
+<area shape="rect" id="node19" href="$classAsyncWebServer.html#a39bb34e0ddb79f5b5af23d175f8cfcf2" title="AsyncWebServer::_handleDisconnect" alt="" coords="963,422,1205,449"/>
+<area shape="rect" id="node21" href="$classAsyncWebServerRequest.html#aca27487c506eb3d0bdd6ff356815a488" title="AsyncWebServerRequest\l::client" alt="" coords="997,480,1171,521"/>
+<area shape="rect" id="node23" href="$classAsyncClient.html#a98ff872bc84919f006f3bb8a249ed36d" title="AsyncClient::_close" alt="" coords="1253,521,1392,547"/>
+<area shape="rect" id="node31" href="$AsyncTCP_8cpp.html#acfb3f5bacaaabd2c616896510fd1f10b" title="_tcp_recved" alt="" coords="1276,571,1369,598"/>
+<area shape="rect" id="node24" href="$AsyncTCP_8cpp.html#ab053d5adb5be879f37181af512213bb6" title="_tcp_clear_events" alt="" coords="1441,445,1569,471"/>
+<area shape="rect" id="node26" href="$AsyncTCP_8cpp.html#a3602c1ebfae2fb2ff64a0e3d7b0568ce" title="_tcp_close" alt="" coords="1463,495,1548,522"/>
+<area shape="rect" id="node28" href="$classAsyncClient.html#a09e777ff005d8e0f81166e704dc14979" title="AsyncClient::abort" alt="" coords="1440,546,1571,573"/>
+<area shape="rect" id="node25" href="$AsyncTCP_8cpp.html#a859f51f5251f16218d48111079ead254" title="_prepend_async_event" alt="" coords="1619,445,1775,471"/>
+<area shape="rect" id="node27" href="$AsyncTCP_8cpp.html#a7c4346c7dec98a175f7b96b03873839a" title="_tcp_close_api" alt="" coords="1642,495,1751,522"/>
+<area shape="rect" id="node29" href="$AsyncTCP_8cpp.html#a3e2474b46f6a3f01db216511d2bcfc4c" title="_tcp_abort" alt="" coords="1655,546,1738,573"/>
+<area shape="rect" id="node30" href="$AsyncTCP_8cpp.html#a1116bc106bb6f68220dc19896e08e831" title="_tcp_abort_api" alt="" coords="1823,546,1929,573"/>
+<area shape="rect" id="node32" href="$AsyncTCP_8cpp.html#ac6939df8a76eab232541be004e935be2" title="_tcp_recved_api" alt="" coords="1447,597,1564,623"/>
+</map>

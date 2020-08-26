@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['encoder_5fcpr',['ENCODER_CPR',['../Motor_8h.html#a9ebdd8114f35f3aa52eb51fbe8bb1868',1,'Motor.h']]],
-  ['enforce_5fpins',['ENFORCE_PINS',['../ESP32Servo_8h.html#aa9e8016e44597a897fd38e31f0270cd3',1,'ESP32Servo.h']]],
-  ['esp32_5fservo_5fversion',['ESP32_Servo_VERSION',['../ESP32Servo_8h.html#a5c9a20d0ae9fa70e54b60cfe785a7dd7',1,'ESP32Servo.h']]]
+  ['config_5fasync_5ftcp_5frunning_5fcore',['CONFIG_ASYNC_TCP_RUNNING_CORE',['../AsyncTCP_8h.html#a0be38cb7a1d84a452da14c54c4c4ae56',1,'AsyncTCP.h']]],
+  ['config_5fasync_5ftcp_5fuse_5fwdt',['CONFIG_ASYNC_TCP_USE_WDT',['../AsyncTCP_8h.html#a2a6c6793fa3ef8f5ffc5ada2b9b4e01f',1,'AsyncTCP.h']]]
 ];
