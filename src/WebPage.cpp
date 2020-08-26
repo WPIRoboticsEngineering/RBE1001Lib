@@ -21,19 +21,18 @@ static bool lockOutSending = false;
 
 long timeSinceLastSend =0;
 
-const char *strings[12] = { "Left Encoder Degrees","Left Encoder Effort","Left Encoder Degrees-sec",
-		"Right Encoder Degrees","Right Encoder Effort","Right Encoder Degrees-sec" ,
-				"2 Encoder Degrees","2 Encoder Effort","2 Encoder Degrees-sec" ,
-				"3 Encoder Degrees","3 Encoder Effort","3 Encoder Degrees-sec"
-};
+
 
 void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventType type, void * arg, uint8_t *data, size_t len){
   uint32_t *asInt = (uint32_t *)data;
-  thisPage->packetCount++;
+  thisPage->rxPacketCount++;
   float    *asFloat = (float *)data;
   if(type == WS_EVT_CONNECT){
     //Serial.println("Websocket client connection received");
-	  thisPage->SendAllLabelsAndValues();
+	  thisPage->markAllDirty();
+	  thisPage->SendAllLabels();
+	  delay(20);
+	  thisPage->SendAllValues();
   } else if(type == WS_EVT_DISCONNECT){
     //Serial.println("Client disconnected");
 
@@ -43,11 +42,28 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
 		  return;
 	  }
 	  uint32_t command = asInt[0];
+	  /*
     // Data Format
     // 4B: Message Type
 	//		0x10 (16)	Value Update
 	//  	  	4B: value index
-	//			4B: value data (float)
+	//			4B: value data
+	 * 		0x1d (29)	Bulk Label Update
+	 * 			4B:	Number of Labels in this update
+	 * 			4B: Start of string data
+	 * 			[repeated next 12B block for each label]
+	 * 			4B: Index to update
+	 * 			4B: String Offset in packet
+	 * 			4B: String Length
+	 *
+	 * 			nB: [all label strings concatenated ]
+	 *
+	//  	0x1e (30)	Bulk Value Update
+	//	  	  	4B: Number of Values
+	 * 			[repeat for all values]
+	//  	    4B:	value index n
+	//			4B:	value data n
+	//
 	//		0x1f (31)	New Value
 	//			4B: value index
 	//			*B: value name
@@ -62,6 +78,10 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
     //      0x40 (64)	Button Update
     //			4B: Button Number
     //			4B: Button State (0.0 or 1.0)
+     * 		0x50 (80)	Heartbeat
+     * 			4B: random int.
+     *
+     */
 
     //Serial.println("Command is: "+String(command)+"\t["+String(packetCount++)+"]");
     switch(command){
@@ -78,6 +98,10 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
     		break;
     	case 0x40:
     		//Serial.println("Button Update");
+    		break;
+    	case 0x50:
+    		// heartbeat message.
+    		thisPage->setHeartbeatUUID(asInt[1]);
     		break;
 
     }
@@ -103,9 +127,9 @@ WebPage::WebPage() {
   for(int i=0; i<numValues; i++) {
 	  values[i].used=false;
 	  values[i].value=0;
-	  values[i].oldValue=0;
 	  values[i].name=String("");
-	  values[i].dirty=false;
+	  values[i].valueDirty=false;
+	  values[i].labelDirty=false;
   }
   for(int i=0; i<numSliders; i++) sliders[i]=0;
 }
@@ -136,19 +160,11 @@ void updateTask(void *param){
 
 		lock();
 		//Serial.println("L data Lock");
-		thisPage->SendAllLabelsAndValues();
+		thisPage->sendHeartbeat();
+		if(thisPage->SendAllLabels()) delay(10);
+		thisPage->SendAllValues();
 		unlock();
 
-
-		for (int i = 0; i < MAX_POSSIBLE_MOTORS; i++) {
-			if (Motor::list[i] != NULL) {
-				thisPage->valueChanged(strings[i*3],Motor::list[i]->getCurrentDegrees());
-				thisPage->valueChanged(strings[i*3+1],Motor::list[i]->GetEffort());
-				thisPage->valueChanged(strings[i*3+2],Motor::list[i]->getDegreesPerSecond());
-			}
-		}
-		thisPage->valueChanged(updtime,((float)millis())/1000.0);
-		delay(1);
 	}
 }
 
@@ -173,9 +189,61 @@ void WebPage::initalize(){
 		unlock();
 
     });
+    server.on("/pidvalues", 0b00000001, [](AsyncWebServerRequest *request){
 
-    ws.onEvent(onWsEvent);
-    server.addHandler(&ws);
+    	lock();
+		//Serial.println("L text/javascript Lock");
+
+		Serial.print("args: ");
+		Serial.println(request->args());
+		for(int i=0; i<request->args(); i++){
+			String key = request->argName(i);
+			if (key.length()>=2){
+				int32_t index = key.substring(1).toInt()-1;
+				if (index!=-1 && index<MAX_POSSIBLE_MOTORS && Motor::list[index] != NULL){
+
+					float value = request->arg(i).toFloat();
+					if (key.charAt(0)=='p'){
+						Serial.print("Setting P Gain ");
+						Serial.print(index);
+						Serial.print(":\t");
+						Serial.println(value);
+						Motor::list[index]->setGainsP(value);
+					}
+					if (key.charAt(0)=='i'){
+						Serial.print("Setting I Gain ");
+						Serial.print(index);
+						Serial.print(":\t");
+						Serial.println(value);
+						Motor::list[index]->setGainsI(value);
+					}
+					if (key.charAt(0)=='d'){
+						Serial.print("Setting D Gain ");
+						Serial.print(index);
+						Serial.print(":\t");
+						Serial.println(value);
+						Motor::list[index]->setGainsD(value);
+					}
+				}
+			}
+		}
+		String pidvals="[";
+		for(int i=0; i<MAX_POSSIBLE_MOTORS; i++){
+
+			if(Motor::list[i] != NULL){
+				if (i!=0) pidvals+=",";
+				pidvals+="["+String(Motor::list[i]->getGainsP())+
+						","+String(Motor::list[i]->getGainsI())+
+						","+String(Motor::list[i]->getGainsD())+"]";
+			}
+		}
+		pidvals += "]";
+		request->send(200, "text/html", pidvals);
+		unlock();
+
+    });
+
+
     xTaskCreatePinnedToCore(
     		updateTask, /* Function to implement the task */
           "updateTask", /* Name of the task */
@@ -184,6 +252,9 @@ void WebPage::initalize(){
           4,  /* Priority of the task */
           &thisPage->updateTaskHandle,  /* Task handle. */
           1); /* Core where the task should run */
+
+    ws.onEvent(onWsEvent);
+    server.addHandler(&ws);
 }
 
 float WebPage::getSliderValue(uint32_t number){
@@ -231,11 +302,11 @@ void WebPage::setValue(String name, float data){
 			if (values[i].used){ // compare in use slots
 
 				if (values[i].name==name){ // check label
-
+					if(values[i].value!=data){ // Has the value itself changed?
 						//Serial.println("Update '"+name+"' "+String(data));
 						values[i].value = data; // update data
-						values[i].dirty=true;
-
+						values[i].valueDirty=true;
+					}
 					return;
 				}
 			} else {
@@ -244,7 +315,8 @@ void WebPage::setValue(String name, float data){
 				values[i].used=true;
 				values[i].name = name;
 				values[i].value = data;
-				values[i].dirty=true;
+				values[i].valueDirty=true;
+				values[i].labelDirty=true;
 				values[i].buffer=0;
 				numValuesUsed++;
 				return;
@@ -253,7 +325,45 @@ void WebPage::setValue(String name, float data){
 }
 
 
-bool WebPage::SendAllLabelsAndValues(){
+bool WebPage::SendAllValues(){
+	if (ws.count()==0) return false;
+	if (packetBuffer) delete packetBuffer; // Deallocate old buffer
+	packetBuffer = new uint8_t[numValues*8]; // Allocate a new one 8 bytes per slot max
+
+	// Allocate float and int access arrays
+	uint32_t *bufferAsInt32=(uint32_t*)packetBuffer;
+	float *bufferAsFloat=(float*)packetBuffer;
+
+	bufferAsInt32[0]=0x1e; // packet id update all
+
+
+	uint32_t bufferItemCount=0; // Count the values in this update.
+	for(int i=0; i<numValues; i++){
+		if (values[i].used){ // Is this slot in use?
+			if (values[i].valueDirty){ // Has this value changed
+				values[i].valueDirty=false; //reset change flag
+				bufferAsInt32[(bufferItemCount+1)*2] = i; // Index of this specific value
+				bufferAsFloat[(bufferItemCount+1)*2+1] = values[i].value; // The float value
+				bufferItemCount++;
+			}
+		}
+	}
+
+	bufferAsInt32[1]=bufferItemCount; // Record the number of elements at position 1 after the packet id
+	uint32_t packetLength = (bufferItemCount+1)*8; // 8 byte header + each int/float pair
+
+
+	if (bufferItemCount>0){
+		// We have at least 1 item, lets send a packet.
+		if ( ws.availableForWriteAll() ){ // Can we write?
+			txPacketCount++;
+			ws.binaryAll(packetBuffer, packetLength);
+			return true; // update sent
+		}
+	}
+
+	return false; // no update sent
+	/*
 	if(valueToSendThisLoop>=numValuesUsed)
 		valueToSendThisLoop=0;
 	int i= valueToSendThisLoop;
@@ -277,21 +387,88 @@ bool WebPage::SendAllLabelsAndValues(){
 	//		}
 	//		Serial.print("]");
 		if (ws.availableForWriteAll())
+			//txPacketCount++;
 			ws.binaryAll(values[i].buffer, datalen);
 		//delay(5);
 		//Serial.println("Updating "+values[i].name);
 	}
 	valueToSendThisLoop++;
 	return values[i].used;
+	*/
 }
 
+bool WebPage::SendAllLabels(){
+	if (ws.count()==0) return false;
+	if (labelBuffer) delete labelBuffer; // remove previous buffer
+	labelBuffer = new uint8_t[labelBufferSize]; // Allocate a buffer
+
+	uint32_t *bufferAsInt32=(uint32_t*)labelBuffer;
+	float *bufferAsFloat=(float*)labelBuffer;
+	char *bufferAsChar=(char*)labelBuffer;
+
+	bufferAsInt32[0]=0x1d; // packet id update all labels
+	bufferAsInt32[1]=0; // num labels
+
+	uint32_t bufferItemCount=0; // Count the values in this update.
+	for(int i=0; i<numValues; i++){
+		if (values[i].used){ // Is this slot in use?
+			if (values[i].labelDirty){ // Has this value changed
+				//Serial.println("Dirty: '"+String(values[i].name)+"' ("+String(i)+")");
+				bufferAsInt32[(bufferItemCount+1)*3] = i; // Index of this specific label
+				bufferAsInt32[(bufferItemCount+1)*3 + 1] = 0; // offset.
+				bufferAsInt32[(bufferItemCount+1)*3 + 2] = values[i].name.length()+1; // length of this specific label. +1 for null terminator
+				bufferItemCount++;
+			}
+		}
+	}
+
+	if (bufferItemCount==0) return false; // Nothing to update, bail.
+	// Write number of labels.
+	bufferAsInt32[1]=bufferItemCount;
+
+	uint32_t startOfStringData=(bufferItemCount+1)*12;
+	uint32_t stringOffset = 0;
+
+	bufferAsInt32[2]=startOfStringData;
+	//Serial.println("Item Count: '"+String(bufferItemCount)+"'");
+	//Serial.println("String Data Start: '"+String(startOfStringData)+"'");
+	// Load changed strings into buffer.
+	// update offsets as you load them in
+	for(int i=0; i<bufferItemCount; i++){
+		uint32_t index  = bufferAsInt32[(i+1)*3];
+		uint32_t length = bufferAsInt32[(i+1)*3 + 2];
+		if (startOfStringData+stringOffset+values[index].name.length() > labelBufferSize){
+			//Serial.println("Strings won't fit into buffer!");
+			//Serial.println("target: "+String(startOfStringData+stringOffset+values[index].name.length()));
+			//Serial.println("limit:  "+String(labelBufferSize));
+			return false;
+		}
+		//Serial.print("Processing #"+String(i)+"  len: "+String(length)+"... ");
+		bufferAsInt32[(i+1)*3 + 1] = stringOffset;
+		memcpy(&bufferAsChar[startOfStringData+stringOffset],values[index].name.c_str(),length);
+		stringOffset+=length;
+		values[index].labelDirty=false;
+		//Serial.println("Done! packet offset: "+String(startOfStringData+stringOffset));
+
+	}
+	//Serial.println("Total Bytes in Buf: '"+String(startOfStringData+stringOffset)+"'");
+	uint32_t packetLength = startOfStringData+stringOffset;
+	packetLength += (4-(packetLength%4));
+	if (bufferItemCount>0){
+		// We have at least 1 item, lets send a packet.
+		if ( ws.availableForWriteAll() ){ // Can we write?
+			txPacketCount++;
+			ws.binaryAll(labelBuffer,packetLength );
+			return true; // update sent
+		}
+	}
+	return false;
+}
 
 void WebPage::sendValueUpdate(uint32_t index,uint8_t *buffer){
 	if(index>numValues-1) return;
 //	if (!values[index].used) return;
 //	if (values[index].oldValue==values[index].value) return;
-	values[index].oldValue=values[index].value;
-
 
 	uint32_t *bufferAsInt32=(uint32_t*)buffer;
 	float *bufferAsFloat=(float*)buffer;
@@ -304,8 +481,8 @@ void WebPage::sendValueUpdate(uint32_t index,uint8_t *buffer){
 void WebPage::sendLabelUpdate(uint32_t index,uint8_t *buffer){
 	if(index>numValues-1) return;
 //	if (!values[index].used) return;
-//	if(!values[index].dirty) return;
-	values[index].dirty=false;
+//	if(!values[index].valueDirty) return;
+	values[index].valueDirty=false;
 
 	// Write out the string to the buffer. offset by 12 bytes.
 	for(int i=0;i<values[index].name.length();i++){
@@ -326,3 +503,33 @@ void WebPage::valueChanged(String name, float value){
 	//ESP_LOGI("WebPage::valueChanged","Got async change for '%s'",String2Chars(name)); //
 	setValue(name,value);
 }
+
+void WebPage::markAllDirty(){
+	for(int i=0; i<numValues; i++){
+		if (values[i].used){ // Is this slot in use?
+			values[i].labelDirty=true;
+			values[i].valueDirty=true;
+		}
+	}
+}
+void WebPage::setHeartbeatUUID(uint32_t uuid){
+	_heartbeat_uuid=uuid;
+}
+
+bool WebPage::sendHeartbeat(){
+	if (_heartbeat_uuid==0) return false;
+	if (ws.count()==0) return false;
+	if(heartbeatBuffer) delete heartbeatBuffer;
+	heartbeatBuffer = new uint8_t[8];
+	uint32_t *bufferAsInt32=(uint32_t*)heartbeatBuffer;
+	bufferAsInt32[0]=0x50;
+	bufferAsInt32[1]=_heartbeat_uuid;
+	_heartbeat_uuid=0;
+	if ( ws.availableForWriteAll() ){ // Can we write?
+		txPacketCount++;
+		ws.binaryAll(heartbeatBuffer,8);
+		return true; // update sent
+	}
+	return false;
+}
+

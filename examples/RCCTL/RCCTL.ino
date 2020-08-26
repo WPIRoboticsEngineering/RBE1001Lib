@@ -8,6 +8,13 @@
 #include "wifi/WifiManager.h"
 #include "WebPage.h"
 #include <Timer.h>
+
+const char *strings[12] = { "Left Encoder Degrees","Left Encoder Effort","Left Encoder Degrees-sec",
+		"Right Encoder Degrees","Right Encoder Effort","Right Encoder Degrees-sec" ,
+				"2 Encoder Degrees","2 Encoder Effort","2 Encoder Degrees-sec" ,
+				"3 Encoder Degrees","3 Encoder Effort","3 Encoder Degrees-sec"
+};
+
 // https://wpiroboticsengineering.github.io/RBE1001Lib/classMotor.html
 Motor motor1;
 Motor motor2;
@@ -21,6 +28,7 @@ ESP32AnalogRead rightLineSensor;
 ESP32AnalogRead servoPositionFeedback;
 
 WebPage control_page;
+
 
 WifiManager manager;
 
@@ -55,6 +63,8 @@ void setup() {
 	//control_page.setValue("Simple Counter",
 	//				inc++);
 	dashboardUpdateTimer.reset(); // reset the dashbaord refresh timer
+
+
 
 }
 
@@ -101,6 +111,19 @@ void updateDashboard() {
 								" y="+String(control_page.getJoystickY()) +
 								" slider="+String(control_page.getSliderValue(0)));
 
+		control_page.setValue("packets rx",
+						control_page.rxPacketCount);
+		control_page.setValue("packets tx",
+						control_page.txPacketCount);
+		control_page.setValue("slider",
+						control_page.getSliderValue(0)*100);
+		for (int i = 0; i < MAX_POSSIBLE_MOTORS; i++) {
+			if (Motor::list[i] != NULL) {
+				control_page.setValue(strings[i*3],Motor::list[i]->getCurrentDegrees());
+				control_page.setValue(strings[i*3+1],Motor::list[i]->GetEffort());
+				control_page.setValue(strings[i*3+2],Motor::list[i]->getDegreesPerSecond());
+			}
+		}
 		dashboardUpdateTimer.reset();
 	}
 }

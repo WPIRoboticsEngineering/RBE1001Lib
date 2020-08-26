@@ -10,7 +10,6 @@
 #include <ESP32Servo.h>
 #include <ESP32Encoder.h>
 #include <Arduino.h>
-#include "AsyncValueListener.h"
 #define MAX_POSSIBLE_MOTORS 4
 #define ENCODER_CPR 12.0f
 #define GEAR_BOX_RATIO 120.0f
@@ -406,6 +405,14 @@ public:
 	 * PID gains for the PID controller
 	 */
 	void setGains(float p, float i, float d);
+	void setGainsP(float p);
+	void setGainsI(float i);
+	void setGainsD(float d);
+
+	float getGainsP(){return kP;}
+	float getGainsI(){return kI;}
+	float getGainsD(){return kD;}
+
 
 
 };
