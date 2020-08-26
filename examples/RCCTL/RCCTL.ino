@@ -9,8 +9,8 @@
 #include "WebPage.h"
 #include <Timer.h>
 
-const char *strings[12] = { "Left Encoder Degrees","Left Encoder Effort","Left Encoder Degrees-sec",
-		"Right Encoder Degrees","Right Encoder Effort","Right Encoder Degrees-sec" ,
+const char *strings[12] = { "Left Encoder Degrees","Left Effort","Left Encoder Degrees/sec",
+		"Right Encoder Degrees","Right  Effort","Right Encoder Degrees/sec" ,
 				"2 Encoder Degrees","2 Encoder Effort","2 Encoder Degrees-sec" ,
 				"3 Encoder Degrees","3 Encoder Effort","3 Encoder Degrees-sec"
 };
