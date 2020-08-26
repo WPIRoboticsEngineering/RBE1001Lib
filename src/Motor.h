@@ -42,14 +42,7 @@ private:
 	 * the object that keeps track of the motors position
 	 */
 	ESP32Encoder * encoder;
-	/**
-	 * GPIO pin number of the motor PWM pin
-	 */
-	int MotorPWMPin = -1;
-	/**
-	 * GPIO pin number of the motor direction output flag
-	 */
-	int directionFlag = -1;
+
 	/**
 	 * an internal counter that counts iterations of the PID loop
 	 * this is used to calculate 50ms timing for calculation of the velocity
@@ -150,6 +143,14 @@ private:
 	float TRAPEZOIDAL_time=0;
 
 public:
+	/**
+	 * GPIO pin number of the motor PWM pin
+	 */
+	int MotorPWMPin = -1;
+	/**
+	 * GPIO pin number of the motor direction output flag
+	 */
+	int directionFlag = -1;
 	/**
 	 * use the internal state and current time to comput where along the path from start to finish the interpolation is
 	 */
@@ -404,6 +405,16 @@ public:
 	 * PID gains for the PID controller
 	 */
 	void setGains(float p, float i, float d);
+	void setGainsP(float p);
+	void setGainsI(float i);
+	void setGainsD(float d);
+
+	float getGainsP(){return kP;}
+	float getGainsI(){return kI;}
+	float getGainsD(){return kD;}
+
+
+
 };
 
 #endif /* LIBRARIES_RBE1001LIB_SRC_MOTOR_H_ */

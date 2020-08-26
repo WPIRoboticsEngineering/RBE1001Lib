@@ -8,6 +8,13 @@
 #include "wifi/WifiManager.h"
 #include "WebPage.h"
 #include <Timer.h>
+
+const char *strings[12] = { "Left Encoder Degrees","Left Encoder Effort","Left Encoder Degrees-sec",
+		"Right Encoder Degrees","Right Encoder Effort","Right Encoder Degrees-sec" ,
+				"2 Encoder Degrees","2 Encoder Effort","2 Encoder Degrees-sec" ,
+				"3 Encoder Degrees","3 Encoder Effort","3 Encoder Degrees-sec"
+};
+
 // https://wpiroboticsengineering.github.io/RBE1001Lib/classMotor.html
 Motor motor1;
 Motor motor2;
@@ -20,7 +27,8 @@ ESP32AnalogRead leftLineSensor;
 ESP32AnalogRead rightLineSensor;
 ESP32AnalogRead servoPositionFeedback;
 
-WebPage buttonPage;
+WebPage control_page;
+
 
 WifiManager manager;
 
@@ -33,6 +41,7 @@ Timer dashboardUpdateTimer;  // times when the dashboard should update
  * sets up some web page buttons, resets some timers, and sets the initial state
  * the robot should start in
  */
+int inc=0;
 void setup() {
 	manager.setup();
 	while (manager.getState() != Connected) {
@@ -41,6 +50,7 @@ void setup() {
 	}
 	Motor::allocateTimer(0); // used by the DC Motors
 	ESP32PWM::allocateTimer(1); // Used by servos
+	control_page.initalize();
 	// pin definitions https://wpiroboticsengineering.github.io/RBE1001Lib/RBE1001Lib_8h.html#define-members
 	motor2.attach(MOTOR2_PWM, MOTOR2_DIR, MOTOR2_ENCA, MOTOR2_ENCB);
 	motor1.attach(MOTOR1_PWM, MOTOR1_DIR, MOTOR1_ENCA, MOTOR1_ENCB);
@@ -50,8 +60,11 @@ void setup() {
 	rightLineSensor.attach(RIGHT_LINE_SENSE);
 	servoPositionFeedback.attach(SERVO_FEEDBACK_SENSOR);
 	lifter.write(0);
-	buttonPage.initalize();
+	//control_page.setValue("Simple Counter",
+	//				inc++);
 	dashboardUpdateTimer.reset(); // reset the dashbaord refresh timer
+
+
 
 }
 
@@ -65,12 +78,12 @@ void setup() {
  */
 void runStateMachine() {
 
-	float left = (buttonPage.getJoystickX()+buttonPage.getJoystickY())*360;
-	float right = (buttonPage.getJoystickX()-buttonPage.getJoystickY())*360;
+	float left = (control_page.getJoystickX()+control_page.getJoystickY())*360;
+	float right = (control_page.getJoystickX()-control_page.getJoystickY())*360;
 
 	motor1.SetSpeed(left);
 	motor2.SetSpeed(right);
-	lifter.write(buttonPage.getSliderValue(0)*180);
+	lifter.write(control_page.getSliderValue(0)*180);
 }
 
 /*
@@ -84,22 +97,24 @@ uint32_t packet_old=0;
 void updateDashboard() {
 	// This writes values to the dashboard area at the bottom of the web page
 	if (dashboardUpdateTimer.getMS() > 100) {
-		buttonPage.setValue("Left linetracker", leftLineSensor.readMiliVolts());
-		buttonPage.setValue("Right linetracker",
+		control_page.setValue("Left linetracker", leftLineSensor.readMiliVolts());
+		control_page.setValue("Right linetracker",
 				rightLineSensor.readMiliVolts());
-		buttonPage.setValue("Ultrasonic",
+		control_page.setValue("Ultrasonic",
 				rangefinder1.getDistanceCM());
-		buttonPage.setValue("Left Motor degrees",
-						motor1.getCurrentDegrees());
-		buttonPage.setValue("Right Motor degrees",
-								motor2.getCurrentDegrees());
-
-//		Serial.println("Joystick angle="+String(buttonPage.getJoystickAngle())+
-//				" magnitude="+String(buttonPage.getJoystickMagnitude())+
-//				" x="+String(buttonPage.getJoystickX())+
-//								" y="+String(buttonPage.getJoystickY()) +
-//								" slider="+String(buttonPage.getSliderValue(0)));
-
+		control_page.setValue("packets rx",
+						control_page.rxPacketCount);
+		control_page.setValue("packets tx",
+						control_page.txPacketCount);
+		control_page.setValue("slider",
+						control_page.getSliderValue(0)*100);
+		for (int i = 0; i < MAX_POSSIBLE_MOTORS; i++) {
+			if (Motor::list[i] != NULL) {
+				control_page.setValue(strings[i*3],Motor::list[i]->getCurrentDegrees());
+				control_page.setValue(strings[i*3+1],Motor::list[i]->GetEffort());
+				control_page.setValue(strings[i*3+2],Motor::list[i]->getDegreesPerSecond());
+			}
+		}
 		dashboardUpdateTimer.reset();
 	}
 }
@@ -109,7 +124,10 @@ void updateDashboard() {
  * once the ESP32 is started. In here we run the state machine, update the
  * dashboard data, and handle any web server requests.
  */
+
 void loop() {
+
+	//control_page.setValue("Packets",control_page.packetCount);
 	manager.loop();
 	runStateMachine();  // do a pass through the state machine
 	if(manager.getState() == Connected)// only update if WiFi is up

@@ -24,10 +24,11 @@ void setup() {
  */
 void loop() {
 	upDown=!upDown;
-	motor1.SetSetpointWithLinearInterpolation(upDown?3600:0, 8000);
+	motor1.MoveTo(100, 360);
+	//motor1.SetSetpointWithLinearInterpolation(upDown?3600:0, 8000);
 	//motor2.SetSetpointWithLinearInterpolation(upDown?360:0, 2000);
 	//motor2.SetSetpointWithBezierInterpolation(upDown?3600:0, 8000,0.45,1);
-	motor2.SetSetpointWithTrapezoidalInterpolation(upDown?3600:0, 8000, 500);
+	//motor2.SetSetpointWithTrapezoidalInterpolation(upDown?3600:0, 8000, 500);
 	double peak1 = 0;
 	double peak2 =0;
 

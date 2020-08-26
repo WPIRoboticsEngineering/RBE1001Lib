@@ -989,7 +989,7 @@ void AsyncWebSocket::binaryAll(AsyncWebSocketMessageBuffer * buffer)
 {
   if (!buffer) return;
   buffer->lock(); 
-    for(const auto& c: _clients){
+  for(const auto& c: _clients){
     if(c->status() == WS_CONNECTED)
       c->binary(buffer);
   }

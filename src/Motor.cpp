@@ -310,6 +310,8 @@ void Motor::loop() {
 	// invert the effort so that the set speed and set effort match
 	SetEffortLocal(currentEffort);
 
+
+
 }
 /**
  * PID gains for the PID controller
@@ -323,6 +325,9 @@ void Motor::setGains(float p, float i, float d) {
 	//portEXIT_CRITICAL(&mmux);
 }
 
+void Motor::setGainsP(float p){ kP = p; runntingITerm = 0;}
+void Motor::setGainsI(float i){ kI = i; runntingITerm = 0;}
+void Motor::setGainsD(float d){ kD = d; runntingITerm = 0;}
 
 void Motor::attach(int MotorPWMPin, int MotorDirectionPin, int EncoderA,
 		int EncoderB) {

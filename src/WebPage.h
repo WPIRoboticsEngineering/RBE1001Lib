@@ -1,9 +1,9 @@
 #pragma once
 #include <Arduino.h>
 #include <WebServer.h>
-#define valbuflen 8
+#include "Motor.h"
 #define labelbuflen 256
-
+#define valbuflen (sizeof(float)*3)
 typedef struct _JoyData {
 	float xpos;
 	float ypos;
@@ -13,14 +13,18 @@ typedef struct _JoyData {
 
 typedef struct _telemetryValue {
 	String name;
-	float value;
-	bool used;
+	float value;  // the value
+	bool used;    // Slot in use flag
+	bool valueDirty;   // Slot has new data flag
+	bool labelDirty;
+	uint8_t *buffer;
 } telemetryValue;
 
 #define numSliders 4
-#define numValues 10
+#define numValues 30
+#define labelBufferSize 512
 
-class WebPage {
+class WebPage{
 public:
 	WebPage();
 	void initalize();
@@ -37,13 +41,33 @@ public:
 	void newButton(String url, void (*handler)(String), String label,
 			String description);
 
-	void SendAllLabelsAndValues();
+	bool SendAllValues();
+	bool SendAllLabels();
 	float sliders[numSliders];
 	telemetryValue values[numValues];
+	int numValuesUsed=0;
+
+	void valueChanged(String name, float value);
+
+
 	JoyData joystick;
-	uint32_t packetCount = 0;
+	uint32_t txPacketCount = 0;
+	uint32_t rxPacketCount = 0;
+	TaskHandle_t updateTaskHandle;
+	uint32_t motor_count;
+	void sendValueUpdate(uint32_t index,uint8_t *buffer);
+	void sendLabelUpdate(uint32_t index,uint8_t *buffer);
+
+	void markAllDirty();
+
+	bool sendHeartbeat();
+	void setHeartbeatUUID(uint32_t uuid);
+
+	uint8_t * packetBuffer;
+	uint8_t * labelBuffer;
+	uint8_t * heartbeatBuffer;
 private:
-	void sendValueUpdate(uint32_t index);
-	void sendLabelUpdate(uint32_t index);
+	//int valueToSendThisLoop=0;
+	uint32_t _heartbeat_uuid=0;
 
 };
