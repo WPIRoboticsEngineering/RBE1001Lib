@@ -298,6 +298,8 @@ void WebPage::setJoystickValue(float xpos, float ypos, float angle, float mag){
 }
 
 void WebPage::setValue(String name, float data){
+	if(abs(data)<0.00001)
+		data=0;
 	for(int i=0; i<numValues; i++){
 			if (values[i].used){ // compare in use slots
 
