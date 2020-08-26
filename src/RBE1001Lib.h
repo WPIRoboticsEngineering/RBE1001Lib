@@ -1,4 +1,10 @@
- #pragma once
+#pragma once
+
+#include <Esp32WifiManager.h>
+#include <WebServer.h>
+#include <ESPmDNS.h>
+#include <ESP32AnalogRead.h>
+
 #include "Rangefinder.h"
 #include "Motor.h"
 

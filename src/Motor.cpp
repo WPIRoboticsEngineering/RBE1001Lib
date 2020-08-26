@@ -133,7 +133,7 @@ void Motor::SetSetpointWithTime(float newTargetInDegrees, long msTimeDuration,
 	if (newSetpoint == Setpoint && msTimeDuration == duration
 			&& this->mode == mode)
 		return;
-	startSetpoint = Setpoint;
+	startSetpoint = encoder->getCount();
 	endSetpoint = newSetpoint;
 	startTime = millis();
 	duration = msTimeDuration;

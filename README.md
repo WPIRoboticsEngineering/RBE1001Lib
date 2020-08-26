@@ -10,9 +10,7 @@ A library to support introduction to robotics engineering.
 * ESP32Servo
 * ESP32AnalogRead
 * ESP32Encoder
-* RBE1001Lib
 * Esp32WifiManager
-* ESPmDNS
 * FS
 * Preferences
 * WebServer
