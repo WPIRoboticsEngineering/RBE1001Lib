@@ -9,11 +9,7 @@
 #include "WebPage.h"
 #include <Timer.h>
 
-const char *strings[12] = {"Right Encoder Degrees","Right  Effort","Right Encoder Degrees/sec" ,
-		"Left Encoder Degrees","Left Effort","Left Encoder Degrees/sec",
-				"2 Encoder Degrees","2 Encoder Effort","2 Encoder Degrees-sec" ,
-				"3 Encoder Degrees","3 Encoder Effort","3 Encoder Degrees-sec"
-};
+
 
 // https://wpiroboticsengineering.github.io/RBE1001Lib/classMotor.html
 Motor left_motor;
@@ -108,13 +104,15 @@ void updateDashboard() {
 						control_page.txPacketCount);
 		control_page.setValue("slider",
 						control_page.getSliderValue(0)*100);
-		for (int i = 0; i < MAX_POSSIBLE_MOTORS; i++) {
-			if (Motor::list[i] != NULL) {
-				control_page.setValue(strings[i*3],Motor::list[i]->getCurrentDegrees());
-				control_page.setValue(strings[i*3+1],Motor::list[i]->GetEffort());
-				control_page.setValue(strings[i*3+2],Motor::list[i]->getDegreesPerSecond());
-			}
-		}
+
+		control_page.setValue("Left Encoder Degrees",		left_motor.getCurrentDegrees());
+		control_page.setValue("Left Effort", 	left_motor.GetEffort());
+		control_page.setValue("Left Encoder Degrees/sec", 	left_motor.getDegreesPerSecond());
+
+		control_page.setValue("Right Encoder Degrees",right_motor.getCurrentDegrees());
+		control_page.setValue("Right  Effort", right_motor.GetEffort());
+		control_page.setValue("Right Encoder Degrees/sec",right_motor.getDegreesPerSecond());
+
 		dashboardUpdateTimer.reset();
 	}
 }
