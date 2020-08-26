@@ -102,9 +102,9 @@ void updateDashboard() {
 				rightLineSensor.readMiliVolts());
 		control_page.setValue("Ultrasonic",
 				rangefinder1.getDistanceCM());
-		control_page.setValue("packets rx",
+		control_page.setValue("packets from Web to ESP",
 						control_page.rxPacketCount);
-		control_page.setValue("packets tx",
+		control_page.setValue("packets to Web from ESP",
 						control_page.txPacketCount);
 		control_page.setValue("slider",
 						control_page.getSliderValue(0)*100);
