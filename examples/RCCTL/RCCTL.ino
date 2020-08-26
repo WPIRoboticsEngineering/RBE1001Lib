@@ -16,8 +16,8 @@ const char *strings[12] = { "Left Encoder Degrees","Left Effort","Left Encoder D
 };
 
 // https://wpiroboticsengineering.github.io/RBE1001Lib/classMotor.html
-Motor motor1;
-Motor motor2;
+Motor left_motor;
+Motor right_motor;
 // https://wpiroboticsengineering.github.io/RBE1001Lib/classRangefinder.html
 Rangefinder rangefinder1;
 // https://wpiroboticsengineering.github.io/RBE1001Lib/classServo.html
@@ -52,8 +52,8 @@ void setup() {
 	ESP32PWM::allocateTimer(1); // Used by servos
 	control_page.initalize();
 	// pin definitions https://wpiroboticsengineering.github.io/RBE1001Lib/RBE1001Lib_8h.html#define-members
-	motor2.attach(MOTOR2_PWM, MOTOR2_DIR, MOTOR2_ENCA, MOTOR2_ENCB);
-	motor1.attach(MOTOR1_PWM, MOTOR1_DIR, MOTOR1_ENCA, MOTOR1_ENCB);
+	right_motor.attach(MOTOR_RIGHT_PWM, MOTOR_RIGHT_DIR, MOTOR_RIGHT_ENCA, MOTOR_RIGHT_ENCB);
+	left_motor.attach(MOTOR_LEFT_PWM, MOTOR_LEFT_DIR, MOTOR_LEFT_ENCA, MOTOR_LEFT_ENCB);
 	rangefinder1.attach(SIDE_ULTRASONIC_TRIG, SIDE_ULTRASONIC_ECHO);
 	lifter.attach(SERVO_PIN);
 	leftLineSensor.attach(LEFT_LINE_SENSE);
@@ -81,8 +81,8 @@ void runStateMachine() {
 	float left = (control_page.getJoystickX()+control_page.getJoystickY())*360;
 	float right = (control_page.getJoystickX()-control_page.getJoystickY())*360;
 
-	motor1.SetSpeed(left);
-	motor2.SetSpeed(right);
+	left_motor.SetSpeed(left);
+	right_motor.SetSpeed(right);
 	lifter.write(control_page.getSliderValue(0)*180);
 }
 

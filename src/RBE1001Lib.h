@@ -21,8 +21,8 @@
 #define SPI_SS   5
 
 // Ultrasonics
-#define SIDE_ULTRASONIC_TRIG 17
-#define SIDE_ULTRASONIC_ECHO 16
+#define SIDE_ULTRASONIC_TRIG 23
+#define SIDE_ULTRASONIC_ECHO 22
 
 //A4
 #define LEFT_LINE_SENSE 36
@@ -40,29 +40,29 @@
 /**
  * Drive motor 1 10Khz full duty PWM pin
  */
-#define MOTOR1_PWM 13
+#define MOTOR_LEFT_PWM 13
 /**
  * Pin for setting the direction of the H-Bridge
  */
 //A5
-#define MOTOR1_DIR 4
+#define MOTOR_LEFT_DIR 4
 /**
  * Drive motor 2 10Khz full duty PWM pin
  */
-#define MOTOR2_PWM 12
+#define MOTOR_RIGHT_PWM 12
 /**
  * Pin for setting the direction of the H-Bridge
  */
 //A1
-#define MOTOR2_DIR 25
+#define MOTOR_RIGHT_DIR 25
 //Encoder pins
 
-#define MOTOR1_ENCA 27
+#define MOTOR_LEFT_ENCA 27
 //A0
-#define MOTOR1_ENCB 26
+#define MOTOR_LEFT_ENCB 26
 
 
-#define MOTOR2_ENCA 32
-#define MOTOR2_ENCB 14
+#define MOTOR_RIGHT_ENCA 32
+#define MOTOR_RIGHT_ENCB 14
 
 

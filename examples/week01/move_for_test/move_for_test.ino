@@ -9,8 +9,8 @@
 #include <Arduino.h>
 #include <RBE1001Lib.h>
 
-Motor motor1;
-Motor motor2;
+Motor left_motor;
+Motor right_motor;
 // pin definitions https://wpiroboticsengineering.github.io/RBE1001Lib/RBE1001Lib_8h.html#define-members
 const int buttonPin = BOOT_FLAG_PIN ;
 
@@ -24,8 +24,8 @@ void setup()
   Serial.begin(115200);
   Motor::allocateTimer(0);
   // pin definitions https://wpiroboticsengineering.github.io/RBE1001Lib/RBE1001Lib_8h.html#define-members
-  motor1.attach(MOTOR1_PWM, MOTOR1_DIR, MOTOR1_ENCA, MOTOR1_ENCB);
-  motor2.attach(MOTOR2_PWM, MOTOR2_DIR, MOTOR2_ENCA, MOTOR2_ENCB);
+  left_motor.attach(MOTOR_LEFT_PWM, MOTOR_LEFT_DIR, MOTOR_LEFT_ENCA, MOTOR_LEFT_ENCB);
+  right_motor.attach(MOTOR_RIGHT_PWM, MOTOR_RIGHT_DIR, MOTOR_RIGHT_ENCA, MOTOR_RIGHT_ENCB);
   //explicitly make the button pin an input and engage the internal pullup resistor
   pinMode(buttonPin, INPUT_PULLUP);
 
@@ -41,7 +41,7 @@ void loop()
   //The following line will cause the program to wait indefinitely until the button is pressed
   //while(digitalRead(buttonPin)) {}
 
-  motor1.MoveFor(360, 60); 
-  motor2.MoveFor(360, 60); 
+  left_motor.MoveFor(360, 60);
+  right_motor.MoveFor(360, 60);
 
  }

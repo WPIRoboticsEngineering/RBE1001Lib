@@ -1,8 +1,8 @@
 #include <Arduino.h>
 #include <RBE1001Lib.h>
 
-Motor motor1;
-Motor motor2;
+Motor left_motor;
+Motor right_motor;
 bool upDown=false;
 /*
  * This is the standard setup function that is called when the ESP32 is rebooted
@@ -13,10 +13,10 @@ void setup() {
   Serial.begin(115200);
   Motor::allocateTimer(0);
   // pin definitions https://wpiroboticsengineering.github.io/RBE1001Lib/RBE1001Lib_8h.html#define-members
-  motor1.attach(MOTOR1_PWM, MOTOR1_DIR, MOTOR1_ENCA, MOTOR1_ENCB);
-  motor2.attach(MOTOR2_PWM, MOTOR2_DIR, MOTOR2_ENCA, MOTOR2_ENCB);
+  left_motor.attach(MOTOR_LEFT_PWM, MOTOR_LEFT_DIR, MOTOR_LEFT_ENCA, MOTOR_LEFT_ENCB);
+  right_motor.attach(MOTOR_RIGHT_PWM, MOTOR_RIGHT_DIR, MOTOR_RIGHT_ENCA, MOTOR_RIGHT_ENCB);
   // Use velocity control mode with open ended time
-  motor1.SetSpeed(-360);
+  left_motor.SetSpeed(-360);
 }
 
 
@@ -27,30 +27,30 @@ void setup() {
 void loop() {
 	upDown=!upDown;
 	// Set a speed for a specific amount of time, in this case 2 seconds
-	motor2.SetSpeed(upDown?180:-90, upDown?2000:4000);
-	float start = motor1.getCurrentDegrees();
+	right_motor.SetSpeed(upDown?180:-90, upDown?2000:4000);
+	float start = left_motor.getCurrentDegrees();
 	long startTime= millis();
 	for(int i=0;i<100;i++){
 		delay(upDown?20:40);
-		Serial.println("Speed 1="+String(motor1.getDegreesPerSecond())+
-					"deg/sec, Effort= "+String(motor1.GetEffortPercent()));
+		Serial.println("Speed 1="+String(left_motor.getDegreesPerSecond())+
+					"deg/sec, Effort= "+String(left_motor.GetEffortPercent()));
 	}
 	Serial.println("\n");
 	// stop the motor
-	//motor1.SetSpeed(0);
+	//left_motor.SetSpeed(0);
 
 	float elapsed =((float) (millis()-startTime))/1000.0;
-	float distanceElapsed = motor1.getCurrentDegrees()-		start;
+	float distanceElapsed = left_motor.getCurrentDegrees()-		start;
 	float durationSpeed= distanceElapsed/(elapsed);
 	Serial.println("Computed speed "+String(durationSpeed)+
-					" measured speed "+String(motor1.getDegreesPerSecond()));
+					" measured speed "+String(left_motor.getDegreesPerSecond()));
 	Serial.println("Time elapsed "+String(elapsed)+
 				" Distance Elapsed  "+String(distanceElapsed)+
-				" Started at  "+String(start)+" arrived at "+String( motor1.getCurrentDegrees()));
+				" Started at  "+String(start)+" arrived at "+String( left_motor.getCurrentDegrees()));
 
 	delay(5000);
 	// start the motor spinning again
-	//motor1.SetSpeed(90);
+	//left_motor.SetSpeed(90);
 
  }
 

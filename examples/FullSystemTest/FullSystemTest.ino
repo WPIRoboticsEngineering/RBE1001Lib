@@ -5,8 +5,8 @@
 #include <ESP32Servo.h>
 #include <ESP32AnalogRead.h>
 // https://wpiroboticsengineering.github.io/RBE1001Lib/classMotor.html
-Motor motor1;
-Motor motor2;
+Motor left_motor;
+Motor right_motor;
 // https://wpiroboticsengineering.github.io/RBE1001Lib/classRangefinder.html
 Rangefinder rangefinder1;
 // https://wpiroboticsengineering.github.io/RBE1001Lib/classServo.html
@@ -26,8 +26,8 @@ void setup() {
   Motor::allocateTimer(0); // used by the DC Motors
   ESP32PWM::allocateTimer(1);// Used by servos
   // pin definitions https://wpiroboticsengineering.github.io/RBE1001Lib/RBE1001Lib_8h.html#define-members
-  motor2					.attach(MOTOR2_PWM, MOTOR2_DIR, MOTOR2_ENCA, MOTOR2_ENCB);
-  motor1					.attach(MOTOR1_PWM, MOTOR1_DIR, MOTOR1_ENCA, MOTOR1_ENCB);
+  right_motor					.attach(MOTOR_RIGHT_PWM, MOTOR_RIGHT_DIR, MOTOR_RIGHT_ENCA, MOTOR_RIGHT_ENCB);
+  left_motor					.attach(MOTOR_LEFT_PWM, MOTOR_LEFT_DIR, MOTOR_LEFT_ENCA, MOTOR_LEFT_ENCB);
   rangefinder1				.attach(SIDE_ULTRASONIC_TRIG, SIDE_ULTRASONIC_ECHO);
   lifter					.attach(SERVO_PIN);
   leftLineSensor			.attach(LEFT_LINE_SENSE);
@@ -46,17 +46,17 @@ void loop() {
 	int loopTime = 4000;// 4 second loop
 	int servoRange =180;
 
-	motor2.SetSetpointWithSinusoidalInterpolation(upDown?360:0, loopTime);
-	motor1.SetSetpointWithLinearInterpolation(upDown?360:0, loopTime);
+	right_motor.SetSetpointWithSinusoidalInterpolation(upDown?360:0, loopTime);
+	left_motor.SetSetpointWithLinearInterpolation(upDown?360:0, loopTime);
 
 	for(int i=0;i<servoRange;i++){
 		delay(loopTime/servoRange);
 		Serial.println("\n");
 		Serial.print("Range 1 "+String(rangefinder1.getDistanceCM()));
-//		Serial.print("Speed 1 "+String(motor1.getDegreesPerSecond())+
-//					" Speed 2 "+String(motor2.getDegreesPerSecond()));
-		Serial.print("\tCount 1 "+String(motor1.getCurrentDegrees())+
-						"\t Count 2 "+String(motor2.getCurrentDegrees()));
+//		Serial.print("Speed 1 "+String(left_motor.getDegreesPerSecond())+
+//					" Speed 2 "+String(right_motor.getDegreesPerSecond()));
+		Serial.print("\tCount 1 "+String(left_motor.getCurrentDegrees())+
+						"\t Count 2 "+String(right_motor.getCurrentDegrees()));
 		Serial.print("\t Line left "+String(leftLineSensor.readVoltage()));
 
 		Serial.print(	"\t Line right "+String(rightLineSensor.readVoltage()));

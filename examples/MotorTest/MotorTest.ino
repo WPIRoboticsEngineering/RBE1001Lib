@@ -1,8 +1,8 @@
 #include <Arduino.h>
 #include <RBE1001Lib.h>
 
-Motor motor1;
-Motor motor2;
+Motor left_motor;
+Motor right_motor;
 bool upDown=false;
 /*
  * This is the standard setup function that is called when the ESP32 is rebooted
@@ -13,8 +13,8 @@ void setup() {
   Serial.begin(115200);
   Motor::allocateTimer(0);
   // pin definitions https://wpiroboticsengineering.github.io/RBE1001Lib/RBE1001Lib_8h.html#define-members
-  motor1.attach(MOTOR1_PWM, MOTOR1_DIR, MOTOR1_ENCA, MOTOR1_ENCB);
-  motor2.attach(MOTOR2_PWM, MOTOR2_DIR, MOTOR2_ENCA, MOTOR2_ENCB);
+  left_motor.attach(MOTOR_LEFT_PWM, MOTOR_LEFT_DIR, MOTOR_LEFT_ENCA, MOTOR_LEFT_ENCB);
+  right_motor.attach(MOTOR_RIGHT_PWM, MOTOR_RIGHT_DIR, MOTOR_RIGHT_ENCA, MOTOR_RIGHT_ENCB);
 }
 
 
@@ -24,29 +24,29 @@ void setup() {
  */
 void loop() {
 	upDown=!upDown;
-	motor1.MoveTo(100, 360);
-	//motor1.SetSetpointWithLinearInterpolation(upDown?3600:0, 8000);
-	//motor2.SetSetpointWithLinearInterpolation(upDown?360:0, 2000);
-	//motor2.SetSetpointWithBezierInterpolation(upDown?3600:0, 8000,0.45,1);
-	//motor2.SetSetpointWithTrapezoidalInterpolation(upDown?3600:0, 8000, 500);
+	left_motor.MoveTo(100, 360);
+	//left_motor.SetSetpointWithLinearInterpolation(upDown?3600:0, 8000);
+	//right_motor.SetSetpointWithLinearInterpolation(upDown?360:0, 2000);
+	//right_motor.SetSetpointWithBezierInterpolation(upDown?3600:0, 8000,0.45,1);
+	//right_motor.SetSetpointWithTrapezoidalInterpolation(upDown?3600:0, 8000, 500);
 	double peak1 = 0;
 	double peak2 =0;
 
 	for(int i=0;i<400;i++){
-		if(abs(motor1.getDegreesPerSecond())>peak1){
-			peak1=abs(motor1.getDegreesPerSecond());
+		if(abs(left_motor.getDegreesPerSecond())>peak1){
+			peak1=abs(left_motor.getDegreesPerSecond());
 		}
-		if(abs(motor2.getDegreesPerSecond())>peak2){
-			peak2=abs(motor2.getDegreesPerSecond());
+		if(abs(right_motor.getDegreesPerSecond())>peak2){
+			peak2=abs(right_motor.getDegreesPerSecond());
 		}
 		delay(20);
-		Serial.println("motor compared  "+String(motor2.getInterpolationUnitIncrement()-motor1.getInterpolationUnitIncrement())+
-				+" Interp "+String(motor2.getInterpolationUnitIncrement())+
-				+" Vel 1 "+String(motor1.getDegreesPerSecond())+" Vel 2 "+String(motor2.getDegreesPerSecond()));
+		Serial.println("motor compared  "+String(right_motor.getInterpolationUnitIncrement()-left_motor.getInterpolationUnitIncrement())+
+				+" Interp "+String(right_motor.getInterpolationUnitIncrement())+
+				+" Vel 1 "+String(left_motor.getDegreesPerSecond())+" Vel 2 "+String(right_motor.getDegreesPerSecond()));
 	}
 	delay(100);
-	Serial.println("Count 1 "+String(motor1.getCurrentDegrees())+
-					" Count 2 "+String(motor2.getCurrentDegrees()));
+	Serial.println("Count 1 "+String(left_motor.getCurrentDegrees())+
+					" Count 2 "+String(right_motor.getCurrentDegrees()));
 	delay(5000);
 
 

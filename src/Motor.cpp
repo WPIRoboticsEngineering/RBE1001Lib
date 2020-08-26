@@ -295,7 +295,7 @@ void Motor::loop() {
 			runntingITerm=0;
 		}
 
-		currentEffort = controlErr * kP + ((runntingITerm / I_TERM_SIZE) * kI);
+		currentEffort = -(controlErr * kP + ((runntingITerm / I_TERM_SIZE) * kI));
 
 		//portEXIT_CRITICAL(&mmux);
 	}
@@ -399,10 +399,9 @@ void Motor::SetEffortLocal(float effort) {
 	if (effort < -1)
 		effort = -1;
 	if (effort > 0)
-		digitalWrite(directionFlag, HIGH);
-	else
 		digitalWrite(directionFlag, LOW);
-	currentEffort = effort;
+	else
+		digitalWrite(directionFlag, HIGH);
 	pwm->writeScaled(abs(effort));
 }
 /**
