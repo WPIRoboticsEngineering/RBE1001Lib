@@ -42,34 +42,3 @@ void loop()
 
 	delay(100);
 }
-
-// {
-// 	upDown=!upDown;
-// 	// Set a speed for a specific amount of time, in this case 2 seconds
-// 	right_motor.SetSpeed(upDown?180:-90, upDown?2000:4000);
-// 	float start = left_motor.getCurrentDegrees();
-// 	long startTime= millis();
-// 	for(int i=0;i<100;i++){
-// 		delay(upDown?20:40);
-// 		Serial.println("Speed 1="+String(left_motor.getDegreesPerSecond())+
-// 					"deg/sec, Effort= "+String(left_motor.GetEffortPercent()));
-// 	}
-// 	Serial.println("\n");
-// 	// stop the motor
-// 	//left_motor.SetSpeed(0);
-
-// 	float elapsed =((float) (millis()-startTime))/1000.0;
-// 	float distanceElapsed = left_motor.getCurrentDegrees()-		start;
-// 	float durationSpeed= distanceElapsed/(elapsed);
-// 	Serial.println("Computed speed "+String(durationSpeed)+
-// 					" measured speed "+String(left_motor.getDegreesPerSecond()));
-// 	Serial.println("Time elapsed "+String(elapsed)+
-// 				" Distance Elapsed  "+String(distanceElapsed)+
-// 				" Started at  "+String(start)+" arrived at "+String( left_motor.getCurrentDegrees()));
-
-// 	delay(5000);
-// 	// start the motor spinning again
-// 	//left_motor.SetSpeed(90);
-
-//  }
-

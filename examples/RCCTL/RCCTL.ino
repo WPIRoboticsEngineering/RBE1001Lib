@@ -75,8 +75,8 @@ void runStateMachine() {
 	float left = (control_page.getJoystickX()+control_page.getJoystickY())*360;
 	float right = (control_page.getJoystickX()-control_page.getJoystickY())*360;
 
-	left_motor.SetSpeed(left);
-	right_motor.SetSpeed(right);
+	left_motor.setSpeed(left);
+	right_motor.setSpeed(right);
 	lifter.write(control_page.getSliderValue(0)*180);
 }
 
@@ -104,11 +104,11 @@ void updateDashboard() {
 						control_page.getSliderValue(0)*100);
 
 		control_page.setValue("Left Encoder Degrees",		left_motor.getCurrentDegrees());
-		control_page.setValue("Left Effort", 	left_motor.GetEffort());
+		control_page.setValue("Left Effort", 	left_motor.getEffort());
 		control_page.setValue("Left Encoder Degrees/sec", 	left_motor.getDegreesPerSecond());
 
 		control_page.setValue("Right Encoder Degrees",right_motor.getCurrentDegrees());
-		control_page.setValue("Right  Effort", right_motor.GetEffort());
+		control_page.setValue("Right  Effort", right_motor.getEffort());
 		control_page.setValue("Right Encoder Degrees/sec",right_motor.getDegreesPerSecond());
 
 		dashboardUpdateTimer.reset();
