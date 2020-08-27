@@ -1,7 +1,0 @@
-<map id="SPIFFSEditor::handleUpload" name="SPIFFSEditor::handleUpload">
-<area shape="rect" id="node2" href="$classAsyncWebServerRequest.html#a7dcd942309c563d42e3613d62d4a9006" title="AsyncWebServerRequest\l::authenticate" alt="" coords="244,27,417,69"/>
-<area shape="rect" id="node3" href="$WebAuthentication_8cpp.html#a23c996c214b5d0bf1eb9968448df35f3" title="checkDigestAuthentication" alt="" coords="465,5,644,32"/>
-<area shape="rect" id="node6" href="$classAsyncWebServerRequest.html#afc49e90174b643ae55d609738a1021e1" title="AsyncWebServerRequest\l::methodToString" alt="" coords="468,57,641,98"/>
-<area shape="rect" id="node4" href="$WebAuthentication_8cpp.html#af22366eaf84e909538e759bd586d6650" title="stringMD5" alt="" coords="692,5,775,32"/>
-<area shape="rect" id="node5" href="$WebAuthentication_8cpp.html#ab53d94788d2966060030b21dd278ab22" title="getMD5" alt="" coords="823,5,891,32"/>
-</map>

@@ -1,14 +1,11 @@
 var searchData=
 [
-  ['lastid',['lastId',['../classAsyncEventSourceClient.html#a924d2a539c857e5b11d3a2c1711a8722',1,'AsyncEventSourceClient']]],
-  ['len',['len',['../classAsyncWebSocketControl.html#a294cb06821a5ef2de8c599277eb91e19',1,'AsyncWebSocketControl']]],
-  ['length',['length',['../classAsyncWebSocketMessageBuffer.html#a16e5f380c90ab657863f7ba8002f5bc1',1,'AsyncWebSocketMessageBuffer::length()'],['../classLinkedList.html#acc07c5e0ee959113f7e464683987113a',1,'LinkedList::length()']]],
-  ['linetracksensor',['LineTrackSensor',['../classLineTrackSensor.html#a66b57a0fe17363e0d65e549d4931429f',1,'LineTrackSensor']]],
-  ['linkedlist',['LinkedList',['../classLinkedList.html#aa6c3102126d7ba984371c0a8da6a81fa',1,'LinkedList']]],
-  ['linkedlistnode',['LinkedListNode',['../classLinkedListNode.html#aedf333c66cf6f0926e0903af0415c8db',1,'LinkedListNode']]],
-  ['loadexcludelist',['loadExcludeList',['../SPIFFSEditor_8cpp.html#aae746b3c92b769902a82bd8e6cb74b95',1,'SPIFFSEditor.cpp']]],
-  ['localip',['localIP',['../classAsyncClient.html#a180852336eee12fdb270cd9c0156febf',1,'AsyncClient']]],
-  ['localport',['localPort',['../classAsyncClient.html#a340a079ff352ef2e9f5b286fdf6642a1',1,'AsyncClient']]],
-  ['lock',['lock',['../classAsyncWebSocketMessageBuffer.html#aa89c5d7180522d0b2bcf33231de4a731',1,'AsyncWebSocketMessageBuffer::lock()'],['../classAsyncWebLock.html#a3fd7d307bcb0c1c4817dee3e6bfc6e5e',1,'AsyncWebLock::lock()'],['../WebPage_8cpp.html#aa81aed607133209dade63a226818224d',1,'lock():&#160;WebPage.cpp']]],
-  ['loop',['loop',['../classMotor.html#a2db9c1833fe2b9e5b1b1e4b9e5d4c4ee',1,'Motor::loop()'],['../classWifiManager.html#aaac549f9b270f56c57615cb04a85079e',1,'WifiManager::loop()'],['../Blink_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;Blink.ino'],['../Button_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;Button.ino'],['../EncoderTest_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;EncoderTest.ino'],['../FullSystemTest_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;FullSystemTest.ino'],['../LineTrackerTest_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;LineTrackerTest.ino'],['../MotorMoveTo_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;MotorMoveTo.ino'],['../MotorSpeedTest_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;MotorSpeedTest.ino'],['../MotorTest_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;MotorTest.ino'],['../Photoresistor_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;Photoresistor.ino'],['../RCCTL_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;RCCTL.ino'],['../Ultrasonic_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;Ultrasonic.ino'],['../ESP32AnalogReadTest_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;ESP32AnalogReadTest.ino'],['../Encoder_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;Encoder.ino'],['../APModeExample_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;APModeExample.ino'],['../WifiManagerExample_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;WifiManagerExample.ino'],['../analogWriteExample_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;analogWriteExample.ino'],['../Knob_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;Knob.ino'],['../Multiple-Servo-Example-Arduino_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;Multiple-Servo-Example-Arduino.ino'],['../PWMExample_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;PWMExample.ino'],['../Sweep_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;Sweep.ino'],['../ToneExample_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;ToneExample.ino']]]
+  ['mapf',['mapf',['../classESP32PWM.html#ac1842122846948c7ca2e88e59dfb2fb6',1,'ESP32PWM']]],
+  ['markalldirty',['markAllDirty',['../classWebPage.html#a8a6cb8d704e67dce02fb64cad81e4c56',1,'WebPage']]],
+  ['motor',['Motor',['../classMotor.html#af6106b4c506411265c5face762b6c004',1,'Motor']]],
+  ['motors',['motors',['../classDriveBase.html#abeb1aea04fbeb5dedcf1f6d4ec6c5351',1,'DriveBase']]],
+  ['movefor',['moveFor',['../classMotor.html#a92ada38e1ab60942381ca46f2d13ae3d',1,'Motor']]],
+  ['moveto',['moveTo',['../classMotor.html#aa4680d4c00dcc6b4b33ae350db60e11c',1,'Motor']]],
+  ['myfmapbounded',['myFmapBounded',['../Motor_8cpp.html#acac92ff626505e4562734166d8c3aad0',1,'Motor.cpp']]],
+  ['myhtml',['myHTML',['../WebPage_8cpp.html#a4c0ef776e5fc279981ed4178343fb92c',1,'WebPage.cpp']]]
 ];

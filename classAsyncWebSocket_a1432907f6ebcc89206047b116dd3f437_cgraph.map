@@ -1,6 +1,0 @@
-<map id="AsyncWebSocket::cleanupClients" name="AsyncWebSocket::cleanupClients">
-<area shape="rect" id="node2" href="$classAsyncWebSocket.html#a1039bdf2bee39cf3dd198e61a7bb6c0b" title="AsyncWebSocket::count" alt="" coords="275,35,441,61"/>
-<area shape="rect" id="node5" href="$classLinkedList.html#afc4c86cfbc215c2a4f742fc9a2f69bda" title="LinkedList::front" alt="" coords="301,85,415,112"/>
-<area shape="rect" id="node3" href="$classLinkedList.html#a442c00ea105c9c46425ec05c7043c77a" title="LinkedList::count_if" alt="" coords="503,5,637,32"/>
-<area shape="rect" id="node4" href="$classAsyncWebSocketClient.html#aa17cd4c97a830c0a4cbe02f62f3f636b" title="AsyncWebSocketClient\l::status" alt="" coords="489,57,651,98"/>
-</map>

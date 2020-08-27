@@ -1,28 +1,8 @@
 var searchData=
 [
   ['half',['half',['../ESP32Encoder_8h.html#a94b99e462b91a04d4400c30ce0764d60a5824f466440ce04284756f157be56543',1,'ESP32Encoder.h']]],
-  ['handlebody',['handleBody',['../classAsyncCallbackJsonWebHandler.html#a9a125db5daf8ff5506d9dd4f5cc20d71',1,'AsyncCallbackJsonWebHandler::handleBody()'],['../classAsyncWebHandler.html#aa3b2b5513188509a13d7f8133d881155',1,'AsyncWebHandler::handleBody()'],['../classAsyncCallbackWebHandler.html#aa5d7ff3b7b7cfb55c5fa3c06219d7db8',1,'AsyncCallbackWebHandler::handleBody()']]],
-  ['handlerequest',['handleRequest',['../classAsyncEventSource.html#ad2aaf92707c6e8ddc1f992111c714fa5',1,'AsyncEventSource::handleRequest()'],['../classAsyncCallbackJsonWebHandler.html#ac5612af6bd0aa3fb6d67341a7b1d0818',1,'AsyncCallbackJsonWebHandler::handleRequest()'],['../classAsyncWebSocket.html#a37d50661d45ec1d0d394f2f8eb853cc3',1,'AsyncWebSocket::handleRequest()'],['../classAsyncWebHandler.html#a9737235c3a3ed617fe669940bdd35f48',1,'AsyncWebHandler::handleRequest()'],['../classSPIFFSEditor.html#a59735ac0bc2441f14b4827519a8eb5b5',1,'SPIFFSEditor::handleRequest()'],['../classAsyncStaticWebHandler.html#a4e26ecd9f4bc65647b80b8f0d3c33bc5',1,'AsyncStaticWebHandler::handleRequest()'],['../classAsyncCallbackWebHandler.html#a48e3fecb6a4be2120f95fa2e154031ef',1,'AsyncCallbackWebHandler::handleRequest()']]],
-  ['handleupload',['handleUpload',['../classAsyncCallbackJsonWebHandler.html#a6c45420109a2f53b7bbacdd85d2fc27c',1,'AsyncCallbackJsonWebHandler::handleUpload()'],['../classAsyncWebHandler.html#a3bb458d4133e11cecba161c6a71ed7e6',1,'AsyncWebHandler::handleUpload()'],['../classSPIFFSEditor.html#a742e8cd75cc8df6dbcb3f440ddcfc15e',1,'SPIFFSEditor::handleUpload()'],['../classAsyncCallbackWebHandler.html#a9f6d0cb112b2b5612f5dd6c195483205',1,'AsyncCallbackWebHandler::handleUpload()']]],
-  ['hasarg',['hasArg',['../classAsyncWebServerRequest.html#a2a589fd288f528b43c4ab1c263263252',1,'AsyncWebServerRequest::hasArg(const char *name) const'],['../classAsyncWebServerRequest.html#a31eb5c2fd6e89d3decf0675b1b456c71',1,'AsyncWebServerRequest::hasArg(const __FlashStringHelper *data) const']]],
-  ['hasclient',['hasClient',['../classAsyncWebSocket.html#a9ee4af8d75b1c40a864d4cd9e24cd019',1,'AsyncWebSocket']]],
-  ['hasheader',['hasHeader',['../classAsyncWebServerRequest.html#ad48de245a31775c3ec0e0c81eff816c4',1,'AsyncWebServerRequest::hasHeader(const String &amp;name) const'],['../classAsyncWebServerRequest.html#a57887aab174e7f78c0402d096cd78172',1,'AsyncWebServerRequest::hasHeader(const __FlashStringHelper *data) const']]],
-  ['hasparam',['hasParam',['../classAsyncWebServerRequest.html#a78b3cf77671238c08383b34655c8d0be',1,'AsyncWebServerRequest::hasParam(const String &amp;name, bool post=false, bool file=false) const'],['../classAsyncWebServerRequest.html#a4039f57ac2abde9a201fbcc6a1cd52ca',1,'AsyncWebServerRequest::hasParam(const __FlashStringHelper *data, bool post=false, bool file=false) const']]],
   ['haspwm',['hasPwm',['../classESP32PWM.html#afdbce473c78465a637dcc592a07aa431',1,'ESP32PWM']]],
   ['havessidserial',['HaveSSIDSerial',['../WifiManager_8h.html#a2cb8df04852a8d762834daac6c32965baf9e87d2f1caa1586ce03f2c89c65a509',1,'WifiManager.h']]],
-  ['header',['header',['../classAsyncWebServerRequest.html#aa0614d7de1cfcd6741d7f8840ad63ee3',1,'AsyncWebServerRequest::header(const char *name) const'],['../classAsyncWebServerRequest.html#a4506f53aeab770eb734845975e835283',1,'AsyncWebServerRequest::header(const __FlashStringHelper *data) const'],['../classAsyncWebServerRequest.html#a4c2fb221f494235477b57363febfc3fc',1,'AsyncWebServerRequest::header(size_t i) const']]],
-  ['headername',['headerName',['../classAsyncWebServerRequest.html#adea64cc05d354db8c3133436c0450ee8',1,'AsyncWebServerRequest']]],
-  ['headers',['headers',['../classAsyncWebServerRequest.html#a12daaa25afc6107030c4cd39623933a8',1,'AsyncWebServerRequest']]],
-  ['headers_5ft',['headers_t',['../classDefaultHeaders.html#ae4ea12cf3f803e2545b65d5263f99220',1,'DefaultHeaders']]],
   ['heartbeatbuffer',['heartbeatBuffer',['../classWebPage.html#ab0c25cc33c825e2bcafd9b88d7794e7c',1,'WebPage']]],
-  ['highestpin',['highestPin',['../analogWriteExample_8ino.html#aed75235b3f79965abc9512345e8de41a',1,'analogWriteExample.ino']]],
-  ['host',['host',['../classAsyncWebServerRequest.html#a9be6d6598a25d96035925af7ed31ebfb',1,'AsyncWebServerRequest']]],
-  ['http_5fany',['HTTP_ANY',['../ESPAsyncWebServer_8h.html#afe35bd25c64a2d979ca5070a1578194aa32498970693fbd48d717a129eca87df7',1,'ESPAsyncWebServer.h']]],
-  ['http_5fdelete',['HTTP_DELETE',['../ESPAsyncWebServer_8h.html#afe35bd25c64a2d979ca5070a1578194aa427575ab776ed70f0aa76667affc3942',1,'ESPAsyncWebServer.h']]],
-  ['http_5fget',['HTTP_GET',['../ESPAsyncWebServer_8h.html#afe35bd25c64a2d979ca5070a1578194aa4ad23c3d2f21f7502ba058ef89518166',1,'ESPAsyncWebServer.h']]],
-  ['http_5fhead',['HTTP_HEAD',['../ESPAsyncWebServer_8h.html#afe35bd25c64a2d979ca5070a1578194aab547cb50f6792b41c3e7d52ee0f8e442',1,'ESPAsyncWebServer.h']]],
-  ['http_5foptions',['HTTP_OPTIONS',['../ESPAsyncWebServer_8h.html#afe35bd25c64a2d979ca5070a1578194aa86aa5540a666a38528d28bd7591cb251',1,'ESPAsyncWebServer.h']]],
-  ['http_5fpatch',['HTTP_PATCH',['../ESPAsyncWebServer_8h.html#afe35bd25c64a2d979ca5070a1578194aae1345469c9ff83a10676dd96e7acf0dc',1,'ESPAsyncWebServer.h']]],
-  ['http_5fpost',['HTTP_POST',['../ESPAsyncWebServer_8h.html#afe35bd25c64a2d979ca5070a1578194aaa763023b51da2b3618f24cbf994b34bf',1,'ESPAsyncWebServer.h']]],
-  ['http_5fput',['HTTP_PUT',['../ESPAsyncWebServer_8h.html#afe35bd25c64a2d979ca5070a1578194aa2415577115dd0cd5d5a5aa62d52e1512',1,'ESPAsyncWebServer.h']]]
+  ['highestpin',['highestPin',['../analogWriteExample_8ino.html#aed75235b3f79965abc9512345e8de41a',1,'analogWriteExample.ino']]]
 ];

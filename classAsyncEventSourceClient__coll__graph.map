@@ -1,7 +1,0 @@
-<map id="AsyncEventSourceClient" name="AsyncEventSourceClient">
-<area shape="rect" id="node2" href="$classAsyncEventSource.html" title="AsyncEventSource" alt="" coords="99,117,234,143"/>
-<area shape="rect" id="node3" href="$classAsyncWebHandler.html" title="AsyncWebHandler" alt="" coords="5,13,136,39"/>
-<area shape="rect" id="node4" href="$classLinkedList.html" title="LinkedList\&lt; AsyncEventSource\lClient *\&gt;" alt="" coords="160,5,365,47"/>
-<area shape="rect" id="node5" href="$classLinkedList.html" title="LinkedList\&lt; AsyncEventSource\lMessage *\&gt;" alt="" coords="259,109,464,151"/>
-<area shape="rect" id="node6" href="$classAsyncClient.html" title="AsyncClient" alt="" coords="488,117,581,143"/>
-</map>

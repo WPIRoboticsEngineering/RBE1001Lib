@@ -1,5 +1,0 @@
-<map id="AsyncWebSocket::textAll" name="AsyncWebSocket::textAll">
-<area shape="rect" id="node2" href="$classAsyncWebSocket.html#ad29f7de38787ae242f8ae52866a8ea9a" title="AsyncWebSocket::_cleanBuffers" alt="" coords="225,5,440,32"/>
-<area shape="rect" id="node3" href="$classAsyncWebSocketMessageBuffer.html#aa89c5d7180522d0b2bcf33231de4a731" title="AsyncWebSocketMessageBuffer\l::lock" alt="" coords="225,57,440,98"/>
-<area shape="rect" id="node4" href="$classAsyncWebSocketMessageBuffer.html#a86483510da0196b4634a1797cb642314" title="AsyncWebSocketMessageBuffer\l::unlock" alt="" coords="225,122,440,163"/>
-</map>

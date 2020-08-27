@@ -1,8 +1,0 @@
-<map id="src/ESPAsyncWebServer/AsyncWebSynchronization.h" name="src/ESPAsyncWebServer/AsyncWebSynchronization.h">
-<area shape="rect" id="node2" href="$ESPAsyncWebServer_8h.html" title="ESPAsyncWebServer/ESPAsync\lWebServer.h" alt="" coords="260,95,479,136"/>
-<area shape="rect" id="node6" href="$StringArray_8h.html" title="StringArray.h" alt="" coords="736,184,835,211"/>
-<area shape="rect" id="node9" href="$WebResponseImpl_8h.html" title="WebResponseImpl.h" alt="" coords="568,184,712,211"/>
-<area shape="rect" id="node11" href="$WebHandlerImpl_8h.html" title="WebHandlerImpl.h" alt="" coords="859,184,989,211"/>
-<area shape="rect" id="node14" href="$AsyncWebSocket_8h.html" title="AsyncWebSocket.h" alt="" coords="5,184,144,211"/>
-<area shape="rect" id="node16" href="$AsyncEventSource_8h.html" title="AsyncEventSource.h" alt="" coords="169,184,314,211"/>
-</map>

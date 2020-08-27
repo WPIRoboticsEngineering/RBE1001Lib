@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['motor',['Motor',['../classMotor.html',1,'']]]
+  ['timer',['Timer',['../classTimer.html',1,'']]]
 ];

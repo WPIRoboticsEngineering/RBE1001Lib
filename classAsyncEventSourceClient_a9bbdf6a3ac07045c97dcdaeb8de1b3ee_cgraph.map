@@ -1,9 +1,0 @@
-<map id="AsyncEventSourceClient::_onPoll" name="AsyncEventSourceClient::_onPoll">
-<area shape="rect" id="node2" href="$classAsyncEventSourceClient.html#a478adb59a7786a37935e8cfdf50bcca7" title="AsyncEventSourceClient\l::_runQueue" alt="" coords="221,107,389,149"/>
-<area shape="rect" id="node3" href="$classLinkedList.html#a15c7737a56cd82e70284b15bd710eec8" title="LinkedList::isEmpty" alt="" coords="462,5,599,32"/>
-<area shape="rect" id="node4" href="$classLinkedList.html#afc4c86cfbc215c2a4f742fc9a2f69bda" title="LinkedList::front" alt="" coords="473,56,588,83"/>
-<area shape="rect" id="node5" href="$classAsyncEventSourceMessage.html#a1f8a30e8746bdf9c337e4c41e9051abd" title="AsyncEventSourceMessage\l::finished" alt="" coords="437,107,624,149"/>
-<area shape="rect" id="node6" href="$classLinkedList.html#a900eba3eb48390fd4b6c92785e122175" title="LinkedList::remove" alt="" coords="465,173,597,200"/>
-<area shape="rect" id="node7" href="$classLinkedList.html#a4de7b510b92921a6d7aedae50aad98eb" title="LinkedList::begin" alt="" coords="471,224,591,251"/>
-<area shape="rect" id="node8" href="$classLinkedList.html#a2ab9d1599f5f84a7410ece2cbe68e17c" title="LinkedList::end" alt="" coords="475,275,586,301"/>
-</map>

@@ -1,8 +1,0 @@
-<map id="AsyncWebSocket::canHandle" name="AsyncWebSocket::canHandle">
-<area shape="rect" id="node2" href="$classAsyncWebServerRequest.html#a3b3072c32157259cd4b802fed31a3c3d" title="AsyncWebServerRequest\l::addInterestingHeader" alt="" coords="273,23,447,65"/>
-<area shape="rect" id="node5" href="$classAsyncWebServerRequest.html#a0fa136f82dbb0a218b1ebfc5a777fd0d" title="AsyncWebServerRequest\l::isExpectedRequestedConnType" alt="" coords="251,89,469,130"/>
-<area shape="rect" id="node6" href="$classAsyncWebServerRequest.html#acdaaab2f8779034df58920577e46bff1" title="AsyncWebServerRequest\l::method" alt="" coords="273,154,447,195"/>
-<area shape="rect" id="node7" href="$classAsyncWebServerRequest.html#aacca1e316f8a7ae264e89345ab796c76" title="AsyncWebServerRequest::url" alt="" coords="263,220,457,247"/>
-<area shape="rect" id="node3" href="$classLinkedList.html#a3a284c668d6f717be3e8b5d283ff5419" title="LinkedList::add" alt="" coords="567,5,678,32"/>
-<area shape="rect" id="node4" href="$classStringArray.html#a8cd61402b8e6cfb44f18a2f9e686483b" title="StringArray::containsIgnoreCase" alt="" coords="517,56,728,83"/>
-</map>

@@ -13,6 +13,5 @@ var searchData=
   ['esp32servo_2eh',['ESP32Servo.h',['../ESP32Servo_8h.html',1,'']]],
   ['esp32tone_2ecpp',['ESP32Tone.cpp',['../ESP32Tone_8cpp.html',1,'']]],
   ['esp32tone_2eh',['ESP32Tone.h',['../ESP32Tone_8h.html',1,'']]],
-  ['esp32wifimanager_2eh',['Esp32WifiManager.h',['../Esp32WifiManager_8h.html',1,'']]],
-  ['espasyncwebserver_2eh',['ESPAsyncWebServer.h',['../ESPAsyncWebServer_8h.html',1,'']]]
+  ['esp32wifimanager_2eh',['Esp32WifiManager.h',['../Esp32WifiManager_8h.html',1,'']]]
 ];

@@ -1,9 +1,0 @@
-<map id="AsyncWebServer::on" name="AsyncWebServer::on">
-<area shape="rect" id="node2" href="$classAsyncWebServer.html#a62acd93a321c03a56457fd4d6eb0aabe" title="AsyncWebServer::addHandler" alt="" coords="200,5,399,32"/>
-<area shape="rect" id="node4" href="$classAsyncCallbackWebHandler.html#a154b047907137a41338ad1095be34bb7" title="AsyncCallbackWebHandler\l::onBody" alt="" coords="208,57,391,98"/>
-<area shape="rect" id="node5" href="$classAsyncCallbackWebHandler.html#a552b0bc56d644a5121f890f3b78ed77d" title="AsyncCallbackWebHandler\l::onRequest" alt="" coords="208,122,391,163"/>
-<area shape="rect" id="node6" href="$classAsyncCallbackWebHandler.html#a97ca8dfe1d14af8144f9407f81ded289" title="AsyncCallbackWebHandler\l::onUpload" alt="" coords="208,187,391,229"/>
-<area shape="rect" id="node7" href="$classAsyncCallbackWebHandler.html#a627c678a355297d1352b2e42e174a99d" title="AsyncCallbackWebHandler\l::setMethod" alt="" coords="208,253,391,294"/>
-<area shape="rect" id="node8" href="$classAsyncCallbackWebHandler.html#ab9b5c921fbff5c036c39e3559e4a1d67" title="AsyncCallbackWebHandler\l::setUri" alt="" coords="208,318,391,359"/>
-<area shape="rect" id="node3" href="$classLinkedList.html#a3a284c668d6f717be3e8b5d283ff5419" title="LinkedList::add" alt="" coords="447,5,557,32"/>
-</map>

@@ -1,9 +1,0 @@
-<map id="src/ESPAsyncWebServer/SPIFFSEditor.h" name="src/ESPAsyncWebServer/SPIFFSEditor.h">
-<area shape="rect" id="node2" href="$ESPAsyncWebServer_8h.html" title="ESPAsyncWebServer/ESPAsync\lWebServer.h" alt="" coords="280,95,499,136"/>
-<area shape="rect" id="node6" href="$StringArray_8h.html" title="StringArray.h" alt="" coords="760,184,859,211"/>
-<area shape="rect" id="node9" href="$WebResponseImpl_8h.html" title="WebResponseImpl.h" alt="" coords="883,184,1027,211"/>
-<area shape="rect" id="node11" href="$WebHandlerImpl_8h.html" title="WebHandlerImpl.h" alt="" coords="605,184,736,211"/>
-<area shape="rect" id="node14" href="$AsyncWebSocket_8h.html" title="AsyncWebSocket.h" alt="" coords="213,184,352,211"/>
-<area shape="rect" id="node17" href="$AsyncEventSource_8h.html" title="AsyncEventSource.h" alt="" coords="43,184,189,211"/>
-<area shape="rect" id="node16" href="$AsyncWebSynchronization_8h.html" title="AsyncWebSynchronization.h" alt="" coords="255,259,446,285"/>
-</map>

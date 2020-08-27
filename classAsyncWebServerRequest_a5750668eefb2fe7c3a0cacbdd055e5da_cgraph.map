@@ -1,7 +1,0 @@
-<map id="AsyncWebServerRequest::authenticate" name="AsyncWebServerRequest::authenticate">
-<area shape="rect" id="node2" href="$WebAuthentication_8cpp.html#ab5244a525ba3f1697af3005ddad0fd0e" title="checkBasicAuthentication" alt="" coords="229,5,403,32"/>
-<area shape="rect" id="node3" href="$WebAuthentication_8cpp.html#a23c996c214b5d0bf1eb9968448df35f3" title="checkDigestAuthentication" alt="" coords="227,56,405,83"/>
-<area shape="rect" id="node6" href="$classAsyncWebServerRequest.html#afc49e90174b643ae55d609738a1021e1" title="AsyncWebServerRequest\l::methodToString" alt="" coords="229,107,403,149"/>
-<area shape="rect" id="node4" href="$WebAuthentication_8cpp.html#af22366eaf84e909538e759bd586d6650" title="stringMD5" alt="" coords="453,56,536,83"/>
-<area shape="rect" id="node5" href="$WebAuthentication_8cpp.html#ab53d94788d2966060030b21dd278ab22" title="getMD5" alt="" coords="584,56,652,83"/>
-</map>

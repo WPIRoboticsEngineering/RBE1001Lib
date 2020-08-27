@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['pwm_5fbase_5findex',['PWM_BASE_INDEX',['../ESP32PWM_8h.html#a5dd6108cc275a92e30ff3fb9b28bf9d3',1,'ESP32PWM.h']]],
-  ['pwmrange',['PWMRANGE',['../analogWrite_8h.html#a40a968c71b75c243398e1fa55577165d',1,'analogWrite.h']]]
+  ['ticks_5fto_5fdegrees',['TICKS_TO_DEGREES',['../Motor_8h.html#ab103739432adc80a35dd7ad44c71e150',1,'Motor.h']]],
+  ['timeouttime',['timeoutTime',['../WifiManager_8h.html#a3d9c74205f3867ea13e2d5a6e0610169',1,'WifiManager.h']]]
 ];

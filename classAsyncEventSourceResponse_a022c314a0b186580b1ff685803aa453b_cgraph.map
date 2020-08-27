@@ -1,5 +1,0 @@
-<map id="AsyncEventSourceResponse::_respond" name="AsyncEventSourceResponse::_respond">
-<area shape="rect" id="node2" href="$classAsyncWebServerRequest.html#aca27487c506eb3d0bdd6ff356815a488" title="AsyncWebServerRequest\l::client" alt="" coords="247,5,420,47"/>
-<area shape="rect" id="node3" href="$classAsyncWebServerRequest.html#afba06f62d04d4c69448094baccaae920" title="AsyncWebServerRequest\l::version" alt="" coords="247,71,420,112"/>
-<area shape="rect" id="node4" href="$classAsyncClient.html#a83b5abb57799a9584f8fccce1d31db8c" title="AsyncClient::write" alt="" coords="269,137,398,163"/>
-</map>

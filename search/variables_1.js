@@ -1,21 +1,14 @@
 var searchData=
 [
-  ['accept',['accept',['../structlwip__event__packet__t.html#adc8d32c9967e214e801183dc975a8d94',1,'lwip_event_packet_t']]],
   ['adc',['adc',['../ESP32AnalogReadTest_8ino.html#a50355c8e58a465c9cf8a0a8e763c4b78',1,'ESP32AnalogReadTest.ino']]],
   ['adc_5fmax',['ADC_Max',['../Knob_8ino.html#aae80133a8f9b9cf9436ecb6d3b173174',1,'Knob.ino']]],
-  ['addr',['addr',['../structlwip__event__packet__t.html#a57f179dee95aae318e5c2fb113e3cc2e',1,'lwip_event_packet_t::addr()'],['../structtcp__api__call__t.html#a1a4f6f5966c33f66b11147c0010ed80e',1,'tcp_api_call_t::addr()']]],
   ['angle',['angle',['../struct__JoyData.html#ad146cb971182aabfa83fc96a7f154c6c',1,'_JoyData']]],
-  ['apiflags',['apiflags',['../structtcp__api__call__t.html#a710e3883504a962c35cdc626787173f5',1,'tcp_api_call_t']]],
   ['apin',['APin',['../PWMExample_8ino.html#a5837e81ddeee0c4651230f4bdb49ed56',1,'PWMExample.ino']]],
   ['apinnumber',['aPinNumber',['../classESP32Encoder.html#a20f9d9c2c36ecce0f5d7bcc694f7cb82',1,'ESP32Encoder']]],
   ['apmode',['APMode',['../classWifiManager.html#aebc6a764975d1016ecf66d18bf35fe5e',1,'WifiManager']]],
   ['apnameserver',['apNameServer',['../classWifiManager.html#a495ca1eb7e65c05ff8a07008035c0af6',1,'WifiManager']]],
   ['appswdserver',['apPswdServer',['../classWifiManager.html#a9e5152e8be90f6baf9b18d6ab167d250',1,'WifiManager']]],
-  ['arg',['arg',['../structlwip__event__packet__t.html#a062de6203fc9755033be052e1cda6d66',1,'lwip_event_packet_t']]],
-  ['asyncwebsocket',['AsyncWebSocket',['../classAsyncWebSocketMessageBuffer.html#a18a12eaef984a1a82ba168ad84ca787d',1,'AsyncWebSocketMessageBuffer']]],
   ['attached',['attached',['../classESP32AnalogRead.html#a896f8bae4f9be4d21288240dc78d3157',1,'ESP32AnalogRead::attached()'],['../classESP32Encoder.html#ab3be4ffdb70a36d1823a4622b5fbd717',1,'ESP32Encoder::attached()']]],
   ['attachedinterrupt',['attachedInterrupt',['../classESP32Encoder.html#aadb8e76a0c802df59ebb967b6b17c7cb',1,'ESP32Encoder']]],
-  ['attachedstate',['attachedState',['../classESP32PWM.html#a4b8bd2c488bd16cffeec41c15fc079d3',1,'ESP32PWM']]],
-  ['awsc_5fping_5fpayload',['AWSC_PING_PAYLOAD',['../AsyncWebSocket_8cpp.html#aa26132157f1b0cd241a4fd1c202c39ef',1,'AsyncWebSocket.cpp']]],
-  ['awsc_5fping_5fpayload_5flen',['AWSC_PING_PAYLOAD_LEN',['../AsyncWebSocket_8cpp.html#a8ff725c4a047931b0d86c0c020174208',1,'AsyncWebSocket.cpp']]]
+  ['attachedstate',['attachedState',['../classESP32PWM.html#a4b8bd2c488bd16cffeec41c15fc079d3',1,'ESP32PWM']]]
 ];

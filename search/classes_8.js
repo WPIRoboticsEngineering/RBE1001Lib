@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['prettyasyncjsonresponse',['PrettyAsyncJsonResponse',['../classPrettyAsyncJsonResponse.html',1,'']]]
+  ['webpage',['WebPage',['../classWebPage.html',1,'']]],
+  ['wifimanager',['WifiManager',['../classWifiManager.html',1,'']]]
 ];
