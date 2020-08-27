@@ -33,7 +33,6 @@ var searchData=
   ['motor_5fright_5fpwm',['MOTOR_RIGHT_PWM',['../RBE1001Lib_8h.html#aca84469f61192a28df038ff2bdc38d22',1,'RBE1001Lib.h']]],
   ['motormoveto_2eino',['MotorMoveTo.ino',['../MotorMoveTo_8ino.html',1,'']]],
   ['motorpwmpin',['MotorPWMPin',['../classMotor.html#ae670034c4a9a6ef86b6515c53eb9b0e5',1,'Motor']]],
-  ['motors',['motors',['../classDriveBase.html#abeb1aea04fbeb5dedcf1f6d4ec6c5351',1,'DriveBase']]],
   ['motorspeedtest_2eino',['MotorSpeedTest.ino',['../MotorSpeedTest_8ino.html',1,'']]],
   ['motortest_2eino',['MotorTest.ino',['../MotorTest_8ino.html',1,'']]],
   ['movefor',['moveFor',['../classMotor.html#a92ada38e1ab60942381ca46f2d13ae3d',1,'Motor']]],

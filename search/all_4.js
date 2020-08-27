@@ -15,8 +15,5 @@ var searchData=
   ['disconnect',['disconnect',['../classWifiManager.html#a2b0fc1360c90922972c2caee5531afbb',1,'WifiManager']]],
   ['disconnected',['Disconnected',['../WifiManager_8h.html#a2cb8df04852a8d762834daac6c32965ba84ab0fbbb76a8c897feb1cd806d56443',1,'WifiManager.h']]],
   ['down',['DOWN',['../ESP32Encoder_8h.html#adca399663765c125d26e6f2896b5b349a9b0b4a95b99523966e0e34ffdadac9da',1,'ESP32Encoder.h']]],
-  ['drivebase',['DriveBase',['../classDriveBase.html',1,'DriveBase'],['../classDriveBase.html#a541916b46f96bf6df2f2141a62f9c0fa',1,'DriveBase::DriveBase()']]],
-  ['drivebase_2ecpp',['DriveBase.cpp',['../DriveBase_8cpp.html',1,'']]],
-  ['drivebase_2eh',['DriveBase.h',['../DriveBase_8h.html',1,'']]],
   ['duration',['duration',['../classMotor.html#a08a0479708534c9c9207b242e9d09b88',1,'Motor']]]
 ];

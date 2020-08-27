@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['linetracksensor',['LineTrackSensor',['../classLineTrackSensor.html',1,'']]]
+  ['rangefinder',['Rangefinder',['../classRangefinder.html',1,'']]]
 ];
