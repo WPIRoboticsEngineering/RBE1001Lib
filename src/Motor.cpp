@@ -177,14 +177,14 @@ void Motor::blockUntilMoveIsDone(){
 	// First wait for the interpolation to finish
 	while(getInterpolationUnitIncrement()<1){
 		delay(10);
-		Serial.println(" Interpolation "+String (getInterpolationUnitIncrement()));
+		//Serial.println(" Interpolation "+String (getInterpolationUnitIncrement()));
 	}
 	do
 	{
 		delay(10);
-		distanceToGo=fabs((setpoint*TICKS_TO_DEGREES) - getCurrentDegrees());
-		Serial.println("Remaining: "+String(distanceToGo));
-	}while (distanceToGo>TICKS_TO_DEGREES );// get within 1 tick
+		distanceToGo=fabs((Setpoint*TICKS_TO_DEGREES) - getCurrentDegrees());
+		Serial.println("Move Remaining: "+String(distanceToGo));
+	}while (distanceToGo>1 );// get within 1 degree
 	// wait for the velocity to be below 10deg/sec
 	// 5deg/sec is lower bound of detection
 	while (fabs(getDegreesPerSecond()) > 10) {
@@ -285,17 +285,19 @@ void Motor::loop() {
 				setpoint = endSetpoint;
 			}
 		}
-		float controlErr = setpoint - nowEncoder;
-		// shrink old values out of the sum
-		runntingITerm = runntingITerm * ((I_TERM_SIZE - 1.0) / I_TERM_SIZE);
-		// running sum of error
-		runntingITerm += controlErr;
-		if(getInterpolationUnitIncrement()<1){
+		float controlErr = Setpoint - nowEncoder;
+
+		if(getInterpolationUnitIncrement()<1 ){
 			// no i term during interpolation
 			runntingITerm=0;
+		}else{
+			// shrink old values out of the sum
+			runntingITerm = runntingITerm * ((I_TERM_SIZE - 1.0) / I_TERM_SIZE);
+			// running sum of error
+			runntingITerm += controlErr;
 		}
 
-		currentEffort = -(controlErr * kP + ((runntingITerm / I_TERM_SIZE) * kI));
+		currentEffort = -(controlErr * kP + ((runntingITerm ) * kI));
 
 		//portEXIT_CRITICAL(&mmux);
 	}
