@@ -1,8 +1,0 @@
-<map id="loop" name="loop">
-<area shape="rect" id="node2" href="$classMotor.html#a7a84e0d2676d7420219b6e7f67e69038" title="Motor::getCurrentDegrees" alt="" coords="268,5,441,32"/>
-<area shape="rect" id="node3" href="$classMotor.html#a87fc81889162384469b1832a37d5b956" title="Motor::SetSpeed" alt="" coords="100,56,220,83"/>
-<area shape="rect" id="node4" href="$classMotor.html#afa9d4dec3ee9ea88f3319c6007bff0a5" title="Motor::SetSetpoint" alt="" coords="289,56,420,83"/>
-<area shape="rect" id="node5" href="$classMotor.html#a8037ce5f12ee18be5600dc2ee08be578" title="Motor::SetSetpointWithTime" alt="" coords="489,56,676,83"/>
-<area shape="rect" id="node6" href="$classESP32Encoder.html#ab555afb955fbfb2446b525a64c1efbb1" title="ESP32Encoder::getCount" alt="" coords="724,56,896,83"/>
-<area shape="rect" id="node7" href="$classESP32Encoder.html#aa408a8969aa799cf2e96413ee0a65080" title="ESP32Encoder::getCountRaw" alt="" coords="944,56,1143,83"/>
-</map>

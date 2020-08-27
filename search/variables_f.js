@@ -4,7 +4,7 @@ var searchData=
   ['packetbuffer',['packetBuffer',['../classWebPage.html#a152f73612f50a6396edf6dfe3c49f127',1,'WebPage']]],
   ['pb',['pb',['../structlwip__event__packet__t.html#a02fd3b76ec63c68ebe08f5ff567bc971',1,'lwip_event_packet_t']]],
   ['pcb',['pcb',['../structlwip__event__packet__t.html#a37deb2dd050c57f69244e01725697c1a',1,'lwip_event_packet_t::pcb()'],['../structlwip__event__packet__t.html#a7453208cc1962a8587dc281aa0e922a9',1,'lwip_event_packet_t::pcb()'],['../structtcp__api__call__t.html#ace8d457b4f1f55c58b4d0053ca71ffd0',1,'tcp_api_call_t::pcb()']]],
-  ['photoresistorpin',['photoresistorPin',['../photoresistor_8ino.html#af6d42483b8d07956e4795e0ca779a441',1,'photoresistor.ino']]],
+  ['photoresistorpin',['photoresistorPin',['../Photoresistor_8ino.html#af6d42483b8d07956e4795e0ca779a441',1,'Photoresistor.ino']]],
   ['pin',['pin',['../classESP32PWM.html#af87252d85a8b2257380f6587f4acd46e',1,'ESP32PWM::pin()'],['../ToneExample_8ino.html#aeabac9491522ec7f68102bfeab33d5c1',1,'pin():&#160;ToneExample.ino']]],
   ['pingindex',['pingIndex',['../classRangefinder.html#a0aa0a904072e2429de65930d8b85c321',1,'Rangefinder']]],
   ['pinnumber',['pinNumber',['../classServo.html#abdf85c5c5629f2f7ff5ea0486cf296e9',1,'Servo']]],

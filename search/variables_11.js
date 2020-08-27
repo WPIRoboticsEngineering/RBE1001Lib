@@ -14,7 +14,7 @@ var searchData=
   ['servo5pin',['servo5Pin',['../Multiple-Servo-Example-Arduino_8ino.html#aeb9b012dcf3d5d10f37d8dce8d846017',1,'Multiple-Servo-Example-Arduino.ino']]],
   ['servopin',['servoPin',['../Knob_8ino.html#a3c713b91d0f4a16a4cb733baabab9d21',1,'servoPin():&#160;Knob.ino'],['../Sweep_8ino.html#a3c713b91d0f4a16a4cb733baabab9d21',1,'servoPin():&#160;Sweep.ino']]],
   ['servopositionfeedback',['servoPositionFeedback',['../FullSystemTest_8ino.html#a6c49ccb4260ba64eee66394479fa57e5',1,'servoPositionFeedback():&#160;FullSystemTest.ino'],['../RCCTL_8ino.html#a6c49ccb4260ba64eee66394479fa57e5',1,'servoPositionFeedback():&#160;RCCTL.ino']]],
-  ['setpoint',['Setpoint',['../classMotor.html#a075b1c6115b83e4506fb4399b632599c',1,'Motor']]],
+  ['setpoint',['setpoint',['../classMotor.html#a6e0ff8d299c1396cac8290fc61cdbaeb',1,'Motor']]],
   ['setupdone',['setupDone',['../classWifiManager.html#a95da7d3c9b78909e7ef1834b0e228068',1,'WifiManager']]],
   ['sharedemptystring',['SharedEmptyString',['../WebRequest_8cpp.html#aa42907e56b812a7883755d333f83ef06',1,'WebRequest.cpp']]],
   ['size',['size',['../structtcp__api__call__t.html#aba4bb2cdacce247d5cfcafb903518926',1,'tcp_api_call_t']]],

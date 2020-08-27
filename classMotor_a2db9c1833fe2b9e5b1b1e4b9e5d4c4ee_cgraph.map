@@ -1,7 +1,7 @@
 <map id="Motor::loop" name="Motor::loop">
 <area shape="rect" id="node2" href="$classESP32Encoder.html#ab555afb955fbfb2446b525a64c1efbb1" title="ESP32Encoder::getCount" alt="" coords="142,27,314,53"/>
 <area shape="rect" id="node4" href="$classMotor.html#aee3b24180cc7221ab63e1c2c32363693" title="Motor::getInterpolationUnit\lIncrement" alt="" coords="140,78,316,119"/>
-<area shape="rect" id="node5" href="$classMotor.html#aab0bd62a71bf95d2ccf80fd309bf5bb3" title="Motor::SetEffortLocal" alt="" coords="155,144,301,171"/>
+<area shape="rect" id="node5" href="$classMotor.html#adc069b762efb5288612fa03b00c86dbf" title="Motor::setEffortLocal" alt="" coords="156,144,300,171"/>
 <area shape="rect" id="node3" href="$classESP32Encoder.html#aa408a8969aa799cf2e96413ee0a65080" title="ESP32Encoder::getCountRaw" alt="" coords="364,27,563,53"/>
 <area shape="rect" id="node6" href="$classESP32PWM.html#a0db5515c15b59be9f717f3098255e140" title="ESP32PWM::writeScaled" alt="" coords="377,144,549,171"/>
 <area shape="rect" id="node7" href="$classESP32PWM.html#ac1842122846948c7ca2e88e59dfb2fb6" title="ESP32PWM::mapf" alt="" coords="611,828,744,855"/>

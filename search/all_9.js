@@ -23,6 +23,7 @@ var searchData=
   ['ispost',['isPost',['../classAsyncWebParameter.html#a36b2d2f67b6e743ee6e43dffd5f8f0bf',1,'AsyncWebParameter']]],
   ['isrequesthandlertrivial',['isRequestHandlerTrivial',['../classAsyncCallbackJsonWebHandler.html#af9661f022eeaae5b04d6778738e8e14b',1,'AsyncCallbackJsonWebHandler::isRequestHandlerTrivial()'],['../classAsyncWebHandler.html#ae13531a0c76fcc1567696cfb13077cc5',1,'AsyncWebHandler::isRequestHandlerTrivial()'],['../classSPIFFSEditor.html#acc7e4dba64c46ef6d7fa95164d0bf406',1,'SPIFFSEditor::isRequestHandlerTrivial()'],['../classAsyncCallbackWebHandler.html#a3326847aca320f4a02ba1dbf3d2c897d',1,'AsyncCallbackWebHandler::isRequestHandlerTrivial()']]],
   ['issafetosend',['isSafeToSend',['../WebPage_8cpp.html#a2c4a64e679de7cdcdb8552078758785f',1,'WebPage.cpp']]],
+  ['isspinning',['isSpinning',['../MotorMoveTo_8ino.html#a7c69c8b82949024cb2ff166202a433df',1,'MotorMoveTo.ino']]],
   ['item',['item',['../structExcludeListS.html#a738502b5ebdf8212af1a4b31c193b296',1,'ExcludeListS']]],
   ['itemtype',['ItemType',['../classLinkedList.html#af0d3cad2110aab660e5f6764c5c6cd21',1,'LinkedList']]],
   ['itemwritebyte',['itemWriteByte',['../WebRequest_8cpp.html#a6a2fc50ef657ffe16b5f83ba16a45205',1,'WebRequest.cpp']]],

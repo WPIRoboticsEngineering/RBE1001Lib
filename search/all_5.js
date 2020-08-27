@@ -11,6 +11,7 @@ var searchData=
   ['encoder2paused',['encoder2Paused',['../Encoder_8ino.html#a6e1e9a8cc7d7637f552ea08f480097b0',1,'Encoder.ino']]],
   ['encoder_5fcpr',['ENCODER_CPR',['../Motor_8h.html#a9ebdd8114f35f3aa52eb51fbe8bb1868',1,'Motor.h']]],
   ['encoders',['encoders',['../classESP32Encoder.html#a7e686a55f97c29add9488ed9245b4f50',1,'ESP32Encoder']]],
+  ['encodertest_2eino',['EncoderTest.ino',['../EncoderTest_8ino.html',1,'']]],
   ['enctype',['encType',['../ESP32Encoder_8h.html#a94b99e462b91a04d4400c30ce0764d60',1,'ESP32Encoder.h']]],
   ['end',['end',['../classAsyncServer.html#ab4e3997502c28dca6ca0703fea8b2122',1,'AsyncServer::end()'],['../classAsyncWebServer.html#aa22e6e86bfb58f384d2e4e0767508cd6',1,'AsyncWebServer::end()'],['../classDefaultHeaders.html#a0b54d32aeadfd7da90856d02443ab1d3',1,'DefaultHeaders::end()'],['../classLinkedList.html#a2ab9d1599f5f84a7410ece2cbe68e17c',1,'LinkedList::end()']]],
   ['endsetpoint',['endSetpoint',['../classMotor.html#a478fbdffa96f3bfa2633d551aeb30a29',1,'Motor']]],

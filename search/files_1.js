@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['blink_2eino',['blink.ino',['../blink_8ino.html',1,'']]],
-  ['button_2eino',['button.ino',['../button_8ino.html',1,'']]]
+  ['blink_2eino',['Blink.ino',['../Blink_8ino.html',1,'']]],
+  ['button_2eino',['Button.ino',['../Button_8ino.html',1,'']]]
 ];

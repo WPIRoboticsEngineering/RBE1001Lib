@@ -1,0 +1,10 @@
+<map id="Motor::setSetpointWithTrapezoidalInterpolation" name="Motor::setSetpointWithTrapezoidalInterpolation">
+<area shape="rect" id="node2" href="$classMotor.html#a693fec0cfe3f2951157467464c1a97b6" title="Motor::setGains" alt="" coords="327,5,441,32"/>
+<area shape="rect" id="node3" href="$classMotor.html#aa993310cb3a689aa1b0eca5ee2e2a598" title="Motor::setGainsD" alt="" coords="321,56,447,83"/>
+<area shape="rect" id="node4" href="$classMotor.html#a805a15d7a59b74a1d711428e580e180a" title="Motor::setGainsI" alt="" coords="325,107,443,133"/>
+<area shape="rect" id="node5" href="$classMotor.html#afa223e0a454ac7ae326e98ea0d506272" title="Motor::setGainsP" alt="" coords="322,157,446,184"/>
+<area shape="rect" id="node6" href="$classMotor.html#ae5172cfac0b0482d144ac7627dbf069f" title="Motor::setSetpointWithSinusoidal\lInterpolation" alt="" coords="276,209,492,250"/>
+<area shape="rect" id="node7" href="$classMotor.html#a9cdbe8186e8b6337e14743c4d2a37bc6" title="Motor::setSetpointWithTime" alt="" coords="540,245,725,272"/>
+<area shape="rect" id="node8" href="$classESP32Encoder.html#ab555afb955fbfb2446b525a64c1efbb1" title="ESP32Encoder::getCount" alt="" coords="773,245,945,272"/>
+<area shape="rect" id="node9" href="$classESP32Encoder.html#aa408a8969aa799cf2e96413ee0a65080" title="ESP32Encoder::getCountRaw" alt="" coords="993,245,1192,272"/>
+</map>

@@ -1,6 +1,0 @@
-<map id="Motor::StartMoveFor" name="Motor::StartMoveFor">
-<area shape="rect" id="node2" href="$classMotor.html#a7a84e0d2676d7420219b6e7f67e69038" title="Motor::getCurrentDegrees" alt="" coords="203,5,376,32"/>
-<area shape="rect" id="node3" href="$classMotor.html#a8037ce5f12ee18be5600dc2ee08be578" title="Motor::SetSetpointWithTime" alt="" coords="196,56,383,83"/>
-<area shape="rect" id="node4" href="$classESP32Encoder.html#ab555afb955fbfb2446b525a64c1efbb1" title="ESP32Encoder::getCount" alt="" coords="431,56,603,83"/>
-<area shape="rect" id="node5" href="$classESP32Encoder.html#aa408a8969aa799cf2e96413ee0a65080" title="ESP32Encoder::getCountRaw" alt="" coords="651,56,849,83"/>
-</map>

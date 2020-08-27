@@ -1,16 +1,12 @@
 <map id="src/RBE1001Lib.h" name="src/RBE1001Lib.h">
 <area shape="rect" id="node2" href="$WebPage_8cpp.html" title="src/WebPage.cpp" alt="" coords="5,87,132,114"/>
-<area shape="rect" id="node3" href="$FullSystemTest_8ino.html" title="examples/FullSystemTest\l/FullSystemTest.ino" alt="" coords="156,80,331,121"/>
-<area shape="rect" id="node4" href="$LineTrackerTest_8ino.html" title="examples/LineTrackerTest\l/LineTrackerTest.ino" alt="" coords="355,80,531,121"/>
-<area shape="rect" id="node5" href="$MotorTest_8ino.html" title="examples/MotorTest\l/MotorTest.ino" alt="" coords="555,80,697,121"/>
-<area shape="rect" id="node6" href="$MotorVelocityTest_8ino.html" title="examples/MotorVelocityTest\l/MotorVelocityTest.ino" alt="" coords="721,80,909,121"/>
-<area shape="rect" id="node7" href="$RangeFinderTest_8ino.html" title="examples/RangeFinderTest\l/RangeFinderTest.ino" alt="" coords="933,80,1116,121"/>
-<area shape="rect" id="node8" href="$RCCTL_8ino.html" title="examples/RCCTL/RCCTL.ino" alt="" coords="1141,87,1338,114"/>
-<area shape="rect" id="node9" href="$UltrasonicProject_8ino.html" title="examples/UltrasonicProject\l/UltrasonicProject.ino" alt="" coords="1363,80,1545,121"/>
-<area shape="rect" id="node10" href="$button_8ino.html" title="examples/week01/button\l/button.ino" alt="" coords="1569,80,1736,121"/>
-<area shape="rect" id="node11" href="$motor__position_8ino.html" title="examples/week01/motor\l_position/motor_position.ino" alt="" coords="1761,80,1945,121"/>
-<area shape="rect" id="node12" href="$motor__speed_8ino.html" title="examples/week01/motor\l_speed/motor_speed.ino" alt="" coords="1969,80,2133,121"/>
-<area shape="rect" id="node13" href="$move__for__test_8ino.html" title="examples/week01/move\l_for_test/move_for_test.ino" alt="" coords="2158,80,2339,121"/>
-<area shape="rect" id="node14" href="$photoresistor_8ino.html" title="examples/week02b/photoresistor\l/photoresistor.ino" alt="" coords="2363,80,2577,121"/>
-<area shape="rect" id="node15" href="$ultrasonic_8ino.html" title="examples/week02b/ultrasonic\l/ultrasonic.ino" alt="" coords="2601,80,2795,121"/>
+<area shape="rect" id="node3" href="$EncoderTest_8ino.html" title="examples/EncoderTest\l/EncoderTest.ino" alt="" coords="156,80,312,121"/>
+<area shape="rect" id="node4" href="$FullSystemTest_8ino.html" title="examples/FullSystemTest\l/FullSystemTest.ino" alt="" coords="336,80,511,121"/>
+<area shape="rect" id="node5" href="$LineTrackerTest_8ino.html" title="examples/LineTrackerTest\l/LineTrackerTest.ino" alt="" coords="535,80,711,121"/>
+<area shape="rect" id="node6" href="$MotorMoveTo_8ino.html" title="examples/MotorMoveTo\l/MotorMoveTo.ino" alt="" coords="735,80,898,121"/>
+<area shape="rect" id="node7" href="$MotorSpeedTest_8ino.html" title="examples/MotorSpeedTest\l/MotorSpeedTest.ino" alt="" coords="922,80,1101,121"/>
+<area shape="rect" id="node8" href="$MotorTest_8ino.html" title="examples/MotorTest\l/MotorTest.ino" alt="" coords="1125,80,1266,121"/>
+<area shape="rect" id="node9" href="$Photoresistor_8ino.html" title="examples/Photoresistor\l/Photoresistor.ino" alt="" coords="1291,80,1449,121"/>
+<area shape="rect" id="node10" href="$RCCTL_8ino.html" title="examples/RCCTL/RCCTL.ino" alt="" coords="1474,87,1671,114"/>
+<area shape="rect" id="node11" href="$Ultrasonic_8ino.html" title="examples/Ultrasonic\l/Ultrasonic.ino" alt="" coords="1695,80,1837,121"/>
 </map>

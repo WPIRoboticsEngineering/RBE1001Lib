@@ -1,5 +1,0 @@
-<map id="loop" name="loop">
-<area shape="rect" id="node2" href="$classRangefinder.html#a531ed492da6a4c369a909e77b9c8780d" title="get the distance of an object from the sensor in centimeters " alt="" coords="103,13,293,39"/>
-<area shape="rect" id="node4" href="$classRangefinder.html#a6706efbe01d225a04771dee426da09f1" title="Function used by the timeout check thread to determine if this object has timed out. " alt="" coords="100,63,296,90"/>
-<area shape="rect" id="node3" href="$classRangefinder.html#acd75ded5add63f5c2fac15a5418870e9" title="get the time of latest round trip in microseconds " alt="" coords="344,5,523,47"/>
-</map>
