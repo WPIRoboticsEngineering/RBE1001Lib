@@ -24,15 +24,15 @@ void setup() {
  */
 void loop() {
 	upDown=!upDown;
-	left_motor.moveTo(100, 360);
+	left_motor.moveTo(upDown?1000:0, 360);
 	//left_motor.SetSetpointWithLinearInterpolation(upDown?3600:0, 8000);
 	//right_motor.SetSetpointWithLinearInterpolation(upDown?360:0, 2000);
 	//right_motor.SetSetpointWithBezierInterpolation(upDown?3600:0, 8000,0.45,1);
-	//right_motor.SetSetpointWithTrapezoidalInterpolation(upDown?3600:0, 8000, 500);
+	//right_motor.setSetpointWithTrapezoidalInterpolation(upDown?3600:0, 8000, 500);
 	double peak1 = 0;
 	double peak2 =0;
 
-	for(int i=0;i<400;i++){
+	while(!left_motor.isMotorDoneWithMove()){
 		if(abs(left_motor.getDegreesPerSecond())>peak1){
 			peak1=abs(left_motor.getDegreesPerSecond());
 		}
@@ -47,7 +47,7 @@ void loop() {
 	delay(100);
 	Serial.println("Count 1 "+String(left_motor.getCurrentDegrees())+
 					" Count 2 "+String(right_motor.getCurrentDegrees()));
-	delay(5000);
+	delay(1000);
 
 
  }

@@ -382,25 +382,25 @@ public:
 				BEZIER);
 	}
 	/**
-		 * SetSetpoint in degrees with time
-		 * Set the setpoint for the motor in degrees
-		 * @param newTargetInDegrees the new setpoint for the closed loop controller
-		 * @param miliseconds the number of miliseconds to get from current position to the new setpoint
-		 * @param trapazoidalTime miliseconds for the ramping to take at the beginning and end.
-		 *
-		 *
-		 * use sinusoidal interpolation
-		 */
-		void setSetpointWithTrapezoidalInterpolation(float newTargetInDegrees,
-				long miliseconds, float trapazoidalTime) {
-			if(trapazoidalTime*2>miliseconds){
-				setSetpointWithSinusoidalInterpolation(newTargetInDegrees,miliseconds);
-				return;
-			}
-			TRAPEZOIDAL_time=trapazoidalTime;
-			setSetpointWithTime(newTargetInDegrees, miliseconds,
-					TRAPEZOIDAL);
+	 * SetSetpoint in degrees with time
+	 * Set the setpoint for the motor in degrees
+	 * @param newTargetInDegrees the new setpoint for the closed loop controller
+	 * @param miliseconds the number of miliseconds to get from current position to the new setpoint
+	 * @param trapazoidalTime miliseconds for the ramping to take at the beginning and end.
+	 *
+	 *
+	 * use sinusoidal interpolation
+	 */
+	void setSetpointWithTrapezoidalInterpolation(float newTargetInDegrees,
+			long miliseconds, float trapazoidalTime) {
+		if (trapazoidalTime * 2 > miliseconds) {
+			setSetpointWithSinusoidalInterpolation(newTargetInDegrees,
+					miliseconds);
+			return;
 		}
+		TRAPEZOIDAL_time = trapazoidalTime;
+		setSetpointWithTime(newTargetInDegrees, miliseconds, TRAPEZOIDAL);
+	}
 	/**
 	 * PID gains for the PID controller
 	 */
@@ -412,6 +412,18 @@ public:
 	float getGainsP(){return kP;}
 	float getGainsI(){return kI;}
 	float getGainsD(){return kD;}
+
+	/**
+	 * isMotorDoneWithMove
+	 *
+	 *  \brief  Check to see if the motor is done with a move
+	 *
+	 *  This checks that the interpolation is done,
+	 *  that the position is within 1 degree
+	 *  and that the velocity is close to zero
+	 *
+	 */
+	bool isMotorDoneWithMove();
 
 };
 

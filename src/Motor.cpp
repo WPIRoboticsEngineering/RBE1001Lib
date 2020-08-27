@@ -6,6 +6,7 @@
  */
 
 #include <Motor.h>
+static const char *TAG = "Motor Class";
 
 bool Motor::timersAllocated = false;
 Motor * Motor::list[MAX_POSSIBLE_MOTORS] = { NULL, };
@@ -75,7 +76,7 @@ float Motor::getInterpolationUnitIncrement() {
 	return 1;
 }
 void onMotorTimer(void *param) {
-	Serial.println("Starting the PID loop thread");
+	ESP_LOGI(TAG,"Starting the PID loop thread");
 	TickType_t xLastWakeTime;
 	const TickType_t xFrequency = 1;
 	xLastWakeTime = xTaskGetTickCount();
@@ -91,7 +92,7 @@ void onMotorTimer(void *param) {
 		}
 		//
 	}
-	Serial.println("ERROR Pid thread died!");
+	ESP_LOGE(TAG, "ERROR Pid thread died!");
 
 }
 /**
@@ -153,17 +154,51 @@ void Motor::setSetpointWithTime(float newTargetInDegrees, long msTimeDuration,
 */
 void Motor::moveTo(float newTargetInDegrees, float speedDegPerSec)
 {
-    setSetpointWithTime(newTargetInDegrees, fabs(newTargetInDegrees/speedDegPerSec) * 1000.0, SINUSOIDAL_INTERPOLATION);
+	setSetpointWithTrapezoidalInterpolation(newTargetInDegrees,
+			fabs(newTargetInDegrees/speedDegPerSec) * 1000.0,
+			750);
 }
 
 
 float Motor::startMoveFor(float deltaTargetInDegrees, float speedDegPerSec)
 {
 	float newSetPoint = getCurrentDegrees() + deltaTargetInDegrees;
-	setSetpointWithTime(newSetPoint,
+	setSetpointWithTrapezoidalInterpolation(newSetPoint,
 			fabs(deltaTargetInDegrees / speedDegPerSec) * 1000.0,
-			SINUSOIDAL_INTERPOLATION);
+			750);
 	return newSetPoint;
+}
+
+/**
+ * isMotorDoneWithMove
+ *
+ *  \brief  Check to see if the motor is done with a move
+ *
+ *  This checks that the interpolation is done,
+ *  that the position is within 1 degree
+ *  and that the velocity is close to zero
+ *
+ */
+bool Motor::isMotorDoneWithMove() {
+	// First wait for the interpolation to finish
+	if(getInterpolationUnitIncrement()<1){
+		ESP_LOGI(TAG,"Move Interpolation Remaining: "+String(getInterpolationUnitIncrement()));
+		return false;
+	}
+	float distanceToGo=fabs((setpoint*TICKS_TO_DEGREES) - getCurrentDegrees());
+
+	if(distanceToGo>0.75){ // more than 1 degree from target
+		ESP_LOGI(TAG,"Move Remaining: "+String(distanceToGo));
+		return false;
+	}
+	// wait for the velocity to be below 10deg/sec
+	// 5deg/sec is lower bound of detection
+	if(fabs(getDegreesPerSecond()) > 10){
+		ESP_LOGI(TAG,"Move Speed: "+String(getDegreesPerSecond()));
+		return false;
+	}
+	// All moving checks came back passed!
+	return true;
 }
 
 /**
@@ -173,25 +208,11 @@ float Motor::startMoveFor(float deltaTargetInDegrees, float speedDegPerSec)
  * at its given setpoint
  */
 void Motor::blockUntilMoveIsDone(){
-	float distanceToGo;
-	// First wait for the interpolation to finish
-	while(getInterpolationUnitIncrement()<1){
-		delay(10);
-		//Serial.println(" Interpolation "+String (getInterpolationUnitIncrement()));
-	}
-	do
-	{
-		delay(10);
-		distanceToGo=fabs((setpoint*TICKS_TO_DEGREES) - getCurrentDegrees());
-		Serial.println("Move Remaining: "+String(distanceToGo));
-	}while (distanceToGo>1 );// get within 1 degree
-	// wait for the velocity to be below 10deg/sec
-	// 5deg/sec is lower bound of detection
-	while (fabs(getDegreesPerSecond()) > 10) {
-		Serial.println("Speed: "+String(getDegreesPerSecond()));
+	while(!isMotorDoneWithMove()){
 		delay(10);
 	}
 }
+
 /**
  * moveFor a relative amount in degrees with speed
  * Set the setpoint for the motor in degrees and the speed you want to get there
@@ -227,12 +248,12 @@ void Motor::moveFor(float deltaTargetInDegrees, float speedDegPerSec)
 void Motor::setSpeed(float newDegreesPerSecond) {
 	if (abs(newDegreesPerSecond) < 0.1) {
 		setSetpoint(getCurrentDegrees());
-//		Serial.println("Stopping");
+		ESP_LOGI(TAG,"Stopping");
 		return;
 	}
 	milisecondPosIncrementForVelocity = (-newDegreesPerSecond
 			* (((float) -1.0) / 1000.0)) / TICKS_TO_DEGREES;
-//	Serial.println("Setting Speed "+String(newDegreesPerSecond)+
+//	ESP_LOGI(TAG,"Setting Speed "+String(newDegreesPerSecond)+
 //			" increment "+String(milisecondPosIncrementForVelocity)+
 //			" scale "+String(TICKS_TO_DEGREES)
 //			+" setpoint "+String(setpoint*TICKS_TO_DEGREES)
@@ -297,7 +318,7 @@ void Motor::loop() {
 			runntingITerm += controlErr;
 		}
 
-		currentEffort = -(controlErr * kP + ((runntingITerm ) * kI));
+		currentEffort = -(controlErr * kP + ((runntingITerm/I_TERM_SIZE ) * kI));
 
 		//portEXIT_CRITICAL(&mmux);
 	}
@@ -350,7 +371,7 @@ void Motor::attach(int MotorPWMPin, int MotorDirectionPin, int EncoderA,
 	for (int i = 0; i < MAX_POSSIBLE_MOTORS; i++) {
 		if (Motor::list[i] == NULL) {
 
-			Serial.println(
+			ESP_LOGI(TAG,
 					"Allocating Motor " + String(i) + " on PWM "
 							+ String(MotorPWMPin));
 			Motor::list[i] = this;

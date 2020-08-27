@@ -57,9 +57,9 @@
 #define MOTOR_RIGHT_DIR 25
 //Encoder pins
 
-#define MOTOR_LEFT_ENCA 26
+#define MOTOR_LEFT_ENCA 27
 //A0
-#define MOTOR_LEFT_ENCB 27
+#define MOTOR_LEFT_ENCB 26
 
 
 #define MOTOR_RIGHT_ENCA 32
