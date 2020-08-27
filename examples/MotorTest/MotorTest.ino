@@ -42,9 +42,9 @@ void loop() {
 			peak2=abs(right_motor.getDegreesPerSecond());
 		}
 		delay(20);
-//		Serial.println("motor compared  "+String(right_motor.getInterpolationUnitIncrement()-left_motor.getInterpolationUnitIncrement())+
-//				+" Interp "+String(right_motor.getInterpolationUnitIncrement())+
-//				+" Vel 1 "+String(left_motor.getDegreesPerSecond())+" Vel 2 "+String(right_motor.getDegreesPerSecond()));
+		Serial.println("motor compared  "+String(right_motor.getInterpolationUnitIncrement()-left_motor.getInterpolationUnitIncrement())+
+				+" Interp "+String(right_motor.getInterpolationUnitIncrement())+
+				+" Vel 1 "+String(left_motor.getDegreesPerSecond())+" Vel 2 "+String(right_motor.getDegreesPerSecond()));
 	}
 	delay(100);
 	Serial.println("Count 1 "+String(left_motor.getCurrentDegrees())+

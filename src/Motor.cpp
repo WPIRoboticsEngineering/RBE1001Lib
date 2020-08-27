@@ -179,20 +179,20 @@ float Motor::startMoveFor(float deltaTargetInDegrees, float speedDegPerSec) {
 bool Motor::isMotorDoneWithMove() {
 // First wait for the interpolation to finish
 	if (getInterpolationUnitIncrement() < 1) {
-		ESP_LOGV(TAG,"Move Interpolation Remaining: %.4f",getInterpolationUnitIncrement());
+		ESP_LOGD(TAG,"Move Interpolation Remaining: %.4f",getInterpolationUnitIncrement());
 		return false;
 	}
 	float distanceToGo = fabs(
 			(setpoint * TICKS_TO_DEGREES) - getCurrentDegrees());
 
 	if (distanceToGo > 0.75) { // more than 1 degree from target
-		ESP_LOGV(TAG,"Move Remaining:  %.4f",distanceToGo);
+		ESP_LOGD(TAG,"Move Remaining:  %.4f",distanceToGo);
 		return false;
 	}
 // wait for the velocity to be below 10deg/sec
 // 5deg/sec is lower bound of detection
 	if (fabs(getDegreesPerSecond()) > 10) {
-		ESP_LOGV(TAG,"Move Speed: %.4f",getDegreesPerSecond());
+		ESP_LOGD(TAG,"Move Speed: %.4f",getDegreesPerSecond());
 		return false;
 	}
 // All moving checks came back passed!
