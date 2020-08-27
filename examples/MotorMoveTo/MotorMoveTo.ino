@@ -1,18 +1,18 @@
 /*
- * This program will wait for the button to be pressed and then:
- *  command the left motor to spin at 60 rpm, 
- *  wait 5 seconds, 
- *  and then stop the motor. 
+ * This program will wait for the button to be pressed and then command the left motor to 
+ * spin one rotation at 120 rpm. 
+ * 
  * While the motor is spinning, the program will print out how much it has turned (in degrees).
  */
 
 #include <Arduino.h>
 #include <RBE1001Lib.h>
 
-Motor motor1;
-Motor motor2;
+Motor motor_left;
+Motor motor_right;
+
 // pin definitions https://wpiroboticsengineering.github.io/RBE1001Lib/RBE1001Lib_8h.html#define-members
-const int buttonPin = BOOT_FLAG_PIN ;
+const int buttonPin = BOOT_FLAG_PIN;
 
 /*
  * This is the standard setup function that is called when the ESP32 is rebooted
@@ -24,12 +24,14 @@ void setup()
   Serial.begin(115200);
   Motor::allocateTimer(0);
   // pin definitions https://wpiroboticsengineering.github.io/RBE1001Lib/RBE1001Lib_8h.html#define-members
-  motor1.attach(MOTOR1_PWM, MOTOR1_DIR, MOTOR1_ENCA, MOTOR1_ENCB);
-  motor2.attach(MOTOR2_PWM, MOTOR2_DIR, MOTOR2_ENCA, MOTOR2_ENCB);
+  motor_left.attach(MOTOR_LEFT_PWM, MOTOR_LEFT_DIR, MOTOR_LEFT_ENCA, MOTOR_LEFT_ENCB);
+  motor_right.attach(MOTOR_RIGHT_PWM, MOTOR_RIGHT_DIR, MOTOR_RIGHT_ENCA, MOTOR_RIGHT_ENCB);
+
   //explicitly make the button pin an input and engage the internal pullup resistor
   pinMode(buttonPin, INPUT_PULLUP);
 }
 
+bool isSpinning = false;
 
 /*
  * The main loop for the program. The loop function is repeatedly called
@@ -38,20 +40,14 @@ void setup()
 void loop() 
 {
   //The following line will cause the program to wait indefinitely until the button is pressed
-  while(digitalRead(buttonPin)) {} 
-
-  motor1.SetSpeed(60); 
-
-  uint32_t startTime = millis(); //note when the motor started
-
-  while(millis() - startTime < 5000) //run for 5 seconds
-  {
-    Serial.print(motor1.getCurrentDegrees()); //motor1 position
-    Serial.print('\t'); //TAB character
-    Serial.print(motor2.getCurrentDegrees()); //motor2 position
-    Serial.print('\n'); //newline character
+  if(!digitalRead(buttonPin) && !isSpinning) 
+  { 
+    motor_left.MoveTo(360, 120); //spin once at 120 degrees per second
+    isSpinning = true;
   }
-  	
-	// stop the motor
-	motor1.SetSpeed(0);
- }
+
+  Serial.print(motor_left.getCurrentDegrees()); //motor1 position
+  Serial.print('\t'); //TAB character
+  Serial.print(motor_right.getCurrentDegrees()); //motor2 position
+  Serial.print('\n'); //newline character
+}
