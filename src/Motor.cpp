@@ -182,7 +182,7 @@ void Motor::blockUntilMoveIsDone(){
 	do
 	{
 		delay(10);
-		distanceToGo=fabs((Setpoint*TICKS_TO_DEGREES) - getCurrentDegrees());
+		distanceToGo=fabs((setpoint*TICKS_TO_DEGREES) - getCurrentDegrees());
 		Serial.println("Move Remaining: "+String(distanceToGo));
 	}while (distanceToGo>1 );// get within 1 degree
 	// wait for the velocity to be below 10deg/sec
@@ -285,7 +285,7 @@ void Motor::loop() {
 				setpoint = endSetpoint;
 			}
 		}
-		float controlErr = Setpoint - nowEncoder;
+		float controlErr = setpoint - nowEncoder;
 
 		if(getInterpolationUnitIncrement()<1 ){
 			// no i term during interpolation

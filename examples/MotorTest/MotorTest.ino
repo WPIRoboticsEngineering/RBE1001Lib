@@ -24,7 +24,7 @@ void setup() {
  */
 void loop() {
 	upDown=!upDown;
-	left_motor.MoveTo(100, 360);
+	left_motor.moveTo(100, 360);
 	//left_motor.SetSetpointWithLinearInterpolation(upDown?3600:0, 8000);
 	//right_motor.SetSetpointWithLinearInterpolation(upDown?360:0, 2000);
 	//right_motor.SetSetpointWithBezierInterpolation(upDown?3600:0, 8000,0.45,1);
