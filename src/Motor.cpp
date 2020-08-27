@@ -286,16 +286,18 @@ void Motor::loop() {
 			}
 		}
 		float controlErr = Setpoint - nowEncoder;
-		// shrink old values out of the sum
-		runntingITerm = runntingITerm * ((I_TERM_SIZE - 1.0) / I_TERM_SIZE);
-		// running sum of error
-		runntingITerm += controlErr;
-		if(getInterpolationUnitIncrement()<1){
+
+		if(getInterpolationUnitIncrement()<1 ){
 			// no i term during interpolation
 			runntingITerm=0;
+		}else{
+			// shrink old values out of the sum
+			runntingITerm = runntingITerm * ((I_TERM_SIZE - 1.0) / I_TERM_SIZE);
+			// running sum of error
+			runntingITerm += controlErr;
 		}
 
-		currentEffort = -(controlErr * kP + ((runntingITerm / I_TERM_SIZE) * kI));
+		currentEffort = -(controlErr * kP + ((runntingITerm ) * kI));
 
 		//portEXIT_CRITICAL(&mmux);
 	}
