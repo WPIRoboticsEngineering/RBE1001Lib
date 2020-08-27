@@ -6,7 +6,7 @@
 #include <Arduino.h>
 #include <RBE1001Lib.h>
 
-const int photoresistorPin = A2;
+const int photoresistorPin = 34;
 
 /*
  * This is the standard setup function that is called when the ESP32 is rebooted
