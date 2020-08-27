@@ -6,7 +6,7 @@
  */
 
 #include <Motor.h>
-static const char *TAG = "Motor Class";
+static const char* TAG = "Motor Class";
 
 bool Motor::timersAllocated = false;
 Motor * Motor::list[MAX_POSSIBLE_MOTORS] = { NULL, };
@@ -35,40 +35,39 @@ float Motor::getInterpolationUnitIncrement() {
 			float sinPortion = (cos(-PI * unitDuration) / 2) + 0.5;
 			unitDuration = 1 - sinPortion;
 		}
-		if(mode==BEZIER){
-			if(unitDuration>0 &&unitDuration<1){
-				float t=unitDuration;
-				float P0=0;
-				float P1=BEZIER_P0;
-				float P2=BEZIER_P1;
-				float P3=1;
-				unitDuration= 	pow((1-t),3) *P0 +
-								3*t*pow((1-t),2)*P1 +
-								3*pow(t,2)*(1-t)*P2 +
-								pow(t,3)*P3;
+		if (mode == BEZIER) {
+			if (unitDuration > 0 && unitDuration < 1) {
+				float t = unitDuration;
+				float P0 = 0;
+				float P1 = BEZIER_P0;
+				float P2 = BEZIER_P1;
+				float P3 = 1;
+				unitDuration = pow((1 - t), 3) * P0
+						+ 3 * t * pow((1 - t), 2) * P1
+						+ 3 * pow(t, 2) * (1 - t) * P2 + pow(t, 3) * P3;
 			}
 		}
-		if(mode == TRAPEZOIDAL){
-			float lengthOfLinearMode = duration-(TRAPEZOIDAL_time*2);
-			float unitLienear = lengthOfLinearMode/duration;
-			float unitRamp = ((float)TRAPEZOIDAL_time)/duration;
-			float unitStartRampDown = unitLienear+unitRamp;
-			if(unitDuration<unitRamp){
+		if (mode == TRAPEZOIDAL) {
+			float lengthOfLinearMode = duration - (TRAPEZOIDAL_time * 2);
+			float unitLienear = lengthOfLinearMode / duration;
+			float unitRamp = ((float) TRAPEZOIDAL_time) / duration;
+			float unitStartRampDown = unitLienear + unitRamp;
+			if (unitDuration < unitRamp) {
 				// ramp up
 				// range from 1 to 0.5
-				float increment =1- (unitDuration)/(unitRamp*2);
+				float increment = 1 - (unitDuration) / (unitRamp * 2);
 				// range 0 to 1
-				float sinPortion = 1+cos(-PI *increment);
-				unitDuration=sinPortion*unitRamp;
-			}
-			else if(unitDuration>unitRamp&&unitDuration<unitStartRampDown){
+				float sinPortion = 1 + cos(-PI * increment);
+				unitDuration = sinPortion * unitRamp;
+			} else if (unitDuration > unitRamp
+					&& unitDuration < unitStartRampDown) {
 				// constant speed
 
-			}
-			else if(unitDuration>unitStartRampDown){
-				float increment=(unitDuration-unitStartRampDown)/(unitRamp*2)+0.5;
-				float sinPortion = 0.5-((cos(-PI *increment) / 2) + 0.5);
-				unitDuration = (sinPortion*2)*unitRamp+unitStartRampDown;
+			} else if (unitDuration > unitStartRampDown) {
+				float increment = (unitDuration - unitStartRampDown)
+						/ (unitRamp * 2) + 0.5;
+				float sinPortion = 0.5 - ((cos(-PI * increment) / 2) + 0.5);
+				unitDuration = (sinPortion * 2) * unitRamp + unitStartRampDown;
 			}
 		}
 		return unitDuration;
@@ -76,7 +75,7 @@ float Motor::getInterpolationUnitIncrement() {
 	return 1;
 }
 void onMotorTimer(void *param) {
-	ESP_LOGI(TAG,"Starting the PID loop thread");
+	ESP_LOGI(TAG, "Starting the PID loop thread");
 	TickType_t xLastWakeTime;
 	const TickType_t xFrequency = 1;
 	xLastWakeTime = xTaskGetTickCount();
@@ -142,7 +141,9 @@ void Motor::setSetpointWithTime(float newTargetInDegrees, long msTimeDuration,
 	if (msTimeDuration < 1) {
 		setpoint = newSetpoint;
 	}
-	//portEXIT_CRITICAL(&mmux);
+	ESP_LOGI(TAG, "Starting Interpolated move %.4f deg, %ld ms %d mode",
+			newTargetInDegrees, msTimeDuration, mode);
+//portEXIT_CRITICAL(&mmux);
 }
 
 /**
@@ -151,21 +152,17 @@ void Motor::setSetpointWithTime(float newTargetInDegrees, long msTimeDuration,
  * Bascially, a wrapper function for setSetpointWithTime that takes speed as an argument
  * @param newTargetInDegrees the new setpoint for the closed loop controller
  * @param speedDegPerSec  is the speed in degrees per second
-*/
-void Motor::moveTo(float newTargetInDegrees, float speedDegPerSec)
-{
-	setSetpointWithTrapezoidalInterpolation(newTargetInDegrees,
-			fabs(newTargetInDegrees/speedDegPerSec) * 1000.0,
-			750);
+ */
+void Motor::moveTo(float newTargetInDegrees, float speedDegPerSec) {
+	float deltaMove = getCurrentDegrees()-newTargetInDegrees;
+	setSetpointWithBezierInterpolation(newTargetInDegrees,
+			fabs(deltaMove / speedDegPerSec) * 1000.0, 0.2,1);
 }
 
-
-float Motor::startMoveFor(float deltaTargetInDegrees, float speedDegPerSec)
-{
+float Motor::startMoveFor(float deltaTargetInDegrees, float speedDegPerSec) {
 	float newSetPoint = getCurrentDegrees() + deltaTargetInDegrees;
-	setSetpointWithTrapezoidalInterpolation(newSetPoint,
-			fabs(deltaTargetInDegrees / speedDegPerSec) * 1000.0,
-			750);
+	setSetpointWithBezierInterpolation(newSetPoint,
+			fabs(deltaTargetInDegrees / speedDegPerSec) * 1000.0, 0.2,1);
 	return newSetPoint;
 }
 
@@ -180,24 +177,25 @@ float Motor::startMoveFor(float deltaTargetInDegrees, float speedDegPerSec)
  *
  */
 bool Motor::isMotorDoneWithMove() {
-	// First wait for the interpolation to finish
-	if(getInterpolationUnitIncrement()<1){
-		ESP_LOGI(TAG,"Move Interpolation Remaining: "+String(getInterpolationUnitIncrement()));
+// First wait for the interpolation to finish
+	if (getInterpolationUnitIncrement() < 1) {
+		ESP_LOGV(TAG,"Move Interpolation Remaining: %.4f",getInterpolationUnitIncrement());
 		return false;
 	}
-	float distanceToGo=fabs((setpoint*TICKS_TO_DEGREES) - getCurrentDegrees());
+	float distanceToGo = fabs(
+			(setpoint * TICKS_TO_DEGREES) - getCurrentDegrees());
 
-	if(distanceToGo>0.75){ // more than 1 degree from target
-		ESP_LOGI(TAG,"Move Remaining: "+String(distanceToGo));
+	if (distanceToGo > 0.75) { // more than 1 degree from target
+		ESP_LOGV(TAG,"Move Remaining:  %.4f",distanceToGo);
 		return false;
 	}
-	// wait for the velocity to be below 10deg/sec
-	// 5deg/sec is lower bound of detection
-	if(fabs(getDegreesPerSecond()) > 10){
-		ESP_LOGI(TAG,"Move Speed: "+String(getDegreesPerSecond()));
+// wait for the velocity to be below 10deg/sec
+// 5deg/sec is lower bound of detection
+	if (fabs(getDegreesPerSecond()) > 10) {
+		ESP_LOGV(TAG,"Move Speed: %.4f",getDegreesPerSecond());
 		return false;
 	}
-	// All moving checks came back passed!
+// All moving checks came back passed!
 	return true;
 }
 
@@ -207,8 +205,8 @@ bool Motor::isMotorDoneWithMove() {
  * @note this is a blocking function, it will block code for multiple seconds until the motor arrives
  * at its given setpoint
  */
-void Motor::blockUntilMoveIsDone(){
-	while(!isMotorDoneWithMove()){
+void Motor::blockUntilMoveIsDone() {
+	while (!isMotorDoneWithMove()) {
 		delay(10);
 	}
 }
@@ -222,8 +220,7 @@ void Motor::blockUntilMoveIsDone(){
  * @note this is a blocking function, it will block code for multiple seconds until the motor arrives
  * at its given setpoint
  */
-void Motor::moveFor(float deltaTargetInDegrees, float speedDegPerSec)
-{
+void Motor::moveFor(float deltaTargetInDegrees, float speedDegPerSec) {
 	startMoveFor(deltaTargetInDegrees, speedDegPerSec);
 	blockUntilMoveIsDone();
 }
@@ -248,7 +245,7 @@ void Motor::moveFor(float deltaTargetInDegrees, float speedDegPerSec)
 void Motor::setSpeed(float newDegreesPerSecond) {
 	if (abs(newDegreesPerSecond) < 0.1) {
 		setSetpoint(getCurrentDegrees());
-		ESP_LOGI(TAG,"Stopping");
+		ESP_LOGI(TAG, "Stopping");
 		return;
 	}
 	milisecondPosIncrementForVelocity = (-newDegreesPerSecond
@@ -258,7 +255,7 @@ void Motor::setSpeed(float newDegreesPerSecond) {
 //			" scale "+String(TICKS_TO_DEGREES)
 //			+" setpoint "+String(setpoint*TICKS_TO_DEGREES)
 //	);
-	//setpoint = nowEncoder;
+//setpoint = nowEncoder;
 	mode = VELOCITY_MODE;
 	closedLoopControl = true;
 }
@@ -292,7 +289,7 @@ void Motor::loop() {
 	if (closedLoopControl) {
 		//portEXIT_CRITICAL(&mmux);
 		if (mode == VELOCITY_MODE) {
-			if(abs(currentEffort)<0.95)// stall detection
+			if (abs(currentEffort) < 0.95)	// stall detection
 				setpoint += milisecondPosIncrementForVelocity;
 		} else {
 			unitDuration = getInterpolationUnitIncrement();
@@ -308,17 +305,18 @@ void Motor::loop() {
 		}
 		float controlErr = setpoint - nowEncoder;
 
-		if(getInterpolationUnitIncrement()<1 ){
+		if (getInterpolationUnitIncrement() < 1) {
 			// no i term during interpolation
-			runntingITerm=0;
-		}else{
+			runntingITerm = 0;
+		} else {
 			// shrink old values out of the sum
 			runntingITerm = runntingITerm * ((I_TERM_SIZE - 1.0) / I_TERM_SIZE);
 			// running sum of error
 			runntingITerm += controlErr;
 		}
 
-		currentEffort = -(controlErr * kP + ((runntingITerm/I_TERM_SIZE ) * kI));
+		currentEffort =
+				-(controlErr * kP + ((runntingITerm / I_TERM_SIZE) * kI));
 
 		//portEXIT_CRITICAL(&mmux);
 	}
@@ -330,32 +328,39 @@ void Motor::loop() {
 		cachedSpeed = err / (0.05); // ticks per second
 		prevousCount = nowEncoder;
 	}
-	// invert the effort so that the set speed and set effort match
+// invert the effort so that the set speed and set effort match
 	setEffortLocal(currentEffort);
-
-
 
 }
 /**
  * PID gains for the PID controller
  */
 void Motor::setGains(float p, float i, float d) {
-	//portENTER_CRITICAL(&mmux);
+//portENTER_CRITICAL(&mmux);
 	kP = p;
 	kI = i;
 	kD = d;
 	runntingITerm = 0;
-	//portEXIT_CRITICAL(&mmux);
+//portEXIT_CRITICAL(&mmux);
 }
 
-void Motor::setGainsP(float p){ kP = p; runntingITerm = 0;}
-void Motor::setGainsI(float i){ kI = i; runntingITerm = 0;}
-void Motor::setGainsD(float d){ kD = d; runntingITerm = 0;}
+void Motor::setGainsP(float p) {
+	kP = p;
+	runntingITerm = 0;
+}
+void Motor::setGainsI(float i) {
+	kI = i;
+	runntingITerm = 0;
+}
+void Motor::setGainsD(float d) {
+	kD = d;
+	runntingITerm = 0;
+}
 
 void Motor::attach(int MotorPWMPin, int MotorDirectionPin, int EncoderA,
 		int EncoderB) {
-	// Motor timer must be allocated and the thread must be started before starting
-	if (!Motor::timersAllocated){
+// Motor timer must be allocated and the thread must be started before starting
+	if (!Motor::timersAllocated) {
 		Motor::allocateTimer(0); // used by the DC Motors
 	}
 	pwm = new ESP32PWM();
@@ -367,13 +372,11 @@ void Motor::attach(int MotorPWMPin, int MotorDirectionPin, int EncoderA,
 	this->MotorPWMPin = MotorPWMPin;
 	encoder->attachFullQuad(EncoderA, EncoderB);
 	pinMode(directionFlag, OUTPUT);
-	// add the motor to the list of timer based controls
+// add the motor to the list of timer based controls
 	for (int i = 0; i < MAX_POSSIBLE_MOTORS; i++) {
 		if (Motor::list[i] == NULL) {
-
-			ESP_LOGI(TAG,
-					"Allocating Motor " + String(i) + " on PWM "
-							+ String(MotorPWMPin));
+//			String message ="Allocating Motor " + String(i) + " on PWM "+ String(MotorPWMPin);
+//			ESP_LOGI(TAG,message.c_str());
 			Motor::list[i] = this;
 			return;
 		}
@@ -394,10 +397,10 @@ void Motor::setEffort(float effort) {
 		effort = 1;
 	if (effort < -1)
 		effort = -1;
-	//portENTER_CRITICAL(&mmux);
+//portENTER_CRITICAL(&mmux);
 	closedLoopControl = false;
 	currentEffort = effort;
-	//portEXIT_CRITICAL(&mmux);
+//portEXIT_CRITICAL(&mmux);
 }
 /*
  * effort of the motor
@@ -436,9 +439,9 @@ void Motor::setEffortLocal(float effort) {
  */
 float Motor::getDegreesPerSecond() {
 	float tmp;
-	//portENTER_CRITICAL(&mmux);
+//portENTER_CRITICAL(&mmux);
 	tmp = cachedSpeed;
-	//portEXIT_CRITICAL(&mmux);
+//portEXIT_CRITICAL(&mmux);
 	return -tmp * TICKS_TO_DEGREES;
 }
 /**
@@ -449,9 +452,9 @@ float Motor::getDegreesPerSecond() {
  */
 float Motor::getCurrentDegrees() {
 	float tmp;
-	//portENTER_CRITICAL(&mmux);
+//portENTER_CRITICAL(&mmux);
 	tmp = nowEncoder;
-	//portEXIT_CRITICAL(&mmux);
+//portEXIT_CRITICAL(&mmux);
 	return tmp * TICKS_TO_DEGREES;
 }
 

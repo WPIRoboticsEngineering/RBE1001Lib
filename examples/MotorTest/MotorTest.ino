@@ -24,7 +24,8 @@ void setup() {
  */
 void loop() {
 	upDown=!upDown;
-	left_motor.moveTo(upDown?1000:0, 360);
+	left_motor.moveTo(upDown?360*2.5:0, 360);
+	right_motor.moveTo(upDown?360*2.5:0, 360);
 	//left_motor.SetSetpointWithLinearInterpolation(upDown?3600:0, 8000);
 	//right_motor.SetSetpointWithLinearInterpolation(upDown?360:0, 2000);
 	//right_motor.SetSetpointWithBezierInterpolation(upDown?3600:0, 8000,0.45,1);
@@ -32,7 +33,8 @@ void loop() {
 	double peak1 = 0;
 	double peak2 =0;
 
-	while(!left_motor.isMotorDoneWithMove()){
+	while(!left_motor.isMotorDoneWithMove() &&
+			!right_motor.isMotorDoneWithMove()){
 		if(abs(left_motor.getDegreesPerSecond())>peak1){
 			peak1=abs(left_motor.getDegreesPerSecond());
 		}
@@ -40,9 +42,9 @@ void loop() {
 			peak2=abs(right_motor.getDegreesPerSecond());
 		}
 		delay(20);
-		Serial.println("motor compared  "+String(right_motor.getInterpolationUnitIncrement()-left_motor.getInterpolationUnitIncrement())+
-				+" Interp "+String(right_motor.getInterpolationUnitIncrement())+
-				+" Vel 1 "+String(left_motor.getDegreesPerSecond())+" Vel 2 "+String(right_motor.getDegreesPerSecond()));
+//		Serial.println("motor compared  "+String(right_motor.getInterpolationUnitIncrement()-left_motor.getInterpolationUnitIncrement())+
+//				+" Interp "+String(right_motor.getInterpolationUnitIncrement())+
+//				+" Vel 1 "+String(left_motor.getDegreesPerSecond())+" Vel 2 "+String(right_motor.getDegreesPerSecond()));
 	}
 	delay(100);
 	Serial.println("Count 1 "+String(left_motor.getCurrentDegrees())+
