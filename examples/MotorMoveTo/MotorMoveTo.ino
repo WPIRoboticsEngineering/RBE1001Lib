@@ -42,7 +42,7 @@ void loop()
   //The following line will cause the program to wait indefinitely until the button is pressed
   if(!digitalRead(buttonPin) && !isSpinning) 
   { 
-    motor_left.MoveTo(360, 120); //spin once at 120 degrees per second
+    motor_left.moveTo(360, 120); //spin once at 120 degrees per second
     isSpinning = true;
   }
 

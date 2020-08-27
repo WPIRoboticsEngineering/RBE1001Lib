@@ -25,8 +25,8 @@ void setup() {
 void loop() 
 {
 	float speed = 360 * sin(2*3.14*(millis()%10000)/10000.);
-	left_motor.SetSpeed(speed);
-	right_motor.SetSpeed(speed);
+	left_motor.setSpeed(speed);
+	right_motor.setSpeed(speed);
 
 	Serial.print("SP: ");
 	Serial.print(speed);

@@ -120,17 +120,17 @@ Motor::~Motor() {
 }
 
 /**
- * SetSetpoint in degrees with time
+ * setSetpoint in degrees with time
  * Set the setpoint for the motor in degrees
  * @param newTargetInDegrees the new setpoint for the closed loop controller
  * @param msTimeDuration the number of miliseconds to get from current position to the new setpoint
  */
-void Motor::SetSetpointWithTime(float newTargetInDegrees, long msTimeDuration,
+void Motor::setSetpointWithTime(float newTargetInDegrees, long msTimeDuration,
 		interpolateMode mode) {
 	float newSetpoint = newTargetInDegrees / TICKS_TO_DEGREES;
 	//portENTER_CRITICAL(&mmux);
 	closedLoopControl = true;
-	if (newSetpoint == Setpoint && msTimeDuration == duration
+	if (newSetpoint == setpoint && msTimeDuration == duration
 			&& this->mode == mode)
 		return;
 	startSetpoint = encoder->getCount();
@@ -139,28 +139,28 @@ void Motor::SetSetpointWithTime(float newTargetInDegrees, long msTimeDuration,
 	duration = msTimeDuration;
 	this->mode = mode;
 	if (msTimeDuration < 1) {
-		Setpoint = newSetpoint;
+		setpoint = newSetpoint;
 	}
 	//portEXIT_CRITICAL(&mmux);
 }
 
 /**
- * MoveTo in degrees with speed
+ * moveTo in degrees with speed
  * Set the setpoint for the motor in degrees and the speed you want to get there
- * Bascially, a wrapper function for SetSetpointWithTime that takes speed as an argument
+ * Bascially, a wrapper function for setSetpointWithTime that takes speed as an argument
  * @param newTargetInDegrees the new setpoint for the closed loop controller
  * @param speedDegPerSec  is the speed in degrees per second
 */
-void Motor::MoveTo(float newTargetInDegrees, float speedDegPerSec)
+void Motor::moveTo(float newTargetInDegrees, float speedDegPerSec)
 {
-    SetSetpointWithTime(newTargetInDegrees, fabs(newTargetInDegrees/speedDegPerSec) * 1000.0, SINUSOIDAL_INTERPOLATION);
+    setSetpointWithTime(newTargetInDegrees, fabs(newTargetInDegrees/speedDegPerSec) * 1000.0, SINUSOIDAL_INTERPOLATION);
 }
 
 
-float Motor::StartMoveFor(float deltaTargetInDegrees, float speedDegPerSec)
+float Motor::startMoveFor(float deltaTargetInDegrees, float speedDegPerSec)
 {
 	float newSetPoint = getCurrentDegrees() + deltaTargetInDegrees;
-	SetSetpointWithTime(newSetPoint,
+	setSetpointWithTime(newSetPoint,
 			fabs(deltaTargetInDegrees / speedDegPerSec) * 1000.0,
 			SINUSOIDAL_INTERPOLATION);
 	return newSetPoint;
@@ -182,7 +182,7 @@ void Motor::blockUntilMoveIsDone(){
 	do
 	{
 		delay(10);
-		distanceToGo=fabs((Setpoint*TICKS_TO_DEGREES) - getCurrentDegrees());
+		distanceToGo=fabs((setpoint*TICKS_TO_DEGREES) - getCurrentDegrees());
 		Serial.println("Remaining: "+String(distanceToGo));
 	}while (distanceToGo>TICKS_TO_DEGREES );// get within 1 tick
 	// wait for the velocity to be below 10deg/sec
@@ -193,22 +193,22 @@ void Motor::blockUntilMoveIsDone(){
 	}
 }
 /**
- * MoveFor a relative amount in degrees with speed
+ * moveFor a relative amount in degrees with speed
  * Set the setpoint for the motor in degrees and the speed you want to get there
- * Bascially, a wrapper function for SetSetpointWithTime that takes speed as an argument
+ * Bascially, a wrapper function for setSetpointWithTime that takes speed as an argument
  * @param deltaTargetInDegrees the new relative setpoint for the closed loop controller
  * @param speedDegPerSec  is the speed in degrees per second
  * @note this is a blocking function, it will block code for multiple seconds until the motor arrives
  * at its given setpoint
  */
-void Motor::MoveFor(float deltaTargetInDegrees, float speedDegPerSec)
+void Motor::moveFor(float deltaTargetInDegrees, float speedDegPerSec)
 {
-	StartMoveFor(deltaTargetInDegrees, speedDegPerSec);
+	startMoveFor(deltaTargetInDegrees, speedDegPerSec);
 	blockUntilMoveIsDone();
 }
 
 /**
- * SetSpeed in degrees with time
+ * setSpeed in degrees with time
  * Set the setpoint for the motor in degrees
  * This implements "Red Queen" mode running interpolation in the PID controller.
 
@@ -224,9 +224,9 @@ void Motor::MoveFor(float deltaTargetInDegrees, float speedDegPerSec)
  *
  * @param newDegreesPerSecond the new speed in degrees per second
  */
-void Motor::SetSpeed(float newDegreesPerSecond) {
+void Motor::setSpeed(float newDegreesPerSecond) {
 	if (abs(newDegreesPerSecond) < 0.1) {
-		SetSetpoint(getCurrentDegrees());
+		setSetpoint(getCurrentDegrees());
 //		Serial.println("Stopping");
 		return;
 	}
@@ -235,30 +235,30 @@ void Motor::SetSpeed(float newDegreesPerSecond) {
 //	Serial.println("Setting Speed "+String(newDegreesPerSecond)+
 //			" increment "+String(milisecondPosIncrementForVelocity)+
 //			" scale "+String(TICKS_TO_DEGREES)
-//			+" Setpoint "+String(Setpoint*TICKS_TO_DEGREES)
+//			+" setpoint "+String(setpoint*TICKS_TO_DEGREES)
 //	);
-	//Setpoint = nowEncoder;
+	//setpoint = nowEncoder;
 	mode = VELOCITY_MODE;
 	closedLoopControl = true;
 }
 
 /**
- * SetSpeed in degrees with time
+ * setSpeed in degrees with time
  * Set the setpoint for the motor in degrees
  * @param newDegreesPerSecond the new speed in degrees per second
  * @param miliseconds the number of miliseconds to run for
  * @note a value of 0 miliseconds will set the motor into open-ended run mode
  */
-void Motor::SetSpeed(float newDegreesPerSecond, long miliseconds) {
+void Motor::setSpeed(float newDegreesPerSecond, long miliseconds) {
 	if (miliseconds < 1) {
 		// 0 time will set up "Red Queen" (sic) interpolation
-		SetSpeed(newDegreesPerSecond);
+		setSpeed(newDegreesPerSecond);
 		return;
 	}
 	float currentPos = getCurrentDegrees();
 	float distance = currentPos
 			+ (-newDegreesPerSecond * (((float) miliseconds) / 1000.0));
-	SetSetpointWithTime(distance, miliseconds, LINEAR_INTERPOLATION);
+	setSetpointWithTime(distance, miliseconds, LINEAR_INTERPOLATION);
 }
 
 /**
@@ -272,20 +272,20 @@ void Motor::loop() {
 		//portEXIT_CRITICAL(&mmux);
 		if (mode == VELOCITY_MODE) {
 			if(abs(currentEffort)<0.95)// stall detection
-				Setpoint += milisecondPosIncrementForVelocity;
+				setpoint += milisecondPosIncrementForVelocity;
 		} else {
 			unitDuration = getInterpolationUnitIncrement();
 			if (unitDuration < 1) {
 				float setpointDiff = endSetpoint - startSetpoint;
 				float newSetpoint = startSetpoint
 						+ (setpointDiff * unitDuration);
-				Setpoint = newSetpoint;
+				setpoint = newSetpoint;
 			} else {
 				// If there is no interpoation to perform, set the setpoint to the end state
-				Setpoint = endSetpoint;
+				setpoint = endSetpoint;
 			}
 		}
-		float controlErr = Setpoint - nowEncoder;
+		float controlErr = setpoint - nowEncoder;
 		// shrink old values out of the sum
 		runntingITerm = runntingITerm * ((I_TERM_SIZE - 1.0) / I_TERM_SIZE);
 		// running sum of error
@@ -308,7 +308,7 @@ void Motor::loop() {
 		prevousCount = nowEncoder;
 	}
 	// invert the effort so that the set speed and set effort match
-	SetEffortLocal(currentEffort);
+	setEffortLocal(currentEffort);
 
 
 
@@ -366,7 +366,7 @@ void Motor::attach(int MotorPWMPin, int MotorDirectionPin, int EncoderA,
  *        1 is full speed clockwise
  *        -1 is full speed counter clockwise
  */
-void Motor::SetEffort(float effort) {
+void Motor::setEffort(float effort) {
 	if (effort > 1)
 		effort = 1;
 	if (effort < -1)
@@ -383,7 +383,7 @@ void Motor::SetEffort(float effort) {
  *        1 is full speed clockwise
  *        -1 is full speed counter clockwise
  */
-float Motor::GetEffort() {
+float Motor::getEffort() {
 	return currentEffort;
 }
 /*
@@ -393,7 +393,7 @@ float Motor::GetEffort() {
  *        1 is full speed clockwise
  *        -1 is full speed counter clockwise
  */
-void Motor::SetEffortLocal(float effort) {
+void Motor::setEffortLocal(float effort) {
 	if (effort > 1)
 		effort = 1;
 	if (effort < -1)
