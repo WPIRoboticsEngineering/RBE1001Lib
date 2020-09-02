@@ -1,0 +1,122 @@
+body {
+
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hide {
+  display: none;
+}
+
+
+.container {
+  /*display: grid;*/
+  /*grid-template-rows: 1fr 7fr 7fr 1fr;*/
+  display: flex;
+  flex-direction: column;
+  height:100vh;
+}
+
+.pane {
+  background-color: #aaa;
+  flex-grow: 4;
+  height: 40%;
+}
+.values {
+
+}
+.control {
+  background-color: orange;
+}
+
+
+.stats {
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  padding: 5px;
+  display: flex;
+}
+.stats span{
+  display: block;
+  flex-grow: 1;
+}
+
+.mobilemenu {
+  background-color: #444;
+}
+
+.mobilemenu a {
+  float: left;
+  text-align: center;
+  padding: 8px 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  width: 50px;
+}
+
+
+.mobilemenu span{
+  font-size:10px;
+
+  display:block;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  padding-top: 5px;
+}
+
+.menuselected {
+  background-color: #666;
+}
+
+.console {
+
+
+}
+
+.consoletext{
+  padding:3px;
+  background-color: black;
+  color: white;
+  text-shadow: 0 0 5px #C8C8C8;
+  font: 1rem Inconsolata, monospace;
+  width: 100%;
+  height: 100%;
+}
+/* Pane */
+.pane h1{
+  background-color: #666;
+  margin: 0px;
+  padding: 3px;
+  font-size: 0.8em;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+  font-weight: lighter;
+  color: white;
+}
+
+
+/* Tables */
+.pane table{
+  border-collapse: collapse;
+  font-size:15px;
+  padding: 5px;
+  width: 100%;
+}
+.pane td{
+  padding: 2px 5px;
+}
+
+.pane td:nth-child(1){
+  font-weight: bold;
+  width: 35%;
+}
+
+.pane tr:nth-child(even) {background-color: #f2f2f2;}
+
+#frost-chart {
+  width: 100%;
+  height: 100%;
+}

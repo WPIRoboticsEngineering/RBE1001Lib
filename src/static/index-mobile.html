@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTML5 boilerplate – all you really need…</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+  <script src="nipplejs.min.js"></script>
+    <script src="https://unpkg.com/frappe-charts@latest"></script>
+</head>
+
+<body id="home">
+  <div class="container">
+    <div class="stats">
+      <span class="ping"><i class="fa fa-signal" aria-hidden="true"></i> Ping: 5ms</span>
+      <span class="lastpacket"><i class="fa fa-clock-o" aria-hidden="true"></i> Last Packet: 5ms</span>
+    </div>
+    <div class="mobilemenu">
+      <a href="#" id="data-btn"><i class="fa fa-fw fa-1x fa-th-list"></i><span>Data</span></a>
+      <a href="#" id="graph-btn"><i class="fa fa-fw fa-1x fa-line-chart"></i><span>Graph</span> </a>
+      <a href="#" id="console-btn"><i class="fa fa-fw fa-1x fa-terminal"></i><span>Console</span> </a>
+    </div>
+
+    <div class="pane values hide" id="data-pane">
+      <h1> Data </h1>
+      <table>
+        <tr>
+          <td>Ticks:</td>
+          <td>545</td>
+        </tr>
+        <tr>
+          <td>Some Thing:</td>
+          <td>42</td>
+        </tr>
+        <tr>
+          <td>Temperature:</td>
+          <td>32.43255c</td>
+        </tr>
+        <tr>
+          <td>Potato Count:</td>
+          <td>55.44</td>
+        </tr>
+      </table>
+    </div>
+    <div class="pane values " id="graph-pane">
+      <h1> Graphs </h1>
+      <div id="frost-chart"></div>
+    </div>
+    <div class="pane values console hide" id="console-pane">
+      <h1> Console </h1>
+      <div class="consoletext">
+        hello world
+      </div>
+    </div>
+
+    <div class="pane control" id="joystick-pane">Joy</div>
+    <div class="pane control hide" id="button-pane">Buttons</div>
+    <div class="pane control hide" id="pid-pane">
+      <form class="form">
+        <label for="m1p">Motor 1 P:</label>
+        <input type="number" id="m1p" name="m1p" value="1"><br>
+        <label for="m1i">Motor 1 I:</label>
+        <input type="number" id="m1i" name="m1i" value="1"><br>
+        <label for="m1d">Motor 1 D:</label>
+        <input type="number" id="m1d" name="m1d" value="1"><br>
+        <label for="m2p">Motor 2 P:</label>
+        <input type="number" id="m2p" name="m2p" value="1"><br>
+        <label for="m2i">Motor 2 I:</label>
+        <input type="number" id="m2i" name="m2i" value="1"><br>
+        <label for="m2d">Motor 2 D:</label>
+        <input type="number" id="m2d" name="m2d" value="1"><br>
+
+        <br>
+        <br>
+        <label for="m1s">Motor 2 D:</label>
+        <input type="number" id="m1s" name="m1s" value="1"><br>
+        <label for="m2s">Motor 2 D:</label>
+        <input type="number" id="m2s" name="m2s" value="1"><br>
+        <br>
+        <button type="" name="Set Values">Set Values</button>
+      </form>
+    </div>
+
+    <div class="mobilemenu">
+      <a href="#" id="joystick-btn"><i class="fa fa-fw fa-1x fa-gamepad"></i><span>Joystick</span> </a>
+      <a href="#" id="button-btn"><i class="fa fa-fw fa-1x fa-sliders"></i><span>Buttons</span> </a>
+      <a href="#" id="pid-btn"><i class="fa fa-fw fa-1x fa-magic"></i><span>PID</span> </a>
+    </div>
+  </div>
+  <script type="text/javascript">
+    var manager = nipplejs.create({
+      zone: document.getElementById('joystick-pane'),
+      mode: 'static',
+      position: {
+        left: '50%',
+        bottom: '28%'
+      },
+      color: 'blue'
+    });
+
+
+
+  let chart = new frappe.Chart( "#frost-chart", { // or DOM element
+    data: {
+        labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+        datasets: [
+          { name: "Dataset 1", values: [18, 40, 30, 35, 8, 52, 17, -4] },
+          { name: "Dataset 2", values: [30, 50, -10, 15, 18, 32, 27, 14] }
+        ]
+    },
+
+	title: "My Awesome Chart",
+	type: 'axis-mixed', // or 'bar', 'line', 'pie', 'percentage'
+	height: 300,
+	colors: ['purple', '#ffa3ef', 'light-blue'],
+
+	tooltipOptions: {
+		formatTooltipX: d => (d + '').toUpperCase(),
+		formatTooltipY: d => d + ' pts',
+	}
+  });
+
+  chart.export();
+  </script>
+  <script src="menu.js"></script>
+</body>
+
+</html>
