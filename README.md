@@ -7,7 +7,7 @@ A library to support introduction to robotics engineering.
 
 # Depenancies
 
-* ESP32Servo 0.8.0
+* ESP32Servo 0.9.0
 * ESP32AnalogRead 0.0.5
 * ESP32Encoder 0.3.8
 * Esp32WifiManager 0.12.0
