@@ -307,7 +307,7 @@ public:
 	 *
 	 * @param newDegreesPerSecond the new speed in degrees per second
 	 */
-	void SetSpeed(float newDegreesPerSecond);
+	void setSpeed(float newDegreesPerSecond);
 
 	float SetDelta(float newDegreesPerSecond);
 

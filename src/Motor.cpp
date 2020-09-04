@@ -247,7 +247,7 @@ void Motor::MoveFor(float deltaTargetInDegrees, float speedDegPerSec)
  *
  * @param newDegreesPerSecond the new speed in degrees per second
  */
-void Motor::SetSpeed(float speedDegPerSec) 
+void Motor::setSpeed(float speedDegPerSec) 
 {
 	SetDelta(speedDegPerSec);
 	mode = VELOCITY_MODE;
@@ -276,7 +276,7 @@ float Motor::SetDelta(float speedDegPerSec)
 void Motor::SetSpeed(float newDegreesPerSecond, long durationMS) {
 	if (durationMS < 1) {
 		// 0 time will set up "Red Queen" (sic) interpolation
-		SetSpeed(newDegreesPerSecond);
+		setSpeed(newDegreesPerSecond);
 		return;
 	}
 	float currentPos = getCurrentDegrees();
