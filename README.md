@@ -7,14 +7,15 @@ A library to support introduction to robotics engineering.
 
 # Depenancies
 
-* ESP32Servo
-* ESP32AnalogRead
-* ESP32Encoder
-* Esp32WifiManager
-* FS
-* Preferences
-* WebServer
-* WiFi
+* ESP32Servo 0.8.0
+* ESP32AnalogRead 0.0.5
+* ESP32Encoder 0.3.8
+* Esp32WifiManager 0.12.0
+* ESPmDNS 1.0
+* FS  1.0
+* Preferences 1.0
+* WebServer 1.0
+* WiFi 1.0
 
 # WiFi RC control
 
