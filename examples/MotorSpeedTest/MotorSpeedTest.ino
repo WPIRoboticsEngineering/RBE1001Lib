@@ -36,8 +36,8 @@ void loop()
 	Serial.print(left_motor.getDegreesPerSecond());
 	Serial.print('\t');
 
-	Serial.print("R: ");
-	Serial.print(right_motor.getDegreesPerSecond());
+	Serial.print("E: ");
+	Serial.print(left_motor.getEffortPercent());
 	Serial.print('\n');
 
 	delay(100);

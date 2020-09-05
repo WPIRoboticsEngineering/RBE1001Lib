@@ -367,7 +367,7 @@ void Motor::attach(int MotorPWMPin, int MotorDirectionPin, int EncoderA,
 	encoder = new ESP32Encoder();
 	ESP32Encoder::useInternalWeakPullResistors = UP;
 
-	pwm->attachPin(MotorPWMPin, 20000, 8);
+	pwm->attachPin(MotorPWMPin, 20000, 12);
 	directionFlag = MotorDirectionPin;
 	this->MotorPWMPin = MotorPWMPin;
 	encoder->attachFullQuad(EncoderA, EncoderB);
