@@ -243,7 +243,7 @@ void Motor::moveFor(float deltaTargetInDegrees, float speedDegPerSec) {
  * @param newDegreesPerSecond the new speed in degrees per second
  */
 void Motor::setSpeed(float newDegreesPerSecond) {
-	if (abs(newDegreesPerSecond) < 0.1) {
+	if (fabs(newDegreesPerSecond) < 0.1) {
 		setSetpoint(getCurrentDegrees());
 		ESP_LOGI(TAG, "Stopping");
 		return;
@@ -289,7 +289,7 @@ void Motor::loop() {
 	if (closedLoopControl) {
 		//portEXIT_CRITICAL(&mmux);
 		if (mode == VELOCITY_MODE) {
-			if (abs(currentEffort) < 0.95)	// stall detection
+			if (fabs(currentEffort) < 0.95)	// stall detection
 				setpoint += milisecondPosIncrementForVelocity;
 		} else {
 			unitDuration = getInterpolationUnitIncrement();
@@ -428,7 +428,7 @@ void Motor::setEffortLocal(float effort) {
 		digitalWrite(directionFlag, LOW);
 	else
 		digitalWrite(directionFlag, HIGH);
-	pwm->writeScaled(abs(effort));
+	pwm->writeScaled(fabs(effort));
 }
 /**
  * getDegreesPerSecond
