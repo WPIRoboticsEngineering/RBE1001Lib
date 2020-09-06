@@ -31,8 +31,6 @@ void setup()
   pinMode(buttonPin, INPUT_PULLUP);
 }
 
-bool isSpinning = false;
-
 /*
  * The main loop for the program. The loop function is repeatedly called
  * once the ESP32 is started.
@@ -40,14 +38,21 @@ bool isSpinning = false;
 void loop() 
 {
   //The following line will cause the program to wait indefinitely until the button is pressed
-  if(!digitalRead(buttonPin) && !isSpinning) 
-  { 
-    motor_left.moveTo(360, 120); //spin once at 120 degrees per second
-    isSpinning = true;
+  //It'll print out motor data while it waits
+  while(digitalRead(buttonPin)) 
+  {
+    Serial.print(motor_left.getCurrentDegrees()); //motor1 position
+    Serial.print('\t'); //TAB character
+    Serial.print(motor_right.getCurrentDegrees()); //motor2 position
+    Serial.print('\n'); //newline character
   }
+
+  motor_left.moveTo(360, 120); //spin once at 120 degrees per second
 
   Serial.print(motor_left.getCurrentDegrees()); //motor1 position
   Serial.print('\t'); //TAB character
   Serial.print(motor_right.getCurrentDegrees()); //motor2 position
   Serial.print('\n'); //newline character
+
+  delay(50);
 }

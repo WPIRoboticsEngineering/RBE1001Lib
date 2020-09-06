@@ -63,11 +63,11 @@ private:
 	/**
 	 * PID controller proportional constant
 	 */
-	float kP = 0.05;
+	float kP = 0.02;
 	/**
 	 * PID controller integral constant
 	 */
-	float kI = 0.06;
+	float kI = 0.01;
 	/**
 	 * PID controller derivitive constant
 	 */
