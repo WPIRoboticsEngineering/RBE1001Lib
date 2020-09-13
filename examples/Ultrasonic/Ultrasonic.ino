@@ -25,5 +25,5 @@ void loop()
   delay(100);
   float distance = ultrasonic.getDistanceCM();
 
-  Serial.println(distance);
+  Serial.print(distance); Serial.println(" cm");
 }
