@@ -1,7 +1,8 @@
 <map id="loop" name="loop">
-<area shape="rect" id="node2" href="$classMotor.html#a7a84e0d2676d7420219b6e7f67e69038" title="Motor::getCurrentDegrees" alt="" coords="100,5,273,32"/>
-<area shape="rect" id="node3" href="$classMotor.html#aa4680d4c00dcc6b4b33ae350db60e11c" title="Motor::moveTo" alt="" coords="131,56,242,83"/>
-<area shape="rect" id="node4" href="$classMotor.html#a9cdbe8186e8b6337e14743c4d2a37bc6" title="Motor::setSetpointWithTime" alt="" coords="321,56,507,83"/>
-<area shape="rect" id="node5" href="$classESP32Encoder.html#ab555afb955fbfb2446b525a64c1efbb1" title="ESP32Encoder::getCount" alt="" coords="555,56,727,83"/>
-<area shape="rect" id="node6" href="$classESP32Encoder.html#aa408a8969aa799cf2e96413ee0a65080" title="ESP32Encoder::getCountRaw" alt="" coords="775,56,973,83"/>
+<area shape="rect" id="node2" href="$classMotor.html#a7a84e0d2676d7420219b6e7f67e69038" title="Motor::getCurrentDegrees" alt="" coords="269,5,442,32"/>
+<area shape="rect" id="node3" href="$classMotor.html#aa4680d4c00dcc6b4b33ae350db60e11c" title="Motor::moveTo" alt="" coords="100,56,211,83"/>
+<area shape="rect" id="node4" href="$classMotor.html#aa841ae32ce5aa1aaf716898a64a47ea2" title="Motor::setSetpointWithBezier\lInterpolation" alt="" coords="259,57,452,98"/>
+<area shape="rect" id="node5" href="$classMotor.html#a9cdbe8186e8b6337e14743c4d2a37bc6" title="Motor::setSetpointWithTime" alt="" coords="500,64,685,91"/>
+<area shape="rect" id="node6" href="$classESP32Encoder.html#ab555afb955fbfb2446b525a64c1efbb1" title="ESP32Encoder::getCount" alt="" coords="733,64,905,91"/>
+<area shape="rect" id="node7" href="$classESP32Encoder.html#aa408a8969aa799cf2e96413ee0a65080" title="ESP32Encoder::getCountRaw" alt="" coords="953,64,1152,91"/>
 </map>

@@ -1,17 +1,16 @@
 <map id="/home/hephaestus/git/Esp32WifiManager/src/wifi/WifiManager.h" name="/home/hephaestus/git/Esp32WifiManager/src/wifi/WifiManager.h">
 <area shape="rect" id="node2" href="$RCCTL_8ino.html" title="examples/RCCTL/RCCTL.ino" alt="" coords="5,325,203,351"/>
-<area shape="rect" id="node3" href="$Esp32WifiManager_8h.html" title="/home/hephaestus/git\l/Esp32WifiManager/src\l/Esp32WifiManager.h" alt="" coords="666,109,825,165"/>
-<area shape="rect" id="node16" href="$WifiManager_8cpp.html" title="/home/hephaestus/git\l/Esp32WifiManager/src\l/wifi/WifiManager.cpp" alt="" coords="849,109,1007,165"/>
-<area shape="rect" id="node4" href="$RBE1001Lib_8h.html" title="src/RBE1001Lib.h" alt="" coords="681,228,809,255"/>
-<area shape="rect" id="node14" href="$APModeExample_8ino.html" title="/home/hephaestus/git\l/Esp32WifiManager/examples\l/APModeExample/APModeExample.ino" alt="" coords="833,213,1087,269"/>
-<area shape="rect" id="node15" href="$WifiManagerExample_8ino.html" title="/home/hephaestus/git\l/Esp32WifiManager/examples\l/WifiManagerExample/WifiManagerExample.ino" alt="" coords="1111,213,1409,269"/>
+<area shape="rect" id="node3" href="$Esp32WifiManager_8h.html" title="/home/hephaestus/git\l/Esp32WifiManager/src\l/Esp32WifiManager.h" alt="" coords="566,109,725,165"/>
+<area shape="rect" id="node15" href="$WifiManager_8cpp.html" title="/home/hephaestus/git\l/Esp32WifiManager/src\l/wifi/WifiManager.cpp" alt="" coords="749,109,907,165"/>
+<area shape="rect" id="node4" href="$RBE1001Lib_8h.html" title="src/RBE1001Lib.h" alt="" coords="581,228,709,255"/>
+<area shape="rect" id="node13" href="$APModeExample_8ino.html" title="/home/hephaestus/git\l/Esp32WifiManager/examples\l/APModeExample/APModeExample.ino" alt="" coords="733,213,987,269"/>
+<area shape="rect" id="node14" href="$WifiManagerExample_8ino.html" title="/home/hephaestus/git\l/Esp32WifiManager/examples\l/WifiManagerExample/WifiManagerExample.ino" alt="" coords="1011,213,1309,269"/>
 <area shape="rect" id="node5" href="$WebPage_8cpp.html" title="src/WebPage.cpp" alt="" coords="227,325,354,351"/>
 <area shape="rect" id="node6" href="$EncoderTest_8ino.html" title="examples/EncoderTest\l/EncoderTest.ino" alt="" coords="378,317,534,359"/>
 <area shape="rect" id="node7" href="$FullSystemTest_8ino.html" title="examples/FullSystemTest\l/FullSystemTest.ino" alt="" coords="558,317,733,359"/>
 <area shape="rect" id="node8" href="$LineTrackerTest_8ino.html" title="examples/LineTrackerTest\l/LineTrackerTest.ino" alt="" coords="757,317,933,359"/>
 <area shape="rect" id="node9" href="$MotorMoveTo_8ino.html" title="examples/MotorMoveTo\l/MotorMoveTo.ino" alt="" coords="957,317,1120,359"/>
 <area shape="rect" id="node10" href="$MotorSpeedTest_8ino.html" title="examples/MotorSpeedTest\l/MotorSpeedTest.ino" alt="" coords="1144,317,1323,359"/>
-<area shape="rect" id="node11" href="$MotorTest_8ino.html" title="examples/MotorTest\l/MotorTest.ino" alt="" coords="1347,317,1488,359"/>
-<area shape="rect" id="node12" href="$Photoresistor_8ino.html" title="examples/Photoresistor\l/Photoresistor.ino" alt="" coords="1513,317,1671,359"/>
-<area shape="rect" id="node13" href="$Ultrasonic_8ino.html" title="examples/Ultrasonic\l/Ultrasonic.ino" alt="" coords="1696,317,1837,359"/>
+<area shape="rect" id="node11" href="$Photoresistor_8ino.html" title="examples/Photoresistor\l/Photoresistor.ino" alt="" coords="1347,317,1506,359"/>
+<area shape="rect" id="node12" href="$Ultrasonic_8ino.html" title="examples/Ultrasonic\l/Ultrasonic.ino" alt="" coords="1531,317,1672,359"/>
 </map>

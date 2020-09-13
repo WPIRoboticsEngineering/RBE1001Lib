@@ -34,7 +34,6 @@ var searchData=
   ['motormoveto_2eino',['MotorMoveTo.ino',['../MotorMoveTo_8ino.html',1,'']]],
   ['motorpwmpin',['MotorPWMPin',['../classMotor.html#ae670034c4a9a6ef86b6515c53eb9b0e5',1,'Motor']]],
   ['motorspeedtest_2eino',['MotorSpeedTest.ino',['../MotorSpeedTest_8ino.html',1,'']]],
-  ['motortest_2eino',['MotorTest.ino',['../MotorTest_8ino.html',1,'']]],
   ['movefor',['moveFor',['../classMotor.html#a92ada38e1ab60942381ca46f2d13ae3d',1,'Motor']]],
   ['moveto',['moveTo',['../classMotor.html#aa4680d4c00dcc6b4b33ae350db60e11c',1,'Motor']]],
   ['multiple_2dservo_2dexample_2darduino_2eino',['Multiple-Servo-Example-Arduino.ino',['../Multiple-Servo-Example-Arduino_8ino.html',1,'']]],
