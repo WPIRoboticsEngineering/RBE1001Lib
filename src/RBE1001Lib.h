@@ -21,8 +21,8 @@
 #define SPI_SS   5
 
 // Ultrasonics
-#define SIDE_ULTRASONIC_TRIG 17
-#define SIDE_ULTRASONIC_ECHO 16
+#define SIDE_ULTRASONIC_TRIG 23
+#define SIDE_ULTRASONIC_ECHO 22
 
 //A4
 #define LEFT_LINE_SENSE 36
@@ -57,9 +57,9 @@
 #define MOTOR_RIGHT_DIR 25
 //Encoder pins
 
-#define MOTOR_LEFT_ENCA 26
+#define MOTOR_LEFT_ENCA 27
 //A0
-#define MOTOR_LEFT_ENCB 27
+#define MOTOR_LEFT_ENCB 26
 
 
 #define MOTOR_RIGHT_ENCA 32
