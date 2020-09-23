@@ -7,6 +7,8 @@
 #include <ESPAsyncWebServer/ESPAsyncWebServer.h>
 #include "Motor.h"
 #include "RBE1001Lib.h"
+#include <stdio.h>
+#include <string.h>
 
 AsyncWebServer server(80);
 AsyncWebSocket ws("/test");
@@ -48,6 +50,9 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
 	//		0x10 (16)	Value Update
 	//  	  	4B: value index
 	//			4B: value data
+	 * 		0x11 (17)	Console Data
+	 * 			4B:	length
+	 * 			*B: data
 	 * 		0x1d (29)	Bulk Label Update
 	 * 			4B:	Number of Labels in this update
 	 * 			4B: Start of string data
@@ -531,5 +536,9 @@ bool WebPage::sendHeartbeat(){
 		return true; // update sent
 	}
 	return false;
+}
+
+void WebPage::printToWebConsole(uint8_t *buffer){
+
 }
 
