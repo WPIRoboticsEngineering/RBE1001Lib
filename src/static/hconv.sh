@@ -35,8 +35,7 @@ do
   #Make sure files terminate with a 0 so they're valud strings.
   #Make sure the array type is static const.
   #Append to static files
-  xxd -i $file_name | sed --expression 's/};/,0x00};/g'\
-   | sed --expression 's/unsigned/static const/g' | cat >> static.h
+  xxd -i $file_name | sed --expression 's/unsigned/static const/g' | cat >> static.h
 done
 
 # Build manifest
