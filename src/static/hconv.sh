@@ -4,9 +4,9 @@
 read -r -d '' MANIFEST_STRUCT << EOM
 typedef struct
 {
-  static const char * filename;
-  static const char * filedata;
-  static const int *  length;
+  const char * filename;
+  const char * filedata;
+  int length;
 } PACKED_FILE;
 
 
@@ -20,8 +20,8 @@ static const PACKED_FILE static_files_manifest[] =
 EOM
 
 read -r -d '' MANIFEST_POST << EOM
-  {NULL,NULL,0}
-}
+  {NULL,NULL,NULL}
+};
 EOM
 
 #Clear out static file.
@@ -48,7 +48,7 @@ for f in `cat static.h | grep "static const char __" | awk '{print $4}' | sed "s
 do
   FNAME=`echo $f | sed "s/__//" | sed "s/_/./g" | cat`
   CNAME=$f
-  printf "static const char _filename%s = \"%s\"; \n" "$CNAME" "$FNAME" >>static.h
+  printf "static const char _filename%s[] = \"%s\"; \n" "$CNAME" "$FNAME" >>static.h
 done
 
 
