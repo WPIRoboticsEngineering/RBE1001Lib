@@ -2,8 +2,8 @@
 #include <WebServer.h>
 #include <HTTP_Method.h>
 #include "WebPage.h"
-#include "static/indexhtml.h"
-#include "static/nipplejsminjs.h"
+#include "static/static.h"
+
 #include <ESPAsyncWebServer/ESPAsyncWebServer.h>
 #include "Motor.h"
 #include "RBE1001Lib.h"
@@ -15,9 +15,9 @@ AsyncWebSocket ws("/test");
 static WebPage *thisPage;
 static char stringBuffer[200];
 //static uint8_t buffer[labelbuflen];
-const String updtime="Uptime";
-const String js(nipplejs_min_js);
-const String myHTML(index_html);
+//const String updtime="Uptime";
+//const String js(nipplejs_min_js);
+//const String myHTML(index_html);
 
 static bool lockOutSending = false;
 
@@ -178,6 +178,7 @@ void WebPage::initalize(){
 	server.begin();
 	//Serial.println("HTTP server started");
 //
+	/*
     server.on("/", 0b00000001, [](AsyncWebServerRequest *request){
 
     	lock();
@@ -185,15 +186,16 @@ void WebPage::initalize(){
 		request->send(200, "text/html",myHTML );
 		unlock();
 
-    });
-    server.on("/nipplejs.min.js", 0b00000001, [](AsyncWebServerRequest *request){
+    });*/
+    server.on("/*", 0b00000001, [](AsyncWebServerRequest *request){
 
     	lock();
-		//Serial.println("L text/javascript Lock");
-		request->send(200, "text/javascript", js);
+		//Serial.println("L text/html Lock");
+		request->send(200, "text/html", request->url() );
 		unlock();
 
     });
+
     server.on("/pidvalues", 0b00000001, [](AsyncWebServerRequest *request){
 
     	lock();

@@ -11,8 +11,8 @@ var manager = nipplejs.create({
   color: 'blue'
 });
 
-//let socket = new WebSocket("ws://" + location.host + "/test");
-let socket = new WebSocket("ws://192.168.86.45/test");
+let socket = new WebSocket("ws://" + location.host + "/test");
+//let socket = new WebSocket("ws://192.168.86.45/test");
 socket.binaryType = 'arraybuffer';
 socket.onopen = function(e) {
   console.log("[open] Connection established");
