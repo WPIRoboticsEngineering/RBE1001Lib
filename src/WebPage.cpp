@@ -187,15 +187,9 @@ void WebPage::initalize(){
 		unlock();
 
     });*/
-    server.on("/*", 0b00000001, [](AsyncWebServerRequest *request){
 
-    	lock();
-		//Serial.println("L text/html Lock");
-		request->send(200, "text/html", request->url() );
-		unlock();
-
-    });
-
+    ws.onEvent(onWsEvent);
+    server.addHandler(&ws);
     server.on("/pidvalues", 0b00000001, [](AsyncWebServerRequest *request){
 
     	lock();
@@ -249,6 +243,24 @@ void WebPage::initalize(){
 		unlock();
 
     });
+    server.on("/*", 0b00000001, [](AsyncWebServerRequest *request){
+    	String url = request->url();
+    	lock();
+		//Serial.println("L text/html Lock");
+    	Serial.println(url);
+    	// lookup our file
+    	if (url == "/") url = "/index.html";
+    	for(int i=0; i<static_files_manifest_count; i++){
+    		if(url.equals(static_files_manifest[i].name)){
+    			// This is turbo broken?
+    			request->send(200, (char*)static_files_manifest[i].mime, static_files_manifest[i].data);
+
+    		}
+
+    	}
+		unlock();
+
+    });
 
 
     xTaskCreatePinnedToCore(
@@ -260,8 +272,7 @@ void WebPage::initalize(){
           &thisPage->updateTaskHandle,  /* Task handle. */
           1); /* Core where the task should run */
 
-    ws.onEvent(onWsEvent);
-    server.addHandler(&ws);
+
 }
 
 float WebPage::getSliderValue(uint32_t number){

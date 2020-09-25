@@ -17,6 +17,10 @@ socket.binaryType = 'arraybuffer';
 socket.onopen = function(e) {
   console.log("[open] Connection established");
   console.log("Sending to server");
+  setInterval(updateJoystick, 30);
+  setInterval(updateLastPacket, 500);
+  setInterval(updateValues, 60);
+  setInterval(sendHeartbeat, 5000);
 };
 
 var telMap = new Map();
@@ -95,18 +99,18 @@ socket.onmessage = function(event) {
 socket.onclose = function(event) {
   if (event.wasClean) {
     console.log(`[close] Connection closed cleanly, code=${event.code} reason=${event.reason}`);
-    setTimeout(location.reload(), 5000);
+    setTimeout(location.reload(), 15000);
   } else {
     // e.g. server process killed or network down
     // event.code is usually 1006 in this case
     console.log('[close] Connection died');
-    setTimeout(location.reload(), 5000);
+    setTimeout(location.reload(), 15000);
   }
 };
 
 socket.onerror = function(error) {
   console.log(`[error] ${error.message}`);
-  setTimeout(location.reload(), 5000);
+  setTimeout(location.reload(), 15000);
 };
 var joydata = 0;
 var newData = false;
@@ -203,8 +207,3 @@ function webConsolePrint(data){
   contents = document.getElementById("consoletext").innerHTML
   document.getElementById("consoletext").innerHTML = contents + data;
 }
-
-setInterval(updateJoystick, 30);
-setInterval(updateLastPacket, 500);
-setInterval(updateValues, 60);
-setInterval(sendHeartbeat, 5000);
