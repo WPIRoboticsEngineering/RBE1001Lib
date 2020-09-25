@@ -43,6 +43,10 @@ echo >> static.h
 echo >> static.h
 echo "// Manifest Strings" >> static.h
 echo >> static.h
+# count Files
+FILE_COUNT=`cat static.h | grep "static const char __" | awk '{print $4}' | sed "s/\[\]//" | wc -l`
+
+printf "static const int static_files_manifest_count = %s;\n" "$FILE_COUNT" >> static.h
 #const strings for filenames.
 for f in `cat static.h | grep "static const char __" | awk '{print $4}' | sed "s/\[\]//"`
 do
