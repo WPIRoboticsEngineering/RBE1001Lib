@@ -8,6 +8,7 @@ var searchData=
   ['complexhandlertask',['complexHandlerTask',['../Motor_8cpp.html#a2174ea6bb7aac3311e086b0af3d73e14',1,'Motor.cpp']]],
   ['complexhandlertaskus',['complexHandlerTaskUS',['../Rangefinder_8cpp.html#a6a1136c2701d060866d56f90db0450c1',1,'Rangefinder.cpp']]],
   ['connectionattempts',['connectionAttempts',['../classWifiManager.html#afa2b5c148c2c74d243767a0bbd730ccc',1,'WifiManager']]],
+  ['consolebuffer',['consoleBuffer',['../classWebPage.html#a0eb53aa56ff5a32f4c849476ce2d50fc',1,'WebPage']]],
   ['control_5fpage',['control_page',['../RCCTL_8ino.html#ab4e2e2e86147ac329a7f16b2a4e87931',1,'RCCTL.ino']]],
   ['count',['count',['../classESP32Encoder.html#ad804a6cd2cc23624c0d1f60f76b7e431',1,'ESP32Encoder']]],
   ['countsmode',['countsMode',['../classESP32Encoder.html#a194a0f1395dfb7a1f5dd80049a653818',1,'ESP32Encoder']]],

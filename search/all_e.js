@@ -1,12 +1,9 @@
 var searchData=
 [
-  ['name',['name',['../struct__telemetryValue.html#a9e9434ca3102c994869df9eae4907f12',1,'_telemetryValue']]],
+  ['name',['name',['../structPACKED__FILE.html#a3094f3c8bc7b0d411c2037ac0065bbfe',1,'PACKED_FILE::name()'],['../struct__telemetryValue.html#a9e9434ca3102c994869df9eae4907f12',1,'_telemetryValue::name()']]],
   ['networknameserver',['networkNameServer',['../classWifiManager.html#a284e42a72a36bb412822e4519f8cc152',1,'WifiManager']]],
   ['networkpswdserver',['networkPswdServer',['../classWifiManager.html#ad8e70709741c98aa235b8db9c339728d',1,'WifiManager']]],
   ['newbutton',['newButton',['../classWebPage.html#aeb8011e016998e7c4276d02d63701586',1,'WebPage']]],
-  ['nipplejs_5fmin_5fjs',['nipplejs_min_js',['../nipplejsminjs_8h.html#acb1929ba5965e1ff25cde7a04ec7f04a',1,'nipplejsminjs.h']]],
-  ['nipplejs_5fmin_5fjs_5flen',['nipplejs_min_js_len',['../nipplejsminjs_8h.html#a828a4bea4ebe32ceb9860a8c738f5974',1,'nipplejsminjs.h']]],
-  ['nipplejsminjs_2eh',['nipplejsminjs.h',['../nipplejsminjs_8h.html',1,'']]],
   ['nippleminjs',['nippleminjs',['../staticFiles_8h.html#ad4294116e3568122e8b11e589f06cabc',1,'staticFiles.h']]],
   ['none',['NONE',['../ESP32Encoder_8h.html#adca399663765c125d26e6f2896b5b349ac157bdf0b85a40d2619cbc8bc1ae5fe2',1,'ESP32Encoder.h']]],
   ['notone',['noTone',['../ESP32Tone_8cpp.html#a554bd99888444e0026d7846a471a8913',1,'noTone(int pin):&#160;ESP32Tone.cpp'],['../ESP32Tone_8h.html#a554bd99888444e0026d7846a471a8913',1,'noTone(int pin):&#160;ESP32Tone.cpp']]],

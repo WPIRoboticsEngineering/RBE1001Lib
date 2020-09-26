@@ -18,6 +18,8 @@ var searchData=
   ['startsetpoint',['startSetpoint',['../classMotor.html#a7c484ee056e56c05e28d010b08fb0e08',1,'Motor']]],
   ['starttime',['startTime',['../classMotor.html#a38b8fbc85b9462f26079267b2815fc28',1,'Motor::startTime()'],['../classRangefinder.html#a928215b562fca560902831794a90b637',1,'Rangefinder::startTime()']]],
   ['state',['state',['../classWifiManager.html#ad0c73dbad8a0329fb8f8cbc6229b4c8d',1,'WifiManager']]],
+  ['static_5ffiles_5fmanifest',['static_files_manifest',['../static_8h.html#a440a2bed010d089fd20e0f34c0b498bf',1,'static.h']]],
+  ['static_5ffiles_5fmanifest_5fcount',['static_files_manifest_count',['../static_8h.html#a0be3008a5a8b40b99b90d4ef22fdebaa',1,'static.h']]],
   ['statichtml',['staticHTML',['../staticFiles_8h.html#abdee6a94680cfff0565718bc0524fdda',1,'staticFiles.h']]],
   ['staticref',['staticRef',['../classWifiManager.html#a31c4053ef541961cfbf7ab22b0a24c72',1,'WifiManager']]],
   ['stringbuffer',['stringBuffer',['../WebPage_8cpp.html#a6c9c8ad22e908ca67930b4225ff49dc3',1,'WebPage.cpp']]],

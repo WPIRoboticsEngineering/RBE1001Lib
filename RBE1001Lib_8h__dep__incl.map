@@ -5,7 +5,8 @@
 <area shape="rect" id="node5" href="$LineTrackerTest_8ino.html" title="examples/LineTrackerTest\l/LineTrackerTest.ino" alt="" coords="535,80,711,121"/>
 <area shape="rect" id="node6" href="$MotorMoveTo_8ino.html" title="examples/MotorMoveTo\l/MotorMoveTo.ino" alt="" coords="735,80,898,121"/>
 <area shape="rect" id="node7" href="$MotorSpeedTest_8ino.html" title="examples/MotorSpeedTest\l/MotorSpeedTest.ino" alt="" coords="922,80,1101,121"/>
-<area shape="rect" id="node8" href="$Photoresistor_8ino.html" title="examples/Photoresistor\l/Photoresistor.ino" alt="" coords="1125,80,1284,121"/>
-<area shape="rect" id="node9" href="$RCCTL_8ino.html" title="examples/RCCTL/RCCTL.ino" alt="" coords="1309,87,1506,114"/>
-<area shape="rect" id="node10" href="$Ultrasonic_8ino.html" title="examples/Ultrasonic\l/Ultrasonic.ino" alt="" coords="1530,80,1671,121"/>
+<area shape="rect" id="node8" href="$MotorSpinExample_8ino.html" title="examples/MotorSpinExample\l/MotorSpinExample.ino" alt="" coords="1125,80,1317,121"/>
+<area shape="rect" id="node9" href="$Photoresistor_8ino.html" title="examples/Photoresistor\l/Photoresistor.ino" alt="" coords="1341,80,1500,121"/>
+<area shape="rect" id="node10" href="$RCCTL_8ino.html" title="examples/RCCTL/RCCTL.ino" alt="" coords="1525,87,1722,114"/>
+<area shape="rect" id="node11" href="$Ultrasonic_8ino.html" title="examples/Ultrasonic\l/Ultrasonic.ino" alt="" coords="1746,80,1887,121"/>
 </map>

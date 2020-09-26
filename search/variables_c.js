@@ -5,6 +5,7 @@ var searchData=
   ['max',['max',['../classServo.html#a02016122bc801d4f2d7b5e853b1b30ae',1,'Servo']]],
   ['maxus',['maxUs',['../Multiple-Servo-Example-Arduino_8ino.html#ad28b4585662ab559ead8c11d6c7c2f15',1,'Multiple-Servo-Example-Arduino.ino']]],
   ['milisecondposincrementforvelocity',['milisecondPosIncrementForVelocity',['../classMotor.html#ae1945614963c6f5d0e2ee308fa613bde',1,'Motor']]],
+  ['mime',['mime',['../structPACKED__FILE.html#af4243e220d607b753bd1fe24251f64d8',1,'PACKED_FILE']]],
   ['min',['min',['../classServo.html#a202ff86f39f760cce83f44ddff08aa48',1,'Servo']]],
   ['minus',['minUs',['../Multiple-Servo-Example-Arduino_8ino.html#adbeedec37e267062c3e10c47b2825409',1,'Multiple-Servo-Example-Arduino.ino']]],
   ['mode',['mode',['../classMotor.html#a42c0f011c5bdbb3e29fb49261f99096c',1,'Motor']]],

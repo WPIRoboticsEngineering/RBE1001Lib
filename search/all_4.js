@@ -1,6 +1,7 @@
 var searchData=
 [
   ['dashboardupdatetimer',['dashboardUpdateTimer',['../RCCTL_8ino.html#ace2e0d944a5f795a697be2a25f5b296a',1,'RCCTL.ino']]],
+  ['data',['data',['../structPACKED__FILE.html#a08d43e50c07a4b9e5ae071e7792e1f8e',1,'PACKED_FILE']]],
   ['deallocate',['deallocate',['../classESP32PWM.html#a95986a33fe242cd58e874321bec4b4a1',1,'ESP32PWM']]],
   ['default_5fpulse_5fwidth',['DEFAULT_PULSE_WIDTH',['../ESP32Servo_8h.html#a7eada57cb49e7b1766a813e4635d79bd',1,'ESP32Servo.h']]],
   ['default_5fpulse_5fwidth_5fticks',['DEFAULT_PULSE_WIDTH_TICKS',['../ESP32Servo_8h.html#a4486dbe07e2b0deb50cd577fa0fee946',1,'ESP32Servo.h']]],

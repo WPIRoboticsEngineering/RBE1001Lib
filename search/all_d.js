@@ -12,6 +12,7 @@ var searchData=
   ['max_5fservos',['MAX_SERVOS',['../ESP32Servo_8h.html#a4259c40a55e489ed25c9f3cbb3be05ab',1,'ESP32Servo.h']]],
   ['maxus',['maxUs',['../Multiple-Servo-Example-Arduino_8ino.html#ad28b4585662ab559ead8c11d6c7c2f15',1,'Multiple-Servo-Example-Arduino.ino']]],
   ['milisecondposincrementforvelocity',['milisecondPosIncrementForVelocity',['../classMotor.html#ae1945614963c6f5d0e2ee308fa613bde',1,'Motor']]],
+  ['mime',['mime',['../structPACKED__FILE.html#af4243e220d607b753bd1fe24251f64d8',1,'PACKED_FILE']]],
   ['min',['min',['../classServo.html#a202ff86f39f760cce83f44ddff08aa48',1,'Servo']]],
   ['min_5fpulse_5fwidth',['MIN_PULSE_WIDTH',['../ESP32Servo_8h.html#ad95c8286fc30ece77d632ad00a94d80e',1,'ESP32Servo.h']]],
   ['minus',['minUs',['../Multiple-Servo-Example-Arduino_8ino.html#adbeedec37e267062c3e10c47b2825409',1,'Multiple-Servo-Example-Arduino.ino']]],
@@ -34,13 +35,13 @@ var searchData=
   ['motormoveto_2eino',['MotorMoveTo.ino',['../MotorMoveTo_8ino.html',1,'']]],
   ['motorpwmpin',['MotorPWMPin',['../classMotor.html#ae670034c4a9a6ef86b6515c53eb9b0e5',1,'Motor']]],
   ['motorspeedtest_2eino',['MotorSpeedTest.ino',['../MotorSpeedTest_8ino.html',1,'']]],
+  ['motorspinexample_2eino',['MotorSpinExample.ino',['../MotorSpinExample_8ino.html',1,'']]],
   ['movefor',['moveFor',['../classMotor.html#a92ada38e1ab60942381ca46f2d13ae3d',1,'Motor']]],
   ['moveto',['moveTo',['../classMotor.html#aa4680d4c00dcc6b4b33ae350db60e11c',1,'Motor']]],
   ['multiple_2dservo_2dexample_2darduino_2eino',['Multiple-Servo-Example-Arduino.ino',['../Multiple-Servo-Example-Arduino_8ino.html',1,'']]],
   ['myduty',['myDuty',['../classESP32PWM.html#a5fd4ea5d06159f1cf7c362db9b14d1aa',1,'ESP32PWM']]],
   ['myfmapbounded',['myFmapBounded',['../Motor_8cpp.html#acac92ff626505e4562734166d8c3aad0',1,'Motor.cpp']]],
   ['myfreq',['myFreq',['../classESP32PWM.html#a87eee2cde2dd8d3fd6a9c95662150adf',1,'ESP32PWM']]],
-  ['myhtml',['myHTML',['../WebPage_8cpp.html#a4c0ef776e5fc279981ed4178343fb92c',1,'WebPage.cpp']]],
   ['mypin',['myPin',['../classESP32AnalogRead.html#aca702bab33562509c1a60bb692837140',1,'ESP32AnalogRead']]],
   ['myservo',['myservo',['../analogWriteExample_8ino.html#ab7eaefeafe574cbf45415789bf672403',1,'myservo():&#160;analogWriteExample.ino'],['../Knob_8ino.html#ab7eaefeafe574cbf45415789bf672403',1,'myservo():&#160;Knob.ino'],['../Sweep_8ino.html#ab7eaefeafe574cbf45415789bf672403',1,'myservo():&#160;Sweep.ino']]]
 ];

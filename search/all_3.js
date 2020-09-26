@@ -15,6 +15,7 @@ var searchData=
   ['connectionattempts',['connectionAttempts',['../classWifiManager.html#afa2b5c148c2c74d243767a0bbd730ccc',1,'WifiManager']]],
   ['connectionstate',['connectionState',['../WifiManager_8h.html#a2cb8df04852a8d762834daac6c32965b',1,'WifiManager.h']]],
   ['connecttowifi',['connectToWiFi',['../classWifiManager.html#a946ac93e07eaf2e5da6a5e482bc054ee',1,'WifiManager']]],
+  ['consolebuffer',['consoleBuffer',['../classWebPage.html#a0eb53aa56ff5a32f4c849476ce2d50fc',1,'WebPage']]],
   ['control_5fpage',['control_page',['../RCCTL_8ino.html#ab4e2e2e86147ac329a7f16b2a4e87931',1,'RCCTL.ino']]],
   ['count',['count',['../classESP32Encoder.html#ad804a6cd2cc23624c0d1f60f76b7e431',1,'ESP32Encoder']]],
   ['countsmode',['countsMode',['../classESP32Encoder.html#a194a0f1395dfb7a1f5dd80049a653818',1,'ESP32Encoder']]],
