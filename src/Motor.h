@@ -14,10 +14,10 @@
 #define ENCODER_CPR 12.0f
 #define GEAR_BOX_RATIO 120.0f
 #define QUADRATUE_MULTIPLYER 1.0f
-#define TICKS_TO_DEGREES (QUADRATUE_MULTIPLYER/(ENCODER_CPR*GEAR_BOX_RATIO/360.0))
+#define TICKS_TO_DEGREES ((QUADRATUE_MULTIPLYER/(ENCODER_CPR*GEAR_BOX_RATIO/360.0))*-1)
 #define I_TERM_SIZE 120.0f
 enum interpolateMode {
-	LINEAR_INTERPOLATION, SINUSOIDAL_INTERPOLATION, VELOCITY_MODE, BEZIER, TRAPEZOIDAL
+	LINEAR_INTERPOLATION=1, SINUSOIDAL_INTERPOLATION=2, VELOCITY_MODE=3, BEZIER=4, TRAPEZOIDAL=5
 };
 /** \brief A PID Motor class using FreeRTOS threads, ESP32Encoder and ESP32PWM
  *
@@ -59,15 +59,15 @@ private:
 	/**
 	 * PID controller setpoint in encoder ticks
 	 */
-	float Setpoint = 0;
+	float setpoint = 0;
 	/**
 	 * PID controller proportional constant
 	 */
-	float kP = 0.05;
+	float kP = 0.02;
 	/**
 	 * PID controller integral constant
 	 */
-	float kI = 0.06;
+	float kI = 0.01;
 	/**
 	 * PID controller derivitive constant
 	 */
@@ -84,7 +84,7 @@ private:
 	 *        -1 is full speed counter clockwise
 	 * @note this should only be called from the PID thread
 	 */
-	void SetEffortLocal(float effort);
+	void setEffortLocal(float effort);
 	/**
 	 * this is a flag to switch between using the PID controller, or allowing the user to set effort 'directly'
 	 *
@@ -212,7 +212,7 @@ public:
 	 *        1 is full speed clockwise
 	 *        -1 is full speed counter clockwise
 	 */
-	void SetEffort(float effort);
+	void setEffort(float effort);
 	/*
 	 * effort of the motor
 	 * @param a value from -100 to 100 representing effort
@@ -220,8 +220,8 @@ public:
 	 *        100 is full speed clockwise
 	 *        -100 is full speed counter clockwise
 	 */
-	void SetEffortPercent(float percent) {
-		SetEffort(percent * 0.01);
+	void setEffortPercent(float percent) {
+		setEffort(percent * 0.01);
 	}
 	/*
 	 * effort of the motor
@@ -230,7 +230,7 @@ public:
 	 *        1 is full speed clockwise
 	 *        -1 is full speed counter clockwise
 	 */
-	float GetEffort();
+	float getEffort();
 	/*
 	 * effort of the motor
 	 * @return a value from -100 to 100 representing effort
@@ -238,8 +238,8 @@ public:
 	 *        100 is full speed clockwise
 	 *        -100 is full speed counter clockwise
 	 */
-	float GetEffortPercent() {
-		return GetEffort() * 100;
+	float getEffortPercent() {
+		return getEffort() * 100;
 	}
 	/**
 	 * getDegreesPerSecond
@@ -269,7 +269,7 @@ public:
 	 * @param miliseconds the number of miliseconds to get from current position to the new setpoint
 	 * param mode the interpolation mode
 	 */
-	void SetSetpointWithTime(float newTargetInDegrees, long miliseconds,
+	void setSetpointWithTime(float newTargetInDegrees, long miliseconds,
 			interpolateMode mode);
 	/**
 	 * SetSpeed in degrees with time
@@ -288,14 +288,14 @@ public:
 	 *
 	 * @param newDegreesPerSecond the new speed in degrees per second
 	 */
-	void SetSpeed(float newDegreesPerSecond);
+	void setSpeed(float newDegreesPerSecond);
 	/**
 	 * SetSpeed in degrees with time
 	 * Set the setpoint for the motor in degrees
 	 * @param newDegreesPerSecond the new speed in degrees per second
 	 * @param miliseconds the number of miliseconds to run for
 	 */
-	void SetSpeed(float newDegreesPerSecond, long miliseconds);
+	void setSpeed(float newDegreesPerSecond, long miliseconds);
 	/**
 	 * MoveTo in degrees with speed
 	 * Set the setpoint for the motor in degrees and the speed you want to get there
@@ -303,7 +303,7 @@ public:
 	 * @param newTargetInDegrees the new setpoint for the closed loop controller
 	 * @param speedDegPerSec  is the speed in degrees per second
 	 */
-	void MoveTo(float newTargetInDegrees, float speedDegPerSec);
+	void moveTo(float newTargetInDegrees, float speedDegPerSec);
 	/**
 	 * MoveFor a relative amount in degrees with speed
 	 * Set the setpoint for the motor in degrees and the speed you want to get there
@@ -313,7 +313,7 @@ public:
 	 * 	 * @note this is a blocking function, it will block code for multiple seconds until the motor arrives
 	 * at its given setpoint
 	 */
-	void MoveFor(float deltaTargetInDegrees, float speedDegPerSec);
+	void moveFor(float deltaTargetInDegrees, float speedDegPerSec);
 
 	/**
 	 * \brief  wait for the motor to arrive at a setpoint
@@ -329,15 +329,15 @@ public:
 	 * @param deltaTargetInDegrees the new relative setpoint for the closed loop controller
 	 * @param speedDegPerSec  is the speed in degrees per second
 	 */
-	float StartMoveFor(float deltaTargetInDegrees, float speedDegPerSec);
+	float startMoveFor(float deltaTargetInDegrees, float speedDegPerSec);
 
 	/**
 	 * SetSetpoint in degrees with time
 	 * Set the setpoint for the motor in degrees
 	 * @param newTargetInDegrees the new setpoint for the closed loop controller
 	 */
-	void SetSetpoint(float newTargetInDegrees) {
-		SetSetpointWithTime(newTargetInDegrees, 0, LINEAR_INTERPOLATION);
+	void setSetpoint(float newTargetInDegrees) {
+		setSetpointWithTime(newTargetInDegrees, 0, LINEAR_INTERPOLATION);
 	}
 
 	/**
@@ -347,9 +347,9 @@ public:
 	 * @param miliseconds the number of miliseconds to get from current position to the new setpoint
 	 * use linear interoplation
 	 */
-	void SetSetpointWithLinearInterpolation(float newTargetInDegrees,
+	void setSetpointWithLinearInterpolation(float newTargetInDegrees,
 			long miliseconds) {
-		SetSetpointWithTime(newTargetInDegrees, miliseconds,
+		setSetpointWithTime(newTargetInDegrees, miliseconds,
 				LINEAR_INTERPOLATION);
 	}
 
@@ -360,9 +360,9 @@ public:
 	 * @param miliseconds the number of miliseconds to get from current position to the new setpoint
 	 * use sinusoidal interpolation
 	 */
-	void SetSetpointWithSinusoidalInterpolation(float newTargetInDegrees,
+	void setSetpointWithSinusoidalInterpolation(float newTargetInDegrees,
 			long miliseconds) {
-		SetSetpointWithTime(newTargetInDegrees, miliseconds,
+		setSetpointWithTime(newTargetInDegrees, miliseconds,
 				SINUSOIDAL_INTERPOLATION);
 	}
 	/**
@@ -374,33 +374,33 @@ public:
 	 * @param Control_1 On a scale of 0 to 1, where should the second control point in the equation go
 	 * use Bezier interpolation
 	 */
-	void SetSetpointWithBezierInterpolation(float newTargetInDegrees,
+	void setSetpointWithBezierInterpolation(float newTargetInDegrees,
 			long miliseconds, float Control_0=0.5, float Control_1=1.0) {
 		BEZIER_P0=Control_0;
 		BEZIER_P1=Control_1;
-		SetSetpointWithTime(newTargetInDegrees, miliseconds,
+		setSetpointWithTime(newTargetInDegrees, miliseconds,
 				BEZIER);
 	}
 	/**
-		 * SetSetpoint in degrees with time
-		 * Set the setpoint for the motor in degrees
-		 * @param newTargetInDegrees the new setpoint for the closed loop controller
-		 * @param miliseconds the number of miliseconds to get from current position to the new setpoint
-		 * @param trapazoidalTime miliseconds for the ramping to take at the beginning and end.
-		 *
-		 *
-		 * use sinusoidal interpolation
-		 */
-		void SetSetpointWithTrapezoidalInterpolation(float newTargetInDegrees,
-				long miliseconds, float trapazoidalTime) {
-			if(trapazoidalTime*2>miliseconds){
-				SetSetpointWithSinusoidalInterpolation(newTargetInDegrees,miliseconds);
-				return;
-			}
-			TRAPEZOIDAL_time=trapazoidalTime;
-			SetSetpointWithTime(newTargetInDegrees, miliseconds,
-					TRAPEZOIDAL);
+	 * SetSetpoint in degrees with time
+	 * Set the setpoint for the motor in degrees
+	 * @param newTargetInDegrees the new setpoint for the closed loop controller
+	 * @param miliseconds the number of miliseconds to get from current position to the new setpoint
+	 * @param trapazoidalTime miliseconds for the ramping to take at the beginning and end.
+	 *
+	 *
+	 * use sinusoidal interpolation
+	 */
+	void setSetpointWithTrapezoidalInterpolation(float newTargetInDegrees,
+			long miliseconds, float trapazoidalTime) {
+		if (trapazoidalTime * 2 > miliseconds) {
+			setSetpointWithSinusoidalInterpolation(newTargetInDegrees,
+					miliseconds);
+			return;
 		}
+		TRAPEZOIDAL_time = trapazoidalTime;
+		setSetpointWithTime(newTargetInDegrees, miliseconds, TRAPEZOIDAL);
+	}
 	/**
 	 * PID gains for the PID controller
 	 */
@@ -413,7 +413,17 @@ public:
 	float getGainsI(){return kI;}
 	float getGainsD(){return kD;}
 
-
+	/**
+	 * isMotorDoneWithMove
+	 *
+	 *  \brief  Check to see if the motor is done with a move
+	 *
+	 *  This checks that the interpolation is done,
+	 *  that the position is within 1 degree
+	 *  and that the velocity is close to zero
+	 *
+	 */
+	bool isMotorDoneWithMove();
 
 };
 

@@ -1,7 +1,12 @@
+/*
+ * A basic analog read example. This uses Arduino's pre-packaged analogRead() function, which 
+ * doesn't use the ESP32's calibration system, but is good enough for our purposes here.
+ */
+
 #include <Arduino.h>
 #include <RBE1001Lib.h>
 
-Rangefinder ultrasonic;
+const int photoresistorPin = 34;
 
 /*
  * This is the standard setup function that is called when the ESP32 is rebooted
@@ -12,7 +17,8 @@ void setup()
   // This will initialize the Serial as 115200 for prints
   Serial.begin(115200);
 
-  ultrasonic.attach(SIDE_ULTRASONIC_TRIG, SIDE_ULTRASONIC_ECHO);
+  //Pins typically default to INPUT, but the code reaads easier if you are explicit:
+  pinMode(photoresistorPin, INPUT);
 }
 
 
@@ -23,7 +29,7 @@ void setup()
 void loop() 
 {
   delay(100);
-  float distance = ultrasonic.getDistanceCM();
 
-  Serial.println(distance);
+  int adcPhotoresistor = analogRead(photoresistorPin);
+  Serial.println(adcPhotoresistor);
 }
