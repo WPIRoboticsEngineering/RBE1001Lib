@@ -2,20 +2,22 @@
 #include <WebServer.h>
 #include <HTTP_Method.h>
 #include "WebPage.h"
-#include "static/indexhtml.h"
-#include "static/nipplejsminjs.h"
+#include "static/static.h"
+
 #include <ESPAsyncWebServer/ESPAsyncWebServer.h>
 #include "Motor.h"
 #include "RBE1001Lib.h"
+#include <stdio.h>
+#include <string.h>
 
 AsyncWebServer server(80);
 AsyncWebSocket ws("/test");
 static WebPage *thisPage;
 static char stringBuffer[200];
 //static uint8_t buffer[labelbuflen];
-const String updtime="Uptime";
-const String js(nipplejs_min_js);
-const String myHTML(index_html);
+//const String updtime="Uptime";
+//const String js(nipplejs_min_js);
+//const String myHTML(index_html);
 
 static bool lockOutSending = false;
 
@@ -48,6 +50,9 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
 	//		0x10 (16)	Value Update
 	//  	  	4B: value index
 	//			4B: value data
+	 * 		0x11 (17)	Console Data
+	 * 			4B:	length
+	 * 			*B: data
 	 * 		0x1d (29)	Bulk Label Update
 	 * 			4B:	Number of Labels in this update
 	 * 			4B: Start of string data
@@ -173,6 +178,7 @@ void WebPage::initalize(){
 	server.begin();
 	//Serial.println("HTTP server started");
 //
+	/*
     server.on("/", 0b00000001, [](AsyncWebServerRequest *request){
 
     	lock();
@@ -180,15 +186,10 @@ void WebPage::initalize(){
 		request->send(200, "text/html",myHTML );
 		unlock();
 
-    });
-    server.on("/nipplejs.min.js", 0b00000001, [](AsyncWebServerRequest *request){
+    });*/
 
-    	lock();
-		//Serial.println("L text/javascript Lock");
-		request->send(200, "text/javascript", js);
-		unlock();
-
-    });
+    ws.onEvent(onWsEvent);
+    server.addHandler(&ws);
     server.on("/pidvalues", 0b00000001, [](AsyncWebServerRequest *request){
 
     	lock();
@@ -242,6 +243,24 @@ void WebPage::initalize(){
 		unlock();
 
     });
+    server.on("/*", 0b00000001, [](AsyncWebServerRequest *request){
+    	String url = request->url();
+    	lock();
+		//Serial.println("L text/html Lock");
+    	Serial.println(url);
+    	// lookup our file
+    	if (url == "/") url = "/index.html";
+    	for(int i=0; i<static_files_manifest_count; i++){
+    		if(url.equals(static_files_manifest[i].name)){
+    			// This is turbo broken?
+    			request->send(200, (char*)static_files_manifest[i].mime, static_files_manifest[i].data);
+
+    		}
+
+    	}
+		unlock();
+
+    });
 
 
     xTaskCreatePinnedToCore(
@@ -253,8 +272,7 @@ void WebPage::initalize(){
           &thisPage->updateTaskHandle,  /* Task handle. */
           1); /* Core where the task should run */
 
-    ws.onEvent(onWsEvent);
-    server.addHandler(&ws);
+
 }
 
 float WebPage::getSliderValue(uint32_t number){
@@ -533,5 +551,9 @@ bool WebPage::sendHeartbeat(){
 		return true; // update sent
 	}
 	return false;
+}
+
+void WebPage::printToWebConsole(uint8_t *buffer){
+
 }
 

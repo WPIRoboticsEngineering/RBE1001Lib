@@ -58,6 +58,8 @@ public:
 	void sendValueUpdate(uint32_t index,uint8_t *buffer);
 	void sendLabelUpdate(uint32_t index,uint8_t *buffer);
 
+
+	void printToWebConsole(uint8_t *buffer);
 	void markAllDirty();
 
 	bool sendHeartbeat();
@@ -66,6 +68,7 @@ public:
 	uint8_t * packetBuffer;
 	uint8_t * labelBuffer;
 	uint8_t * heartbeatBuffer;
+	uint8_t * consoleBuffer;
 private:
 	//int valueToSendThisLoop=0;
 	uint32_t _heartbeat_uuid=0;

@@ -1,315 +1,83 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 
 <head>
-  <style>
-    html,
-    body {
-      margin: 0px;
-      height: 100%;
-    }
-
-    th,
-    td {
-      white-space: nowrap;
-    }
-
-    #static {
-      width: 100%;
-      height: 100%;
-      background-color: #ccc;
-    }
-
-    .slidecontainer {
-      width: 100%;
-      /* Width of the outside container */
-    }
-
-    /* The slider itself */
-    .slider {
-      -webkit-appearance: none;
-      /* Override default CSS styles */
-      appearance: none;
-      width: 100%;
-      /* Full-width */
-      height: 100px;
-      /* Specified height */
-      background: #d3d3d3;
-      /* Grey background */
-      outline: none;
-      /* Remove outline */
-      opacity: 0.7;
-      /* Set transparency (for mouse-over effects on hover) */
-      -webkit-transition: .2s;
-      /* 0.2 seconds transition on hover */
-      transition: opacity .2s;
-    }
-
-    /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-    .slider::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      /* Override default look */
-      appearance: none;
-      width: 100px;
-      /* Set a specific slider handle width */
-      height: 100px;
-      /* Slider handle height */
-      background: #2222ff;
-      /* Green background */
-      cursor: pointer;
-      /* Cursor on hover */
-    }
-
-    .slider::-moz-range-thumb {
-      width: 25px;
-      /* Set a specific slider handle width */
-      height: 25px;
-      /* Slider handle height */
-      background: #4CAF50;
-      /* Green background */
-      cursor: pointer;
-      /* Cursor on hover */
-    }
-
-    th {
-      text-align: left;
-
-    }
-
-    #telemetry {
-      font-family: sans-serif;
-      background-color: #ccc;
-      width: 50%;
-    }
-
-    td {
-      padding: 5px 10px 5px 10px;
-    }
-
-    div.fixed {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 300px;
-  font-family: sans-serif;
-  background-color: #ccc;
-  padding: 5px 10px 5px 10px;
-}
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTML5 boilerplate – all you really need…</title>
+  <link rel="stylesheet" href="style.css">
+  <!--
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://unpkg.com/frappe-charts@latest"></script>
+  -->
+<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
   <script src="nipplejs.min.js"></script>
+
 </head>
 
-<body>
-  <div class="slidecontainer">
-    <input type="range" min="1" max="100" value="50" class="slider" id="myRange" oninput="sendSlider(0,this.value)">
-  </div>
-  <div id="joystick">
-    <div id="telemetry">
+<body id="home">
+  <div class="container">
+    <div class="stats">
+      <span class="ping"><i class="fa fa-signal" aria-hidden="true"></i> Ping: <span id="hb_ping_ms"></span>ms</span>
+      <span class="lastpacket"><i class="fa fa-clock-o" aria-hidden="true"></i> Last Packet: <span id="lastPacket"></span> ms</span>
+    </div>
+    <div class="mobilemenu">
+      <a href="#" id="data-btn"><i class="fa fa-fw fa-1x fa-th-list"></i><span>Data</span></a>
+      <a href="#" id="graph-btn" class="hide"><i class="fa fa-fw fa-1x fa-line-chart"></i><span>Graph</span> </a>
+      <a href="#" id="console-btn"><i class="fa fa-fw fa-1x fa-terminal"></i><span>Console</span> </a>
+    </div>
+
+    <div class="pane values " id="data-pane">
+      <h1> Data </h1>
+      <table id="telemetry">
+      </table>
+    </div>
+    <div class="pane values hide" id="graph-pane">
+      <h1> Graphs </h1>
+      <div id="frost-chart"></div>
+    </div>
+    <div class="pane values console hide" id="console-pane">
+      <h1> Console </h1>
+      <div class="consoletext">
+        hello world
+      </div>
+    </div>
+
+    <div class="pane control" id="joystick-pane">      <h1> Joystick </h1></div>
+    <div class="pane control hide" id="button-pane">      <h1> Buttons </h1></div>
+    <div class="pane control hide" id="pid-pane">      <h1> PID </h1>
+      <form class="form">
+        <label for="m1p">Motor 1 P:</label>
+        <input type="number" id="m1p" name="m1p" value="1">
+        <label for="m1i">Motor 1 I:</label>
+        <input type="number" id="m1i" name="m1i" value="1">
+        <label for="m1d">Motor 1 D:</label>
+        <input type="number" id="m1d" name="m1d" value="1">
+        <label for="m2p">Motor 2 P:</label>
+        <input type="number" id="m2p" name="m2p" value="1">
+        <label for="m2i">Motor 2 I:</label>
+        <input type="number" id="m2i" name="m2i" value="1">
+        <label for="m2d">Motor 2 D:</label>
+        <input type="number" id="m2d" name="m2d" value="1">
+        <label for="m1s">Motor 2 D:</label>
+        <input type="number" id="m1s" name="m1s" value="1">
+        <label for="m2s">Motor 2 D:</label>
+        <input type="number" id="m2s" name="m2s" value="1">
+      </form>
+    </div>
+
+    <div class="mobilemenu">
+      <a href="#" id="joystick-btn"><i class="fa fa-fw fa-1x fa-gamepad"></i><span>Joystick</span> </a>
+      <a href="#" id="button-btn" class="hide"><i class="fa fa-fw fa-1x fa-sliders"></i><span>Buttons</span> </a>
+      <a href="#" id="pid-btn" class="hide"><i class="fa fa-fw fa-1x fa-magic"></i><span>PID</span> </a>
     </div>
   </div>
-  <div class="fixed">
-  <div> <b> Last Packet RX'd </b> <span id="lastPacket"></span></div>
-  <div> <b> Ping Time </b><span id="hb_ping_ms"></span></div>
-  </div>
 
-  <script>
-    var lastPacket = new Date().getTime()
-    var lastPacketDelta=0;
-    var manager = nipplejs.create({
-      zone: document.getElementById('joystick'),
-      mode: 'static',
-      position: {
-        left: '50%',
-        top: '50%'
-      },
-      color: 'blue'
-    });
-
-    let socket = new WebSocket("ws://" + location.host + "/test");
-    //let socket = new WebSocket("ws://192.168.86.31/test");
-    socket.binaryType = 'arraybuffer';
-    socket.onopen = function(e) {
-      console.log("[open] Connection established");
-      console.log("Sending to server");
-    };
-
-    var telMap = new Map();
-    socket.onmessage = function(event) {
-      //console.log(`[message] Data received from server: ${event.data}`);
-      //console.log(event.data);
-      let bufferInt32 = new Int32Array(event.data);
-      let bufferFloat = new Float32Array(event.data);
-      let bufferInt8 = new Int8Array(event.data);
-      let command = bufferInt32[0];
-      switch (command) {
-        case 80: // Heartbeat Ping
-          resetHeartbeat(bufferInt32[1]);
-          break;
-        case 30: //Bulk Value Update
-          let numValues = bufferInt32[1];
-          for (i = 0; i < numValues; i++) {
-            let index = bufferInt32[((i + 1) * 2)];
-            let value = bufferFloat[((i + 1) * 2) + 1];
-            // Lookup slot by index
-            // If it's un inited, init it.
-            if (telMap.get(index) == undefined) {
-              telMap.set(index, {
-                'name': '',
-                'data': 0.0
-              });
-            }
-            // Update Value
-            telMap.get(index).data = value;
-          }
-          break;
-        case 29: //Bulk Label Update
-          console.log("New Labels Update!")
-          let labelCount = bufferInt32[1];
-          let stringDataStart = bufferInt32[2];
-
-          // walk manifest
-          for (i = 0; i < labelCount; i++) {
-            let labeltext = "";
-            let index = bufferInt32[((i + 1) * 3) + 0];
-            let offset = bufferInt32[((i + 1) * 3) + 1];
-            let length = bufferInt32[((i + 1) * 3) + 2];
-            for (j = stringDataStart + offset; j < stringDataStart + offset + length; j++) {
-              let ch = bufferInt8[j];
-              if (ch != 0) labeltext = labeltext + String.fromCharCode(ch);
-            }
-            console.log("Label\ti: " + String(index) + "\to: " + String(offset) + "\tl: " + String(length) + "\t '" + labeltext + "'");
-            if (telMap.get(index) == undefined) {
-              telMap.set(index, {
-                'name': '',
-                'data': 0.0
-              });
-            }
-            // Update Value
-            telMap.get(index).name = labeltext;
-          }
-          break;
-
-      }
-
-      //console.log( new Date().getTime() - lastPacket);
-      lastPacketDelta=new Date().getTime()-lastPacket;
-      lastPacket = new Date().getTime();
-
-    };
-
-    socket.onclose = function(event) {
-      if (event.wasClean) {
-        console.log(`[close] Connection closed cleanly, code=${event.code} reason=${event.reason}`);
-        setTimeout(location.reload(), 5000);
-      } else {
-        // e.g. server process killed or network down
-        // event.code is usually 1006 in this case
-        console.log('[close] Connection died');
-        setTimeout(location.reload(), 5000);
-      }
-    };
-
-    socket.onerror = function(error) {
-      console.log(`[error] ${error.message}`);
-      setTimeout(location.reload(), 5000);
-    };
-    var joydata = 0;
-    var newData = false;
-    manager.get(0).on('move start end', function(evt, data) {
-      joydata = data;
-      newData = true;
-
-    });
-
-    function sendSlider(num, value) {
-      // build the packet
-      var ab = new ArrayBuffer(12);
-      var abFloat = new Float32Array(ab);
-      var abInt = new Uint32Array(ab);
-      abInt[0] = 48; // js packet
-      abFloat[1] = num;
-      abFloat[2] = value / 100.0;
-      socket.send(ab);
-    }
-
-    function updateValues() {
-      var contents = "<table><tr><th>Name</th><th>Value</th></tr>";
-      for (let [k, v] of telMap.entries()) {
-        contents += "<tr><td>" + v.name + "</td><td>" + v.data + "</td></tr>";
-      }
-      contents += "</table>"
-      document.getElementById("telemetry").innerHTML = contents;
-    }
-
-    function updateLastPacket(){
-      lastPacketDelta=new Date().getTime()-lastPacket;
-      document.getElementById("lastPacket").innerHTML = String(lastPacketDelta) + " ms ago";
-    }
-
-    var pingUUID=0; // UUID of last sent ping
-    var droppedPings=0; // number of unanswered pings
-    var packetTxTime=0; // unix time packet was sent
-    var pingTime=0;  // round trip time in ms
-    function sendHeartbeat(){
-
-      if (pingUUID!=0){
-        // we've come around again and UUID has not been reset.
-        // Ping never came back.
-        droppedPings++;
-      }
-      pingUUID=parseInt((Math.random()*(2147483648))+1); // random int. never zero.
-      var ab = new ArrayBuffer(8);
-      var abInt = new Uint32Array(ab);
-      abInt[0] = 80; // HB packet
-      abInt[1] = pingUUID; // HB packet
-      packetTxTime=new Date().getTime()
-      socket.send(ab);
-      //console.log("Heartbeat Sent "+String(pingUUID));
-    }
-
-    function resetHeartbeat(packet_uuid){
-      //console.log("Heartbeat RX'd "+String(packet_uuid));
-      if (packet_uuid==pingUUID){
-
-            pingTime=new Date().getTime()-packetTxTime;
-            document.getElementById("hb_ping_ms").innerHTML = pingTime+" ms";
-            pingUUID=0;
-      }
-    }
-
-    function updateJoystick() {
-      if (newData == true) {
-        newData = false;
-        console.log("update");
-        joydata_old = joydata;
-        var nDist = 0.0;
-        if (joydata.distance) {
-          nDist = joydata.distance / 50.0
-        }
-        var Angle = 0.0;
-        if (joydata.angle) {
-          Angle = joydata.angle.radian;
-        }
-        // build the packet
-        var ab = new ArrayBuffer(20);
-        var abFloat = new Float32Array(ab);
-        var abInt = new Uint32Array(ab);
-        abInt[0] = 32; // js packet
-        abFloat[1] = 1
-        abFloat[2] = 1
-        abFloat[3] = Angle;
-        abFloat[4] = nDist;
-        socket.send(ab);
-
-      }
-    }
-
-    setInterval(updateJoystick, 30);
-    setInterval(updateLastPacket, 500);
-    setInterval(updateValues, 60);
-    setInterval(sendHeartbeat, 5000);
-  </script>
+  <script src="robot.js"></script>
+  <!--<script src="chart.js"></script>-->
+  <script src="menu.js"></script>
 </body>
 
 </html>
