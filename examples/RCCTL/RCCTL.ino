@@ -9,15 +9,11 @@
 #include "WebPage.h"
 #include <Timer.h>
 
-const char *strings[12] = { "Left Encoder Degrees","Left Encoder Effort","Left Encoder Degrees-sec",
-		"Right Encoder Degrees","Right Encoder Effort","Right Encoder Degrees-sec" ,
-				"2 Encoder Degrees","2 Encoder Effort","2 Encoder Degrees-sec" ,
-				"3 Encoder Degrees","3 Encoder Effort","3 Encoder Degrees-sec"
-};
+
 
 // https://wpiroboticsengineering.github.io/RBE1001Lib/classMotor.html
-Motor motor1;
-Motor motor2;
+Motor left_motor;
+Motor right_motor;
 // https://wpiroboticsengineering.github.io/RBE1001Lib/classRangefinder.html
 Rangefinder rangefinder1;
 // https://wpiroboticsengineering.github.io/RBE1001Lib/classServo.html
@@ -52,16 +48,14 @@ void setup() {
 	ESP32PWM::allocateTimer(1); // Used by servos
 	control_page.initalize();
 	// pin definitions https://wpiroboticsengineering.github.io/RBE1001Lib/RBE1001Lib_8h.html#define-members
-	motor2.attach(MOTOR2_PWM, MOTOR2_DIR, MOTOR2_ENCA, MOTOR2_ENCB);
-	motor1.attach(MOTOR1_PWM, MOTOR1_DIR, MOTOR1_ENCA, MOTOR1_ENCB);
+	right_motor.attach(MOTOR_RIGHT_PWM, MOTOR_RIGHT_DIR, MOTOR_RIGHT_ENCA, MOTOR_RIGHT_ENCB);
+	left_motor.attach(MOTOR_LEFT_PWM, MOTOR_LEFT_DIR, MOTOR_LEFT_ENCA, MOTOR_LEFT_ENCB);
 	rangefinder1.attach(SIDE_ULTRASONIC_TRIG, SIDE_ULTRASONIC_ECHO);
 	lifter.attach(SERVO_PIN);
 	leftLineSensor.attach(LEFT_LINE_SENSE);
 	rightLineSensor.attach(RIGHT_LINE_SENSE);
 	servoPositionFeedback.attach(SERVO_FEEDBACK_SENSOR);
 	lifter.write(0);
-	//control_page.setValue("Simple Counter",
-	//				inc++);
 	dashboardUpdateTimer.reset(); // reset the dashbaord refresh timer
 
 
@@ -78,11 +72,11 @@ void setup() {
  */
 void runStateMachine() {
 
-	float left = (control_page.getJoystickX()+control_page.getJoystickY())*360;
-	float right = (control_page.getJoystickX()-control_page.getJoystickY())*360;
+	float left = (control_page.getJoystickX()+control_page.getJoystickY())*180;
+	float right = (control_page.getJoystickX()-control_page.getJoystickY())*180;
 
-	motor1.SetSpeed(left);
-	motor2.SetSpeed(right);
+	left_motor.setSpeed(left);
+	right_motor.setSpeed(right);
 	lifter.write(control_page.getSliderValue(0)*180);
 }
 
@@ -102,19 +96,32 @@ void updateDashboard() {
 				rightLineSensor.readMiliVolts());
 		control_page.setValue("Ultrasonic",
 				rangefinder1.getDistanceCM());
-		control_page.setValue("packets rx",
+
+		control_page.setValue("Simple Counter",
+						inc++);
+		if(control_page.getJoystickMagnitude()>0.1)
+		Serial.println("Joystick angle="+String(control_page.getJoystickAngle())+
+				" magnitude="+String(control_page.getJoystickMagnitude())+
+				" x="+String(control_page.getJoystickX())+
+								" y="+String(control_page.getJoystickY()) +
+								" slider="+String(control_page.getSliderValue(0)));
+
+
+		control_page.setValue("packets from Web to ESP",
 						control_page.rxPacketCount);
-		control_page.setValue("packets tx",
+		control_page.setValue("packets to Web from ESP",
 						control_page.txPacketCount);
 		control_page.setValue("slider",
 						control_page.getSliderValue(0)*100);
-		for (int i = 0; i < MAX_POSSIBLE_MOTORS; i++) {
-			if (Motor::list[i] != NULL) {
-				control_page.setValue(strings[i*3],Motor::list[i]->getCurrentDegrees());
-				control_page.setValue(strings[i*3+1],Motor::list[i]->GetEffort());
-				control_page.setValue(strings[i*3+2],Motor::list[i]->getDegreesPerSecond());
-			}
-		}
+
+		control_page.setValue("Left Encoder Degrees",		left_motor.getCurrentDegrees());
+		control_page.setValue("Left Effort", 	left_motor.getEffort());
+		control_page.setValue("Left Encoder Degrees/sec", 	left_motor.getDegreesPerSecond());
+
+		control_page.setValue("Right Encoder Degrees",right_motor.getCurrentDegrees());
+		control_page.setValue("Right  Effort", right_motor.getEffort());
+		control_page.setValue("Right Encoder Degrees/sec",right_motor.getDegreesPerSecond());
+
 		dashboardUpdateTimer.reset();
 	}
 }
@@ -127,7 +134,6 @@ void updateDashboard() {
 
 void loop() {
 
-	//control_page.setValue("Packets",control_page.packetCount);
 	manager.loop();
 	runStateMachine();  // do a pass through the state machine
 	if(manager.getState() == Connected)// only update if WiFi is up
