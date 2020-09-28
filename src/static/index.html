@@ -45,7 +45,13 @@
       </div>
     </div>
 
-    <div class="pane control" id="joystick-pane">      <h1> Joystick </h1></div>
+    <div class="pane control">      <h1> Joystick </h1>
+      <div class="sliders">
+        <label for="gripper">Gripper</label>
+        <input type="range" min="1" max="100" value="50" id="gripper" oninput="sendSlider(0,this.value)">
+      </div>
+      <div class="joypad" id="joystick-pane"></div>
+    </div>
     <div class="pane control hide" id="button-pane">      <h1> Buttons </h1></div>
     <div class="pane control hide" id="pid-pane">      <h1> PID </h1>
       <form class="form">

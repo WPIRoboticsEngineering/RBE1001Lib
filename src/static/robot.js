@@ -6,13 +6,19 @@ var manager = nipplejs.create({
   position: {
     size: 200,
     left: '50%',
-    bottom: '28%'
+    bottom: '22%'
   },
   color: 'blue'
 });
+let socket=null;
+console.log(location.host);
+if (location.host=="127.0.0.1:3000"){
+  console.log("Connecting to DEBUG ESP")
+  socket = new WebSocket("ws://192.168.86.45/test");
+} else {
+  socket = new WebSocket("ws://" + location.host + "/test");
+}
 
-let socket = new WebSocket("ws://" + location.host + "/test");
-//let socket = new WebSocket("ws://192.168.86.45/test");
 socket.binaryType = 'arraybuffer';
 socket.onopen = function(e) {
   console.log("[open] Connection established");
