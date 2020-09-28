@@ -6,7 +6,7 @@ var manager = nipplejs.create({
   position: {
     size: 200,
     left: '50%',
-    bottom: '28%'
+    bottom: '22%'
   },
   color: 'blue'
 });
