@@ -245,7 +245,7 @@ void Motor::moveFor(float deltaTargetInDegrees, float speedDegPerSec) {
 void Motor::setSpeed(float newDegreesPerSecond) {
 	if (fabs(newDegreesPerSecond) < 0.1) {
 		setSetpoint(getCurrentDegrees());
-		ESP_LOGI(TAG, "Stopping");
+		//ESP_LOGI(TAG, "Stopping");
 		return;
 	}
 	milisecondPosIncrementForVelocity = (-newDegreesPerSecond

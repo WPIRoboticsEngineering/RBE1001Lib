@@ -100,11 +100,11 @@ void updateDashboard() {
 		control_page.setValue("Simple Counter",
 						inc++);
 		if(control_page.getJoystickMagnitude()>0.1)
-		Serial.println("Joystick angle="+String(control_page.getJoystickAngle())+
-				" magnitude="+String(control_page.getJoystickMagnitude())+
-				" x="+String(control_page.getJoystickX())+
-								" y="+String(control_page.getJoystickY()) +
-								" slider="+String(control_page.getSliderValue(0)));
+		//Serial.println("Joystick angle="+String(control_page.getJoystickAngle())+
+		//		" magnitude="+String(control_page.getJoystickMagnitude())+
+		//		" x="+String(control_page.getJoystickX())+
+		//						" y="+String(control_page.getJoystickY()) +
+		//						" slider="+String(control_page.getSliderValue(0)));
 
 
 		control_page.setValue("packets from Web to ESP",
