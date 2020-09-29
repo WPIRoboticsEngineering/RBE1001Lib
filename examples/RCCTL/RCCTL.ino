@@ -36,10 +36,30 @@ Timer dashboardUpdateTimer;  // times when the dashboard should update
  * In this example, it sets the Serial Console speed, initializes the web server,
  * sets up some web page buttons, resets some timers, and sets the initial state
  * the robot should start in
+ *
+ * HOWTO enter passwords:
+ *
+ * The Detailed documentation is here: https://github.com/madhephaestus/Esp32WifiManager
+ *
+ * You will use the Serial Monitor to enter the name of the network and the password to use.
+ * The ESP32 will store them for later.
+ * First type the SSID you want and hit send
+ * It will prompt you for a password, type that and hit send
+ *
+ * IN LAB use:
+ * In the lab, you will want to use AP mode. To set the AP, type AP:myNetName
+ * to set myNetName as the AP mode and hit send
+ * the ESP will prompt you for a password to use, enter it and hit send
+ *
+ * The ESP will default to trying to connect to a network, then fail over to AP mode
+ *
+ * To make the ESP use AP mode by default on boot, change the line below manager.setup();
+ * to manager.setupAP();
  */
 int inc=0;
 void setup() {
-	manager.setup();
+	manager.setup();// Connect to an infrastructure network first, then fail over to AP mode
+	//manager.setupAP();// Launch AP mode first, then fail over to connecting to a station
 	while (manager.getState() != Connected) {
 		manager.loop();
 		delay(1);
