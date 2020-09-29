@@ -1,7 +1,7 @@
 var lastPacket = new Date().getTime()
 var lastPacketDelta=0;
 var manager = nipplejs.create({
-  zone: document.getElementById('joystick-pane'),
+  zone: document.getElementById('joypad'),
   mode: 'static',
   position: {
     size: 200,
@@ -23,7 +23,7 @@ socket.binaryType = 'arraybuffer';
 socket.onopen = function(e) {
   console.log("[open] Connection established");
   console.log("Sending to server");
-  setInterval(updateJoystick, 30);
+  setInterval(updateJoystick, 60);
   setInterval(updateLastPacket, 500);
   setInterval(updateValues, 60);
   setInterval(sendHeartbeat, 5000);
@@ -68,7 +68,7 @@ socket.onmessage = function(event) {
       }
       break;
     case 29: //Bulk Label Update
-      console.log("New Labels Update!")
+      //console.log("New Labels Update!")
       let labelCount = bufferInt32[1];
       let stringDataStart = bufferInt32[2];
 
@@ -82,7 +82,7 @@ socket.onmessage = function(event) {
           let ch = bufferInt8[j];
           if (ch != 0) labeltext = labeltext + String.fromCharCode(ch);
         }
-        console.log("Label\ti: " + String(index) + "\to: " + String(offset) + "\tl: " + String(length) + "\t '" + labeltext + "'");
+        //console.log("Label\ti: " + String(index) + "\to: " + String(offset) + "\tl: " + String(length) + "\t '" + labeltext + "'");
         if (telMap.get(index) == undefined) {
           telMap.set(index, {
             'name': '',
@@ -148,7 +148,13 @@ function updateValues() {
 
 function updateLastPacket(){
   lastPacketDelta=new Date().getTime()-lastPacket;
-  document.getElementById("lastPacket").innerHTML = String(lastPacketDelta);
+  let elem = document.getElementById("lastPacket")
+  elem.innerHTML = String(lastPacketDelta);
+  if (lastPacketDelta>500){
+    elem.classList.add("warning-text");
+  } else {
+    elem.classList.remove("warning-text");
+  }
 }
 
 var pingUUID=0; // UUID of last sent ping
@@ -177,7 +183,13 @@ function resetHeartbeat(packet_uuid){
   if (packet_uuid==pingUUID){
 
         pingTime=new Date().getTime()-packetTxTime;
-        document.getElementById("hb_ping_ms").innerHTML = pingTime;
+        let elem= document.getElementById("hb_ping_ms");
+        elem.innerHTML = pingTime;
+        if (pingTime>100){
+          elem.classList.add("warning-text");
+        } else {
+          elem.classList.remove("warning-text");
+        }
         pingUUID=0;
   }
 }

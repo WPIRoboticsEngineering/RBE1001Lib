@@ -20,8 +20,8 @@
 <body id="home">
   <div class="container">
     <div class="stats">
-      <span class="ping"><i class="fa fa-signal" aria-hidden="true"></i> Ping: <span id="hb_ping_ms"></span>ms</span>
-      <span class="lastpacket"><i class="fa fa-clock-o" aria-hidden="true"></i> Last Packet: <span id="lastPacket"></span> ms</span>
+      <span class="ping"><i class="fa fa-signal" aria-hidden="true"></i> Ping: <span id="hb_ping_ms"></span> ms</span>
+      <span class="lastpacket"><i class="fa fa-clock-o" aria-hidden="true"></i> Last Packet: <span id="lastPacket" ></span> ms</span>
     </div>
     <div class="mobilemenu">
       <a href="#" id="data-btn"><i class="fa fa-fw fa-1x fa-th-list"></i><span>Data</span></a>
@@ -45,39 +45,43 @@
       </div>
     </div>
 
-    <div class="pane control">      <h1> Joystick </h1>
+    <div class="pane control" id="joystick-pane">
+      <h1> Joystick </h1>
       <div class="sliders">
         <label for="gripper">Gripper</label>
         <input type="range" min="1" max="100" value="50" id="gripper" oninput="sendSlider(0,this.value)">
       </div>
-      <div class="joypad" id="joystick-pane"></div>
+      <div class="joypad" id="joypad"></div>
     </div>
     <div class="pane control hide" id="button-pane">      <h1> Buttons </h1></div>
     <div class="pane control hide" id="pid-pane">      <h1> PID </h1>
       <form class="form">
-        <label for="m1p">Motor 1 P:</label>
-        <input type="number" id="m1p" name="m1p" value="1">
-        <label for="m1i">Motor 1 I:</label>
-        <input type="number" id="m1i" name="m1i" value="1">
-        <label for="m1d">Motor 1 D:</label>
-        <input type="number" id="m1d" name="m1d" value="1">
-        <label for="m2p">Motor 2 P:</label>
-        <input type="number" id="m2p" name="m2p" value="1">
-        <label for="m2i">Motor 2 I:</label>
-        <input type="number" id="m2i" name="m2i" value="1">
-        <label for="m2d">Motor 2 D:</label>
-        <input type="number" id="m2d" name="m2d" value="1">
-        <label for="m1s">Motor 2 D:</label>
+        <h2>Motor 1</h2>
+        <label for="m1s">Set</label>
         <input type="number" id="m1s" name="m1s" value="1">
-        <label for="m2s">Motor 2 D:</label>
+        <label for="m1p">P</label>
+        <input type="number" id="m1p" name="m1p" value="1">
+        <label for="m1i">I</label>
+        <input type="number" id="m1i" name="m1i" value="1">
+        <label for="m1d">D</label>
+        <input type="number" id="m1d" name="m1d" value="1">
+        <h2>Motor 1</h2>
+        <label for="m2s">Set</label>
         <input type="number" id="m2s" name="m2s" value="1">
+        <label for="m2p">P</label>
+        <input type="number" id="m2p" name="m2p" value="1">
+        <label for="m2i">I</label>
+        <input type="number" id="m2i" name="m2i" value="1">
+        <label for="m2d">D</label>
+        <input type="number" id="m2d" name="m2d" value="1">
+
       </form>
     </div>
 
     <div class="mobilemenu">
       <a href="#" id="joystick-btn"><i class="fa fa-fw fa-1x fa-gamepad"></i><span>Joystick</span> </a>
       <a href="#" id="button-btn" class="hide"><i class="fa fa-fw fa-1x fa-sliders"></i><span>Buttons</span> </a>
-      <a href="#" id="pid-btn" class="hide"><i class="fa fa-fw fa-1x fa-magic"></i><span>PID</span> </a>
+      <a href="#" id="pid-btn" class=""><i class="fa fa-fw fa-1x fa-magic"></i><span>PID</span> </a>
     </div>
   </div>
 
