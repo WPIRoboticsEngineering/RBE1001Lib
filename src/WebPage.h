@@ -11,14 +11,6 @@ typedef struct _JoyData {
 	float mag;
 } JoyData;
 
-typedef struct {
-	uint32_t length;
-	unsigned char * packet;
-} queuedPacket_s;
-typedef union {
-	queuedPacket_s s;
-	unsigned char data[2];
-} queuedPacket;
 
 
 typedef struct _telemetryValue {
@@ -72,6 +64,8 @@ public:
 
 	void printToWebConsole(uint8_t *buffer);
 	void markAllDirty();
+	bool dirtyLabels();
+	bool dirtyValues();
 
 	bool sendHeartbeat();
 	void setHeartbeatUUID(uint32_t uuid);
@@ -82,10 +76,10 @@ public:
 	bool SendPIDValues(uint32_t motor);
 	bool SendSetpoint(uint32_t motor);
 
-	bool sendPacketFromQueue();
-	bool addPacketToTXQueue(unsigned char* packet, uint32_t length);
+	bool sendPacket(unsigned char* packet, uint32_t length);
 
-	QueueHandle_t packetQueue;
+	SemaphoreHandle_t valuesSem;
+
 	/*
 	uint8_t * packetBuffer;
 	uint8_t * labelBuffer;

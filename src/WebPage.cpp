@@ -29,21 +29,17 @@ long timeSinceLastSend =0;
 
 void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventType type, void * arg, uint8_t *data, size_t len){
   uint32_t *asInt = (uint32_t *)data;
-  thisPage->rxPacketCount++;
   float    *asFloat = (float *)data;
   if(type == WS_EVT_CONNECT){
     //Serial.println("Websocket client connection received");
 	  thisPage->markAllDirty();
-	  thisPage->SendAllLabels();
-	  delay(20);
-	  thisPage->SendAllValues();
-	  delay(20);
 
 
   } else if(type == WS_EVT_DISCONNECT){
     //Serial.println("Client disconnected");
 
   } else if(type == WS_EVT_DATA){
+	  thisPage->rxPacketCount++;
 	  if (len<3) {
 		  //Serial.println("Packet too short!");
 		  return;
@@ -181,9 +177,9 @@ void updateTask(void *param){
 		lock();
 		//Serial.println("L data Lock");
 		thisPage->sendHeartbeat();
-		if(thisPage->SendAllLabels()) delay(10);
+		thisPage->SendAllLabels();
 		thisPage->SendAllValues();
-		while (thisPage->sendPacketFromQueue());
+		//while (thisPage->sendPacketFromQueue());
 		unlock();
 
 	}
@@ -207,7 +203,8 @@ void WebPage::initalize(){
 		unlock();
 
     });*/
-
+	valuesSem = xSemaphoreCreateMutex();
+	xSemaphoreGive(valuesSem);
     ws.onEvent(onWsEvent);
     server.addHandler(&ws);
     server.on("/pidvalues", 0b00000001, [](AsyncWebServerRequest *request){
@@ -292,7 +289,6 @@ void WebPage::initalize(){
           &thisPage->updateTaskHandle,  /* Task handle. */
           1); /* Core where the task should run */
 
-    packetQueue = xQueueCreate(10,sizeof(queuedPacket));
 
 
 
@@ -339,6 +335,7 @@ void WebPage::setJoystickValue(float xpos, float ypos, float angle, float mag){
 }
 
 void WebPage::setValue(String name, float data){
+	while (xSemaphoreTake(valuesSem,( TickType_t ) 10)==false);
 	if(abs(data)<0.00001)
 		data=0;
 	for(int i=0; i<numValues; i++){
@@ -350,6 +347,7 @@ void WebPage::setValue(String name, float data){
 						values[i].value = data; // update data
 						values[i].valueDirty=true;
 					}
+					xSemaphoreGive(valuesSem);
 					return;
 				}
 			} else {
@@ -362,14 +360,30 @@ void WebPage::setValue(String name, float data){
 				values[i].labelDirty=true;
 				values[i].buffer=0;
 				numValuesUsed++;
+				xSemaphoreGive(valuesSem);
 				return;
 			}
 	}
 }
 
+bool WebPage::dirtyLabels(){
+	for(int i=0; i<numValues; i++){
+		if (values[i].used && values[i].labelDirty) return true;
+	}
+	return false;
+}
+
+bool WebPage::dirtyValues(){
+	for(int i=0; i<numValues; i++){
+		if (values[i].used && values[i].valueDirty) return true;
+	}
+	return false;
+}
+
 
 bool WebPage::SendAllValues(){
 	if (ws.count()==0) return false;
+	if (dirtyValues()==false) return false;
 	uint8_t * packetBuffer = new uint8_t[numValues*8]; // Allocate a new one 8 bytes per slot max
 
 	// Allocate float and int access arrays
@@ -383,7 +397,7 @@ bool WebPage::SendAllValues(){
 	for(int i=0; i<numValues; i++){
 		if (values[i].used){ // Is this slot in use?
 			if (values[i].valueDirty){ // Has this value changed
-				values[i].valueDirty=false; //reset change flag
+				//values[i].valueDirty=false; //reset change flag
 				bufferAsInt32[(bufferItemCount+1)*2] = i; // Index of this specific value
 				bufferAsFloat[(bufferItemCount+1)*2+1] = values[i].value; // The float value
 				bufferItemCount++;
@@ -397,7 +411,13 @@ bool WebPage::SendAllValues(){
 
 	if (bufferItemCount>0){
 		// We have at least 1 item, lets send a packet.
-		return addPacketToTXQueue(packetBuffer,packetLength);
+		 if (sendPacket(packetBuffer,packetLength)){
+			 // Packet sucessfully sent, clear dirty flags.
+			 for(int i=0; i<numValues; i++) values[i].valueDirty=false;
+			 return true;
+		} else {
+			return false;
+		}
 	}
 
 	return false; // no update sent
@@ -435,9 +455,13 @@ bool WebPage::SendAllValues(){
 	*/
 }
 
-bool WebPage::SendAllLabels(){
 
-	uint8_t * labelBuffer = new uint8_t[labelBufferSize]; // Allocate a buffer
+bool WebPage::SendAllLabels(){
+	// are any of our labels dirty?
+	if (dirtyLabels()==false) return false; // No? don't continue.
+	if (xSemaphoreTake(valuesSem,( TickType_t ) 10)==false) return false;
+	uint32_t lengthPredict = labelBufferSize;
+	uint8_t * labelBuffer = new uint8_t[lengthPredict]; // Allocate a buffer
 
 	uint32_t *bufferAsInt32=(uint32_t*)labelBuffer;
 	float *bufferAsFloat=(float*)labelBuffer;
@@ -459,7 +483,10 @@ bool WebPage::SendAllLabels(){
 		}
 	}
 
-	if (bufferItemCount==0) return false; // Nothing to update, bail.
+	if (bufferItemCount==0) {
+		xSemaphoreGive(valuesSem);
+		return false; // Nothing to update, bail.
+	}
 	// Write number of labels.
 	bufferAsInt32[1]=bufferItemCount;
 
@@ -478,22 +505,29 @@ bool WebPage::SendAllLabels(){
 			//Serial.println("Strings won't fit into buffer!");
 			//Serial.println("target: "+String(startOfStringData+stringOffset+values[index].name.length()));
 			//Serial.println("limit:  "+String(labelBufferSize));
+			xSemaphoreGive(valuesSem);
 			return false;
 		}
 		//Serial.print("Processing #"+String(i)+"  len: "+String(length)+"... ");
 		bufferAsInt32[(i+1)*3 + 1] = stringOffset;
 		memcpy(&bufferAsChar[startOfStringData+stringOffset],values[index].name.c_str(),length);
 		stringOffset+=length;
-		values[index].labelDirty=false;
+		//values[index].labelDirty=false;
 		//Serial.println("Done! packet offset: "+String(startOfStringData+stringOffset));
 
 	}
 	//Serial.println("Total Bytes in Buf: '"+String(startOfStringData+stringOffset)+"'");
+	//Serial.println("Total Bytes Predicted: '"+String(lengthPredict)+"'");
 	uint32_t packetLength = startOfStringData+stringOffset;
 	packetLength += (4-(packetLength%4));
+	xSemaphoreGive(valuesSem);
 	if (bufferItemCount>0){
 		// We have at least 1 item, lets send a packet.
-		return addPacketToTXQueue(labelBuffer,packetLength);
+		if (sendPacket(labelBuffer,packetLength)){
+			// We've sent the data, clear ditry flags
+			for(int i=0; i<numValues; i++) values[i].labelDirty=false;
+			return true;
+		}
 	}
 	return false;
 }
@@ -556,7 +590,7 @@ bool WebPage::sendHeartbeat(){
 	bufferAsInt32[0]=0x00000050;
 	bufferAsInt32[1]=_heartbeat_uuid;
 	_heartbeat_uuid=0;
-	return addPacketToTXQueue(heartbeatBuffer,8);
+	return sendPacket(heartbeatBuffer,8);
 }
 
 void WebPage::printToWebConsole(uint8_t *buffer){
@@ -590,7 +624,7 @@ bool WebPage::SendPIDValues(uint32_t motor){
 		bufferAsFloat[1]=Motor::list[motor]->getGainsP();
 		bufferAsFloat[2]=Motor::list[motor]->getGainsI();
 		bufferAsFloat[3]=Motor::list[motor]->getGainsD();
-		return addPacketToTXQueue(pidsetBuffer,16);
+		return sendPacket(pidsetBuffer,16);
 	}
 	return false;
 
@@ -608,36 +642,23 @@ bool WebPage::SendSetpoint(uint32_t motor){
 		bufferAsInt32[0]=0x00000061;
 		bufferAsInt32[1]=motor;
 		bufferAsFloat[2]=Motor::list[motor]->getCurrentDegrees();
-		return addPacketToTXQueue(setpointsetBuffer,12);
+		return sendPacket(setpointsetBuffer,12);
 	}
 	return false;
 
 }
 
-bool WebPage::addPacketToTXQueue(unsigned char* packet, uint32_t length){
-	queuedPacket qp;
-	qp.s.packet=packet;
-	qp.s.length=length;
-	if (xQueueSendToFront( packetQueue, ( void * ) qp.data, ( TickType_t ) 10 )){
+
+bool WebPage::sendPacket(unsigned char* packet, uint32_t length){
+	if (ws.enabled() && ws.availableForWriteAll()){
+		ws.binaryAll(packet,length);
+		txPacketCount++;
+		delete packet;
 		return true;
 	}
-	delete qp.s.packet;
-	return false;
-}
-
-bool WebPage::sendPacketFromQueue(){
-	if (ws.count()==0) return false;
-	if ( ws.availableForWriteAll() ){ // Can we write?
-		//Serial.println("Sending PIDs");
-		queuedPacket qp;
-		if (xQueueReceive(packetQueue,&qp.data, ( TickType_t ) 0)){
-			txPacketCount++;
-			//this does copy the data into an internal buffer, we can dealloc after.
-			ws.binaryAll(qp.s.packet,qp.s.length);
-			txPacketCount++;
-			delete qp.s.packet;
-			return true; // update sent
-		}
-	}
+	//binaryAll MALLOCs memory and MEMCPYs packet into it's own buffer.
+	// this does not happen in another thread, it happens here.
+	//once it returns we can dealloc.
+	delete packet;
 	return false;
 }

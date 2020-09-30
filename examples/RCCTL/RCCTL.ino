@@ -92,6 +92,7 @@ uint32_t packet_old=0;
 void updateDashboard() {
 	// This writes values to the dashboard area at the bottom of the web page
 	if (dashboardUpdateTimer.getMS() > 100) {
+
 		control_page.setValue("Left linetracker", leftLineSensor.readMiliVolts());
 		control_page.setValue("Right linetracker",
 				rightLineSensor.readMiliVolts());
@@ -100,7 +101,7 @@ void updateDashboard() {
 
 		control_page.setValue("Simple Counter",
 						inc++);
-		if(control_page.getJoystickMagnitude()>0.1)
+		//if(control_page.getJoystickMagnitude()>0.1)
 		//Serial.println("Joystick angle="+String(control_page.getJoystickAngle())+
 		//		" magnitude="+String(control_page.getJoystickMagnitude())+
 		//		" x="+String(control_page.getJoystickX())+
@@ -110,8 +111,7 @@ void updateDashboard() {
 
 		control_page.setValue("packets from Web to ESP",
 						control_page.rxPacketCount);
-		control_page.setValue("packets to Web from ESP",
-						control_page.txPacketCount);
+
 		control_page.setValue("slider",
 						control_page.getSliderValue(0)*100);
 
@@ -121,7 +121,15 @@ void updateDashboard() {
 
 		control_page.setValue("Right Encoder Degrees",right_motor.getCurrentDegrees());
 		control_page.setValue("Right  Effort", right_motor.getEffort());
+		control_page.setValue("Free Ram",esp_get_free_heap_size() );
 		control_page.setValue("Right Encoder Degrees/sec",right_motor.getDegreesPerSecond());
+
+		control_page.setValue("Simple Counter",
+						inc++);
+		control_page.setValue("packets from Web to ESP",
+						control_page.rxPacketCount);
+		control_page.setValue("packets to Web from ESP",
+						control_page.txPacketCount);
 
 		dashboardUpdateTimer.reset();
 	}

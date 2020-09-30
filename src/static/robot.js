@@ -12,7 +12,7 @@ var manager = nipplejs.create({
 });
 let socket=null;
 console.log(location.host);
-if (location.host=="127.0.0.1:3000"){
+if (location.host=="127.0.0.1:3000" || location.host=="localhost:3000" ){
   console.log("Connecting to DEBUG ESP")
   socket = new WebSocket("ws://192.168.86.45/test");
 } else {
@@ -26,7 +26,7 @@ socket.onopen = function(e) {
   setInterval(updateJoystick, 60);
   setInterval(updateLastPacket, 500);
   setInterval(updateValues, 60);
-  setInterval(sendHeartbeat, 5000);
+  setInterval(sendHeartbeat, 1000);
 };
 
 var telMap = new Map();
@@ -37,7 +37,15 @@ socket.onmessage = function(event) {
   let bufferFloat = new Float32Array(event.data);
   let bufferInt8 = new Int8Array(event.data);
   let command = bufferInt32[0];
+  //console.log("<"+String(command));
   switch (command) {
+    case 96:
+      let motor = bufferInt32[1];
+      let p     = bufferFloat[2];
+      let i     = bufferFloat[3];
+      let d     = bufferFloat[4];
+      console.log("Got PID for motor" +String(motor) + "\t p:" + String(p) +"\t"+ ": i:" + String(i) +"\t"+ ": d:" + String(d) +"\t");
+      break;
     case 80: // Heartbeat Ping
       resetHeartbeat(bufferInt32[1]);
       break;
@@ -52,9 +60,10 @@ socket.onmessage = function(event) {
       break;
     case 30: //Bulk Value Update
       let numValues = bufferInt32[1];
-      for (i = 0; i < numValues; i++) {
+      for (let i = 0; i < numValues; i++) {
         let index = bufferInt32[((i + 1) * 2)];
         let value = bufferFloat[((i + 1) * 2) + 1];
+        //console.log("Value\ti: " + String(index) +"\tv:"  + String(value));
         // Lookup slot by index
         // If it's un inited, init it.
         if (telMap.get(index) == undefined) {
@@ -73,7 +82,7 @@ socket.onmessage = function(event) {
       let stringDataStart = bufferInt32[2];
 
       // walk manifest
-      for (i = 0; i < labelCount; i++) {
+      for (let i = 0; i < labelCount; i++) {
         let labeltext = "";
         let index = bufferInt32[((i + 1) * 3) + 0];
         let offset = bufferInt32[((i + 1) * 3) + 1];
@@ -93,6 +102,11 @@ socket.onmessage = function(event) {
         telMap.get(index).name = labeltext;
       }
       break;
+    default:
+      console.log("Unknown Packet");
+      console.log(event.data);
+      break;
+
 
   }
 
@@ -135,6 +149,7 @@ function sendSlider(num, value) {
   abFloat[1] = num;
   abFloat[2] = value / 100.0;
   socket.send(ab);
+console.log(">48");
 }
 
 function updateValues() {
@@ -173,8 +188,9 @@ function sendHeartbeat(){
   var abInt = new Uint32Array(ab);
   abInt[0] = 80; // HB packet
   abInt[1] = pingUUID; // HB packet
-  packetTxTime=new Date().getTime()
+  packetTxTime=new Date().getTime();
   socket.send(ab);
+//console.log(">80");
   //console.log("Heartbeat Sent "+String(pingUUID));
 }
 
@@ -197,7 +213,7 @@ function resetHeartbeat(packet_uuid){
 function updateJoystick() {
   if (newData == true) {
     newData = false;
-    console.log("update");
+    //console.log("update");
     joydata_old = joydata;
     var nDist = 0.0;
     if (joydata.distance) {
@@ -217,11 +233,31 @@ function updateJoystick() {
     abFloat[3] = Angle;
     abFloat[4] = nDist;
     socket.send(ab);
-
+  //  console.log(">32");
   }
 }
 
 function webConsolePrint(data){
   contents = document.getElementById("consoletext").innerHTML
   document.getElementById("consoletext").innerHTML = contents + data;
+}
+
+function updatePIDValuesUI(){
+  m1s_elem  = document.getElementById("m1s");
+  m1p_elem  = document.getElementById("m1p");
+  m1i_elem  = document.getElementById("m1i");
+  m1d_elem  = document.getElementById("m1d");
+  m2s_elem  = document.getElementById("m2s");
+  m2p_elem  = document.getElementById("m2p");
+  m2i_elem  = document.getElementById("m2i");
+  m2d_elem  = document.getElementById("m2d");
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'myservice/username?id=some-unique-id');
+  xhr.onload = function() {
+    if (xhr.status === 200) {
+
+    }
+  };
+  xhr.send();
+  // Get current values.
 }
