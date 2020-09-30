@@ -32,9 +32,8 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
   float    *asFloat = (float *)data;
   if(type == WS_EVT_CONNECT){
     //Serial.println("Websocket client connection received");
-	  thisPage->markAllDirty();
-
-
+	 thisPage->markAllDirty();
+	 thisPage->updatePID=true;
   } else if(type == WS_EVT_DISCONNECT){
     //Serial.println("Client disconnected");
 
@@ -179,6 +178,13 @@ void updateTask(void *param){
 		thisPage->sendHeartbeat();
 		thisPage->SendAllLabels();
 		thisPage->SendAllValues();
+		if (thisPage->updatePID){
+			for(int i=0; i<MAX_POSSIBLE_MOTORS; i++){
+			 thisPage-> SendPIDValues(i);
+			 thisPage->SendSetpoint(i);
+			}
+			thisPage->updatePID=false;
+		}
 		//while (thisPage->sendPacketFromQueue());
 		unlock();
 
@@ -617,14 +623,15 @@ bool WebPage::SendPIDValues(uint32_t motor){
 	if (ws.count()==0) return false;
 
 	if (motor<MAX_POSSIBLE_MOTORS && Motor::list[motor] != NULL){
-		uint8_t *  pidsetBuffer = new uint8_t[16];
+		uint8_t *  pidsetBuffer = new uint8_t[20];
 		uint32_t *bufferAsInt32=(uint32_t*)pidsetBuffer;
 		float *bufferAsFloat=(float*)pidsetBuffer;
 		bufferAsInt32[0]=0x00000060;
-		bufferAsFloat[1]=Motor::list[motor]->getGainsP();
-		bufferAsFloat[2]=Motor::list[motor]->getGainsI();
-		bufferAsFloat[3]=Motor::list[motor]->getGainsD();
-		return sendPacket(pidsetBuffer,16);
+		bufferAsInt32[1]=motor;
+		bufferAsFloat[2]=Motor::list[motor]->getGainsP();
+		bufferAsFloat[3]=Motor::list[motor]->getGainsI();
+		bufferAsFloat[4]=Motor::list[motor]->getGainsD();
+		return sendPacket(pidsetBuffer,20);
 	}
 	return false;
 

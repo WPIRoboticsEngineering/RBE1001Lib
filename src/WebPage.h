@@ -31,6 +31,7 @@ public:
 	WebPage();
 	void initalize();
 
+	bool updatePID=true;
 	float getSliderValue(uint32_t number);
 	JoyData *getJoystickData();
 	float getJoystickAngle();
