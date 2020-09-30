@@ -105,8 +105,8 @@ void setup() {
  */
 void runStateMachine() {
 
-	float left = (control_page.getJoystickX()+control_page.getJoystickY())*180;
-	float right = (control_page.getJoystickX()-control_page.getJoystickY())*180;
+	float left = (control_page.getJoystickX()-control_page.getJoystickY())*180;
+	float right = (control_page.getJoystickX()+control_page.getJoystickY())*180;
 
 	left_motor.setSpeed(left);
 	right_motor.setSpeed(right);
