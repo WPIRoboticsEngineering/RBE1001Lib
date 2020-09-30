@@ -45,48 +45,55 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
 	  }
 	  uint32_t command = asInt[0];
 	  /*
-    // Data Format
-    // 4B: Message Type
-	//		0x10 (16)	Value Update
-	//  	  	4B: value index
-	//			4B: value data
-	 * 		0x11 (17)	Console Data
-	 * 			4B:	length
-	 * 			*B: data
-	 * 		0x1d (29)	Bulk Label Update
-	 * 			4B:	Number of Labels in this update
-	 * 			4B: Start of string data
-	 * 			[repeated next 12B block for each label]
-	 * 			4B: Index to update
-	 * 			4B: String Offset in packet
-	 * 			4B: String Length
-	 *
-	 * 			nB: [all label strings concatenated ]
-	 *
-	//  	0x1e (30)	Bulk Value Update
-	//	  	  	4B: Number of Values
-	 * 			[repeat for all values]
-	//  	    4B:	value index n
-	//			4B:	value data n
-	//
-	//		0x1f (31)	New Value
-	//			4B: value index
-	//			*B: value name
-    // 		0x20 (32)	Joystick Update (size 5*4 20 bytes)
-    //			4B: Position X  (float, 0.0-1.0)
-	//			4B: Position Y  (float, 0.0-1.0)
-	//			4B: Angle       (float, radians)
-	//			4B: Magnitude   (float, 0.0-1.0)
-    // 		0x30 (48)	Slider Update
-    //			4B: Slider Number Uint32
-	//			4B: Slider Value (float, 0.0-1.0)
-    //      0x40 (64)	Button Update
-    //			4B: Button Number
-    //			4B: Button State (0.0 or 1.0)
-     * 		0x50 (80)	Heartbeat
-     * 			4B: random int.
-     *
-     */
+    * Data Format
+    * 4B: Message Type
+	*		0x10 (16)	Value Update
+	*  	  	4B: value index
+	*			4B: value data
+	* 		0x11 (17)	Console Data
+	* 			4B:	length
+	* 			*B: data
+	*
+	*
+	* 		0x1d (29)	Bulk Label Update
+	* 			4B:	Number of Labels in this update
+	* 			4B: Start of string data
+	* 			[repeated next 12B block for each label]
+	* 			4B: Index to update
+	* 			4B: String Offset in packet
+	* 			4B: String Length
+	*
+	* 			nB: [all label strings concatenated ]
+	*
+	*  	0x1e (30)	Bulk Value Update
+	*	  	  	4B: Number of Values
+	* 			[repeat for all values]
+	*  	    4B:	value index n
+	*			4B:	value data n
+	*
+	*		0x1f (31)	New Value
+	*			4B: value index
+	*			*B: value name
+    * 		0x20 (32)	Joystick Update (size 5*4 20 bytes)
+    *			4B: Position X  (float, 0.0-1.0)
+	*			4B: Position Y  (float, 0.0-1.0)
+	*			4B: Angle       (float, radians)
+	*			4B: Magnitude   (float, 0.0-1.0)
+    * 		0x30 (48)	Slider Update
+    *			4B: Slider Number Uint32
+	*			4B: Slider Value (float, 0.0-1.0)
+    *      0x40 (64)	Button Update
+    *			4B: Button Number
+    *			4B: Button State (0.0 or 1.0)
+    * 		0x50 (80)	Heartbeat
+    * 			4B: random int.
+    * 		0x60 (96): PID Values Update
+	* 			4b: PID Channel
+	* 			4b: P (float)
+	* 			4b: I (float)
+	* 			4b: D (float)
+    *
+    */
 
     //Serial.println("Command is: "+String(command)+"\t["+String(packetCount++)+"]");
     switch(command){
@@ -107,6 +114,9 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
     	case 0x50:
     		// heartbeat message.
     		thisPage->setHeartbeatUUID(asInt[1]);
+    		break;
+    	case 0x60:
+
     		break;
 
     }
@@ -557,3 +567,59 @@ void WebPage::printToWebConsole(uint8_t *buffer){
 
 }
 
+void WebPage::UpdatePIDValues(uint32_t motor,float p, float i, float d){
+	if (motor<MAX_POSSIBLE_MOTORS && Motor::list[motor] != NULL){
+		Motor::list[motor]->setGainsP(p);
+		Motor::list[motor]->setGainsI(i);
+		Motor::list[motor]->setGainsD(d);
+	}
+}
+
+void WebPage::UpdateSetpoint(uint32_t motor, float setpoint){
+	if (motor<MAX_POSSIBLE_MOTORS && Motor::list[motor] != NULL){
+		Motor::list[motor]->setSetpoint(setpoint);
+	}
+}
+
+bool WebPage::SendPIDValues(uint32_t motor){
+	//pidsetBuffer;
+	if (ws.count()==0) return false;
+	if(pidsetBuffer) delete pidsetBuffer;
+	if (motor<MAX_POSSIBLE_MOTORS && Motor::list[motor] != NULL){
+		pidsetBuffer = new uint8_t[16];
+		uint32_t *bufferAsInt32=(uint32_t*)pidsetBuffer;
+		float *bufferAsFloat=(float*)pidsetBuffer;
+		bufferAsInt32[0]=0x60;
+		bufferAsFloat[1]=Motor::list[motor]->getGainsP();
+		bufferAsFloat[2]=Motor::list[motor]->getGainsI();
+		bufferAsFloat[3]=Motor::list[motor]->getGainsD();
+		if ( ws.availableForWriteAll() ){ // Can we write?
+			txPacketCount++;
+			ws.binaryAll(setpointsetBuffer,8);
+			return true; // update sent
+		}
+	}
+	return false;
+
+}
+
+bool WebPage::SendSetpoint(uint32_t motor){
+	//setpointsetBuffer;
+	if (ws.count()==0) return false;
+	if(setpointsetBuffer) delete setpointsetBuffer;
+	if (motor<MAX_POSSIBLE_MOTORS && Motor::list[motor] != NULL){
+		setpointsetBuffer = new uint8_t[16];
+		uint32_t *bufferAsInt32=(uint32_t*)setpointsetBuffer;
+		float *bufferAsFloat=(float*)setpointsetBuffer;
+		bufferAsInt32[0]=0x61;
+		bufferAsFloat[1]=Motor::list[motor]->getCurrentDegrees();
+		if ( ws.availableForWriteAll() ){ // Can we write?
+			txPacketCount++;
+			ws.binaryAll(setpointsetBuffer,8);
+			return true; // update sent
+		}
+	}
+	return false;
+
+}
+}

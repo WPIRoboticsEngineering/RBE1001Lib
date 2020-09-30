@@ -65,10 +65,19 @@ public:
 	bool sendHeartbeat();
 	void setHeartbeatUUID(uint32_t uuid);
 
+	void UpdatePIDValues(uint32_t motor,float p, float i, float d);
+	void UpdateSetpoint(uint32_t motor, float setpoint);
+
+	bool SendPIDValues(uint32_t motor);
+	bool SendSetpoint(uint32_t motor);
+
+
 	uint8_t * packetBuffer;
 	uint8_t * labelBuffer;
 	uint8_t * heartbeatBuffer;
 	uint8_t * consoleBuffer;
+	uint8_t * pidsetBuffer;
+	uint8_t * setpointsetBuffer;
 private:
 	//int valueToSendThisLoop=0;
 	uint32_t _heartbeat_uuid=0;
