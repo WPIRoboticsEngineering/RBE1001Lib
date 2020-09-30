@@ -11,6 +11,16 @@ typedef struct _JoyData {
 	float mag;
 } JoyData;
 
+typedef struct {
+	uint32_t length;
+	unsigned char * packet;
+} queuedPacket_s;
+typedef union {
+	queuedPacket_s s;
+	unsigned char data[2];
+} queuedPacket;
+
+
 typedef struct _telemetryValue {
 	String name;
 	float value;  // the value
@@ -54,6 +64,7 @@ public:
 	uint32_t txPacketCount = 0;
 	uint32_t rxPacketCount = 0;
 	TaskHandle_t updateTaskHandle;
+	TaskHandle_t packetTaskHandle;
 	uint32_t motor_count;
 	void sendValueUpdate(uint32_t index,uint8_t *buffer);
 	void sendLabelUpdate(uint32_t index,uint8_t *buffer);
@@ -71,15 +82,22 @@ public:
 	bool SendPIDValues(uint32_t motor);
 	bool SendSetpoint(uint32_t motor);
 
+	bool sendPacketFromQueue();
+	bool addPacketToTXQueue(unsigned char* packet, uint32_t length);
 
+	QueueHandle_t packetQueue;
+	/*
 	uint8_t * packetBuffer;
 	uint8_t * labelBuffer;
 	uint8_t * heartbeatBuffer;
 	uint8_t * consoleBuffer;
 	uint8_t * pidsetBuffer;
 	uint8_t * setpointsetBuffer;
+	*/
 private:
 	//int valueToSendThisLoop=0;
 	uint32_t _heartbeat_uuid=0;
 
 };
+
+

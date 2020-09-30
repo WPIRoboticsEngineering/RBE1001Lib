@@ -9,6 +9,8 @@
 #include "RBE1001Lib.h"
 #include <stdio.h>
 #include <string.h>
+#include "freertos/FreeRTOS.h"
+#include "freertos/queue.h"
 
 AsyncWebServer server(80);
 AsyncWebSocket ws("/test");
@@ -35,6 +37,9 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
 	  thisPage->SendAllLabels();
 	  delay(20);
 	  thisPage->SendAllValues();
+	  delay(20);
+
+
   } else if(type == WS_EVT_DISCONNECT){
     //Serial.println("Client disconnected");
 
@@ -178,9 +183,14 @@ void updateTask(void *param){
 		thisPage->sendHeartbeat();
 		if(thisPage->SendAllLabels()) delay(10);
 		thisPage->SendAllValues();
+		while (thisPage->sendPacketFromQueue());
 		unlock();
 
 	}
+}
+
+void packetTXTask(void *param){
+	while(1);
 }
 
 void WebPage::initalize(){
@@ -275,12 +285,15 @@ void WebPage::initalize(){
 
     xTaskCreatePinnedToCore(
     		updateTask, /* Function to implement the task */
-          "updateTask", /* Name of the task */
+          "UpdateTask", /* Name of the task */
 		  8192 * 8,  /* Stack size in words */
           NULL,  /* Task input parameter */
           4,  /* Priority of the task */
           &thisPage->updateTaskHandle,  /* Task handle. */
           1); /* Core where the task should run */
+
+    packetQueue = xQueueCreate(10,sizeof(queuedPacket));
+
 
 
 }
@@ -357,14 +370,13 @@ void WebPage::setValue(String name, float data){
 
 bool WebPage::SendAllValues(){
 	if (ws.count()==0) return false;
-	if (packetBuffer) delete packetBuffer; // Deallocate old buffer
-	packetBuffer = new uint8_t[numValues*8]; // Allocate a new one 8 bytes per slot max
+	uint8_t * packetBuffer = new uint8_t[numValues*8]; // Allocate a new one 8 bytes per slot max
 
 	// Allocate float and int access arrays
 	uint32_t *bufferAsInt32=(uint32_t*)packetBuffer;
 	float *bufferAsFloat=(float*)packetBuffer;
 
-	bufferAsInt32[0]=0x1e; // packet id update all
+	bufferAsInt32[0]=0x0000001e; // packet id update all
 
 
 	uint32_t bufferItemCount=0; // Count the values in this update.
@@ -385,11 +397,7 @@ bool WebPage::SendAllValues(){
 
 	if (bufferItemCount>0){
 		// We have at least 1 item, lets send a packet.
-		if ( ws.availableForWriteAll() ){ // Can we write?
-			txPacketCount++;
-			ws.binaryAll(packetBuffer, packetLength);
-			return true; // update sent
-		}
+		return addPacketToTXQueue(packetBuffer,packetLength);
 	}
 
 	return false; // no update sent
@@ -428,15 +436,14 @@ bool WebPage::SendAllValues(){
 }
 
 bool WebPage::SendAllLabels(){
-	if (ws.count()==0) return false;
-	if (labelBuffer) delete labelBuffer; // remove previous buffer
-	labelBuffer = new uint8_t[labelBufferSize]; // Allocate a buffer
+
+	uint8_t * labelBuffer = new uint8_t[labelBufferSize]; // Allocate a buffer
 
 	uint32_t *bufferAsInt32=(uint32_t*)labelBuffer;
 	float *bufferAsFloat=(float*)labelBuffer;
 	char *bufferAsChar=(char*)labelBuffer;
 
-	bufferAsInt32[0]=0x1d; // packet id update all labels
+	bufferAsInt32[0]=0x0000001d; // packet id update all labels
 	bufferAsInt32[1]=0; // num labels
 
 	uint32_t bufferItemCount=0; // Count the values in this update.
@@ -486,11 +493,7 @@ bool WebPage::SendAllLabels(){
 	packetLength += (4-(packetLength%4));
 	if (bufferItemCount>0){
 		// We have at least 1 item, lets send a packet.
-		if ( ws.availableForWriteAll() ){ // Can we write?
-			txPacketCount++;
-			ws.binaryAll(labelBuffer,packetLength );
-			return true; // update sent
-		}
+		return addPacketToTXQueue(labelBuffer,packetLength);
 	}
 	return false;
 }
@@ -502,7 +505,7 @@ void WebPage::sendValueUpdate(uint32_t index,uint8_t *buffer){
 
 	uint32_t *bufferAsInt32=(uint32_t*)buffer;
 	float *bufferAsFloat=(float*)buffer;
-	bufferAsInt32[0]=0x10;
+	bufferAsInt32[0]=0x00000010;
 	bufferAsInt32[1]=index;
 	bufferAsFloat[2]=values[index].value;
 }
@@ -548,19 +551,12 @@ void WebPage::setHeartbeatUUID(uint32_t uuid){
 
 bool WebPage::sendHeartbeat(){
 	if (_heartbeat_uuid==0) return false;
-	if (ws.count()==0) return false;
-	if(heartbeatBuffer) delete heartbeatBuffer;
-	heartbeatBuffer = new uint8_t[8];
+	uint8_t * heartbeatBuffer = new uint8_t[8];
 	uint32_t *bufferAsInt32=(uint32_t*)heartbeatBuffer;
-	bufferAsInt32[0]=0x50;
+	bufferAsInt32[0]=0x00000050;
 	bufferAsInt32[1]=_heartbeat_uuid;
 	_heartbeat_uuid=0;
-	if ( ws.availableForWriteAll() ){ // Can we write?
-		txPacketCount++;
-		ws.binaryAll(heartbeatBuffer,8);
-		return true; // update sent
-	}
-	return false;
+	return addPacketToTXQueue(heartbeatBuffer,8);
 }
 
 void WebPage::printToWebConsole(uint8_t *buffer){
@@ -583,21 +579,18 @@ void WebPage::UpdateSetpoint(uint32_t motor, float setpoint){
 
 bool WebPage::SendPIDValues(uint32_t motor){
 	//pidsetBuffer;
+	//return false;
 	if (ws.count()==0) return false;
-	if(pidsetBuffer) delete pidsetBuffer;
+
 	if (motor<MAX_POSSIBLE_MOTORS && Motor::list[motor] != NULL){
-		pidsetBuffer = new uint8_t[16];
+		uint8_t *  pidsetBuffer = new uint8_t[16];
 		uint32_t *bufferAsInt32=(uint32_t*)pidsetBuffer;
 		float *bufferAsFloat=(float*)pidsetBuffer;
-		bufferAsInt32[0]=0x60;
+		bufferAsInt32[0]=0x00000060;
 		bufferAsFloat[1]=Motor::list[motor]->getGainsP();
 		bufferAsFloat[2]=Motor::list[motor]->getGainsI();
 		bufferAsFloat[3]=Motor::list[motor]->getGainsD();
-		if ( ws.availableForWriteAll() ){ // Can we write?
-			txPacketCount++;
-			ws.binaryAll(setpointsetBuffer,8);
-			return true; // update sent
-		}
+		return addPacketToTXQueue(pidsetBuffer,16);
 	}
 	return false;
 
@@ -605,21 +598,46 @@ bool WebPage::SendPIDValues(uint32_t motor){
 
 bool WebPage::SendSetpoint(uint32_t motor){
 	//setpointsetBuffer;
-	if (ws.count()==0) return false;
-	if(setpointsetBuffer) delete setpointsetBuffer;
+	//return false;
+
+
 	if (motor<MAX_POSSIBLE_MOTORS && Motor::list[motor] != NULL){
-		setpointsetBuffer = new uint8_t[16];
+		uint8_t * setpointsetBuffer = new uint8_t[12];
 		uint32_t *bufferAsInt32=(uint32_t*)setpointsetBuffer;
 		float *bufferAsFloat=(float*)setpointsetBuffer;
-		bufferAsInt32[0]=0x61;
-		bufferAsFloat[1]=Motor::list[motor]->getCurrentDegrees();
-		if ( ws.availableForWriteAll() ){ // Can we write?
-			txPacketCount++;
-			ws.binaryAll(setpointsetBuffer,8);
-			return true; // update sent
-		}
+		bufferAsInt32[0]=0x00000061;
+		bufferAsInt32[1]=motor;
+		bufferAsFloat[2]=Motor::list[motor]->getCurrentDegrees();
+		return addPacketToTXQueue(setpointsetBuffer,12);
 	}
 	return false;
 
 }
+
+bool WebPage::addPacketToTXQueue(unsigned char* packet, uint32_t length){
+	queuedPacket qp;
+	qp.s.packet=packet;
+	qp.s.length=length;
+	if (xQueueSendToFront( packetQueue, ( void * ) qp.data, ( TickType_t ) 10 )){
+		return true;
+	}
+	delete qp.s.packet;
+	return false;
+}
+
+bool WebPage::sendPacketFromQueue(){
+	if (ws.count()==0) return false;
+	if ( ws.availableForWriteAll() ){ // Can we write?
+		//Serial.println("Sending PIDs");
+		queuedPacket qp;
+		if (xQueueReceive(packetQueue,&qp.data, ( TickType_t ) 0)){
+			txPacketCount++;
+			//this does copy the data into an internal buffer, we can dealloc after.
+			ws.binaryAll(qp.s.packet,qp.s.length);
+			txPacketCount++;
+			delete qp.s.packet;
+			return true; // update sent
+		}
+	}
+	return false;
 }

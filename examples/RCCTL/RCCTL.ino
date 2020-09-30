@@ -46,7 +46,7 @@ void setup() {
 	}
 	Motor::allocateTimer(0); // used by the DC Motors
 	ESP32PWM::allocateTimer(1); // Used by servos
-	control_page.initalize();
+
 	// pin definitions https://wpiroboticsengineering.github.io/RBE1001Lib/RBE1001Lib_8h.html#define-members
 	right_motor.attach(MOTOR_RIGHT_PWM, MOTOR_RIGHT_DIR, MOTOR_RIGHT_ENCA, MOTOR_RIGHT_ENCB);
 	left_motor.attach(MOTOR_LEFT_PWM, MOTOR_LEFT_DIR, MOTOR_LEFT_ENCA, MOTOR_LEFT_ENCB);
@@ -56,6 +56,7 @@ void setup() {
 	rightLineSensor.attach(RIGHT_LINE_SENSE);
 	servoPositionFeedback.attach(SERVO_FEEDBACK_SENSOR);
 	lifter.write(0);
+	control_page.initalize(); // Init UI after everything else.
 	dashboardUpdateTimer.reset(); // reset the dashbaord refresh timer
 
 
