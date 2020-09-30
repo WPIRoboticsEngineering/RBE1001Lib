@@ -149,7 +149,7 @@ function sendSlider(num, value) {
   abFloat[1] = num;
   abFloat[2] = value / 100.0;
   socket.send(ab);
-console.log(">48");
+//console.log(">48");
 }
 
 function updateValues() {
