@@ -55,6 +55,19 @@ Timer dashboardUpdateTimer;  // times when the dashboard should update
  *
  * To make the ESP use AP mode by default on boot, change the line below manager.setup();
  * to manager.setupAP();
+ *
+ * To access the RC control interface for Station mode you will watch the serial monitor as the
+ * ESP boots, it will print out the IP address. Enter that address in your computer or phones web browser.
+ * Make sure your ESP and computer or phone are on the same network.
+ *
+ * To access teh RC Control interface in AP mode, connect to the ESP with either you phone or laptop
+ * then open in a browser on that device and go to:
+ *
+ * http://192.168.4.1
+ *
+ * to access the control website.
+ *
+ * NOTE you can use this class in your final project code to visualize the state of your system while running wirelessly.
  */
 int inc=0;
 void setup() {
