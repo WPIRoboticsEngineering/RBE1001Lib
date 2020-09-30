@@ -148,11 +148,11 @@ void updateDashboard() {
 						control_page.getSliderValue(0)*100);
 
 		control_page.setValue("Left Encoder Degrees",		left_motor.getCurrentDegrees());
-		control_page.setValue("Left Effort", 	left_motor.getEffort());
+		control_page.setValue("Left Effort", 	(int)left_motor.getEffortPercent());
 		control_page.setValue("Left Encoder Degrees/sec", 	left_motor.getDegreesPerSecond());
 
 		control_page.setValue("Right Encoder Degrees",right_motor.getCurrentDegrees());
-		control_page.setValue("Right  Effort", right_motor.getEffort());
+		control_page.setValue("Right  Effort", (int)right_motor.getEffortPercent());
 		control_page.setValue("Right Encoder Degrees/sec",right_motor.getDegreesPerSecond());
 
 		dashboardUpdateTimer.reset();
