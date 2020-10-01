@@ -120,6 +120,24 @@ function decode_heartbeat(data){
   }
 }
 
+function decode_motor_setpoint(data){
+  // Create 3 mirror arrays.
+  let buffer_int = new Int32Array(data);
+  let buffer_float = new Float32Array(data);
+  let buffer_byte = new Int8Array(data);
+
+  let motor = buffer_int[1];
+  let set   = buffer_float[2];
+
+  switch(motor){
+    case 0:
+      dom_motor1_setpoint.value=String(set.toFixed(5));
+      break;
+    case 1:
+      dom_motor2_setpoint.value=String(set.toFixed(5));
+  }
+}
+
 function decode_motor_pid(data){
   // Create 3 mirror arrays.
   let buffer_int = new Int32Array(data);
@@ -127,14 +145,26 @@ function decode_motor_pid(data){
   let buffer_byte = new Int8Array(data);
 
 
-}
+  let motor = buffer_int[1];
+  let p     = buffer_float[2];
+  let i     = buffer_float[3];
+  let d     = buffer_float[4];
 
-function decode_motor_setpoint(data){
-  // Create 3 mirror arrays.
-  let buffer_int = new Int32Array(data);
-  let buffer_float = new Float32Array(data);
-  let buffer_byte = new Int8Array(data);
+  //console.log("Got PID for motor" +String(motor) + "\t p:" + String(p) +"\t"+ ": i:" + String(i) +"\t"+ ": d:" + String(d) +"\t");
 
+  switch(motor){
+    case 0:
+      dom_motor1_p.value=String(p.toFixed(5));
+      dom_motor1_i.value=String(i.toFixed(5));
+      dom_motor1_d.value=String(d.toFixed(5));
+      break;
+    case 1:
+      dom_motor2_p.value=String(p.toFixed(5));
+      dom_motor2_i.value=String(i.toFixed(5));
+      dom_motor2_d.value=String(d.toFixed(5));
+  }
+
+  //
 
 }
 
@@ -300,6 +330,16 @@ var dom_telemetry = document.getElementById("telemetry");
 var dom_last_packet_display = document.getElementById("lastPacket");
 var dom_pingtime_display = document.getElementById("hb_ping_ms");
 var dom_console_window = document.getElementById("consoletext");
+
+var dom_motor1_setpoint = document.getElementById("m1s");
+var dom_motor1_p        = document.getElementById("m1p");
+var dom_motor1_i        = document.getElementById("m1i");
+var dom_motor1_d        = document.getElementById("m1d");
+
+var dom_motor2_setpoint = document.getElementById("m2s");
+var dom_motor2_p        = document.getElementById("m2p");
+var dom_motor2_i        = document.getElementById("m2i");
+var dom_motor2_d        = document.getElementById("m2d");
 
 // Set up Heartbeat variables.
 var heartbeat_pingUUID = 0; // UUID of last sent ping
