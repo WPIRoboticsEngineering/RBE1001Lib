@@ -65,7 +65,7 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
 	*
 	* 			nB: [all label strings concatenated ]
 	*
-	*  	0x1e (30)	Bulk Value Update
+	*  		0x1e (30)	Bulk Value Update
 	*	  	  	4B: Number of Values
 	* 			[repeat for all values]
 	*  	    4B:	value index n
@@ -82,7 +82,7 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
     * 		0x30 (48)	Slider Update
     *			4B: Slider Number Uint32
 	*			4B: Slider Value (float, 0.0-1.0)
-    *      0x40 (64)	Button Update
+    *       0x40 (64)	Button Update
     *			4B: Button Number
     *			4B: Button State (0.0 or 1.0)
     * 		0x50 (80)	Heartbeat
@@ -599,7 +599,17 @@ bool WebPage::sendHeartbeat(){
 	return sendPacket(heartbeatBuffer,8);
 }
 
-void WebPage::printToWebConsole(uint8_t *buffer){
+void WebPage::printToWebConsole(String data){
+	uint32_t length = data.length()+1;
+	uint32_t packetLength = length + 8 + (4-(length%4));
+	uint8_t *  consolePacket = new uint8_t[packetLength];
+	uint32_t *bufferAsInt32=(uint32_t*)consolePacket;
+
+	bufferAsInt32[0]=0x11;
+	bufferAsInt32[1]=length;
+	data.toCharArray((char *)(consolePacket+8), length);
+	sendPacket(consolePacket,packetLength);
+
 
 }
 

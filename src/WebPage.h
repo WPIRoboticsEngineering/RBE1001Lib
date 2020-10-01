@@ -63,7 +63,7 @@ public:
 	void sendLabelUpdate(uint32_t index,uint8_t *buffer);
 
 
-	void printToWebConsole(uint8_t *buffer);
+	void printToWebConsole(String data);
 	void markAllDirty();
 	bool dirtyLabels();
 	bool dirtyValues();
