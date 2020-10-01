@@ -40,8 +40,8 @@
     </div>
     <div class="pane values console hide" id="console-pane">
       <h1> Console </h1>
-      <div class="consoletext">
-        hello world
+      <div class="consoletext" id="consoletext">
+
       </div>
     </div>
 
@@ -49,7 +49,7 @@
       <h1> Joystick </h1>
       <div class="sliders">
         <label for="gripper">Gripper</label>
-        <input type="range" min="1" max="100" value="50" id="gripper" oninput="sendSlider(0,this.value)">
+        <input type="range" min="1" max="100" value="50" id="gripper" oninput="send_slider(0,this.value)">
       </div>
       <div class="joypad" id="joypad"></div>
     </div>
@@ -85,7 +85,7 @@
     </div>
   </div>
 
-  <script src="robot.js"></script>
+  <script src="ControlApp.js"></script>
   <!--<script src="chart.js"></script>-->
   <script src="menu.js"></script>
 </body>

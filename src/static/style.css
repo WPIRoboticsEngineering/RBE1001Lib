@@ -159,8 +159,9 @@ body {
 }
 
 .console {
-
-
+  overflow-y: hidden;
+  overflow-x: hidden;
+  background-color: black;
 }
 
 .consoletext{
@@ -170,7 +171,11 @@ body {
   text-shadow: 0 0 5px #C8C8C8;
   font: 1rem Inconsolata, monospace;
   width: 100%;
-  height: 100%;
+  height: 100%%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column-reverse;
+  padding-bottom: 10px;
 }
 /* Pane */
 .pane h1{
