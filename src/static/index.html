@@ -4,26 +4,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HTML5 boilerplate – all you really need…</title>
+  <title>Control App</title>
+  <link rel="stylesheet" href="nouislider.css">
   <link rel="stylesheet" href="style.css">
+
   <!--
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://unpkg.com/frappe-charts@latest"></script>
   -->
-<!--[if IE]>
+  <!--[if IE]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
   <script src="nipplejs.min.js"></script>
+  <script src="nouislider.js"></script>
+
+  </script>
 
 </head>
 
 <body id="home">
-  <div id="overlay_connecting" class="hide"><img src="connect.svg" id="spinner"/></div>
-  <div id="overlay_disconnected" class="hide"><img src="connect.svg" id="spinner"/></div>
+  <div id="overlay_connecting" class="hide"><img src="connect.svg" id="spinner" /></div>
+  <div id="overlay_disconnected" class="hide"><img src="connect.svg" id="spinner" /></div>
   <div class="container">
     <div class="stats">
       <span class="ping"><i class="fa fa-signal" aria-hidden="true"></i> Ping: <span id="hb_ping_ms"></span> ms</span>
-      <span class="lastpacket"><i class="fa fa-clock-o" aria-hidden="true"></i> Last Packet: <span id="lastPacket" ></span> ms</span>
+      <span class="lastpacket"><i class="fa fa-clock-o" aria-hidden="true"></i> Last Packet: <span id="lastPacket"></span> ms</span>
     </div>
     <div class="mobilemenu">
       <a href="#" id="data-btn"><i class="fa fa-fw fa-1x fa-th-list"></i><span>Data</span></a>
@@ -49,14 +54,18 @@
 
     <div class="pane control" id="joystick-pane">
       <h1> Joystick </h1>
-      <div class="sliders">
-        <label for="gripper">Gripper</label>
-        <input type="range" min="1" max="100" value="50" id="gripper" oninput="send_slider(0,this.value)">
+      <div class="controlwidget">
+        <div class="joypad" id="joypad"></div>
+        <div class="verticalslidercontainer" id="verticalslidercontainer">
+        </div>
       </div>
-      <div class="joypad" id="joypad"></div>
+
     </div>
-    <div class="pane control hide" id="button-pane">      <h1> Buttons </h1></div>
-    <div class="pane control hide" id="pid-pane">      <h1> PID </h1>
+    <div class="pane control hide" id="button-pane">
+      <h1> Buttons </h1>
+    </div>
+    <div class="pane control hide" id="pid-pane">
+      <h1> PID </h1>
       <form class="form">
         <h2>Motor 1</h2>
         <label for="m1s">Set</label>

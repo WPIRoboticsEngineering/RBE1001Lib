@@ -241,6 +241,17 @@ function decode_packet(data) {
   }
 }
 
+function send_slider_update(slider, value) {
+  // build the packet
+  var ab = new ArrayBuffer(12);
+  var abFloat = new Float32Array(ab);
+  var abInt = new Uint32Array(ab);
+  abInt[0] = 48; // js packet
+  abFloat[1] = slider;
+  abFloat[2] = value / 100.0;
+  robot_socket.send(ab);
+//console.log(">48");
+}
 
 function decode_bulk_telemetry_label_update(data) {
   // Create 3 mirror arrays.
@@ -384,6 +395,7 @@ var dom_pingtime_display = document.getElementById("hb_ping_ms");
 var dom_console_window = document.getElementById("consoletext");
 var dom_overlay_disconnected        = document.getElementById("overlay_disconnected");
 var dom_overlay_connecting        = document.getElementById("overlay_connecting");
+var dom_slider = document.getElementById("verticalslidercontainer");
 
 var dom_motor1_setpoint = document.getElementById("m1s");
 var dom_motor1_p        = document.getElementById("m1p");
@@ -413,6 +425,8 @@ var last_packet_delta=0;
 var joystick_data = 0;
 var joystick_has_data = false;
 
+
+
 // contents of serial windoe
 var console_contents = dom_console_window.innerHTML;
 
@@ -424,7 +438,7 @@ var joypad_manager = nipplejs.create({
   zone: dom_joypad,
   mode: 'static',
   position: {
-    size: 200,
+    size: 50,
     left: '50%',
     bottom: '22%'
   },
@@ -435,6 +449,26 @@ joypad_manager.get(0).on('move start end', function(evt, data) {
   joystick_has_data = true;
 
 });
+
+// init slider.
+noUiSlider.create(dom_slider, {
+    start: 127,
+    connect: [true, false],
+    orientation: "vertical",
+    range: {
+        'min': -5,
+        'max': 115
+    },
+    padding: [5,15]
+});
+
+dom_slider.noUiSlider.on('update', function () {
+        let slider_value = dom_slider.noUiSlider.get();
+        console.log(slider_value)
+        if (application_state==application_states.connected)
+          send_slider(0,slider_value);
+    });
+
 
 setInterval(handle_application_state,500);
 
