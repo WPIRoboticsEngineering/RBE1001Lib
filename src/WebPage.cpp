@@ -9,6 +9,8 @@
 #include "RBE1001Lib.h"
 #include <stdio.h>
 #include <string.h>
+#include "freertos/FreeRTOS.h"
+#include "freertos/queue.h"
 
 AsyncWebServer server(80);
 AsyncWebSocket ws("/test");
@@ -27,66 +29,71 @@ long timeSinceLastSend =0;
 
 void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventType type, void * arg, uint8_t *data, size_t len){
   uint32_t *asInt = (uint32_t *)data;
-  thisPage->rxPacketCount++;
   float    *asFloat = (float *)data;
   if(type == WS_EVT_CONNECT){
     //Serial.println("Websocket client connection received");
-	  thisPage->markAllDirty();
-	  thisPage->SendAllLabels();
-	  delay(20);
-	  thisPage->SendAllValues();
+	 thisPage->markAllDirty();
+	 thisPage->updatePID=true;
   } else if(type == WS_EVT_DISCONNECT){
     //Serial.println("Client disconnected");
 
   } else if(type == WS_EVT_DATA){
+	  thisPage->rxPacketCount++;
 	  if (len<3) {
 		  //Serial.println("Packet too short!");
 		  return;
 	  }
 	  uint32_t command = asInt[0];
 	  /*
-    // Data Format
-    // 4B: Message Type
-	//		0x10 (16)	Value Update
-	//  	  	4B: value index
-	//			4B: value data
-	 * 		0x11 (17)	Console Data
-	 * 			4B:	length
-	 * 			*B: data
-	 * 		0x1d (29)	Bulk Label Update
-	 * 			4B:	Number of Labels in this update
-	 * 			4B: Start of string data
-	 * 			[repeated next 12B block for each label]
-	 * 			4B: Index to update
-	 * 			4B: String Offset in packet
-	 * 			4B: String Length
-	 *
-	 * 			nB: [all label strings concatenated ]
-	 *
-	//  	0x1e (30)	Bulk Value Update
-	//	  	  	4B: Number of Values
-	 * 			[repeat for all values]
-	//  	    4B:	value index n
-	//			4B:	value data n
-	//
-	//		0x1f (31)	New Value
-	//			4B: value index
-	//			*B: value name
-    // 		0x20 (32)	Joystick Update (size 5*4 20 bytes)
-    //			4B: Position X  (float, 0.0-1.0)
-	//			4B: Position Y  (float, 0.0-1.0)
-	//			4B: Angle       (float, radians)
-	//			4B: Magnitude   (float, 0.0-1.0)
-    // 		0x30 (48)	Slider Update
-    //			4B: Slider Number Uint32
-	//			4B: Slider Value (float, 0.0-1.0)
-    //      0x40 (64)	Button Update
-    //			4B: Button Number
-    //			4B: Button State (0.0 or 1.0)
-     * 		0x50 (80)	Heartbeat
-     * 			4B: random int.
-     *
-     */
+    * Data Format
+    * 4B: Message Type
+	*		0x10 (16)	Value Update
+	*  	  	4B: value index
+	*			4B: value data
+	* 		0x11 (17)	Console Data
+	* 			4B:	length
+	* 			*B: data
+	*
+	*
+	* 		0x1d (29)	Bulk Label Update
+	* 			4B:	Number of Labels in this update
+	* 			4B: Start of string data
+	* 			[repeated next 12B block for each label]
+	* 			4B: Index to update
+	* 			4B: String Offset in packet
+	* 			4B: String Length
+	*
+	* 			nB: [all label strings concatenated ]
+	*
+	*  		0x1e (30)	Bulk Value Update
+	*	  	  	4B: Number of Values
+	* 			[repeat for all values]
+	*  	    4B:	value index n
+	*			4B:	value data n
+	*
+	*		0x1f (31)	New Value
+	*			4B: value index
+	*			*B: value name
+    * 		0x20 (32)	Joystick Update (size 5*4 20 bytes)
+    *			4B: Position X  (float, 0.0-1.0)
+	*			4B: Position Y  (float, 0.0-1.0)
+	*			4B: Angle       (float, radians)
+	*			4B: Magnitude   (float, 0.0-1.0)
+    * 		0x30 (48)	Slider Update
+    *			4B: Slider Number Uint32
+	*			4B: Slider Value (float, 0.0-1.0)
+    *       0x40 (64)	Button Update
+    *			4B: Button Number
+    *			4B: Button State (0.0 or 1.0)
+    * 		0x50 (80)	Heartbeat
+    * 			4B: random int.
+    * 		0x60 (96): PID Values Update
+	* 			4b: PID Channel
+	* 			4b: P (float)
+	* 			4b: I (float)
+	* 			4b: D (float)
+    *
+    */
 
     //Serial.println("Command is: "+String(command)+"\t["+String(packetCount++)+"]");
     switch(command){
@@ -107,6 +114,9 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
     	case 0x50:
     		// heartbeat message.
     		thisPage->setHeartbeatUUID(asInt[1]);
+    		break;
+    	case 0x60:
+
     		break;
 
     }
@@ -166,11 +176,23 @@ void updateTask(void *param){
 		lock();
 		//Serial.println("L data Lock");
 		thisPage->sendHeartbeat();
-		if(thisPage->SendAllLabels()) delay(10);
+		thisPage->SendAllLabels();
 		thisPage->SendAllValues();
+		if (thisPage->updatePID){
+			for(int i=0; i<MAX_POSSIBLE_MOTORS; i++){
+			 thisPage-> SendPIDValues(i);
+			 thisPage->SendSetpoint(i);
+			}
+			thisPage->updatePID=false;
+		}
+		//while (thisPage->sendPacketFromQueue());
 		unlock();
 
 	}
+}
+
+void packetTXTask(void *param){
+	while(1);
 }
 
 void WebPage::initalize(){
@@ -187,7 +209,8 @@ void WebPage::initalize(){
 		unlock();
 
     });*/
-
+	valuesSem = xSemaphoreCreateMutex();
+	xSemaphoreGive(valuesSem);
     ws.onEvent(onWsEvent);
     server.addHandler(&ws);
     server.on("/pidvalues", 0b00000001, [](AsyncWebServerRequest *request){
@@ -265,12 +288,14 @@ void WebPage::initalize(){
 
     xTaskCreatePinnedToCore(
     		updateTask, /* Function to implement the task */
-          "updateTask", /* Name of the task */
+          "UpdateTask", /* Name of the task */
 		  8192 * 8,  /* Stack size in words */
           NULL,  /* Task input parameter */
           4,  /* Priority of the task */
           &thisPage->updateTaskHandle,  /* Task handle. */
           1); /* Core where the task should run */
+
+
 
 
 }
@@ -316,6 +341,7 @@ void WebPage::setJoystickValue(float xpos, float ypos, float angle, float mag){
 }
 
 void WebPage::setValue(String name, float data){
+	while (xSemaphoreTake(valuesSem,( TickType_t ) 10)==false);
 	if(abs(data)<0.00001)
 		data=0;
 	for(int i=0; i<numValues; i++){
@@ -327,6 +353,7 @@ void WebPage::setValue(String name, float data){
 						values[i].value = data; // update data
 						values[i].valueDirty=true;
 					}
+					xSemaphoreGive(valuesSem);
 					return;
 				}
 			} else {
@@ -339,29 +366,44 @@ void WebPage::setValue(String name, float data){
 				values[i].labelDirty=true;
 				values[i].buffer=0;
 				numValuesUsed++;
+				xSemaphoreGive(valuesSem);
 				return;
 			}
 	}
 }
 
+bool WebPage::dirtyLabels(){
+	for(int i=0; i<numValues; i++){
+		if (values[i].used && values[i].labelDirty) return true;
+	}
+	return false;
+}
+
+bool WebPage::dirtyValues(){
+	for(int i=0; i<numValues; i++){
+		if (values[i].used && values[i].valueDirty) return true;
+	}
+	return false;
+}
+
 
 bool WebPage::SendAllValues(){
 	if (ws.count()==0) return false;
-	if (packetBuffer) delete packetBuffer; // Deallocate old buffer
-	packetBuffer = new uint8_t[numValues*8]; // Allocate a new one 8 bytes per slot max
+	if (dirtyValues()==false) return false;
+	uint8_t * packetBuffer = new uint8_t[numValues*8]; // Allocate a new one 8 bytes per slot max
 
 	// Allocate float and int access arrays
 	uint32_t *bufferAsInt32=(uint32_t*)packetBuffer;
 	float *bufferAsFloat=(float*)packetBuffer;
 
-	bufferAsInt32[0]=0x1e; // packet id update all
+	bufferAsInt32[0]=0x0000001e; // packet id update all
 
 
 	uint32_t bufferItemCount=0; // Count the values in this update.
 	for(int i=0; i<numValues; i++){
 		if (values[i].used){ // Is this slot in use?
 			if (values[i].valueDirty){ // Has this value changed
-				values[i].valueDirty=false; //reset change flag
+				//values[i].valueDirty=false; //reset change flag
 				bufferAsInt32[(bufferItemCount+1)*2] = i; // Index of this specific value
 				bufferAsFloat[(bufferItemCount+1)*2+1] = values[i].value; // The float value
 				bufferItemCount++;
@@ -375,10 +417,12 @@ bool WebPage::SendAllValues(){
 
 	if (bufferItemCount>0){
 		// We have at least 1 item, lets send a packet.
-		if ( ws.availableForWriteAll() ){ // Can we write?
-			txPacketCount++;
-			ws.binaryAll(packetBuffer, packetLength);
-			return true; // update sent
+		 if (sendPacket(packetBuffer,packetLength)){
+			 // Packet sucessfully sent, clear dirty flags.
+			 for(int i=0; i<numValues; i++) values[i].valueDirty=false;
+			 return true;
+		} else {
+			return false;
 		}
 	}
 
@@ -417,16 +461,19 @@ bool WebPage::SendAllValues(){
 	*/
 }
 
+
 bool WebPage::SendAllLabels(){
-	if (ws.count()==0) return false;
-	if (labelBuffer) delete labelBuffer; // remove previous buffer
-	labelBuffer = new uint8_t[labelBufferSize]; // Allocate a buffer
+	// are any of our labels dirty?
+	if (dirtyLabels()==false) return false; // No? don't continue.
+	if (xSemaphoreTake(valuesSem,( TickType_t ) 10)==false) return false;
+	uint32_t lengthPredict = labelBufferSize;
+	uint8_t * labelBuffer = new uint8_t[lengthPredict]; // Allocate a buffer
 
 	uint32_t *bufferAsInt32=(uint32_t*)labelBuffer;
 	float *bufferAsFloat=(float*)labelBuffer;
 	char *bufferAsChar=(char*)labelBuffer;
 
-	bufferAsInt32[0]=0x1d; // packet id update all labels
+	bufferAsInt32[0]=0x0000001d; // packet id update all labels
 	bufferAsInt32[1]=0; // num labels
 
 	uint32_t bufferItemCount=0; // Count the values in this update.
@@ -442,7 +489,10 @@ bool WebPage::SendAllLabels(){
 		}
 	}
 
-	if (bufferItemCount==0) return false; // Nothing to update, bail.
+	if (bufferItemCount==0) {
+		xSemaphoreGive(valuesSem);
+		return false; // Nothing to update, bail.
+	}
 	// Write number of labels.
 	bufferAsInt32[1]=bufferItemCount;
 
@@ -461,25 +511,28 @@ bool WebPage::SendAllLabels(){
 			//Serial.println("Strings won't fit into buffer!");
 			//Serial.println("target: "+String(startOfStringData+stringOffset+values[index].name.length()));
 			//Serial.println("limit:  "+String(labelBufferSize));
+			xSemaphoreGive(valuesSem);
 			return false;
 		}
 		//Serial.print("Processing #"+String(i)+"  len: "+String(length)+"... ");
 		bufferAsInt32[(i+1)*3 + 1] = stringOffset;
 		memcpy(&bufferAsChar[startOfStringData+stringOffset],values[index].name.c_str(),length);
 		stringOffset+=length;
-		values[index].labelDirty=false;
+		//values[index].labelDirty=false;
 		//Serial.println("Done! packet offset: "+String(startOfStringData+stringOffset));
 
 	}
 	//Serial.println("Total Bytes in Buf: '"+String(startOfStringData+stringOffset)+"'");
+	//Serial.println("Total Bytes Predicted: '"+String(lengthPredict)+"'");
 	uint32_t packetLength = startOfStringData+stringOffset;
 	packetLength += (4-(packetLength%4));
+	xSemaphoreGive(valuesSem);
 	if (bufferItemCount>0){
 		// We have at least 1 item, lets send a packet.
-		if ( ws.availableForWriteAll() ){ // Can we write?
-			txPacketCount++;
-			ws.binaryAll(labelBuffer,packetLength );
-			return true; // update sent
+		if (sendPacket(labelBuffer,packetLength)){
+			// We've sent the data, clear ditry flags
+			for(int i=0; i<numValues; i++) values[i].labelDirty=false;
+			return true;
 		}
 	}
 	return false;
@@ -492,7 +545,7 @@ void WebPage::sendValueUpdate(uint32_t index,uint8_t *buffer){
 
 	uint32_t *bufferAsInt32=(uint32_t*)buffer;
 	float *bufferAsFloat=(float*)buffer;
-	bufferAsInt32[0]=0x10;
+	bufferAsInt32[0]=0x00000010;
 	bufferAsInt32[1]=index;
 	bufferAsFloat[2]=values[index].value;
 }
@@ -538,22 +591,91 @@ void WebPage::setHeartbeatUUID(uint32_t uuid){
 
 bool WebPage::sendHeartbeat(){
 	if (_heartbeat_uuid==0) return false;
-	if (ws.count()==0) return false;
-	if(heartbeatBuffer) delete heartbeatBuffer;
-	heartbeatBuffer = new uint8_t[8];
+	uint8_t * heartbeatBuffer = new uint8_t[8];
 	uint32_t *bufferAsInt32=(uint32_t*)heartbeatBuffer;
-	bufferAsInt32[0]=0x50;
+	bufferAsInt32[0]=0x00000050;
 	bufferAsInt32[1]=_heartbeat_uuid;
 	_heartbeat_uuid=0;
-	if ( ws.availableForWriteAll() ){ // Can we write?
-		txPacketCount++;
-		ws.binaryAll(heartbeatBuffer,8);
-		return true; // update sent
+	return sendPacket(heartbeatBuffer,8);
+}
+
+void WebPage::printToWebConsole(String data){
+	uint32_t length = data.length()+1;
+	uint32_t packetLength = length + 8 + (4-(length%4));
+	uint8_t *  consolePacket = new uint8_t[packetLength];
+	uint32_t *bufferAsInt32=(uint32_t*)consolePacket;
+
+	bufferAsInt32[0]=0x11;
+	bufferAsInt32[1]=length;
+	data.toCharArray((char *)(consolePacket+8), length);
+	sendPacket(consolePacket,packetLength);
+
+
+}
+
+void WebPage::UpdatePIDValues(uint32_t motor,float p, float i, float d){
+	if (motor<MAX_POSSIBLE_MOTORS && Motor::list[motor] != NULL){
+		Motor::list[motor]->setGainsP(p);
+		Motor::list[motor]->setGainsI(i);
+		Motor::list[motor]->setGainsD(d);
+	}
+}
+
+void WebPage::UpdateSetpoint(uint32_t motor, float setpoint){
+	if (motor<MAX_POSSIBLE_MOTORS && Motor::list[motor] != NULL){
+		Motor::list[motor]->setSetpoint(setpoint);
+	}
+}
+
+bool WebPage::SendPIDValues(uint32_t motor){
+	//pidsetBuffer;
+	//return false;
+	if (ws.count()==0) return false;
+
+	if (motor<MAX_POSSIBLE_MOTORS && Motor::list[motor] != NULL){
+		uint8_t *  pidsetBuffer = new uint8_t[20];
+		uint32_t *bufferAsInt32=(uint32_t*)pidsetBuffer;
+		float *bufferAsFloat=(float*)pidsetBuffer;
+		bufferAsInt32[0]=0x00000060;
+		bufferAsInt32[1]=motor;
+		bufferAsFloat[2]=Motor::list[motor]->getGainsP();
+		bufferAsFloat[3]=Motor::list[motor]->getGainsI();
+		bufferAsFloat[4]=Motor::list[motor]->getGainsD();
+		return sendPacket(pidsetBuffer,20);
 	}
 	return false;
-}
-
-void WebPage::printToWebConsole(uint8_t *buffer){
 
 }
 
+bool WebPage::SendSetpoint(uint32_t motor){
+	//setpointsetBuffer;
+	//return false;
+
+
+	if (motor<MAX_POSSIBLE_MOTORS && Motor::list[motor] != NULL){
+		uint8_t * setpointsetBuffer = new uint8_t[12];
+		uint32_t *bufferAsInt32=(uint32_t*)setpointsetBuffer;
+		float *bufferAsFloat=(float*)setpointsetBuffer;
+		bufferAsInt32[0]=0x00000061;
+		bufferAsInt32[1]=motor;
+		bufferAsFloat[2]=Motor::list[motor]->getCurrentDegrees();
+		return sendPacket(setpointsetBuffer,12);
+	}
+	return false;
+
+}
+
+
+bool WebPage::sendPacket(unsigned char* packet, uint32_t length){
+	if (ws.enabled() && ws.availableForWriteAll()){
+		ws.binaryAll(packet,length);
+		txPacketCount++;
+		delete packet;
+		return true;
+	}
+	//binaryAll MALLOCs memory and MEMCPYs packet into it's own buffer.
+	// this does not happen in another thread, it happens here.
+	//once it returns we can dealloc.
+	delete packet;
+	return false;
+}

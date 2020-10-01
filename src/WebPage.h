@@ -11,6 +11,8 @@ typedef struct _JoyData {
 	float mag;
 } JoyData;
 
+
+
 typedef struct _telemetryValue {
 	String name;
 	float value;  // the value
@@ -29,6 +31,7 @@ public:
 	WebPage();
 	void initalize();
 
+	bool updatePID=true;
 	float getSliderValue(uint32_t number);
 	JoyData *getJoystickData();
 	float getJoystickAngle();
@@ -54,23 +57,42 @@ public:
 	uint32_t txPacketCount = 0;
 	uint32_t rxPacketCount = 0;
 	TaskHandle_t updateTaskHandle;
+	TaskHandle_t packetTaskHandle;
 	uint32_t motor_count;
 	void sendValueUpdate(uint32_t index,uint8_t *buffer);
 	void sendLabelUpdate(uint32_t index,uint8_t *buffer);
 
 
-	void printToWebConsole(uint8_t *buffer);
+	void printToWebConsole(String data);
 	void markAllDirty();
+	bool dirtyLabels();
+	bool dirtyValues();
 
 	bool sendHeartbeat();
 	void setHeartbeatUUID(uint32_t uuid);
 
+	void UpdatePIDValues(uint32_t motor,float p, float i, float d);
+	void UpdateSetpoint(uint32_t motor, float setpoint);
+
+	bool SendPIDValues(uint32_t motor);
+	bool SendSetpoint(uint32_t motor);
+
+	bool sendPacket(unsigned char* packet, uint32_t length);
+
+	SemaphoreHandle_t valuesSem;
+
+	/*
 	uint8_t * packetBuffer;
 	uint8_t * labelBuffer;
 	uint8_t * heartbeatBuffer;
 	uint8_t * consoleBuffer;
+	uint8_t * pidsetBuffer;
+	uint8_t * setpointsetBuffer;
+	*/
 private:
 	//int valueToSendThisLoop=0;
 	uint32_t _heartbeat_uuid=0;
 
 };
+
+

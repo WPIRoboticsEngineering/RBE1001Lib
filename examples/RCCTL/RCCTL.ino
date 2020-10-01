@@ -79,7 +79,7 @@ void setup() {
 	}
 	Motor::allocateTimer(0); // used by the DC Motors
 	ESP32PWM::allocateTimer(1); // Used by servos
-	control_page.initalize();
+
 	// pin definitions https://wpiroboticsengineering.github.io/RBE1001Lib/RBE1001Lib_8h.html#define-members
 	right_motor.attach(MOTOR_RIGHT_PWM, MOTOR_RIGHT_DIR, MOTOR_RIGHT_ENCA, MOTOR_RIGHT_ENCB);
 	left_motor.attach(MOTOR_LEFT_PWM, MOTOR_LEFT_DIR, MOTOR_LEFT_ENCA, MOTOR_LEFT_ENCB);
@@ -89,6 +89,7 @@ void setup() {
 	rightLineSensor.attach(RIGHT_LINE_SENSE);
 	servoPositionFeedback.attach(SERVO_FEEDBACK_SENSOR);
 	lifter.write(0);
+	control_page.initalize(); // Init UI after everything else.
 	dashboardUpdateTimer.reset(); // reset the dashbaord refresh timer
 
 
@@ -124,6 +125,7 @@ uint32_t packet_old=0;
 void updateDashboard() {
 	// This writes values to the dashboard area at the bottom of the web page
 	if (dashboardUpdateTimer.getMS() > 100) {
+
 		control_page.setValue("Left linetracker", leftLineSensor.readMiliVolts());
 		control_page.setValue("Right linetracker",
 				rightLineSensor.readMiliVolts());
@@ -132,18 +134,17 @@ void updateDashboard() {
 
 		control_page.setValue("Simple Counter",
 						inc++);
-		if(control_page.getJoystickMagnitude()>0.1)
-		Serial.println("Joystick angle="+String(control_page.getJoystickAngle())+
-				" magnitude="+String(control_page.getJoystickMagnitude())+
-				" x="+String(control_page.getJoystickX())+
-								" y="+String(control_page.getJoystickY()) +
-								" slider="+String(control_page.getSliderValue(0)));
+		//if(control_page.getJoystickMagnitude()>0.1)
+		//Serial.println("Joystick angle="+String(control_page.getJoystickAngle())+
+		//		" magnitude="+String(control_page.getJoystickMagnitude())+
+		//		" x="+String(control_page.getJoystickX())+
+		//						" y="+String(control_page.getJoystickY()) +
+		//						" slider="+String(control_page.getSliderValue(0)));
 
 
 		control_page.setValue("packets from Web to ESP",
 						control_page.rxPacketCount);
-		control_page.setValue("packets to Web from ESP",
-						control_page.txPacketCount);
+
 		control_page.setValue("slider",
 						control_page.getSliderValue(0)*100);
 
@@ -153,7 +154,15 @@ void updateDashboard() {
 
 		control_page.setValue("Right Encoder Degrees",right_motor.getCurrentDegrees());
 		control_page.setValue("Right  Effort", (int)right_motor.getEffortPercent());
+		control_page.setValue("Free Ram",esp_get_free_heap_size() );
 		control_page.setValue("Right Encoder Degrees/sec",right_motor.getDegreesPerSecond());
+
+		control_page.setValue("Simple Counter",
+						inc++);
+		control_page.setValue("packets from Web to ESP",
+						control_page.rxPacketCount);
+		control_page.setValue("packets to Web from ESP",
+						control_page.txPacketCount);
 
 		dashboardUpdateTimer.reset();
 	}
