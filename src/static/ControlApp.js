@@ -13,6 +13,13 @@ const packet_type = {
   motor_setpoint: 97
 }
 
+const application_states = {
+  connecting:       0,
+  connected:        1,
+  disconnected:     2,
+  invalid:          3
+}
+
 
 
 
@@ -21,6 +28,11 @@ function socket_message(event) {
 }
 
 function socket_disconnected(event) {
+  clearInterval(interval_update_joystick);
+  clearInterval(interval_update_last_packet_counter);
+  clearInterval(interval_update_ui_values);
+  clearInterval(interval_send_heartbeat);
+  application_state=application_states.disconnected;
   if (event.wasClean) {
     console.log(`[close] Connection closed cleanly, code=${event.code} reason=${event.reason}`);
   } else {
@@ -31,10 +43,11 @@ function socket_disconnected(event) {
 function socket_connected(event) {
   console.log("Websocket Connection Established");
   send_heartbeat(); // send out one HB so ui doesn't display blanks untill the timer triggers.
-  setInterval(update_joystick, 60);
-  setInterval(update_last_packet_counter, 500);
-  setInterval(update_ui_values, 60);
-  setInterval(send_heartbeat, 5000);
+  interval_update_joystick = setInterval(update_joystick, 60);
+  interval_update_last_packet_counter = setInterval(update_last_packet_counter, 500);
+  interval_update_ui_values = setInterval(update_ui_values, 60);
+  interval_send_heartbeat = setInterval(send_heartbeat, 5000);
+  application_state=application_states.connected;
 }
 
 function socket_error(event) {
@@ -303,6 +316,7 @@ function send_slider(num,value){
 }
 
 function initialize_app() {
+  application_state = application_states.connecting;
   if (location.host == "127.0.0.1:3000" || location.host == "localhost:3000") {
     console.log("App running on localhost.. Connecting to debug ESP")
     robot_socket = new WebSocket("ws://192.168.86.45/test");
@@ -321,8 +335,40 @@ function initialize_app() {
 
 }
 
+function handle_application_state(){
+  if (application_state==application_state_last) return;
+  application_state_last=application_state;
+  console.log("App state changed");
+  switch(application_state){
+    case application_states.connecting:
+      dom_overlay_disconnected.classList.add("hide");
+      dom_overlay_connecting.classList.remove("hide");
+      break;
+
+    case application_states.connected:
+      dom_overlay_disconnected.classList.add("hide");
+      dom_overlay_connecting.classList.add("hide");
+      break;
+
+    case application_states.disconnected:
+      dom_overlay_disconnected.classList.remove("hide");
+      dom_overlay_connecting.classList.add("hide");
+      console.log("Attempting to reconnect with device..");
+      setTimeout(initialize_app, 5000);
+      break;
+  }
+}
+
 // Data Structure to hold telemetry numValues
 telemetry_values = new Map();
+
+// our itnerval Timers
+var interval_update_joystick = 0;
+var interval_update_last_packet_counter = 0;
+var interval_update_ui_values = 0;
+var interval_send_heartbeat = 0;
+
+
 
 // Colect all our DOM Elements
 var dom_joypad = document.getElementById('joypad');
@@ -330,6 +376,8 @@ var dom_telemetry = document.getElementById("telemetry");
 var dom_last_packet_display = document.getElementById("lastPacket");
 var dom_pingtime_display = document.getElementById("hb_ping_ms");
 var dom_console_window = document.getElementById("consoletext");
+var dom_overlay_disconnected        = document.getElementById("overlay_disconnected");
+var dom_overlay_connecting        = document.getElementById("overlay_connecting");
 
 var dom_motor1_setpoint = document.getElementById("m1s");
 var dom_motor1_p        = document.getElementById("m1p");
@@ -340,6 +388,10 @@ var dom_motor2_setpoint = document.getElementById("m2s");
 var dom_motor2_p        = document.getElementById("m2p");
 var dom_motor2_i        = document.getElementById("m2i");
 var dom_motor2_d        = document.getElementById("m2d");
+
+// Application State
+var application_state_last = application_states.invalid;
+var application_state = application_states.connecting;
 
 // Set up Heartbeat variables.
 var heartbeat_pingUUID = 0; // UUID of last sent ping
@@ -378,5 +430,6 @@ joypad_manager.get(0).on('move start end', function(evt, data) {
 
 });
 
+setInterval(handle_application_state,500);
 
 initialize_app();
