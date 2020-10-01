@@ -317,6 +317,7 @@ function send_slider(num,value){
 
 function initialize_app() {
   application_state = application_states.connecting;
+  if (robot_socket != null) robot_socket.close();
   if (location.host == "127.0.0.1:3000" || location.host == "localhost:3000") {
     console.log("App running on localhost.. Connecting to debug ESP")
     robot_socket = new WebSocket("ws://192.168.86.45/test");
@@ -336,6 +337,11 @@ function initialize_app() {
 }
 
 function handle_application_state(){
+  if (last_packet_delta>10000){
+    robot_socket.close()
+    clearInterval(interval_update_last_packet_counter);
+    last_packet_delta=0;
+  }
   if (application_state==application_state_last) return;
   application_state_last=application_state;
   console.log("App state changed");
