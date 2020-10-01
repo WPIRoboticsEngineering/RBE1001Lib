@@ -36,9 +36,16 @@ It will prompt you for a password, type that and hit send
 The ESP will default to trying to connect to a network, then fail over to AP mode
 
 
-
 To access the RC control interface for Station mode you will watch the serial monitor as the
-ESP boots, it will print out the IP address. Enter that address in your computer or phones web browser.
+ESP boots, it will print out the IP address. It should look like this:
+
+```
+
+WiFi connected! DHCP took 8 IP address: 192.168.37.44
+```
+
+
+Enter that address in your computer or phones web browser.
 Make sure your ESP and computer or phone are on the same network.
 
 ## AP mode (IN LAB use)
