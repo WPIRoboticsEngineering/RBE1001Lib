@@ -30,6 +30,7 @@ function socket_disconnected(event) {
 
 function socket_connected(event) {
   console.log("Websocket Connection Established");
+  send_heartbeat(); // send out one HB so ui doesn't display blanks untill the timer triggers.
   setInterval(update_joystick, 60);
   setInterval(update_last_packet_counter, 500);
   setInterval(update_ui_values, 60);
