@@ -48,8 +48,17 @@ In the lab, you will want to use AP mode. To set the AP, type AP:myNetName
 to set myNetName as the AP mode and hit send
 the ESP will prompt you for a password to use, enter it and hit send
 
-To make the ESP use AP mode by default on boot, change the line below manager.setup();
-to manager.setupAP();
+To make the ESP use AP mode by default on boot, change the line in RCCTL.ino
+
+```
+manager.setup();
+```
+ 
+to
+
+```
+ manager.setupAP();
+```
 
 
 To access the RC Control interface in AP mode, connect to the ESP with either you phone or laptop
