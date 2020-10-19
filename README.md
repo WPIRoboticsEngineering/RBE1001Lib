@@ -23,6 +23,8 @@ The RC controller is hosted by the ESP32 as a website.
 
 The Detailed documentation is here: https://github.com/madhephaestus/Esp32WifiManager
 
+Protocol information is here: https://github.com/WPIRoboticsEngineering/RBE1001Lib/blob/master/PROTOCOL.md
+
 
 ## Infrastructure network
 
