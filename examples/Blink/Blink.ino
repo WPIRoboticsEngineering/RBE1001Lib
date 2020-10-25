@@ -1,3 +1,6 @@
+#include <Arduino.h>
+#include <RBE1001Lib.h>
+
 const int ledPin = 33;
 
 // the setup routine runs once at the start of the program:
