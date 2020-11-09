@@ -3,7 +3,7 @@
 
 Motor left_motor;
 Motor right_motor;
-bool upDown=false;
+
 /*
  * This is the standard setup function that is called when the ESP32 is rebooted
  * It is used to initialize anything that needs to be done once.
