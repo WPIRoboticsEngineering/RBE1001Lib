@@ -321,6 +321,16 @@ void Motor::loop() {
 		//portEXIT_CRITICAL(&mmux);
 	}
 
+	else
+	{
+		if(targetEffort > currentEffort + DELTA_EFFORT)
+			currentEffort += DELTA_EFFORT;
+		else if(targetEffort < currentEffort - DELTA_EFFORT)
+			currentEffort -= DELTA_EFFORT;
+		else currentEffort = targetEffort;
+	}
+	
+
 	interruptCountForVelocity++;
 	if (interruptCountForVelocity == 50) {
 		interruptCountForVelocity = 0;
@@ -399,7 +409,7 @@ void Motor::setEffort(float effort) {
 		effort = -1;
 //portENTER_CRITICAL(&mmux);
 	closedLoopControl = false;
-	currentEffort = effort;
+	targetEffort = effort;
 //portEXIT_CRITICAL(&mmux);
 }
 /*

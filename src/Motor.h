@@ -16,6 +16,10 @@
 #define QUADRATUE_MULTIPLYER 1.0f
 #define TICKS_TO_DEGREES ((QUADRATUE_MULTIPLYER/(ENCODER_CPR*GEAR_BOX_RATIO/360.0))*-1)
 #define I_TERM_SIZE 120.0f
+
+
+const float DELTA_EFFORT = 0.0025;
+
 enum interpolateMode {
 	LINEAR_INTERPOLATION=1, SINUSOIDAL_INTERPOLATION=2, VELOCITY_MODE=3, BEZIER=4, TRAPEZOIDAL=5
 };
@@ -90,6 +94,10 @@ private:
 	 *
 	 */
 	bool closedLoopControl = true;
+	/**
+	 * variable for storing target effort to allow for smoother accelerations
+	 */
+	float targetEffort = 0;
 	/**
 	 * variable for caching the current effort being sent to the PWM/direction pins
 	 */
