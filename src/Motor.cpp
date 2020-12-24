@@ -243,6 +243,7 @@ void Motor::moveFor(float deltaTargetInDegrees, float speedDegPerSec) {
  * @param newDegreesPerSecond the new speed in degrees per second
  */
 void Motor::setSpeed(float newDegreesPerSecond) {
+	if(closedLoopControl == false) setSetpoint(getCurrentDegrees());
 	if (fabs(newDegreesPerSecond) < 0.1) {
 		setSetpoint(getCurrentDegrees());
 		//ESP_LOGI(TAG, "Stopping");
