@@ -243,6 +243,7 @@ void Motor::moveFor(float deltaTargetInDegrees, float speedDegPerSec) {
  * @param newDegreesPerSecond the new speed in degrees per second
  */
 void Motor::setSpeed(float newDegreesPerSecond) {
+	if(closedLoopControl == false) setSetpoint(getCurrentDegrees());
 	if (fabs(newDegreesPerSecond) < 0.1) {
 		setSetpoint(getCurrentDegrees());
 		//ESP_LOGI(TAG, "Stopping");
@@ -320,6 +321,16 @@ void Motor::loop() {
 
 		//portEXIT_CRITICAL(&mmux);
 	}
+
+	else
+	{
+		if(targetEffort > currentEffort + DELTA_EFFORT)
+			currentEffort += DELTA_EFFORT;
+		else if(targetEffort < currentEffort - DELTA_EFFORT)
+			currentEffort -= DELTA_EFFORT;
+		else currentEffort = targetEffort;
+	}
+	
 
 	interruptCountForVelocity++;
 	if (interruptCountForVelocity == 50) {
@@ -399,7 +410,7 @@ void Motor::setEffort(float effort) {
 		effort = -1;
 //portENTER_CRITICAL(&mmux);
 	closedLoopControl = false;
-	currentEffort = effort;
+	targetEffort = effort;
 //portEXIT_CRITICAL(&mmux);
 }
 /*
