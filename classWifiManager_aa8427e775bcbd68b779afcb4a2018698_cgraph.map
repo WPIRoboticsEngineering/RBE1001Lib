@@ -1,3 +1,4 @@
 <map id="WifiManager::rescan" name="WifiManager::rescan">
 <area shape="rect" id="node2" href="$classWifiManager.html#a4ad62e3bb8f8d057cb683808b3ac99b9" title="WifiManager::getPassword" alt="" coords="196,5,375,32"/>
+<area shape="rect" id="node3" href="$classWifiManager.html#a655f6c22cf9457e3998d6f38a7f5f6ab" title="WifiManager::getPasswordKey" alt="" coords="423,5,625,32"/>
 </map>

@@ -1,9 +1,6 @@
 <map id="onWsEvent" name="onWsEvent">
 <area shape="rect" id="node2" href="$classWebPage.html#a8a6cb8d704e67dce02fb64cad81e4c56" title="WebPage::markAllDirty" alt="" coords="163,5,321,32"/>
-<area shape="rect" id="node3" href="$classWebPage.html#a958b189c48eec8d2b2177b9e56442d80" title="WebPage::SendAllLabels" alt="" coords="157,56,327,83"/>
-<area shape="rect" id="node5" href="$classWebPage.html#aef7e846a1d8c68240b6aadc41074767d" title="WebPage::SendAllValues" alt="" coords="156,107,328,133"/>
-<area shape="rect" id="node6" href="$classWebPage.html#a2bb06280ee0d8c75fc5371f5ab3d5841" title="WebPage::setHeartbeatUUID" alt="" coords="144,157,340,184"/>
-<area shape="rect" id="node7" href="$classWebPage.html#a90afc8046c36040500d8b96da9ec269e" title="WebPage::setJoystickValue" alt="" coords="149,208,335,235"/>
-<area shape="rect" id="node8" href="$classWebPage.html#a336eea64f6d880b7c11f3b916d8989a9" title="WebPage::setSliderValue" alt="" coords="157,259,327,285"/>
-<area shape="rect" id="node4" href="$WebPage_8cpp.html#a9b23e96a454fdfe540ba250951e2fa55" title="ws" alt="" coords="388,81,427,108"/>
+<area shape="rect" id="node3" href="$classWebPage.html#a2bb06280ee0d8c75fc5371f5ab3d5841" title="WebPage::setHeartbeatUUID" alt="" coords="144,56,340,83"/>
+<area shape="rect" id="node4" href="$classWebPage.html#a90afc8046c36040500d8b96da9ec269e" title="WebPage::setJoystickValue" alt="" coords="149,107,335,133"/>
+<area shape="rect" id="node5" href="$classWebPage.html#a336eea64f6d880b7c11f3b916d8989a9" title="WebPage::setSliderValue" alt="" coords="157,157,327,184"/>
 </map>

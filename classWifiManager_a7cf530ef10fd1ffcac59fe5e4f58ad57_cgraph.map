@@ -1,4 +1,5 @@
 <map id="WifiManager::startAP" name="WifiManager::startAP">
 <area shape="rect" id="node2" href="$classWifiManager.html#a4ad62e3bb8f8d057cb683808b3ac99b9" title="WifiManager::getPassword" alt="" coords="200,5,379,32"/>
-<area shape="rect" id="node3" href="$classWifiManager.html#a547d00fa67484a33b341f63c7ca7f74d" title="WifiManager::setPassword" alt="" coords="200,56,379,83"/>
+<area shape="rect" id="node4" href="$classWifiManager.html#a547d00fa67484a33b341f63c7ca7f74d" title="WifiManager::setPassword" alt="" coords="200,56,379,83"/>
+<area shape="rect" id="node3" href="$classWifiManager.html#a655f6c22cf9457e3998d6f38a7f5f6ab" title="WifiManager::getPasswordKey" alt="" coords="427,31,629,57"/>
 </map>

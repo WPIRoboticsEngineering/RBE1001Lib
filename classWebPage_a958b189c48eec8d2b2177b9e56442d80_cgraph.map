@@ -1,3 +1,5 @@
 <map id="WebPage::SendAllLabels" name="WebPage::SendAllLabels">
-<area shape="rect" id="node2" href="$WebPage_8cpp.html#a9b23e96a454fdfe540ba250951e2fa55" title="ws" alt="" coords="224,5,263,32"/>
+<area shape="rect" id="node2" href="$classWebPage.html#a6a85a3558376dd63ab35940d5a7575da" title="WebPage::dirtyLabels" alt="" coords="227,5,377,32"/>
+<area shape="rect" id="node3" href="$classWebPage.html#acbbdc531c9dc44c60cac0a3673ad3b10" title="WebPage::sendPacket" alt="" coords="224,56,380,83"/>
+<area shape="rect" id="node4" href="$WebPage_8cpp.html#a9b23e96a454fdfe540ba250951e2fa55" title="ws" alt="" coords="428,56,467,83"/>
 </map>

@@ -1,15 +1,17 @@
 <map id="/home/hephaestus/git/Esp32WifiManager/src/Esp32WifiManager.h" name="/home/hephaestus/git/Esp32WifiManager/src/Esp32WifiManager.h">
-<area shape="rect" id="node2" href="$RBE1001Lib_8h.html" title="src/RBE1001Lib.h" alt="" coords="947,124,1075,151"/>
-<area shape="rect" id="node11" href="$RCCTL_8ino.html" title="examples/RCCTL/RCCTL.ino" alt="" coords="1690,221,1887,247"/>
-<area shape="rect" id="node13" href="$APModeExample_8ino.html" title="/home/hephaestus/git\l/Esp32WifiManager/examples\l/APModeExample/APModeExample.ino" alt="" coords="1487,109,1741,165"/>
-<area shape="rect" id="node14" href="$WifiManagerExample_8ino.html" title="/home/hephaestus/git\l/Esp32WifiManager/examples\l/WifiManagerExample/WifiManagerExample.ino" alt="" coords="1765,109,2063,165"/>
+<area shape="rect" id="node2" href="$RBE1001Lib_8h.html" title="src/RBE1001Lib.h" alt="" coords="1138,124,1266,151"/>
+<area shape="rect" id="node12" href="$RCCTL_8ino.html" title="examples/RCCTL/RCCTL.ino" alt="" coords="2079,221,2277,247"/>
+<area shape="rect" id="node15" href="$APModeExample_8ino.html" title="/home/hephaestus/git\l/Esp32WifiManager/examples\l/APModeExample/APModeExample.ino" alt="" coords="1778,109,2031,165"/>
+<area shape="rect" id="node16" href="$WifiManagerExample_8ino.html" title="/home/hephaestus/git\l/Esp32WifiManager/examples\l/WifiManagerExample/WifiManagerExample.ino" alt="" coords="2055,109,2354,165"/>
 <area shape="rect" id="node3" href="$WebPage_8cpp.html" title="src/WebPage.cpp" alt="" coords="5,221,132,247"/>
-<area shape="rect" id="node4" href="$EncoderTest_8ino.html" title="examples/EncoderTest\l/EncoderTest.ino" alt="" coords="156,213,312,255"/>
-<area shape="rect" id="node5" href="$FullSystemTest_8ino.html" title="examples/FullSystemTest\l/FullSystemTest.ino" alt="" coords="336,213,511,255"/>
-<area shape="rect" id="node6" href="$LineTrackerTest_8ino.html" title="examples/LineTrackerTest\l/LineTrackerTest.ino" alt="" coords="535,213,711,255"/>
-<area shape="rect" id="node7" href="$MotorMoveTo_8ino.html" title="examples/MotorMoveTo\l/MotorMoveTo.ino" alt="" coords="735,213,898,255"/>
-<area shape="rect" id="node8" href="$MotorSpeedTest_8ino.html" title="examples/MotorSpeedTest\l/MotorSpeedTest.ino" alt="" coords="922,213,1101,255"/>
-<area shape="rect" id="node9" href="$MotorSpinExample_8ino.html" title="examples/MotorSpinExample\l/MotorSpinExample.ino" alt="" coords="1125,213,1317,255"/>
-<area shape="rect" id="node10" href="$Photoresistor_8ino.html" title="examples/Photoresistor\l/Photoresistor.ino" alt="" coords="1341,213,1500,255"/>
-<area shape="rect" id="node12" href="$Ultrasonic_8ino.html" title="examples/Ultrasonic\l/Ultrasonic.ino" alt="" coords="1525,213,1666,255"/>
+<area shape="rect" id="node4" href="$Blink_8ino.html" title="examples/Blink/Blink.ino" alt="" coords="157,221,322,247"/>
+<area shape="rect" id="node5" href="$EncoderTest_8ino.html" title="examples/EncoderTest\l/EncoderTest.ino" alt="" coords="347,213,503,255"/>
+<area shape="rect" id="node6" href="$FullSystemTest_8ino.html" title="examples/FullSystemTest\l/FullSystemTest.ino" alt="" coords="527,213,701,255"/>
+<area shape="rect" id="node7" href="$LineTrackerTest_8ino.html" title="examples/LineTrackerTest\l/LineTrackerTest.ino" alt="" coords="726,213,902,255"/>
+<area shape="rect" id="node8" href="$MotorMoveTo_8ino.html" title="examples/MotorMoveTo\l/MotorMoveTo.ino" alt="" coords="926,213,1089,255"/>
+<area shape="rect" id="node9" href="$MotorSpeedTest_8ino.html" title="examples/MotorSpeedTest\l/MotorSpeedTest.ino" alt="" coords="1113,213,1291,255"/>
+<area shape="rect" id="node10" href="$MotorSpinExample_8ino.html" title="examples/MotorSpinExample\l/MotorSpinExample.ino" alt="" coords="1315,213,1507,255"/>
+<area shape="rect" id="node11" href="$Photoresistor_8ino.html" title="examples/Photoresistor\l/Photoresistor.ino" alt="" coords="1532,213,1691,255"/>
+<area shape="rect" id="node13" href="$Servo_8ino.html" title="examples/Servo/Servo.ino" alt="" coords="1715,221,1889,247"/>
+<area shape="rect" id="node14" href="$Ultrasonic_8ino.html" title="examples/Ultrasonic\l/Ultrasonic.ino" alt="" coords="1914,213,2055,255"/>
 </map>

@@ -1,0 +1,5 @@
+<map id="WebPage::SendSetpoint" name="WebPage::SendSetpoint">
+<area shape="rect" id="node2" href="$classMotor.html#a7a84e0d2676d7420219b6e7f67e69038" title="Motor::getCurrentDegrees" alt="" coords="219,5,392,32"/>
+<area shape="rect" id="node3" href="$classWebPage.html#acbbdc531c9dc44c60cac0a3673ad3b10" title="WebPage::sendPacket" alt="" coords="227,56,383,83"/>
+<area shape="rect" id="node4" href="$WebPage_8cpp.html#a9b23e96a454fdfe540ba250951e2fa55" title="ws" alt="" coords="440,56,479,83"/>
+</map>

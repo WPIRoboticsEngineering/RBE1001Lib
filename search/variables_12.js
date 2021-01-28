@@ -1,6 +1,8 @@
 var searchData=
 [
   ['tag',['TAG',['../Motor_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c',1,'Motor.cpp']]],
+  ['targeteffort',['targetEffort',['../classMotor.html#ab622fa7b05243fc7cba8b464ea3c09b9',1,'Motor']]],
+  ['tempbuttonpos',['tempButtonPos',['../classButton.html#aed991ef62dc2e9ac9d599b6c2ad0b083',1,'Button']]],
   ['thispage',['thisPage',['../WebPage_8cpp.html#a559ab4ce595102d363c6b5246ed0073e',1,'WebPage.cpp']]],
   ['threadtimeout',['threadTimeout',['../Rangefinder_8cpp.html#a46a2a5cd3eff40b5122b10a69c90666d',1,'Rangefinder.cpp']]],
   ['ticks',['ticks',['../classServo.html#a63c3d219b32ae9910c41ad9346e9ae8e',1,'Servo']]],

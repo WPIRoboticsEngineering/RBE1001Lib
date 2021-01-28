@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['activestate',['activeState',['../classButton.html#a3cbfc31a2c19215a54292155665c0e51',1,'Button']]],
   ['adc',['adc',['../ESP32AnalogReadTest_8ino.html#a50355c8e58a465c9cf8a0a8e763c4b78',1,'ESP32AnalogReadTest.ino']]],
   ['adc_5fmax',['ADC_Max',['../Knob_8ino.html#aae80133a8f9b9cf9436ecb6d3b173174',1,'Knob.ino']]],
   ['angle',['angle',['../struct__JoyData.html#ad146cb971182aabfa83fc96a7f154c6c',1,'_JoyData']]],

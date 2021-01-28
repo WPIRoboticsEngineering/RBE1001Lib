@@ -7,5 +7,6 @@ var searchData=
   ['valuechanged',['valueChanged',['../classWebPage.html#af246063dfc5e02c05e0ad469d2c7907c',1,'WebPage']]],
   ['valuedirty',['valueDirty',['../struct__telemetryValue.html#a3a1ad897ad02f8b58df3eef112b5ea95',1,'_telemetryValue']]],
   ['values',['values',['../classWebPage.html#af229dc191e47aeedf60a145a8577985d',1,'WebPage']]],
+  ['valuessem',['valuesSem',['../classWebPage.html#a30db88953f3b0a3203185f3fb70013c9',1,'WebPage']]],
   ['velocity_5fmode',['VELOCITY_MODE',['../Motor_8h.html#a5f2bed26bc3981591ee546627fdbbef4a53c6ff5c2a348365c6d73e987a375f4c',1,'Motor.h']]]
 ];

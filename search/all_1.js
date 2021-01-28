@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['activestate',['activeState',['../classButton.html#a3cbfc31a2c19215a54292155665c0e51',1,'Button']]],
   ['adc',['adc',['../ESP32AnalogReadTest_8ino.html#a50355c8e58a465c9cf8a0a8e763c4b78',1,'ESP32AnalogReadTest.ino']]],
   ['adc_5fmax',['ADC_Max',['../Knob_8ino.html#aae80133a8f9b9cf9436ecb6d3b173174',1,'Knob.ino']]],
   ['adjustfrequency',['adjustFrequency',['../classESP32PWM.html#aab3c6376b3aa784e79847f358783ad7b',1,'ESP32PWM']]],
