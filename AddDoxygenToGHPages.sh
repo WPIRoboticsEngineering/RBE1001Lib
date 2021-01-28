@@ -3,11 +3,10 @@
 GITURL=$(git config --get remote.origin.url)
 
 echo $GITURL
-
-#rm -rf html
+rm -rf html
 git commit -a -m"Store Doxygen to master"
 git push
-if (!test -e html) then
+if (! test -e html ) then
 	git clone $GITURL html
 fi
 cd html
@@ -33,5 +32,5 @@ git add search/*
 git commit -a -m"updating the doxygen"
 git push
 cd ..
-#rm -rf html
+rm -rf html
 git checkout master
