@@ -26,7 +26,7 @@ void setup()
 
 void loop() 
 {
-	uint16_t angle = (millis()/100) % 180;
+	uint16_t angle = (millis()/20) % 180;
 	lifter.write(angle);
 	Serial.println(angle);
 	delay(10);
