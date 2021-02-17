@@ -435,4 +435,8 @@ public:
 
 };
 
+
+extern Motor left_motor;
+extern Motor right_motor;
+
 #endif /* LIBRARIES_RBE1001LIB_SRC_MOTOR_H_ */
