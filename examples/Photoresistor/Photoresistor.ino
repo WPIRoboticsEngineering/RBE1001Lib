@@ -7,6 +7,7 @@
 #include <RBE1001Lib.h>
 
 const int photoresistorPin = 34;
+const uint32_t LINE_SENSOR_INTERVAL = 10;
 
 /*
  * This is the standard setup function that is called when the ESP32 is rebooted
@@ -28,8 +29,16 @@ void setup()
  */
 void loop() 
 {
-  delay(100);
+  //delay(100);
+  static uint32_t lastTime = 0;
+  if(millis() - lastTime > LINE_SENSOR_INTERVAL)
+  {
+    int adcPhotoresistor = analogRead(photoresistorPin);
+    Serial.print(millis());
+    Serial.print('\t');
+    Serial.println(adcPhotoresistor);
 
-  int adcPhotoresistor = analogRead(photoresistorPin);
-  Serial.println(adcPhotoresistor);
+    lastTime += LINE_SENSOR_INTERVAL;
+  }
+
 }
