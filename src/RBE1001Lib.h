@@ -9,16 +9,16 @@
 #include "Motor.h"
 
 // Pins used by a perpheral, may be re-used
-#define BOOT_FLAG_PIN 			0
-#define I2C_SDA       			21
-#define I2C_SCL       			22
-#define SERIAL_PROGRAMMING_TX 	1
-#define SERIAL_PROGRAMMING_RX 	3
+#define BOOT_FLAG_PIN 0
+#define I2C_SDA 21
+#define I2C_SCL 22
+#define SERIAL_PROGRAMMING_TX 1
+#define SERIAL_PROGRAMMING_RX 3
 
 #define SPI_MOSI 23
 #define SPI_MISO 19
-#define SPI_SCK  18
-#define SPI_SS   5
+#define SPI_SCK 18
+#define SPI_SS 5
 
 // Ultrasonics
 #define SIDE_ULTRASONIC_TRIG 16
@@ -29,7 +29,7 @@
 //A3
 #define RIGHT_LINE_SENSE 39
 //A2
-#define SERVO_FEEDBACK_SENSOR		34
+#define SERVO_FEEDBACK_SENSOR 34
 /**
  * Gripper pin for Servo
  */
@@ -61,8 +61,17 @@
 //A0
 #define MOTOR_LEFT_ENCB 26
 
-
 #define MOTOR_RIGHT_ENCA 32
 #define MOTOR_RIGHT_ENCB 14
 
+class LeftMotor : public Motor
+{
+public:
+    LeftMotor() : Motor{MOTOR_LEFT_PWM, MOTOR_LEFT_DIR, MOTOR_LEFT_ENCA, MOTOR_LEFT_ENCB} {}
+};
 
+class RightMotor : public Motor
+{
+public:
+    RightMotor() : Motor{MOTOR_RIGHT_PWM, MOTOR_RIGHT_DIR, MOTOR_RIGHT_ENCA, MOTOR_RIGHT_ENCB} {}
+};
