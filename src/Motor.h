@@ -14,14 +14,18 @@
 #define ENCODER_CPR 12.0f
 #define GEAR_BOX_RATIO 120.0f
 #define QUADRATUE_MULTIPLYER 1.0f
-#define TICKS_TO_DEGREES ((QUADRATUE_MULTIPLYER/(ENCODER_CPR*GEAR_BOX_RATIO/360.0))*-1)
+#define TICKS_TO_DEGREES ((QUADRATUE_MULTIPLYER / (ENCODER_CPR * GEAR_BOX_RATIO / 360.0)) * -1)
 #define I_TERM_SIZE 120.0f
-
 
 const float DELTA_EFFORT = 0.0025;
 
-enum interpolateMode {
-	LINEAR_INTERPOLATION=1, SINUSOIDAL_INTERPOLATION=2, VELOCITY_MODE=3, BEZIER=4, TRAPEZOIDAL=5
+enum interpolateMode
+{
+	LINEAR_INTERPOLATION = 1,
+	SINUSOIDAL_INTERPOLATION = 2,
+	VELOCITY_MODE = 3,
+	BEZIER = 4,
+	TRAPEZOIDAL = 5
 };
 /** \brief A PID Motor class using FreeRTOS threads, ESP32Encoder and ESP32PWM
  *
@@ -36,17 +40,21 @@ enum interpolateMode {
  * must be called before any motor objects can be attached. This method will also start the PID thread.
  *
  */
-class Motor {
+class Motor
+{
 private:
 	/**
 	 * the object that produces PWM for motor speed
 	 */
-	ESP32PWM * pwm;
+	ESP32PWM *pwm;
 	/**
 	 * the object that keeps track of the motors position
 	 */
-	ESP32Encoder * encoder;
-
+	ESP32Encoder *encoder;
+	/**
+	 * True if the motor has been attached
+	 */
+	bool isAttached = false;
 	/**
 	 * an internal counter that counts iterations of the PID loop
 	 * this is used to calculate 50ms timing for calculation of the velocity
@@ -137,18 +145,18 @@ private:
 	 *
 	 * https://stackoverflow.com/a/43071667
 	 */
-	float BEZIER_P0=0.25;
+	float BEZIER_P0 = 0.25;
 	/**
 	 * \brief  BEZIER Control Point 1
 	 *
 	 * https://stackoverflow.com/a/43071667
 	 */
-	float BEZIER_P1=0.75;
+	float BEZIER_P1 = 0.75;
 
 	/**
 	 * \brief the amount of time to ramp up and ramp down the speed
 	 */
-	float TRAPEZOIDAL_time=0;
+	float TRAPEZOIDAL_time = 0;
 
 public:
 	/**
@@ -159,6 +167,14 @@ public:
 	 * GPIO pin number of the motor direction output flag
 	 */
 	int directionFlag = -1;
+	/**
+	 * GPIO pin number of the motor encoder A
+	 */
+	int MotorEncAPin = -1;
+	/**
+	 * GPIO pin number of the motor encoder B
+	 */
+	int MotorEncBPin = -1;
 	/**
 	 * use the internal state and current time to comput where along the path from start to finish the interpolation is
 	 */
@@ -177,7 +193,7 @@ public:
 	 *  it adds itself to this list of Motor pointers. This list is read by the PID thread and each
 	 *  object in the list has loop() called. once every milisecond.
 	 */
-	static Motor * list[MAX_POSSIBLE_MOTORS];
+	static Motor *list[MAX_POSSIBLE_MOTORS];
 
 	/**
 	 * @param PWMgenerationTimer the timer to be used to generate the 20khz PWM
@@ -197,7 +213,7 @@ public:
 	 * must be called before any motor objects can be attached. This method will also start the PID thread.
 	 *
 	 */
-	Motor();
+	Motor(int pwmPin, int dirPin, int encAPin, int encBPin);
 	virtual ~Motor();
 
 	/**
@@ -210,8 +226,7 @@ public:
 	 * @note this must only be called after timers are allocated via Motor::allocateTimers(int PWMgenerationTimer)
 	 *
 	 */
-	void attach(int MotorPWMPin, int MotorDirectionPin, int EncoderA,
-			int EncoderB);
+	void attach();
 	/*
 	 *  \brief effort of the motor, proportional to PWM
 	 *
@@ -228,7 +243,10 @@ public:
 	 *        100 is full speed clockwise
 	 *        -100 is full speed counter clockwise
 	 */
-	void setEffortPercent(float percent) {
+	void setEffortPercent(float percent)
+	{
+		if (!isAttached)
+			attach();
 		setEffort(percent * 0.01);
 	}
 	/*
@@ -246,7 +264,10 @@ public:
 	 *        100 is full speed clockwise
 	 *        -100 is full speed counter clockwise
 	 */
-	float getEffortPercent() {
+	float getEffortPercent()
+	{
+		if (!isAttached)
+			attach();
 		return getEffort() * 100;
 	}
 	/**
@@ -278,7 +299,7 @@ public:
 	 * param mode the interpolation mode
 	 */
 	void setSetpointWithTime(float newTargetInDegrees, long miliseconds,
-			interpolateMode mode);
+							 interpolateMode mode);
 	/**
 	 * SetSpeed in degrees with time
 	 * Set the setpoint for the motor in degrees
@@ -344,7 +365,10 @@ public:
 	 * Set the setpoint for the motor in degrees
 	 * @param newTargetInDegrees the new setpoint for the closed loop controller
 	 */
-	void setSetpoint(float newTargetInDegrees) {
+	void setSetpoint(float newTargetInDegrees)
+	{
+		if (!isAttached)
+			attach();
 		setSetpointWithTime(newTargetInDegrees, 0, LINEAR_INTERPOLATION);
 	}
 
@@ -356,9 +380,12 @@ public:
 	 * use linear interoplation
 	 */
 	void setSetpointWithLinearInterpolation(float newTargetInDegrees,
-			long miliseconds) {
+											long miliseconds)
+	{
+		if (!isAttached)
+			attach();
 		setSetpointWithTime(newTargetInDegrees, miliseconds,
-				LINEAR_INTERPOLATION);
+							LINEAR_INTERPOLATION);
 	}
 
 	/**
@@ -369,9 +396,12 @@ public:
 	 * use sinusoidal interpolation
 	 */
 	void setSetpointWithSinusoidalInterpolation(float newTargetInDegrees,
-			long miliseconds) {
+												long miliseconds)
+	{
+		if (!isAttached)
+			attach();
 		setSetpointWithTime(newTargetInDegrees, miliseconds,
-				SINUSOIDAL_INTERPOLATION);
+							SINUSOIDAL_INTERPOLATION);
 	}
 	/**
 	 * SetSetpoint in degrees with time
@@ -383,11 +413,14 @@ public:
 	 * use Bezier interpolation
 	 */
 	void setSetpointWithBezierInterpolation(float newTargetInDegrees,
-			long miliseconds, float Control_0=0.5, float Control_1=1.0) {
-		BEZIER_P0=Control_0;
-		BEZIER_P1=Control_1;
+											long miliseconds, float Control_0 = 0.5, float Control_1 = 1.0)
+	{
+		if (!isAttached)
+			attach();
+		BEZIER_P0 = Control_0;
+		BEZIER_P1 = Control_1;
 		setSetpointWithTime(newTargetInDegrees, miliseconds,
-				BEZIER);
+							BEZIER);
 	}
 	/**
 	 * SetSetpoint in degrees with time
@@ -400,10 +433,14 @@ public:
 	 * use sinusoidal interpolation
 	 */
 	void setSetpointWithTrapezoidalInterpolation(float newTargetInDegrees,
-			long miliseconds, float trapazoidalTime) {
-		if (trapazoidalTime * 2 > miliseconds) {
+												 long miliseconds, float trapazoidalTime)
+	{
+		if (!isAttached)
+			attach();
+		if (trapazoidalTime * 2 > miliseconds)
+		{
 			setSetpointWithSinusoidalInterpolation(newTargetInDegrees,
-					miliseconds);
+												   miliseconds);
 			return;
 		}
 		TRAPEZOIDAL_time = trapazoidalTime;
@@ -417,9 +454,24 @@ public:
 	void setGainsI(float i);
 	void setGainsD(float d);
 
-	float getGainsP(){return kP;}
-	float getGainsI(){return kI;}
-	float getGainsD(){return kD;}
+	float getGainsP()
+	{
+		if (!isAttached)
+			attach();
+		return kP;
+	}
+	float getGainsI()
+	{
+		if (!isAttached)
+			attach();
+		return kI;
+	}
+	float getGainsD()
+	{
+		if (!isAttached)
+			attach();
+		return kD;
+	}
 
 	/**
 	 * isMotorDoneWithMove
@@ -432,11 +484,9 @@ public:
 	 *
 	 */
 	bool isMotorDoneWithMove();
-
 };
 
-
-extern Motor left_motor;
-extern Motor right_motor;
+//extern Motor left_motor;
+//extern Motor right_motor;
 
 #endif /* LIBRARIES_RBE1001LIB_SRC_MOTOR_H_ */

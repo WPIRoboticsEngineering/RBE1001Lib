@@ -9,11 +9,9 @@
 #include "WebPage.h"
 #include <Timer.h>
 
-
-
 // https://wpiroboticsengineering.github.io/RBE1001Lib/classMotor.html
-Motor left_motor;
-Motor right_motor;
+LeftMotor left_motor;
+RightMotor right_motor;
 // https://wpiroboticsengineering.github.io/RBE1001Lib/classRangefinder.html
 Rangefinder rangefinder1;
 // https://wpiroboticsengineering.github.io/RBE1001Lib/classServo.html
@@ -25,11 +23,9 @@ ESP32AnalogRead servoPositionFeedback;
 
 WebPage control_page;
 
-
 WifiManager manager;
 
-
-Timer dashboardUpdateTimer;  // times when the dashboard should update
+Timer dashboardUpdateTimer; // times when the dashboard should update
 /*
  * This is the standard setup function that is called when the ESP32 is rebooted
  * It is used to initialize anything that needs to be done once.
@@ -69,31 +65,27 @@ Timer dashboardUpdateTimer;  // times when the dashboard should update
  *
  * NOTE you can use this class in your final project code to visualize the state of your system while running wirelessly.
  */
-int inc=0;
-void setup() {
-	manager.setup();// Connect to an infrastructure network first, then fail over to AP mode
+int inc = 0;
+void setup()
+{
+	manager.setup(); // Connect to an infrastructure network first, then fail over to AP mode
 	//manager.setupAP();// Launch AP mode first, then fail over to connecting to a station
-	while (manager.getState() != Connected) {
+	while (manager.getState() != Connected)
+	{
 		manager.loop();
 		delay(1);
 	}
-	Motor::allocateTimer(0); // used by the DC Motors
 	ESP32PWM::allocateTimer(1); // Used by servos
 
 	// pin definitions https://wpiroboticsengineering.github.io/RBE1001Lib/RBE1001Lib_8h.html#define-members
-	right_motor.attach(MOTOR_RIGHT_PWM, MOTOR_RIGHT_DIR, MOTOR_RIGHT_ENCA, MOTOR_RIGHT_ENCB);
-	left_motor.attach(MOTOR_LEFT_PWM, MOTOR_LEFT_DIR, MOTOR_LEFT_ENCA, MOTOR_LEFT_ENCB);
 	rangefinder1.attach(SIDE_ULTRASONIC_TRIG, SIDE_ULTRASONIC_ECHO);
 	lifter.attach(SERVO_PIN);
 	leftLineSensor.attach(LEFT_LINE_SENSE);
 	rightLineSensor.attach(RIGHT_LINE_SENSE);
 	servoPositionFeedback.attach(SERVO_FEEDBACK_SENSOR);
 	lifter.write(0);
-	control_page.initalize(); // Init UI after everything else.
+	control_page.initalize();	  // Init UI after everything else.
 	dashboardUpdateTimer.reset(); // reset the dashbaord refresh timer
-
-
-
 }
 
 /*
@@ -104,14 +96,15 @@ void setup() {
  * that is zeroed when the state begins. It is compared with the number of
  * milliseconds the robot should reamain in that state.
  */
-void runStateMachine() {
+void runStateMachine()
+{
 
-	float left = (control_page.getJoystickX()-control_page.getJoystickY())*180;
-	float right = (control_page.getJoystickX()+control_page.getJoystickY())*180;
+	float left = (control_page.getJoystickX() - control_page.getJoystickY()) * 180;
+	float right = (control_page.getJoystickX() + control_page.getJoystickY()) * 180;
 
 	left_motor.setSpeed(left);
 	right_motor.setSpeed(right);
-	lifter.write(control_page.getSliderValue(0)*180);
+	lifter.write(control_page.getSliderValue(0) * 180);
 }
 
 /*
@@ -121,19 +114,21 @@ void runStateMachine() {
  * "setValue" function with a name and a value.
  */
 
-uint32_t packet_old=0;
-void updateDashboard() {
+uint32_t packet_old = 0;
+void updateDashboard()
+{
 	// This writes values to the dashboard area at the bottom of the web page
-	if (dashboardUpdateTimer.getMS() > 100) {
+	if (dashboardUpdateTimer.getMS() > 100)
+	{
 
 		control_page.setValue("Left linetracker", leftLineSensor.readMiliVolts());
 		control_page.setValue("Right linetracker",
-				rightLineSensor.readMiliVolts());
+							  rightLineSensor.readMiliVolts());
 		control_page.setValue("Ultrasonic",
-				rangefinder1.getDistanceCM());
+							  rangefinder1.getDistanceCM());
 
 		control_page.setValue("Simple Counter",
-						inc++);
+							  inc++);
 		//if(control_page.getJoystickMagnitude()>0.1)
 		//Serial.println("Joystick angle="+String(control_page.getJoystickAngle())+
 		//		" magnitude="+String(control_page.getJoystickMagnitude())+
@@ -141,28 +136,27 @@ void updateDashboard() {
 		//						" y="+String(control_page.getJoystickY()) +
 		//						" slider="+String(control_page.getSliderValue(0)));
 
-
 		control_page.setValue("packets from Web to ESP",
-						control_page.rxPacketCount);
+							  control_page.rxPacketCount);
 
 		control_page.setValue("slider",
-						control_page.getSliderValue(0)*100);
+							  control_page.getSliderValue(0) * 100);
 
-		control_page.setValue("Left Encoder Degrees",		left_motor.getCurrentDegrees());
-		control_page.setValue("Left Effort", 	(int)left_motor.getEffortPercent());
-		control_page.setValue("Left Encoder Degrees/sec", 	left_motor.getDegreesPerSecond());
+		control_page.setValue("Left Encoder Degrees", left_motor.getCurrentDegrees());
+		control_page.setValue("Left Effort", (int)left_motor.getEffortPercent());
+		control_page.setValue("Left Encoder Degrees/sec", left_motor.getDegreesPerSecond());
 
-		control_page.setValue("Right Encoder Degrees",right_motor.getCurrentDegrees());
+		control_page.setValue("Right Encoder Degrees", right_motor.getCurrentDegrees());
 		control_page.setValue("Right  Effort", (int)right_motor.getEffortPercent());
-		control_page.setValue("Free Ram",esp_get_free_heap_size() );
-		control_page.setValue("Right Encoder Degrees/sec",right_motor.getDegreesPerSecond());
+		control_page.setValue("Free Ram", esp_get_free_heap_size());
+		control_page.setValue("Right Encoder Degrees/sec", right_motor.getDegreesPerSecond());
 
 		control_page.setValue("Simple Counter",
-						inc++);
+							  inc++);
 		control_page.setValue("packets from Web to ESP",
-						control_page.rxPacketCount);
+							  control_page.rxPacketCount);
 		control_page.setValue("packets to Web from ESP",
-						control_page.txPacketCount);
+							  control_page.txPacketCount);
 
 		dashboardUpdateTimer.reset();
 	}
@@ -174,10 +168,11 @@ void updateDashboard() {
  * dashboard data, and handle any web server requests.
  */
 
-void loop() {
+void loop()
+{
 
 	manager.loop();
-	runStateMachine();  // do a pass through the state machine
-	if(manager.getState() == Connected)// only update if WiFi is up
-		updateDashboard();  // update the dashboard values
+	runStateMachine();					 // do a pass through the state machine
+	if (manager.getState() == Connected) // only update if WiFi is up
+		updateDashboard();				 // update the dashboard values
 }
