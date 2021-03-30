@@ -219,10 +219,7 @@ public:
 	/**
 	 * \brief Attach the motors hardware
 	 *
-	 * @param MotorPWMPin the pin that produce PWM at 20kHz (Max is 250khz per DRV8838 datasheet)
-	 * @param MotorDirectionPin motor direction setting pin
-	 * @param the A channel of the encoder
-	 * @param the B channel of the encoder
+	 * This attaches the motors to the hardware ports that were saved in the constructor
 	 * @note this must only be called after timers are allocated via Motor::allocateTimers(int PWMgenerationTimer)
 	 *
 	 */

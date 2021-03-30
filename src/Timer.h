@@ -1,11 +1,14 @@
 #pragma once
-#include <Arduino.h>
 
-class Timer {
-    public:
-        Timer();
-        void reset();
-        unsigned long getMS();
-    private:
-        unsigned long offset;
+class Timer
+{
+public:
+    Timer(unsigned long interval);
+    bool isExpired();
+    void reset();
+    void reset(unsigned long newInterval);
+
+private:
+    unsigned long expiredTime;
+    unsigned long timeInterval;
 };
