@@ -1,12 +1,46 @@
 <map id="Motor::moveFor" name="Motor::moveFor">
-<area shape="rect" id="node2" href="$classMotor.html#afac09d2e3dc911e03ebf189acaa09015" title="wait for the motor to arrive at a setpoint " alt="" coords="168,69,363,96"/>
-<area shape="rect" id="node7" href="$classMotor.html#ab6efa2ff5dca0fc96666fe4a36979906" title="Motor::startMoveFor" alt="" coords="195,121,335,148"/>
-<area shape="rect" id="node3" href="$classMotor.html#a26d2b304f2cda2f65d673d58aaad7ff7" title="Check to see if the motor is done with a move. " alt="" coords="411,65,607,92"/>
-<area shape="rect" id="node4" href="$classMotor.html#a7a84e0d2676d7420219b6e7f67e69038" title="Motor::getCurrentDegrees" alt="" coords="665,123,839,149"/>
-<area shape="rect" id="node5" href="$classMotor.html#aeb102c0704799cf2e2f5523e8900fc08" title="Motor::getDegreesPerSecond" alt="" coords="655,5,849,32"/>
-<area shape="rect" id="node6" href="$classMotor.html#aee3b24180cc7221ab63e1c2c32363693" title="Motor::getInterpolationUnit\lIncrement" alt="" coords="664,57,840,98"/>
-<area shape="rect" id="node8" href="$classMotor.html#aa841ae32ce5aa1aaf716898a64a47ea2" title="Motor::setSetpointWithBezier\lInterpolation" alt="" coords="412,173,605,214"/>
-<area shape="rect" id="node9" href="$classMotor.html#a9cdbe8186e8b6337e14743c4d2a37bc6" title="Motor::setSetpointWithTime" alt="" coords="659,180,845,207"/>
-<area shape="rect" id="node10" href="$classESP32Encoder.html#ab555afb955fbfb2446b525a64c1efbb1" title="ESP32Encoder::getCount" alt="" coords="897,180,1069,207"/>
-<area shape="rect" id="node11" href="$classESP32Encoder.html#aa408a8969aa799cf2e96413ee0a65080" title="ESP32Encoder::getCountRaw" alt="" coords="1117,180,1316,207"/>
+<area shape="rect" id="node2" href="$classMotor.html#a1d359b5a58005e36f3eef43dcd929da7" title="Attach the motors hardware. " alt="" coords="897,309,996,336"/>
+<area shape="rect" id="node39" href="$classMotor.html#afac09d2e3dc911e03ebf189acaa09015" title="wait for the motor to arrive at a setpoint " alt="" coords="168,385,363,412"/>
+<area shape="rect" id="node43" href="$classMotor.html#ab6efa2ff5dca0fc96666fe4a36979906" title="Motor::startMoveFor" alt="" coords="195,258,335,285"/>
+<area shape="rect" id="node3" href="$classMotor.html#aa5dbe98f9cbaebd430bf1b7841d4bbc0" title="Motor::allocateTimer" alt="" coords="1077,258,1218,285"/>
+<area shape="rect" id="node13" href="$classESP32PWM.html#aa520a386ced1991b7bec44160ce7ad0c" title="ESP32PWM::attachPin" alt="" coords="2615,94,2774,121"/>
+<area shape="rect" id="node36" href="$classESP32Encoder.html#a56b92fd3632482a70eeb659fe11e79b8" title="ESP32Encoder::attachFullQuad" alt="" coords="1044,309,1251,336"/>
+<area shape="rect" id="node4" href="$classESP32PWM.html#ac223237cb836276a390cd7d92f3f8c18" title="ESP32PWM::allocateTimer" alt="" coords="2833,234,3015,261"/>
+<area shape="rect" id="node5" href="$Motor_8cpp.html#adb66b9c7a2544338725556bce116d5df" title="onMotorTimer" alt="" coords="1325,258,1427,285"/>
+<area shape="rect" id="node6" href="$classMotor.html#a2db9c1833fe2b9e5b1b1e4b9e5d4c4ee" title="Motor::loop" alt="" coords="1547,258,1633,285"/>
+<area shape="rect" id="node7" href="$classESP32Encoder.html#ab555afb955fbfb2446b525a64c1efbb1" title="ESP32Encoder::getCount" alt="" coords="1729,157,1901,184"/>
+<area shape="rect" id="node9" href="$classMotor.html#aee3b24180cc7221ab63e1c2c32363693" title="Motor::getInterpolationUnit\lIncrement" alt="" coords="1727,407,1903,448"/>
+<area shape="rect" id="node10" href="$classMotor.html#adc069b762efb5288612fa03b00c86dbf" title="Motor::setEffortLocal" alt="" coords="1743,356,1887,382"/>
+<area shape="rect" id="node8" href="$classESP32Encoder.html#aa408a8969aa799cf2e96413ee0a65080" title="ESP32Encoder::getCountRaw" alt="" coords="1951,157,2149,184"/>
+<area shape="rect" id="node11" href="$classESP32PWM.html#a0db5515c15b59be9f717f3098255e140" title="ESP32PWM::writeScaled" alt="" coords="1964,512,2136,538"/>
+<area shape="rect" id="node12" href="$classESP32PWM.html#ac1842122846948c7ca2e88e59dfb2fb6" title="ESP32PWM::mapf" alt="" coords="2197,436,2331,462"/>
+<area shape="rect" id="node30" href="$classESP32PWM.html#ab507681ffeb13399b0bcf5bc1f437632" title="ESP32PWM::write" alt="" coords="3355,318,3487,345"/>
+<area shape="rect" id="node17" href="$classESP32PWM.html#a95986a33fe242cd58e874321bec4b4a1" title="ESP32PWM::deallocate" alt="" coords="2613,457,2776,484"/>
+<area shape="rect" id="node19" href="$classESP32PWM.html#acb41cd553c993b23f4ae3439857ae9af" title="ESP32PWM::detachPin" alt="" coords="2391,410,2553,437"/>
+<area shape="rect" id="node20" href="$classESP32PWM.html#a002a992602731a52f5634859ffbed9a9" title="ESP32PWM::ESP32PWM" alt="" coords="2383,309,2561,336"/>
+<area shape="rect" id="node21" href="$classESP32PWM.html#a2be6068904d3bec84211221148b21310" title="ESP32PWM::setup" alt="" coords="2404,360,2540,386"/>
+<area shape="rect" id="node35" href="$classESP32PWM.html#a97b957ff9e6caa61aba7a500289d5ba7" title="ESP32PWM::~ESP32PWM" alt="" coords="2379,512,2565,538"/>
+<area shape="rect" id="node14" href="$classESP32PWM.html#a3ac6251947efb7ef0a2bc699ec0aaa4e" title="ESP32PWM::attach" alt="" coords="2854,82,2994,109"/>
+<area shape="rect" id="node15" href="$classESP32PWM.html#a39411917c82dd1567ccf4b6aece0d3d9" title="ESP32PWM::getChannel" alt="" coords="3599,268,3770,294"/>
+<area shape="rect" id="node16" href="$classESP32PWM.html#afdbce473c78465a637dcc592a07aa431" title="ESP32PWM::hasPwm" alt="" coords="2847,32,3001,58"/>
+<area shape="rect" id="node18" href="$classESP32PWM.html#ac756839276b3d623d20b10fba0247ff6" title="ESP32PWM::getTimer" alt="" coords="3607,618,3762,645"/>
+<area shape="rect" id="node22" href="$classESP32PWM.html#a0008609d2fdd5bb2f4423e385a6b8ee4" title="ESP32PWM::attached" alt="" coords="2617,554,2772,581"/>
+<area shape="rect" id="node33" href="$classESP32PWM.html#a71ef8b9ae15745d27c854f2b5c3295d0" title="ESP32PWM::checkFrequency\lForSideEffects" alt="" coords="2824,387,3024,428"/>
+<area shape="rect" id="node23" href="$classESP32PWM.html#aab3c6376b3aa784e79847f358783ad7b" title="ESP32PWM::adjustFrequency" alt="" coords="3072,808,3272,834"/>
+<area shape="rect" id="node26" href="$classESP32PWM.html#a7bf28e3de2b8078f0d9444a61b45ff65" title="ESP32PWM::getDutyScaled" alt="" coords="3326,858,3517,885"/>
+<area shape="rect" id="node27" href="$classESP32PWM.html#a07842d4b42e4806aafd2b7fbdf6fc70d" title="ESP32PWM::timerAndIndexTo\lChannel" alt="" coords="3320,552,3523,594"/>
+<area shape="rect" id="node28" href="$classESP32PWM.html#ae6f0dd8edfc7bf16f4c480cdb682d554" title="ESP32PWM::read" alt="" coords="3107,268,3237,294"/>
+<area shape="rect" id="node29" href="$classESP32PWM.html#adf53d1c2756d03fdf388df7a6d7b7fd9" title="ESP32PWM::readFreq" alt="" coords="2847,706,3001,733"/>
+<area shape="rect" id="node31" href="$classESP32PWM.html#a6ffe6640eef540c55cc70ad50a56f233" title="ESP32PWM::writeNote" alt="" coords="2844,605,3004,632"/>
+<area shape="rect" id="node32" href="$classESP32PWM.html#ae2eecc9d656ebcd938057a6ceec352d4" title="ESP32PWM::writeTone" alt="" coords="3091,622,3253,649"/>
+<area shape="rect" id="node24" href="$classESP32PWM.html#a306e803815b3dcc330d41ab62b429b17" title="ESP32PWM::adjustFrequency\lLocal" alt="" coords="3321,670,3521,711"/>
+<area shape="rect" id="node25" href="$classESP32PWM.html#a88290f890f4b8ec93ba4e18cee1cae16" title="ESP32PWM::_ledcSetupTimerFreq" alt="" coords="3571,677,3799,704"/>
+<area shape="rect" id="node34" href="$classESP32PWM.html#a27df49d84e82e67f2a84776c2e0ec079" title="ESP32PWM::allocatenext" alt="" coords="3085,470,3259,497"/>
+<area shape="rect" id="node37" href="$classESP32Encoder.html#a02e94893cd5eb05a2b7217336d555c0f" title="ESP32Encoder::attach" alt="" coords="1299,309,1453,336"/>
+<area shape="rect" id="node38" href="$ESP32Encoder_8cpp.html#a50f68452625a60574fc06aa2128f0b94" title="pcnt_example_intr_handler" alt="" coords="1501,309,1679,336"/>
+<area shape="rect" id="node40" href="$classMotor.html#a26d2b304f2cda2f65d673d58aaad7ff7" title="Check to see if the motor is done with a move. " alt="" coords="411,385,607,412"/>
+<area shape="rect" id="node41" href="$classMotor.html#a7a84e0d2676d7420219b6e7f67e69038" title="Motor::getCurrentDegrees" alt="" coords="665,309,839,336"/>
+<area shape="rect" id="node42" href="$classMotor.html#aeb102c0704799cf2e2f5523e8900fc08" title="Motor::getDegreesPerSecond" alt="" coords="655,410,849,437"/>
+<area shape="rect" id="node44" href="$classMotor.html#aa841ae32ce5aa1aaf716898a64a47ea2" title="Motor::setSetpointWithBezier\lInterpolation" alt="" coords="412,192,605,234"/>
+<area shape="rect" id="node45" href="$classMotor.html#a9cdbe8186e8b6337e14743c4d2a37bc6" title="Motor::setSetpointWithTime" alt="" coords="659,157,845,184"/>
 </map>

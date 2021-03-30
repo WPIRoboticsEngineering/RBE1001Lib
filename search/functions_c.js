@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['packettxtask_417',['packetTXTask',['../WebPage_8cpp.html#a4cf7da4c566455e010d55c98a9938c4f',1,'WebPage.cpp']]],
-  ['printtowebconsole_418',['printToWebConsole',['../classWebPage.html#a3e9c334913e093cb790c39c04cdd6cf3',1,'WebPage']]]
+  ['newbutton',['newButton',['../classWebPage.html#aeb8011e016998e7c4276d02d63701586',1,'WebPage']]],
+  ['notone',['noTone',['../ESP32Tone_8cpp.html#a554bd99888444e0026d7846a471a8913',1,'noTone(int pin):&#160;ESP32Tone.cpp'],['../ESP32Tone_8h.html#a554bd99888444e0026d7846a471a8913',1,'noTone(int pin):&#160;ESP32Tone.cpp']]]
 ];

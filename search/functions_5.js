@@ -1,22 +1,7 @@
 var searchData=
 [
-  ['getcode_377',['getCode',['../classIRDecoder.html#af1fcb9389072c237e11498d16c8d9bfb',1,'IRDecoder']]],
-  ['getcurrentdegrees_378',['getCurrentDegrees',['../classMotor.html#a7a84e0d2676d7420219b6e7f67e69038',1,'Motor']]],
-  ['getdegreespersecond_379',['getDegreesPerSecond',['../classMotor.html#aeb102c0704799cf2e2f5523e8900fc08',1,'Motor']]],
-  ['getdistancecm_380',['getDistanceCM',['../classRangefinder.html#a531ed492da6a4c369a909e77b9c8780d',1,'Rangefinder']]],
-  ['geteffort_381',['getEffort',['../classMotor.html#aa4c0fc489ed95f538d14a621e3bc03d1',1,'Motor']]],
-  ['geteffortpercent_382',['getEffortPercent',['../classMotor.html#ae75feaf7aa80d47dbea2d4ec3af9c6f1',1,'Motor']]],
-  ['getgainsd_383',['getGainsD',['../classMotor.html#abd4ea79fb8d45dd92fe826d02f772518',1,'Motor']]],
-  ['getgainsi_384',['getGainsI',['../classMotor.html#afa35fef82b7913e511d700fdeba7080f',1,'Motor']]],
-  ['getgainsp_385',['getGainsP',['../classMotor.html#aa1e1912fca709253ae5d9b7863eb3da7',1,'Motor']]],
-  ['getinterpolationunitincrement_386',['getInterpolationUnitIncrement',['../classMotor.html#aee3b24180cc7221ab63e1c2c32363693',1,'Motor']]],
-  ['getjoystickangle_387',['getJoystickAngle',['../classWebPage.html#a120f4e8d6844f431ea31be229787578a',1,'WebPage']]],
-  ['getjoystickdata_388',['getJoystickData',['../classWebPage.html#a86be1a6d46aa4638bce70c3b5ebad11d',1,'WebPage']]],
-  ['getjoystickmagnitude_389',['getJoystickMagnitude',['../classWebPage.html#ace56c19c78b30f752c4319a1da71b69c',1,'WebPage']]],
-  ['getjoystickx_390',['getJoystickX',['../classWebPage.html#acb85af5d59ce7b475daed9b8dff23e15',1,'WebPage']]],
-  ['getjoysticky_391',['getJoystickY',['../classWebPage.html#ad186168de72408c424553645f0753784',1,'WebPage']]],
-  ['getkeycode_392',['getKeyCode',['../classIRDecoder.html#a2f5a7793d77139ac1799069c186ec466',1,'IRDecoder']]],
-  ['getroundtriptimemicroseconds_393',['getRoundTripTimeMicroSeconds',['../classRangefinder.html#acd75ded5add63f5c2fac15a5418870e9',1,'Rangefinder']]],
-  ['getslidervalue_394',['getSliderValue',['../classWebPage.html#abae7b8e001129bcaeb8249f20a0cbab0',1,'WebPage']]],
-  ['gettimeoutstate_395',['getTimeoutState',['../classRangefinder.html#a6706efbe01d225a04771dee426da09f1',1,'Rangefinder']]]
+  ['erase',['erase',['../classWifiManager.html#a6f2df7095f4e01872024ac914273722c',1,'WifiManager']]],
+  ['esp32analogread',['ESP32AnalogRead',['../classESP32AnalogRead.html#af954bc4b422748c3783c774eebb2994d',1,'ESP32AnalogRead']]],
+  ['esp32encoder',['ESP32Encoder',['../classESP32Encoder.html#a2d74a984c3e0723349b1dadbaf7c5ff7',1,'ESP32Encoder']]],
+  ['esp32pwm',['ESP32PWM',['../classESP32PWM.html#a002a992602731a52f5634859ffbed9a9',1,'ESP32PWM']]]
 ];

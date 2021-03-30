@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['i2c_5fscl_634',['I2C_SCL',['../RBE1001Lib_8h.html#a212ca328a6409c98f8c3dfbbe1ba561d',1,'RBE1001Lib.h']]],
-  ['i2c_5fsda_635',['I2C_SDA',['../RBE1001Lib_8h.html#a18aefd12ad84d4c33dc97923cb821e47',1,'RBE1001Lib.h']]],
-  ['i_5fterm_5fsize_636',['I_TERM_SIZE',['../Motor_8h.html#aa694617e85bf550d72d3e2cd295e69cd',1,'Motor.h']]]
+  ['encoder_5fcpr',['ENCODER_CPR',['../Motor_8h.html#a9ebdd8114f35f3aa52eb51fbe8bb1868',1,'Motor.h']]],
+  ['enforce_5fpins',['ENFORCE_PINS',['../ESP32Servo_8h.html#aa9e8016e44597a897fd38e31f0270cd3',1,'ESP32Servo.h']]],
+  ['esp32_5fservo_5fversion',['ESP32_Servo_VERSION',['../ESP32Servo_8h.html#a5c9a20d0ae9fa70e54b60cfe785a7dd7',1,'ESP32Servo.h']]]
 ];

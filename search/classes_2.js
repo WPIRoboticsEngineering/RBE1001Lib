@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['irdecoder_332',['IRDecoder',['../classIRDecoder.html',1,'']]],
-  ['irdecoder32u4_333',['IRDecoder32U4',['../classIRDecoder32U4.html',1,'']]]
+  ['esp32analogread',['ESP32AnalogRead',['../classESP32AnalogRead.html',1,'']]],
+  ['esp32encoder',['ESP32Encoder',['../classESP32Encoder.html',1,'']]],
+  ['esp32pwm',['ESP32PWM',['../classESP32PWM.html',1,'']]]
 ];

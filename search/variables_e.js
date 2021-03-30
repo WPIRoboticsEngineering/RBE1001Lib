@@ -1,10 +1,16 @@
 var searchData=
 [
-  ['rangefinder1_570',['rangefinder1',['../FullSystemTest_8ino.html#a607ccff33b947a0eb27ccb1205b616c0',1,'rangefinder1():&#160;FullSystemTest.ino'],['../RCCTL_8ino.html#a607ccff33b947a0eb27ccb1205b616c0',1,'rangefinder1():&#160;RCCTL.ino']]],
-  ['right_5fmotor_571',['right_motor',['../EncoderTest_8ino.html#add165d84c218a18f1b6da720e8bea3cd',1,'right_motor():&#160;EncoderTest.ino'],['../FullSystemTest_8ino.html#add165d84c218a18f1b6da720e8bea3cd',1,'right_motor():&#160;FullSystemTest.ino'],['../MotorSpeedTest_8ino.html#a1be7a4a7bc289cb93f1a3b9cb2faad94',1,'right_motor():&#160;MotorSpeedTest.ino'],['../MotorSpinExample_8ino.html#add165d84c218a18f1b6da720e8bea3cd',1,'right_motor():&#160;MotorSpinExample.ino'],['../RCCTL_8ino.html#add165d84c218a18f1b6da720e8bea3cd',1,'right_motor():&#160;RCCTL.ino']]],
-  ['rightlinesensor_572',['rightLineSensor',['../FullSystemTest_8ino.html#ad5f591e45faf8f4ff5a8e764c3e60a2d',1,'rightLineSensor():&#160;FullSystemTest.ino'],['../RCCTL_8ino.html#ad5f591e45faf8f4ff5a8e764c3e60a2d',1,'rightLineSensor():&#160;RCCTL.ino']]],
-  ['risingedge_573',['risingEdge',['../classIRDecoder.html#a21a06cd33e01c284825d083a69698165',1,'IRDecoder']]],
-  ['roundtriptime_574',['roundTripTime',['../classRangefinder.html#a2bf7917bcefac11957c3d33b9905a048',1,'Rangefinder']]],
-  ['runntingiterm_575',['runntingITerm',['../classMotor.html#adfc82a32345a86811bcbd739aa3ada05',1,'Motor']]],
-  ['rxpacketcount_576',['rxPacketCount',['../classWebPage.html#a061d698615284ca885c8bbe1e6efdb7c',1,'WebPage']]]
+  ['packet_5fold',['packet_old',['../RCCTL_8ino.html#a27519f803dc998238bbd4420d2c0c2a6',1,'RCCTL.ino']]],
+  ['packettaskhandle',['packetTaskHandle',['../classWebPage.html#a36dcd8b061bfff6ae29f105a07376779',1,'WebPage']]],
+  ['photoresistorpin',['photoresistorPin',['../Photoresistor_8ino.html#af6d42483b8d07956e4795e0ca779a441',1,'Photoresistor.ino']]],
+  ['pin',['pin',['../classESP32PWM.html#af87252d85a8b2257380f6587f4acd46e',1,'ESP32PWM::pin()'],['../ToneExample_8ino.html#aeabac9491522ec7f68102bfeab33d5c1',1,'pin():&#160;ToneExample.ino']]],
+  ['pingindex',['pingIndex',['../classRangefinder.html#a0aa0a904072e2429de65930d8b85c321',1,'Rangefinder']]],
+  ['pinnumber',['pinNumber',['../classServo.html#abdf85c5c5629f2f7ff5ea0486cf296e9',1,'Servo']]],
+  ['pos',['pos',['../Multiple-Servo-Example-Arduino_8ino.html#a1910d262855b71da353ed0d07a6c7823',1,'pos():&#160;Multiple-Servo-Example-Arduino.ino'],['../Sweep_8ino.html#a1910d262855b71da353ed0d07a6c7823',1,'pos():&#160;Sweep.ino']]],
+  ['potpin',['potPin',['../Knob_8ino.html#a03a5093d3b18a90d2e000cdd972f180d',1,'Knob.ino']]],
+  ['preferences',['preferences',['../classWifiManager.html#af5c742e58311c9c1e2a15255bfce1252',1,'WifiManager']]],
+  ['prevouscount',['prevousCount',['../classMotor.html#aae18a0691052647c16bb4266fa5ab9a1',1,'Motor']]],
+  ['pwm',['pwm',['../classMotor.html#a47375223649b0893c6120efb3d152855',1,'Motor::pwm()'],['../classServo.html#ab0cadb8894920833adcbc41e133769e5',1,'Servo::pwm()'],['../Multiple-Servo-Example-Arduino_8ino.html#a18212db6612256d3c8c9b9b1e548c065',1,'pwm():&#160;Multiple-Servo-Example-Arduino.ino'],['../PWMExample_8ino.html#a18212db6612256d3c8c9b9b1e548c065',1,'pwm():&#160;PWMExample.ino']]],
+  ['pwmchannel',['pwmChannel',['../classESP32PWM.html#ae67724be92fb446880d074553a75043b',1,'ESP32PWM']]],
+  ['pwmcount',['PWMCount',['../classESP32PWM.html#a1e98064d5eb3fd8e2885175702834bcb',1,'ESP32PWM']]]
 ];

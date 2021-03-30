@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classMotor.html" title="A PID Motor class using FreeRTOS threads, ESP32Encoder and ESP32PWM. " alt="" coords="5,31,60,57"/>
+<area shape="rect" id="node2" href="$classLeftMotor.html" title="LeftMotor" alt="" coords="113,5,190,32"/>
+<area shape="rect" id="node3" href="$classRightMotor.html" title="RightMotor" alt="" coords="108,56,195,83"/>
+</map>

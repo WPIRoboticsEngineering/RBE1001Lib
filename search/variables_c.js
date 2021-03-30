@@ -1,8 +1,22 @@
 var searchData=
 [
-  ['name_559',['name',['../structPACKED__FILE.html#a3094f3c8bc7b0d411c2037ac0065bbfe',1,'PACKED_FILE::name()'],['../struct__telemetryValue.html#a9e9434ca3102c994869df9eae4907f12',1,'_telemetryValue::name()']]],
-  ['nippleminjs_560',['nippleminjs',['../staticFiles_8h.html#ad4294116e3568122e8b11e589f06cabc',1,'staticFiles.h']]],
-  ['nowencoder_561',['nowEncoder',['../classMotor.html#a40d1c01567cc5f79cca0b3849fda01fc',1,'Motor']]],
-  ['numberoffinders_562',['numberOfFinders',['../classRangefinder.html#a68c770b40863cfbba7d9282a2b2966f5',1,'Rangefinder']]],
-  ['numvaluesused_563',['numValuesUsed',['../classWebPage.html#a6e7dc9e48f8f35fff0da5df5e121a492',1,'WebPage']]]
+  ['mag',['mag',['../struct__JoyData.html#ac49381967eaa91cc7a3c904656e19b3c',1,'_JoyData']]],
+  ['manager',['manager',['../RCCTL_8ino.html#a5b96bd28b23bd6ff0d258886285bca72',1,'manager():&#160;RCCTL.ino'],['../APModeExample_8ino.html#a5b96bd28b23bd6ff0d258886285bca72',1,'manager():&#160;APModeExample.ino'],['../WifiManagerExample_8ino.html#a5b96bd28b23bd6ff0d258886285bca72',1,'manager():&#160;WifiManagerExample.ino']]],
+  ['max',['max',['../classServo.html#a02016122bc801d4f2d7b5e853b1b30ae',1,'Servo']]],
+  ['maxus',['maxUs',['../Multiple-Servo-Example-Arduino_8ino.html#ad28b4585662ab559ead8c11d6c7c2f15',1,'Multiple-Servo-Example-Arduino.ino']]],
+  ['milisecondposincrementforvelocity',['milisecondPosIncrementForVelocity',['../classMotor.html#ae1945614963c6f5d0e2ee308fa613bde',1,'Motor']]],
+  ['mime',['mime',['../structPACKED__FILE.html#af4243e220d607b753bd1fe24251f64d8',1,'PACKED_FILE']]],
+  ['min',['min',['../classServo.html#a202ff86f39f760cce83f44ddff08aa48',1,'Servo']]],
+  ['minus',['minUs',['../Multiple-Servo-Example-Arduino_8ino.html#adbeedec37e267062c3e10c47b2825409',1,'Multiple-Servo-Example-Arduino.ino']]],
+  ['mode',['mode',['../classMotor.html#a42c0f011c5bdbb3e29fb49261f99096c',1,'Motor']]],
+  ['motor_5fcount',['motor_count',['../classWebPage.html#af239e1cce29e3aabf461251764a98d78',1,'WebPage']]],
+  ['motor_5fleft',['motor_left',['../MotorMoveTo_8ino.html#a0078ff773b957a5f7b10d14b271634c6',1,'MotorMoveTo.ino']]],
+  ['motor_5fright',['motor_right',['../MotorMoveTo_8ino.html#a7e947579e3be9cb6e748dee718c9410c',1,'MotorMoveTo.ino']]],
+  ['motorencapin',['MotorEncAPin',['../classMotor.html#a3eddc45da071274529db8a8fe6a279fe',1,'Motor']]],
+  ['motorencbpin',['MotorEncBPin',['../classMotor.html#af0d99d55a2a1d6cfc1b48d36558c57fe',1,'Motor']]],
+  ['motorpwmpin',['MotorPWMPin',['../classMotor.html#ae670034c4a9a6ef86b6515c53eb9b0e5',1,'Motor']]],
+  ['myduty',['myDuty',['../classESP32PWM.html#a5fd4ea5d06159f1cf7c362db9b14d1aa',1,'ESP32PWM']]],
+  ['myfreq',['myFreq',['../classESP32PWM.html#a87eee2cde2dd8d3fd6a9c95662150adf',1,'ESP32PWM']]],
+  ['mypin',['myPin',['../classESP32AnalogRead.html#aca702bab33562509c1a60bb692837140',1,'ESP32AnalogRead']]],
+  ['myservo',['myservo',['../analogWriteExample_8ino.html#ab7eaefeafe574cbf45415789bf672403',1,'myservo():&#160;analogWriteExample.ino'],['../Knob_8ino.html#ab7eaefeafe574cbf45415789bf672403',1,'myservo():&#160;Knob.ino'],['../Sweep_8ino.html#ab7eaefeafe574cbf45415789bf672403',1,'myservo():&#160;Sweep.ino']]]
 ];

@@ -1,15 +1,13 @@
 var searchData=
 [
-  ['servopositionfeedback_577',['servoPositionFeedback',['../FullSystemTest_8ino.html#a6c49ccb4260ba64eee66394479fa57e5',1,'servoPositionFeedback():&#160;FullSystemTest.ino'],['../RCCTL_8ino.html#a6c49ccb4260ba64eee66394479fa57e5',1,'servoPositionFeedback():&#160;RCCTL.ino'],['../Servo_8ino.html#a6c49ccb4260ba64eee66394479fa57e5',1,'servoPositionFeedback():&#160;Servo.ino']]],
-  ['setpoint_578',['setpoint',['../classMotor.html#a6e0ff8d299c1396cac8290fc61cdbaeb',1,'Motor']]],
-  ['sliders_579',['sliders',['../classWebPage.html#a5c3ed27a2e57ba97e2a47e765bc98602',1,'WebPage']]],
-  ['stabbuttonpos_580',['stabButtonPos',['../classButton.html#a6ba8f47e0788fbff42860cdec8ddb2a4',1,'Button']]],
-  ['startsetpoint_581',['startSetpoint',['../classMotor.html#a7c484ee056e56c05e28d010b08fb0e08',1,'Motor']]],
-  ['starttime_582',['startTime',['../classMotor.html#a38b8fbc85b9462f26079267b2815fc28',1,'Motor::startTime()'],['../classRangefinder.html#a928215b562fca560902831794a90b637',1,'Rangefinder::startTime()']]],
-  ['state_583',['state',['../classButton.html#a45d2af8f8a3736afe9e05958b18655ea',1,'Button::state()'],['../classIRDecoder.html#afab585a6a2b1f6bf86d5b28927e7978f',1,'IRDecoder::state()']]],
-  ['static_5ffiles_5fmanifest_584',['static_files_manifest',['../static_8h.html#a440a2bed010d089fd20e0f34c0b498bf',1,'static.h']]],
-  ['static_5ffiles_5fmanifest_5fcount_585',['static_files_manifest_count',['../static_8h.html#a0be3008a5a8b40b99b90d4ef22fdebaa',1,'static.h']]],
-  ['statichtml_586',['staticHTML',['../staticFiles_8h.html#abdee6a94680cfff0565718bc0524fdda',1,'staticFiles.h']]],
-  ['stringbuffer_587',['stringBuffer',['../WebPage_8cpp.html#a6c9c8ad22e908ca67930b4225ff49dc3',1,'WebPage.cpp']]],
-  ['synch_588',['synch',['../classRangefinder.html#acd3a05fbeb1e9270633d947197201e5e',1,'Rangefinder']]]
+  ['r_5fenc_5fconfig',['r_enc_config',['../classESP32Encoder.html#afa5b2c49ecf4d7b434ed7ef6e0e11bc9',1,'ESP32Encoder']]],
+  ['rangefinder1',['rangefinder1',['../FullSystemTest_8ino.html#a607ccff33b947a0eb27ccb1205b616c0',1,'rangefinder1():&#160;FullSystemTest.ino'],['../RCCTL_8ino.html#a607ccff33b947a0eb27ccb1205b616c0',1,'rangefinder1():&#160;RCCTL.ino']]],
+  ['refresh_5fcps',['REFRESH_CPS',['../classServo.html#a9e7f5471e7c3fdc389b1aa5443fad151',1,'Servo']]],
+  ['resolutionbits',['resolutionBits',['../classESP32PWM.html#a7f964ab78ebcc8d2ec7d9fb9eb964be4',1,'ESP32PWM']]],
+  ['right_5fmotor',['right_motor',['../EncoderTest_8ino.html#add165d84c218a18f1b6da720e8bea3cd',1,'right_motor():&#160;EncoderTest.ino'],['../FullSystemTest_8ino.html#add165d84c218a18f1b6da720e8bea3cd',1,'right_motor():&#160;FullSystemTest.ino'],['../MotorSpeedTest_8ino.html#a1be7a4a7bc289cb93f1a3b9cb2faad94',1,'right_motor():&#160;MotorSpeedTest.ino'],['../MotorSpinExample_8ino.html#add165d84c218a18f1b6da720e8bea3cd',1,'right_motor():&#160;MotorSpinExample.ino'],['../RCCTL_8ino.html#add165d84c218a18f1b6da720e8bea3cd',1,'right_motor():&#160;RCCTL.ino']]],
+  ['rightlinesensor',['rightLineSensor',['../FullSystemTest_8ino.html#ad5f591e45faf8f4ff5a8e764c3e60a2d',1,'rightLineSensor():&#160;FullSystemTest.ino'],['../RCCTL_8ino.html#ad5f591e45faf8f4ff5a8e764c3e60a2d',1,'rightLineSensor():&#160;RCCTL.ino']]],
+  ['risingedge',['risingEdge',['../classIRDecoder.html#a21a06cd33e01c284825d083a69698165',1,'IRDecoder']]],
+  ['roundtriptime',['roundTripTime',['../classRangefinder.html#a2bf7917bcefac11957c3d33b9905a048',1,'Rangefinder']]],
+  ['runntingiterm',['runntingITerm',['../classMotor.html#adfc82a32345a86811bcbd739aa3ada05',1,'Motor']]],
+  ['rxpacketcount',['rxPacketCount',['../classWebPage.html#a061d698615284ca885c8bbe1e6efdb7c',1,'WebPage']]]
 ];

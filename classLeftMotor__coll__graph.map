@@ -1,0 +1,5 @@
+<map id="LeftMotor" name="LeftMotor">
+<area shape="rect" id="node2" href="$classMotor.html" title="A PID Motor class using FreeRTOS threads, ESP32Encoder and ESP32PWM. " alt="" coords="143,95,198,121"/>
+<area shape="rect" id="node3" href="$classESP32PWM.html" title="ESP32PWM" alt="" coords="5,5,101,32"/>
+<area shape="rect" id="node4" href="$classESP32Encoder.html" title="ESP32Encoder" alt="" coords="234,5,345,32"/>
+</map>

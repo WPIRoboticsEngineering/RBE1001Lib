@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['timer_339',['Timer',['../classTimer.html',1,'']]]
+  ['rangefinder',['Rangefinder',['../classRangefinder.html',1,'']]],
+  ['rightmotor',['RightMotor',['../classRightMotor.html',1,'']]]
 ];

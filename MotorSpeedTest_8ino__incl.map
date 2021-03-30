@@ -1,13 +1,13 @@
 <map id="examples/MotorSpeedTest/MotorSpeedTest.ino" name="examples/MotorSpeedTest/MotorSpeedTest.ino">
-<area shape="rect" id="node3" href="$RBE1001Lib_8h.html" title="RBE1001Lib.h" alt="" coords="405,95,512,121"/>
-<area shape="rect" id="node4" href="$Esp32WifiManager_8h.html" title="Esp32WifiManager.h" alt="" coords="73,169,215,196"/>
-<area shape="rect" id="node11" href="$ESP32AnalogRead_8h.html" title="ESP32AnalogRead.h" alt="" coords="239,169,385,196"/>
-<area shape="rect" id="node13" href="$Rangefinder_8h.html" title="Rangefinder.h" alt="" coords="657,169,759,196"/>
-<area shape="rect" id="node17" href="$Motor_8h.html" title="Motor.h" alt="" coords="1037,169,1104,196"/>
-<area shape="rect" id="node5" href="$WifiManager_8h.html" title="wifi/WifiManager.h" alt="" coords="80,244,211,271"/>
-<area shape="rect" id="node18" href="$ESP32Servo_8h.html" title="ESP32Servo.h" alt="" coords="1191,244,1299,271"/>
-<area shape="rect" id="node24" href="$ESP32Encoder_8h.html" title="ESP32Encoder.h" alt="" coords="960,244,1083,271"/>
-<area shape="rect" id="node19" href="$analogWrite_8h.html" title="analogWrite.h" alt="" coords="1143,393,1246,420"/>
-<area shape="rect" id="node22" href="$ESP32PWM_8h.html" title="ESP32PWM.h" alt="" coords="1271,393,1377,420"/>
-<area shape="rect" id="node23" href="$ESP32Tone_8h.html" title="ESP32Tone.h" alt="" coords="1223,319,1326,345"/>
+<area shape="rect" id="node2" href="$RBE1001Lib_8h.html" title="RBE1001Lib.h" alt="" coords="497,95,603,121"/>
+<area shape="rect" id="node3" href="$Esp32WifiManager_8h.html" title="Esp32WifiManager.h" alt="" coords="119,169,261,196"/>
+<area shape="rect" id="node11" href="$ESP32AnalogRead_8h.html" title="ESP32AnalogRead.h" alt="" coords="691,169,836,196"/>
+<area shape="rect" id="node13" href="$Rangefinder_8h.html" title="Rangefinder.h" alt="" coords="561,169,664,196"/>
+<area shape="rect" id="node17" href="$Motor_8h.html" title="Motor.h" alt="" coords="1017,169,1083,196"/>
+<area shape="rect" id="node4" href="$WifiManager_8h.html" title="wifi/WifiManager.h" alt="" coords="97,244,227,271"/>
+<area shape="rect" id="node18" href="$ESP32Servo_8h.html" title="ESP32Servo.h" alt="" coords="1184,244,1292,271"/>
+<area shape="rect" id="node24" href="$ESP32Encoder_8h.html" title="ESP32Encoder.h" alt="" coords="937,244,1059,271"/>
+<area shape="rect" id="node19" href="$analogWrite_8h.html" title="analogWrite.h" alt="" coords="1271,393,1373,420"/>
+<area shape="rect" id="node22" href="$ESP32PWM_8h.html" title="ESP32PWM.h" alt="" coords="1139,393,1246,420"/>
+<area shape="rect" id="node23" href="$ESP32Tone_8h.html" title="ESP32Tone.h" alt="" coords="1140,319,1243,345"/>
 </map>

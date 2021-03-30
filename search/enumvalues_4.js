@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['trapezoidal_629',['TRAPEZOIDAL',['../Motor_8h.html#a5f2bed26bc3981591ee546627fdbbef4a492124afa39e48a6ceb6b989957e8e65',1,'Motor.h']]]
+  ['firststart',['firstStart',['../WifiManager_8h.html#a2cb8df04852a8d762834daac6c32965ba1cdd7ed4d731a3565dc899a914821053',1,'WifiManager.h']]],
+  ['full',['full',['../ESP32Encoder_8h.html#a94b99e462b91a04d4400c30ce0764d60a0a601c9076b9914da4a237c8688b1c88',1,'ESP32Encoder.h']]]
 ];
