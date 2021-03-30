@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['servo',['Servo',['../classServo.html',1,'']]]
+  ['rangefinder_336',['Rangefinder',['../classRangefinder.html',1,'']]],
+  ['rightmotor_337',['RightMotor',['../classRightMotor.html',1,'']]]
 ];

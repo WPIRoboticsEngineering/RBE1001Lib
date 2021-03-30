@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['mapf',['mapf',['../classESP32PWM.html#ac1842122846948c7ca2e88e59dfb2fb6',1,'ESP32PWM']]],
-  ['markalldirty',['markAllDirty',['../classWebPage.html#a8a6cb8d704e67dce02fb64cad81e4c56',1,'WebPage']]],
-  ['motor',['Motor',['../classMotor.html#af6106b4c506411265c5face762b6c004',1,'Motor']]],
-  ['movefor',['moveFor',['../classMotor.html#a92ada38e1ab60942381ca46f2d13ae3d',1,'Motor']]],
-  ['moveto',['moveTo',['../classMotor.html#aa4680d4c00dcc6b4b33ae350db60e11c',1,'Motor']]],
-  ['myfmapbounded',['myFmapBounded',['../Motor_8cpp.html#acac92ff626505e4562734166d8c3aad0',1,'Motor.cpp']]]
+  ['onmotortimer_413',['onMotorTimer',['../Motor_8cpp.html#adb66b9c7a2544338725556bce116d5df',1,'Motor.cpp']]],
+  ['ontimer_414',['onTimer',['../Rangefinder_8cpp.html#a0b6abaae8371bfcca2ab8557bebe9332',1,'Rangefinder.cpp']]],
+  ['onwsevent_415',['onWsEvent',['../WebPage_8cpp.html#a7064e9828984f378d3e04f9b7a47bcae',1,'WebPage.cpp']]]
 ];

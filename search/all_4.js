@@ -1,24 +1,12 @@
 var searchData=
 [
-  ['dashboardupdatetimer',['dashboardUpdateTimer',['../RCCTL_8ino.html#ace2e0d944a5f795a697be2a25f5b296a',1,'RCCTL.ino']]],
-  ['data',['data',['../structPACKED__FILE.html#a08d43e50c07a4b9e5ae071e7792e1f8e',1,'PACKED_FILE']]],
-  ['deallocate',['deallocate',['../classESP32PWM.html#a95986a33fe242cd58e874321bec4b4a1',1,'ESP32PWM']]],
-  ['debounceperiod',['debouncePeriod',['../classButton.html#a5897699570e7e129d4e7ad930250c81c',1,'Button']]],
-  ['default_5fpulse_5fwidth',['DEFAULT_PULSE_WIDTH',['../ESP32Servo_8h.html#a7eada57cb49e7b1766a813e4635d79bd',1,'ESP32Servo.h']]],
-  ['default_5fpulse_5fwidth_5fticks',['DEFAULT_PULSE_WIDTH_TICKS',['../ESP32Servo_8h.html#a4486dbe07e2b0deb50cd577fa0fee946',1,'ESP32Servo.h']]],
-  ['default_5ftimer_5fwidth',['DEFAULT_TIMER_WIDTH',['../ESP32Servo_8h.html#a3f1e25581db193ea8f5db48ae8d9b55d',1,'ESP32Servo.h']]],
-  ['default_5ftimer_5fwidth_5fticks',['DEFAULT_TIMER_WIDTH_TICKS',['../ESP32Servo_8h.html#a3542a805efa2c9d06aa37e8b30829889',1,'ESP32Servo.h']]],
-  ['default_5fus_5fhigh',['DEFAULT_uS_HIGH',['../ESP32Servo_8h.html#a12e0b64b830ce153c3624bf7a8bdd311',1,'ESP32Servo.h']]],
-  ['default_5fus_5flow',['DEFAULT_uS_LOW',['../ESP32Servo_8h.html#ae5c73e62b0f79ae4f83bb715f5fa89de',1,'ESP32Servo.h']]],
-  ['delta_5feffort',['DELTA_EFFORT',['../Motor_8h.html#a79918ae0910cca5fbb1691041d0c6e47',1,'Motor.h']]],
-  ['detach',['detach',['../classServo.html#a0b69ccc5c8b348ebaa84be91d973a362',1,'Servo']]],
-  ['detachpin',['detachPin',['../classESP32PWM.html#acb41cd553c993b23f4ae3439857ae9af',1,'ESP32PWM']]],
-  ['direction',['direction',['../classESP32Encoder.html#a08484f95b20bdd1b5d2032585dfafeba',1,'ESP32Encoder']]],
-  ['directionflag',['directionFlag',['../classMotor.html#a2fb7cd4e9b93a6114eaf85e5aa23c70d',1,'Motor']]],
-  ['dirtylabels',['dirtyLabels',['../classWebPage.html#a6a85a3558376dd63ab35940d5a7575da',1,'WebPage']]],
-  ['dirtyvalues',['dirtyValues',['../classWebPage.html#ad302c01a23e6e9f0f5a7d1dae518a554',1,'WebPage']]],
-  ['disconnect',['disconnect',['../classWifiManager.html#a2b0fc1360c90922972c2caee5531afbb',1,'WifiManager']]],
-  ['disconnected',['Disconnected',['../WifiManager_8h.html#a2cb8df04852a8d762834daac6c32965ba84ab0fbbb76a8c897feb1cd806d56443',1,'WifiManager.h']]],
-  ['down',['DOWN',['../ESP32Encoder_8h.html#adca399663765c125d26e6f2896b5b349a9b0b4a95b99523966e0e34ffdadac9da',1,'ESP32Encoder.h']]],
-  ['duration',['duration',['../classMotor.html#a08a0479708534c9c9207b242e9d09b88',1,'Motor']]]
+  ['dashboardupdatetimer_63',['dashboardUpdateTimer',['../RCCTL_8ino.html#ace2e0d944a5f795a697be2a25f5b296a',1,'RCCTL.ino']]],
+  ['data_64',['data',['../structPACKED__FILE.html#a08d43e50c07a4b9e5ae071e7792e1f8e',1,'PACKED_FILE']]],
+  ['debounceperiod_65',['debouncePeriod',['../classButton.html#a5897699570e7e129d4e7ad930250c81c',1,'Button']]],
+  ['decoder_66',['decoder',['../IRdecoder_8h.html#a0031738a5656aa2b7568f0b78f8d1ebb',1,'IRdecoder.h']]],
+  ['delta_5feffort_67',['DELTA_EFFORT',['../Motor_8h.html#a79918ae0910cca5fbb1691041d0c6e47',1,'Motor.h']]],
+  ['directionflag_68',['directionFlag',['../classMotor.html#a2fb7cd4e9b93a6114eaf85e5aa23c70d',1,'Motor']]],
+  ['dirtylabels_69',['dirtyLabels',['../classWebPage.html#a6a85a3558376dd63ab35940d5a7575da',1,'WebPage']]],
+  ['dirtyvalues_70',['dirtyValues',['../classWebPage.html#ad302c01a23e6e9f0f5a7d1dae518a554',1,'WebPage']]],
+  ['duration_71',['duration',['../classMotor.html#a08a0479708534c9c9207b242e9d09b88',1,'Motor']]]
 ];

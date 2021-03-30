@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['servo_2eino',['Servo.ino',['../Servo_8ino.html',1,'']]],
-  ['static_2eh',['static.h',['../static_8h.html',1,'']]],
-  ['staticfiles_2eh',['staticFiles.h',['../staticFiles_8h.html',1,'']]],
-  ['sweep_2eino',['Sweep.ino',['../Sweep_8ino.html',1,'']]]
+  ['timer_2ecpp_362',['Timer.cpp',['../Timer_8cpp.html',1,'']]],
+  ['timer_2eh_363',['Timer.h',['../Timer_8h.html',1,'']]]
 ];

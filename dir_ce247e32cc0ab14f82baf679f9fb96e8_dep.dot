@@ -1,0 +1,11 @@
+digraph "examples/MotorSpinExample" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_d28a4824dc47e487b107a5db32ef43c4 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="examples" fontname="Helvetica", fontsize="10", URL="dir_d28a4824dc47e487b107a5db32ef43c4.html"]
+  dir_ce247e32cc0ab14f82baf679f9fb96e8 [shape=box, label="MotorSpinExample", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_ce247e32cc0ab14f82baf679f9fb96e8.html"];
+  }
+  dir_68267d1309a1af8e8297ef4c3efbcdba [shape=box label="src" fillcolor="white" style="filled" color="red" URL="dir_68267d1309a1af8e8297ef4c3efbcdba.html"];
+  dir_ce247e32cc0ab14f82baf679f9fb96e8->dir_68267d1309a1af8e8297ef4c3efbcdba [headlabel="1", labeldistance=1.5 headhref="dir_000008_000013.html"];
+}

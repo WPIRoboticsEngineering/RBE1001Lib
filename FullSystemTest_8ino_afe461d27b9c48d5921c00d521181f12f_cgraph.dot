@@ -1,0 +1,38 @@
+digraph "loop"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="loop",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Motor::getCurrentDegrees",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMotor.html#a7a84e0d2676d7420219b6e7f67e69038",tooltip=" "];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Motor::attach",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMotor.html#a1d359b5a58005e36f3eef43dcd929da7",tooltip="Attach the motors hardware."];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Motor::allocateTimer",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMotor.html#aa5dbe98f9cbaebd430bf1b7841d4bbc0",tooltip=" "];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="onMotorTimer",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Motor_8cpp.html#adb66b9c7a2544338725556bce116d5df",tooltip=" "];
+  Node5 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Motor::loop",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMotor.html#a2db9c1833fe2b9e5b1b1e4b9e5d4c4ee",tooltip=" "];
+  Node6 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="Motor::getInterpolationUnit\lIncrement",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMotor.html#aee3b24180cc7221ab63e1c2c32363693",tooltip=" "];
+  Node7 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="Motor::setEffortLocal",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMotor.html#adc069b762efb5288612fa03b00c86dbf",tooltip=" "];
+  Node8 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="Rangefinder::getDistanceCM",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classRangefinder.html#a531ed492da6a4c369a909e77b9c8780d",tooltip="get the distance of an object from the sensor in centimeters"];
+  Node9 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="Rangefinder::getRoundTrip\lTimeMicroSeconds",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classRangefinder.html#acd75ded5add63f5c2fac15a5418870e9",tooltip="get the time of latest round trip in microseconds"];
+  Node1 -> Node11 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="Motor::setSetpointWithLinear\lInterpolation",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMotor.html#a1fb37167a4340036dfc32e4a0021be27",tooltip=" "];
+  Node11 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 -> Node12 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="Motor::setSetpointWithTime",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMotor.html#a9cdbe8186e8b6337e14743c4d2a37bc6",tooltip=" "];
+  Node12 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node13 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 [label="Motor::setSetpointWithSinusoidal\lInterpolation",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMotor.html#ae5172cfac0b0482d144ac7627dbf069f",tooltip=" "];
+  Node13 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 -> Node12 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}
