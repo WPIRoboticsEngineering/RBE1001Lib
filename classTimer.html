@@ -69,17 +69,24 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A <a class="el" href="classTimer.html" title="A Timer that remembers a starting time and interval allow easy periodic events.">Timer</a> that remembers a starting time and interval allow easy periodic events.  
+ <a href="classTimer.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="Timer_8h_source.html">Timer.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a2913a905a3b7143f2226d257a8cebed9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimer.html#a2913a905a3b7143f2226d257a8cebed9">Timer</a> (unsigned long interval)</td></tr>
+<tr class="memdesc:a2913a905a3b7143f2226d257a8cebed9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classTimer.html" title="A Timer that remembers a starting time and interval allow easy periodic events.">Timer</a> object.  <a href="classTimer.html#a2913a905a3b7143f2226d257a8cebed9">More...</a><br /></td></tr>
 <tr class="separator:a2913a905a3b7143f2226d257a8cebed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f97b36657063e8fd0a0954a3d4c1bd6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimer.html#a4f97b36657063e8fd0a0954a3d4c1bd6">isExpired</a> ()</td></tr>
+<tr class="memdesc:a4f97b36657063e8fd0a0954a3d4c1bd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks to see if the timer has expired.  <a href="classTimer.html#a4f97b36657063e8fd0a0954a3d4c1bd6">More...</a><br /></td></tr>
 <tr class="separator:a4f97b36657063e8fd0a0954a3d4c1bd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9020542d73357a4eef512eefaf57524b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimer.html#a9020542d73357a4eef512eefaf57524b">reset</a> ()</td></tr>
+<tr class="memdesc:a9020542d73357a4eef512eefaf57524b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the timer to the current time + interval.  <a href="classTimer.html#a9020542d73357a4eef512eefaf57524b">More...</a><br /></td></tr>
 <tr class="separator:a9020542d73357a4eef512eefaf57524b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d4f58afc5cc0bdee9e1f5d5825af1c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimer.html#a5d4f58afc5cc0bdee9e1f5d5825af1c6">reset</a> (unsigned long newInterval)</td></tr>
+<tr class="memdesc:a5d4f58afc5cc0bdee9e1f5d5825af1c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the timer with a new interval.  <a href="classTimer.html#a5d4f58afc5cc0bdee9e1f5d5825af1c6">More...</a><br /></td></tr>
 <tr class="separator:a5d4f58afc5cc0bdee9e1f5d5825af1c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -90,8 +97,10 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a4af7d86f0afeb98e8e24c11d6224fe2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="Timer_8h_source.html#l00003">3</a> of file <a class="el" href="Timer_8h_source.html">Timer.h</a>.</p>
+<div class="textblock"><p>A <a class="el" href="classTimer.html" title="A Timer that remembers a starting time and interval allow easy periodic events.">Timer</a> that remembers a starting time and interval allow easy periodic events. </p>
+<p>This class is for simple timing of things in the loop function where it will determine if some amount of time has elapsed. When it is checked after the time has elapsed then the timer is reset to simplify restarting the next interval. Think of printing periodically. </p>
+
+<p class="definition">Definition at line <a class="el" href="Timer_8h_source.html#l00011">11</a> of file <a class="el" href="Timer_8h_source.html">Timer.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2913a905a3b7143f2226d257a8cebed9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2913a905a3b7143f2226d257a8cebed9">&#9670;&nbsp;</a></span>Timer()</h2>
@@ -108,11 +117,19 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Construct a new <a class="el" href="classTimer.html" title="A Timer that remembers a starting time and interval allow easy periodic events.">Timer</a> object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">interval</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 <p>Create a timer that will expire every "interval" </p>
 
 <p class="definition">Definition at line <a class="el" href="Timer_8cpp_source.html#l00007">7</a> of file <a class="el" href="Timer_8cpp_source.html">Timer.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="Timer_8h_source.html#l00012">expiredTime</a>, and <a class="el" href="Timer_8h_source.html#l00013">timeInterval</a>.</p>
+<p class="reference">References <a class="el" href="Timer_8h_source.html#l00040">expiredTime</a>, and <a class="el" href="Timer_8h_source.html#l00041">timeInterval</a>.</p>
 
 </div>
 </div>
@@ -131,11 +148,16 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Checks to see if the timer has expired. </p>
+<dl class="section return"><dt>Returns</dt><dd>true If the timer has expired, and the timer is reset for another interval. </dd>
+<dd>
+false If the timer has not expired.</dd></dl>
 <p>Check if the timer is expired, that is the current time is past the expired time. </p>
 
 <p class="definition">Definition at line <a class="el" href="Timer_8cpp_source.html#l00035">35</a> of file <a class="el" href="Timer_8cpp_source.html">Timer.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="Timer_8h_source.html#l00012">expiredTime</a>, and <a class="el" href="Timer_8h_source.html#l00013">timeInterval</a>.</p>
+<p class="reference">References <a class="el" href="Timer_8h_source.html#l00040">expiredTime</a>, and <a class="el" href="Timer_8h_source.html#l00041">timeInterval</a>.</p>
 
 </div>
 </div>
@@ -153,11 +175,13 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Reset the timer to the current time + interval. </p>
 <p>Reset the timer to that the expired time is the current time + interval </p>
 
 <p class="definition">Definition at line <a class="el" href="Timer_8cpp_source.html#l00016">16</a> of file <a class="el" href="Timer_8cpp_source.html">Timer.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="Timer_8h_source.html#l00012">expiredTime</a>, and <a class="el" href="Timer_8h_source.html#l00013">timeInterval</a>.</p>
+<p class="reference">References <a class="el" href="Timer_8h_source.html#l00040">expiredTime</a>, and <a class="el" href="Timer_8h_source.html#l00041">timeInterval</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Timer_8cpp_source.html#l00025">reset()</a>, <a class="el" href="RCCTL_8ino_source.html#l00069">setup()</a>, and <a class="el" href="RCCTL_8ino_source.html#l00118">updateDashboard()</a>.</p>
 
@@ -178,11 +202,19 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Reset the timer with a new interval. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newInterval</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 <p>Change the timer interval to "NewInterval" then reset the timer to that the expired time is the current time + interval </p>
 
 <p class="definition">Definition at line <a class="el" href="Timer_8cpp_source.html#l00025">25</a> of file <a class="el" href="Timer_8cpp_source.html">Timer.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="Timer_8cpp_source.html#l00016">reset()</a>, and <a class="el" href="Timer_8h_source.html#l00013">timeInterval</a>.</p>
+<p class="reference">References <a class="el" href="Timer_8cpp_source.html#l00016">reset()</a>, and <a class="el" href="Timer_8h_source.html#l00041">timeInterval</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -212,7 +244,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Timer_8h_source.html#l00012">12</a> of file <a class="el" href="Timer_8h_source.html">Timer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Timer_8h_source.html#l00040">40</a> of file <a class="el" href="Timer_8h_source.html">Timer.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Timer_8cpp_source.html#l00035">isExpired()</a>, <a class="el" href="Timer_8cpp_source.html#l00016">reset()</a>, and <a class="el" href="Timer_8cpp_source.html#l00007">Timer()</a>.</p>
 
@@ -238,7 +270,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Timer_8h_source.html#l00013">13</a> of file <a class="el" href="Timer_8h_source.html">Timer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Timer_8h_source.html#l00041">41</a> of file <a class="el" href="Timer_8h_source.html">Timer.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Timer_8cpp_source.html#l00035">isExpired()</a>, <a class="el" href="Timer_8cpp_source.html#l00016">reset()</a>, and <a class="el" href="Timer_8cpp_source.html#l00007">Timer()</a>.</p>
 
