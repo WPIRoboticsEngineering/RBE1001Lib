@@ -116,7 +116,7 @@ void Motor::allocateTimer(int PWMgenerationTimer)
 {
 	if (!Motor::timersAllocated)
 	{
-		ESP32PWM::allocateTimer(PWMgenerationTimer);
+		//ESP32PWM::allocateTimer(PWMgenerationTimer);
 		xTaskCreatePinnedToCore(onMotorTimer, "PID loop Thread", 8192, NULL, 1,
 								&complexHandlerTask, 0);
 	}
