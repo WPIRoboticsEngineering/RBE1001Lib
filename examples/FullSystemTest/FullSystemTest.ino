@@ -23,7 +23,6 @@ void setup()
 {
 	// This will initialize the Serial as 115200 for prints
 	Serial.begin(115200);
-	ESP32PWM::allocateTimer(1); // Used by servos
 	// pin definitions https://wpiroboticsengineering.github.io/RBE1001Lib/RBE1001Lib_8h.html#define-members
 	rangefinder1.attach(SIDE_ULTRASONIC_TRIG, SIDE_ULTRASONIC_ECHO);
 	lifter.attach(SERVO_PIN);

@@ -98,6 +98,10 @@ private:
 	 */
 	void setEffortLocal(float effort);
 	/**
+	 * @param PWMgenerationTimer the timer to be used to generate the 20khz PWM
+	 */
+	static void allocateTimer(int PWMgenerationTimer);
+	/**
 	 * this is a flag to switch between using the PID controller, or allowing the user to set effort 'directly'
 	 *
 	 */
@@ -195,10 +199,7 @@ public:
 	 */
 	static Motor *list[MAX_POSSIBLE_MOTORS];
 
-	/**
-	 * @param PWMgenerationTimer the timer to be used to generate the 20khz PWM
-	 */
-	static void allocateTimer(int PWMgenerationTimer);
+
 
 	/** \brief A PID Motor class using FreeRTOS threads, ESP32Encoder and ESP32PWM
 	 *

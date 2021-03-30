@@ -11,8 +11,6 @@ ESP32AnalogRead servoPositionFeedback;
 void setup() 
 {
 	Serial.begin(115200);
-	ESP32PWM::allocateTimer(1); // Used by servos
-
 	// pin definitions https://wpiroboticsengineering.github.io/RBE1001Lib/RBE1001Lib_8h.html#define-members
 	lifter.attach(SERVO_PIN);
 	servoPositionFeedback.attach(SERVO_FEEDBACK_SENSOR);
