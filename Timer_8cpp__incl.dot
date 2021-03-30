@@ -5,8 +5,7 @@ digraph "src/Timer.cpp"
   node [fontname="Helvetica",fontsize="10",shape=record];
   Node1 [label="src/Timer.cpp",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node2 [label="Arduino.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node2 [label="Timer.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Timer_8h.html",tooltip=" "];
   Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node3 [label="Timer.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Timer_8h.html",tooltip=" "];
-  Node3 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Arduino.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
 }

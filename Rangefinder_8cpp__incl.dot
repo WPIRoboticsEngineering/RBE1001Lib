@@ -16,5 +16,4 @@ digraph "src/Rangefinder.cpp"
   Node6 [label="freertos/semphr.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node1 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node7 [label="Timer.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Timer_8h.html",tooltip=" "];
-  Node7 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
 }

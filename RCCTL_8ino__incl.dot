@@ -46,5 +46,4 @@ digraph "examples/RCCTL/RCCTL.ino"
   Node16 -> Node12 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node1 -> Node17 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node17 [label="Timer.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Timer_8h.html",tooltip=" "];
-  Node17 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
 }

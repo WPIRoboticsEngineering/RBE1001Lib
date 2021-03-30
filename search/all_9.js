@@ -5,8 +5,8 @@ var searchData=
   ['i_5fterm_5fsize_105',['I_TERM_SIZE',['../Motor_8h.html#aa694617e85bf550d72d3e2cd295e69cd',1,'Motor.h']]],
   ['inc_106',['inc',['../RCCTL_8ino.html#a1d54246868af1edf2ecdd7604edb37b9',1,'RCCTL.ino']]],
   ['index_107',['index',['../classIRDecoder.html#a8be09e2f3743434227983117703657a8',1,'IRDecoder']]],
-  ['init_108',['init',['../classIRDecoder.html#abad961647df7a3d5082b9e1a797b3696',1,'IRDecoder']]],
-  ['init_109',['Init',['../classButton.html#a2051dc0c6025df98c66b576619fea4bc',1,'Button']]],
+  ['init_108',['Init',['../classButton.html#a2051dc0c6025df98c66b576619fea4bc',1,'Button']]],
+  ['init_109',['init',['../classIRDecoder.html#abad961647df7a3d5082b9e1a797b3696',1,'IRDecoder']]],
   ['initalize_110',['initalize',['../classWebPage.html#a2caf8ebfb7c96664cdf0dccef253e78a',1,'WebPage']]],
   ['interpolatemode_111',['interpolateMode',['../Motor_8h.html#a5f2bed26bc3981591ee546627fdbbef4',1,'Motor.h']]],
   ['interruptcountforvelocity_112',['interruptCountForVelocity',['../classMotor.html#a40d821c50be1a978af0134232143ab31',1,'Motor']]],
@@ -23,6 +23,7 @@ var searchData=
   ['irdecoder32u4_123',['IRDecoder32U4',['../classIRDecoder32U4.html',1,'IRDecoder32U4'],['../classIRDecoder32U4.html#a265c6cd2f43e2a4b7bedbdea528715fb',1,'IRDecoder32U4::IRDecoder32U4()']]],
   ['irpin_124',['irPin',['../classIRDecoder.html#a84d93a41d591caf8757b7f8166e939ee',1,'IRDecoder']]],
   ['isattached_125',['isAttached',['../classMotor.html#add083e65a11c83806a0c51cf8a6631a8',1,'Motor']]],
-  ['ismotordonewithmove_126',['isMotorDoneWithMove',['../classMotor.html#a26d2b304f2cda2f65d673d58aaad7ff7',1,'Motor']]],
-  ['issafetosend_127',['isSafeToSend',['../WebPage_8cpp.html#a2c4a64e679de7cdcdb8552078758785f',1,'WebPage.cpp']]]
+  ['isexpired_126',['isExpired',['../classTimer.html#a4f97b36657063e8fd0a0954a3d4c1bd6',1,'Timer']]],
+  ['ismotordonewithmove_127',['isMotorDoneWithMove',['../classMotor.html#a26d2b304f2cda2f65d673d58aaad7ff7',1,'Motor']]],
+  ['issafetosend_128',['isSafeToSend',['../WebPage_8cpp.html#a2c4a64e679de7cdcdb8552078758785f',1,'WebPage.cpp']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['xpos_609',['xpos',['../struct__JoyData.html#ae7cc7414c824b4e00b751225284b0540',1,'_JoyData']]]
+  ['ypos_612',['ypos',['../struct__JoyData.html#a874f2842399f82b5dbc996f9074821c8',1,'_JoyData']]]
 ];

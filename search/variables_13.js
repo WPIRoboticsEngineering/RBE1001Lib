@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['value_605',['value',['../struct__telemetryValue.html#a8cbd3d1a8871d8c2da086eb72c8bc959',1,'_telemetryValue']]],
-  ['valuedirty_606',['valueDirty',['../struct__telemetryValue.html#a3a1ad897ad02f8b58df3eef112b5ea95',1,'_telemetryValue']]],
-  ['values_607',['values',['../classWebPage.html#af229dc191e47aeedf60a145a8577985d',1,'WebPage']]],
-  ['valuessem_608',['valuesSem',['../classWebPage.html#a30db88953f3b0a3203185f3fb70013c9',1,'WebPage']]]
+  ['xpos_611',['xpos',['../struct__JoyData.html#ae7cc7414c824b4e00b751225284b0540',1,'_JoyData']]]
 ];
