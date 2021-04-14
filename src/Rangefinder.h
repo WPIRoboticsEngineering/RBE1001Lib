@@ -64,7 +64,7 @@ public:
 	/**
 	 * the cached time of the latest sensor read.
 	 */
-	volatile unsigned long roundTripTime;
+	volatile unsigned long roundTripTime=-1;
 	/**
 	 * \brief get the time of latest round trip in microseconds
 	 *

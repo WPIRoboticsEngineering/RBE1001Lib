@@ -127,6 +127,9 @@ void Rangefinder::attach(int trigger, int echo) {
 			return;
 		}
 	}
+	while(roundTripTime<0){
+		delay(1);
+	}
 
 }
 /*
