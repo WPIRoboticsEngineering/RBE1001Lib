@@ -3,7 +3,7 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "freertos/semphr.h"
-#define MAX_POSSIBLE_INTERRUPT_RANGEFINDER 4
+#define MAX_POSSIBLE_INTERRUPT_RANGEFINDER 10
 
 /**
  *  \brief Rangefinder objects wrap a FreeRTOS thread with pin change interrupts to read trigger/echo style ultrasonic sensors

@@ -51,18 +51,12 @@ void Rangefinder::checkTimeout() {
 	}
 }
 
-void IRAM_ATTR sensorISR0() {
-	Rangefinder::list[0]->sensorISR();
+
+void IRAM_ATTR sensorISRAll(void * arg) {
+	Rangefinder * obj=(Rangefinder *)arg;
+	obj->sensorISR();
 }
-void IRAM_ATTR sensorISR1() {
-	Rangefinder::list[1]->sensorISR();
-}
-void IRAM_ATTR sensorISR2() {
-	Rangefinder::list[2]->sensorISR();
-}
-void IRAM_ATTR sensorISR3() {
-	Rangefinder::list[3]->sensorISR();
-}
+
 void Rangefinder::fire() {
 	threadTimeout = millis();
 	forceFire = false;
@@ -106,25 +100,10 @@ void Rangefinder::attach(int trigger, int echo) {
 			delayMicroseconds(2);
 			Rangefinder::list[i] = this;
 			Rangefinder::numberOfFinders++;
-			switch (i) {
-			case 0:
-				attachInterrupt(digitalPinToInterrupt(echoPin), sensorISR0,
-				CHANGE);
-				break;
-			case 1:
-				attachInterrupt(digitalPinToInterrupt(echoPin), sensorISR1,
-				CHANGE);
-				break;
-			case 2:
-				attachInterrupt(digitalPinToInterrupt(echoPin), sensorISR2,
-				CHANGE);
-				break;
-			case 3:
-				attachInterrupt(digitalPinToInterrupt(echoPin), sensorISR3,
-				CHANGE);
-				break;
-			}
-			return;
+			attachInterruptArg(digitalPinToInterrupt(echoPin), sensorISRAll,this,
+							CHANGE);
+
+			break;
 		}
 	}
 	while(roundTripTime<0){
