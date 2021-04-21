@@ -103,12 +103,13 @@ void Rangefinder::attach(int trigger, int echo) {
 			attachInterruptArg(digitalPinToInterrupt(echoPin), sensorISRAll,this,
 							CHANGE);
 
-			break;
+			while(getRoundTripTimeMicroSeconds()<1){
+				delay(1);
+			}
+			return;
 		}
 	}
-	while(roundTripTime<0){
-		delay(1);
-	}
+
 
 }
 /*
