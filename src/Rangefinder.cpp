@@ -89,7 +89,7 @@ void Rangefinder::attach(int trigger, int echo) {
 	pinMode(triggerPin, OUTPUT);
 	pinMode(echoPin, INPUT);
 	if (Rangefinder::timoutThreadStarted == false) {
-		Serial.println("Spawing rangefinder timeout thread");
+		Serial.println("Spawning rangefinder timeout thread");
 		Rangefinder::timoutThreadStarted = true;
 		xTaskCreatePinnedToCore(onTimer, "Rangefinder Thread", 8192, NULL, 2, // low priority timout thread
 				&complexHandlerTaskUS, 0);
