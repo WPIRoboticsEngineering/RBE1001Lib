@@ -25,7 +25,6 @@ WebPage control_page;
 
 WifiManager manager;
 
-Timer dashboardUpdateTimer; // times when the dashboard should update
 /*
  * This is the standard setup function that is called when the ESP32 is rebooted
  * It is used to initialize anything that needs to be done once.
@@ -66,6 +65,7 @@ Timer dashboardUpdateTimer; // times when the dashboard should update
  * NOTE you can use this class in your final project code to visualize the state of your system while running wirelessly.
  */
 int inc = 0;
+int timerTime=0;
 void setup()
 {
 	manager.setup(); // Connect to an infrastructure network first, then fail over to AP mode
@@ -85,7 +85,6 @@ void setup()
 	servoPositionFeedback.attach(SERVO_FEEDBACK_SENSOR);
 	lifter.write(0);
 	control_page.initalize();	  // Init UI after everything else.
-	dashboardUpdateTimer.reset(); // reset the dashbaord refresh timer
 }
 
 /*
@@ -118,7 +117,7 @@ uint32_t packet_old = 0;
 void updateDashboard()
 {
 	// This writes values to the dashboard area at the bottom of the web page
-	if (dashboardUpdateTimer.getMS() > 100)
+	if ((timerTime+100)>millis())
 	{
 
 		control_page.setValue("Left linetracker", leftLineSensor.readMiliVolts());
@@ -158,7 +157,7 @@ void updateDashboard()
 		control_page.setValue("packets to Web from ESP",
 							  control_page.txPacketCount);
 
-		dashboardUpdateTimer.reset();
+		timerTime=millis();
 	}
 }
 
