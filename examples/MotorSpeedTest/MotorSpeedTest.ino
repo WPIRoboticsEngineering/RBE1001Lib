@@ -2,7 +2,7 @@
 #include <RBE1001Lib.h>
 
 LeftMotor left_motor;
-LeftMotor right_motor;
+RightMotor right_motor;
 
 /*
  * This is the standard setup function that is called when the ESP32 is rebooted
