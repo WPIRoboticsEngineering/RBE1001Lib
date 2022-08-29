@@ -6,7 +6,7 @@ Button::Button(uint8_t pin, uint32_t db)
     debouncePeriod = db;
 }
 
-void Button::Init(bool usePullup)
+void Button::init(bool usePullup)
 {
     if(usePullup) pinMode(buttonPin, INPUT_PULLUP);
     else pinMode(buttonPin, INPUT);
@@ -14,7 +14,7 @@ void Button::Init(bool usePullup)
     stabButtonPos = tempButtonPos = digitalRead(buttonPin);
 }
 
-bool Button::CheckButtonPress(void)
+bool Button::checkButtonPress(void)
 {
     bool retVal = false;
     uint8_t currButtonPos = digitalRead(buttonPin);

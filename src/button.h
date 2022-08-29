@@ -32,8 +32,12 @@ private:
     
 public:
     Button(uint8_t pin, uint32_t db = 10);
-    void Init(bool usePullup = true);
-    bool CheckButtonPress(void);
+    
+    void init(bool usePullup = true);
+    void Init(bool usePullup = true) {init(usePullup);}
+
+    bool checkButtonPress(void);
+    bool CheckButtonPress(void) {return checkButtonPress();}
 };
 
 #endif /* button_h */
